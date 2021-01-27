@@ -1,6 +1,10 @@
 @charset "UTF-8";
 
-input, button{
+.main-wrapper input{
+  display: block;
+}
+
+.main-wrapper button{
   display: block;
 }
 

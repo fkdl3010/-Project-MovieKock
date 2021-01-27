@@ -1,0 +1,71 @@
+html {
+  box-sizing: border-box;
+}
+
+
+.main-choice{
+  width: 80%;
+  height: 40%;
+  margin: auto;
+  
+}
+.main-movieList{
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  margin-top: 50px;
+  padding-left: 45px;
+}
+
+.list {
+  width: 150px;
+  margin: 20px;
+  height: 200px;
+  background-color: coral;
+  border: 1px solid black;
+  border-radius: 2rem;
+  cursor: pointer;
+}
+.main-choice-header{
+  width: 100%;
+  position: relative;
+  left: -30px;
+  margin-top: 50px;
+}
+.progress-box{
+  text-align: center;
+}
+
+#progress-bar{
+  border-radius: 20px;
+}
+
+progress {
+	appearance: none;
+	width: 30%;
+	height: 1rem;
+  border: 0;
+  border-radius: 20px;
+
+}
+
+progress::-webkit-progress-bar {
+  background: rgba(190, 175, 175, 0.541);
+  border-radius: 20px;
+
+}
+
+progress::-webkit-progress-value {
+	background: rgb(0, 204, 68);
+  transition: width 0.2s ease-in-out;
+  border-radius: 20px;
+
+}
+
+.submit-form{
+  position: relative;
+  text-align: right;
+  right: 8%;
+  bottom: 120px;
+}
