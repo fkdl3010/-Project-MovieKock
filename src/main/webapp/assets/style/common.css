@@ -1,4 +1,7 @@
 @charset "UTF-8";
+
+/* header */
+
 .main-template-header{
   display: flex;
   margin-bottom: 50px;
@@ -42,4 +45,28 @@
 }
 .search-btn{
   border: 1px solid rgba(0, 0, 0,0.3);
+}
+
+/* footer */
+
+.footer{
+	position: relative; 
+	bottom: 0px;
+}
+
+.partners {
+	text-align: center;
+	margin: 100px 200px 100px 200px;
+	display: flex;
+}
+.partners_info {
+	text-align: left;
+	margin-right: 40px;
+	font-size: 26px;
+	color: gray;
+}
+
+.partners_info > div:nth-of-type(2), .partners_info > div:nth-of-type(3) {
+	font-weight: bold;
+	margin-top: 16px;
 }
