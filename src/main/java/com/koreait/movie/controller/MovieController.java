@@ -12,6 +12,11 @@ public class MovieController {
 		return "index";
 	}
 	
+	@RequestMapping(value="signupPage.do")
+	public String signupPage() {
+		return "moviekock/signupPage";
+	}
+	
 	@RequestMapping(value="2nd.do")
 	public String go2nd() {
 		return "moviekock/2nd";
@@ -20,5 +25,10 @@ public class MovieController {
 	@RequestMapping(value="loginPage.do")
 	public String goLoginPage()	{
 		return "moviekock/loginPage";
+	}
+	
+	@RequestMapping(value="choicePage.do")
+	public String choicePage() {
+		return "moviekock/choicePage";
 	}
 }
