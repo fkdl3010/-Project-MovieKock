@@ -9,8 +9,6 @@
 <body>
 
 	<h3>test</h3>
-	
-	<a href="signupPage.do">회원가입</a>
-	
+
 </body>
 </html>
