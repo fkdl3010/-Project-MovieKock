@@ -5,59 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
-	
-	.signupPage_top_logo {
-		text-align: center;
-	}
-	
-	.top_text {
-		font-size: 30px;
-		font-weight: bold;
-	}
-	
-	.wrap {
-		display: inline-block;
-		width: 100%;
-		text-align: center;
-	}
-	
-	.main {
-		display: inline-block;
-		margin: 50px 200px 0px 200px;
-		font-size:28px;
-		text-align: left;
-	}
-	
-	
-	
-	input:focus {
-		outline:none;
-		border-bottom: 2px solid black;
-	}
-	
-	.inp_txt {
-		width: 443px;
-		height: 50px;
-		border: 0px;
-		border-bottom: 2px solid #ddd;
-		margin: 0px;
-		font-size: 16px;
-		padding: 0px 0px 0px 10px;
-	}
-	
-	.inp_btn {
-		width: 100px;
-		height: 50px;
-	}
-
-	.inp_btn_bot {
-		margin-top: 30px;
-		width: 150px;
-		height: 60px;
-	}
-	
-</style>
+<!-- CSS -->
+<link rel="stylesheet" href="/movie/assets/style/signupPage.css"/>
 </head>
 <body>
 		<div class="signupPage_top_logo">
