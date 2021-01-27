@@ -26,4 +26,9 @@ public class MovieController {
 	public String goLoginPage()	{
 		return "moviekock/loginPage";
 	}
+	
+	@RequestMapping(value="choicePage.do")
+	public String choicePage() {
+		return "moviekock/choicePage";
+	}
 }
