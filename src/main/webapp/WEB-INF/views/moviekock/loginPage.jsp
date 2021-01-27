@@ -3,7 +3,7 @@
 <jsp:include page="../template/header.jsp">
 	<jsp:param value="로그인 페이지" name="title" />
 </jsp:include>
-  <link rel="stylesheet" href="/movie/resources/css/loginPage.css"/>
+  <link rel="stylesheet" href="/movie/assets/style/loginPage.css"/>
 
   <div class="main-wrapper">
     <div class="logo">
