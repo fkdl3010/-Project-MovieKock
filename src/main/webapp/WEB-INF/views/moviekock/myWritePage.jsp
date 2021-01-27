@@ -9,6 +9,10 @@
 		<div id="box1" class="box">커버사진</div>
 		<div id="box2" class="box">내가 쓴글</div>
 		<div id="box3" class="box"></div>
+      <img usemap="#face" src="assets/images/face.png">
+      	<map name="face">
+			<area shape="rect" coords="0, 0, 69, 69" href="">
+	  	</map>
 	</div>
 	
 	<form action="#입력정보를보낼경로" method="post">

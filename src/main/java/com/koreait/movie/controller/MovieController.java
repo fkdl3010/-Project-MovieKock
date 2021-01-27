@@ -21,4 +21,10 @@ public class MovieController {
 	public String goLoginPage()	{
 		return "moviekock/loginPage";
 	}
+	
+	@RequestMapping(value="myWritePage.do")
+	public String goMyWritePage() {
+		return "moviekock/myWritePage";
+	}
+	
 }

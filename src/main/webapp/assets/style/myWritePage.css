@@ -11,7 +11,7 @@
 	margin-left: 750px;
 	margin-top: 400px;
 	background: gray;
-	z-index: 3;  /* box1의 z-index값이 box2보다 더 크므로 앞에 나타난다. */
+	z-index: 1;  /* box1의 z-index값이 box2보다 더 크므로 앞에 나타난다. */
 	border-radius: 75px 75px 0px 0px;
 	text-align: center;
 	
@@ -25,6 +25,7 @@
 	z-index: 2;
 	margin-top: -400px;
 	margin-left: 750px;
+	text-align: center;
 }
 #box3 {
 	width: 300px;
@@ -33,7 +34,7 @@
 	margin-top: -450px;
 	margin-left: 800px;
 	background: red;
-	z-index: 1;
+	z-index: 3;
 }
 
 
@@ -41,7 +42,7 @@
 table {
 	width: 305px;
 	background: lightgray;
-	margin-top: -1270px;
+	margin-top: -375px;
 	margin-left: 800px;
 	padding: 10px;
 	text-align: center;
@@ -49,9 +50,19 @@ table {
 	border-top: solid gray;
 	border-bottom: solid gray;
 	border-collapse: collapse;
+	z-index: 4;
 }
 
 form {
-	margin-top: -870px;
-	margin-left: 1045px;
+	margin-top: -915px;
+	margin-left: 1080px;
+	
 }
+
+#img {
+	margin-top: 800px;
+	margin-left: 500px;
+	z-index: 5;
+}
+
+

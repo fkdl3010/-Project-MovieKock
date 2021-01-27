@@ -14,5 +14,7 @@
 	
 	<a href="signupPage.do">회원가입</a>
 	
+	<a href="myWritePage.do">내가 쓴 글</a>
+	
 </body>
 </html>
