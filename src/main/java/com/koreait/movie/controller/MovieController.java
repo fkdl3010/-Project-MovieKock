@@ -31,4 +31,9 @@ public class MovieController {
 	public String choicePage() {
 		return "moviekock/choicePage";
 	}
+	
+	@RequestMapping(value="myWritePage.do")
+	public String myWritePage() {
+		return "moviekock/myWritePage";
+	}
 }
