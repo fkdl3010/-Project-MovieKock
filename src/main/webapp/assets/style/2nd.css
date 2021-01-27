@@ -1,0 +1,37 @@
+@charset "UTF-8";
+html {
+  box-sizing: border-box;
+}
+
+.nav-category{
+  position: relative;
+}
+
+
+.right{
+  position: absolute;
+  right:0px;
+}
+
+.main-wrapper{
+  width: 80%;
+  height: 40%;
+  margin: auto;
+  
+}
+.main-movieList{
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  padding-left: 50px;
+}
+
+.list {
+  width: 150px;
+  margin: 20px;
+  height: 200px;
+  background-color: coral;
+  border: 1px solid black;
+  border-radius: 2rem;
+}

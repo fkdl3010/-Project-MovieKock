@@ -1,0 +1,73 @@
+@charset "UTF-8";
+
+input, button{
+  display: block;
+}
+
+input[type="checkbox"]{
+  display: inline-block;
+}
+
+a{
+  color: black;
+  text-decoration: none;
+}
+
+.main-wrapper{
+  width: 25rem;
+  padding: 5rem;
+  margin: auto;
+}
+
+.footer-link{
+  width: 32.2%;
+  height: 30%;
+  line-height: 60px;
+  display: inline-block;
+  text-align: center;
+}
+.main-footer-link{
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+}
+
+.login-btn{
+  width: 100%;
+  padding: 3% 0;
+  margin: 1rem 0;
+  border-radius: 10px;
+  border: 1px solid lightgray;
+}
+
+.login-input{
+  width: 100%;
+  padding: 3% 0;
+}
+
+.header{
+  text-align: center;
+}
+
+.heading{
+  font-size: 3em;
+  font-weight: bold;
+}
+
+.heading-contents{
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.logo{
+  text-align: center;
+}
+
+.main-wrapper div{
+  margin: 1rem;
+}
+
+.login-input{
+  margin: 1rem 0;
+  border-radius: 10px;
+  border: 1px solid lightgray;
+}
