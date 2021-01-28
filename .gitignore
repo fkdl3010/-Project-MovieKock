@@ -3,7 +3,6 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows,macos,git,maven,java,java-web,eclipse
 
 # Properties file
-config.properties
 
 ### Eclipse ###
 .metadata
@@ -183,4 +182,5 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,macos,git,maven,java,java-web,eclipse
+config.properties
 
