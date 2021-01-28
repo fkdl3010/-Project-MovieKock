@@ -9,24 +9,24 @@
 	
 	.wrap {
 		width: 100%;
-		height: 1000px;
+		height: 100%;
 	}
 	
 	.box {
-		width: 70%;
-		hight: 70%;
+		width: 80%;
+		hight: 80%;
 		font-size: 10px;
 		background: black;
 	}
 	
 	.box1 {
-		width: 70%;
-		height: 70%;
+		width: 60%;
+		height: 60%;
 		margin:auto;
 		border-radius: 20px 20px;
 		background: gray;
 		text-align: center;
-		fontsize: 20px;
+		font-size: 20px;
 		z-index: 1;
 	}
 	
@@ -49,8 +49,8 @@
 	}
 	
 	.box4 {
-		width: 20%;
-		heght: 20%;
+		width: 10%;
+		heght: 10%;
 		border: 1px;
 		border-radius: 10px 10px 10px 10px;
 		background: orange;
@@ -67,6 +67,20 @@
 		margin:auto;
 	}
 	
+	img {
+		margin:auto;
+	}
+	
+	table {
+		background: lightgray;
+		width: 20%;
+	}
+	
+	td:nth-of-type(n) {
+		width: 15%;
+	}
+	
+	
 </style>
 </head>
 <body>
@@ -75,7 +89,6 @@
 		<img alt="프로필사진" src="assets/images/face.png" />
 	</div>
 	<div class="wrap">
-		<form action="" method="post">
 			<div class="box">
 				<div class="box1">커버사진</div>
 				<div class="box2"></div>
@@ -85,7 +98,6 @@
 			<div class="more_button">
 				<input type="button" class="inp_more" value="더 보기" onclick="" />				
 			</div>
-		</form>
 	</div>
 	<table>
 		<thead>
