@@ -8,12 +8,13 @@
 
 
 
-	<a href="2nd.do">2번째 페이지로 이동</a>
-	<a href="loginPage.do">로그인 페이지로 이동</a>
+	<a href="2nd.do">2번째 페이지로 이동</a><br>
+	<a href="loginPage.do">로그인 페이지로 이동</a><br>
 
-	
-	<a href="signupPage.do">회원가입</a>
-	
+	<a href="myWritePage.do">내가 쓴 글 페이지 이동</a><br>
+	<a href="privacy_agreement_page.do">회원가입</a><br>
+	<a href="choicePage.do">회원가입시 영화선택페이지</a><br>
+	<a href="idPwPage.do">아이디 비밀번호 찾기</a><br>
 	
 	대충 내용<br/>
 	대충 내용<br/>
