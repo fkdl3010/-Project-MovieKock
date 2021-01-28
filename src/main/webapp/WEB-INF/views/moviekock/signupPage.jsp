@@ -14,7 +14,7 @@
 		</div>
 		<div class="wrap">
 			<form action="" method="post">
-				<div class="top_text">
+				<div class="top_teboxt">
 					무비콕 정보를 입력해주세요
 				</div>
 				<div class="main">
