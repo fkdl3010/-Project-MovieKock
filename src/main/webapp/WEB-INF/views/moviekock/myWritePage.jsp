@@ -4,7 +4,11 @@
 	<jsp:param value="로그인 페이지" name="title" />
 </jsp:include>
   <link rel="stylesheet" href="/movie/assets/style/myWritePage.css"/>
-
+<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
+<link rel="stylesheet"
+	href="https://unpkg.com/swiper/css/swiper.min.css">
+<script src="https://unpkg.com/swiper/js/swiper.js"></script>
+<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
 	<div class="container">
 		<div id="box1" class="box">커버사진</div>
 		<div id="box2" class="box">내가 쓴글</div>
