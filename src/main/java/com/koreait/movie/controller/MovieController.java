@@ -36,4 +36,9 @@ public class MovieController {
 	public String myWritePage() {
 		return "moviekock/myWritePage";
 	}
+	
+	@RequestMapping(value="idPwPage.do")
+	public String idPwPage() {
+		return "moviekock/id-pwPage";
+	}
 }
