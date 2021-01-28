@@ -7,7 +7,7 @@
 
 
 	<a href="mainPage.do">메인페이지</a><br>
-
+	<a href="myPage.do">마이페이지 이동</a><br>
 	<a href="2nd.do">2번째 페이지로 이동</a><br>
 	<a href="loginPage.do">로그인 페이지로 이동</a><br>
 
