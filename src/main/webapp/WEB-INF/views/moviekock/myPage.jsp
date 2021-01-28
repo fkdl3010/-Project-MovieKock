@@ -12,7 +12,7 @@
         <div class="big-box">
               <div class="small-box" id="card-box1">
                 <i id="profile" class="fas fa-user-circle"></i>
-                <input taype="button" id="alter" value="수정">
+                <input type="button" id="alter" value="수정">
                 </div>
               <div class="small-box"  id="card-box2"></div>
               <div class="small-box"  id="card-box3"></div>
