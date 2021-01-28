@@ -4,6 +4,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<link rel="stylesheet" href="/movie/assets/style/recommandPageRandom.css"/>
+
 <title>Insert title here</title>
 <body>
  <div id="wrap">

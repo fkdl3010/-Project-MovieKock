@@ -41,4 +41,14 @@ public class MovieController {
 	public String idPwPage() {
 		return "moviekock/id-pwPage";
 	}
+	
+	@RequestMapping(value="recommandPageRandom.do")
+	public String recommandPageRandom() {
+		return "moviekock/recommandPageRandom";
+	}
+	
+	@RequestMapping(value="privacy_agreement_page.do")
+	public String privacy_agreement_page() {
+		return "moviekock/privacy_agreement_page";
+	}
 }
