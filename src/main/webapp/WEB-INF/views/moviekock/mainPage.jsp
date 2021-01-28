@@ -31,15 +31,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="movie" img scr="">
-					<div class="rankBadge">1</div>
-					<div class="info">
-						<div class="text">
-							<h3>제목</h3>
-							<p>내용 &nbsp; 배우 &nbsp; 평점</p>
-						</div>
-					</div>
-				</div>
+				
 				<div class="movie" img scr="">
 					<div class="rankBadge">2</div>
 					<div class="info">
