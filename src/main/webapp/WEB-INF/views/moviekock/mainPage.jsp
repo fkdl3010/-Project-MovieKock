@@ -1,157 +1,151 @@
-<!DOCTYPE html>
-<html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<jsp:include page="../template/header.jsp">
+	<jsp:param value="메인페이지" name="title" />
+</jsp:include>
 
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Insert title here</title>
-    <link rel="stylesheet" href="main.css">
-    <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+<link rel="stylesheet" href="/movie/assets/style/mainPage.css" />
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+<link rel="stylesheet"
+	href="https://unpkg.com/swiper/swiper-bundle.min.css">
 
-    <style type="text/css">
-        .body {
-            border: 2px solid blue;
-            display: grid;
+<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
-        }
+<div class="wrap">
 
-        .ListContainer {
-            border: 1px solid black;
-            height: 300px;
-            position: relative;
-            margin-bottom: 20px;
-            padding: 20px;
-            float: left;
-            overflow: hidden;
+	<div class="main">
 
-        }
+		<div class="ListContainer">
+			<div id="redLine" class="leftScroll">
+				<div class="prevBtn"></div>
+			</div>
+			<div class=" listTitle">박스오피스</div>
+			<div class="outerContainer">
+				<div class="movie" img scr="">
+					<div class="rankBadge">1</div>
+					<div class="info">
+						<div class="text">
+							<h3>제목</h3>
+							<p>내용 &nbsp; 배우 &nbsp; 평점</p>
+						</div>
+					</div>
+				</div>
+				<div class="movie" img scr="">
+					<div class="rankBadge">1</div>
+					<div class="info">
+						<div class="text">
+							<h3>제목</h3>
+							<p>내용 &nbsp; 배우 &nbsp; 평점</p>
+						</div>
+					</div>
+				</div>
+				<div class="movie" img scr="">
+					<div class="rankBadge">2</div>
+					<div class="info">
+						<div class="text">
+							<h3>제목</h3>
+							<p>내용 &nbsp; 배우 &nbsp; 평점</p>
+						</div>
+					</div>
+				</div>
+				<div class="movie" img scr="">
+					<div class="rankBadge">3</div>
+					<div class="info">
+						<div class="text">
+							<h3>제목</h3>
+							<p>내용 &nbsp; 배우 &nbsp; 평점</p>
+						</div>
+					</div>
+				</div>
+				<div class="movie" img scr="">
+					<div class="rankBadge">4</div>
+					<div class="info">
+						<div class="text">
+							<h3>제목</h3>
+							<p>내용 &nbsp; 배우 &nbsp; 평점</p>
+						</div>
+					</div>
+				</div>
+				<div class="movie" img scr="">
+					<div class="rankBadge">5</div>
+					<div class="info">
+						<div class="text">
+							<h3>제목</h3>
+							<p>내용 &nbsp; 배우 &nbsp; 평점</p>
+						</div>
+					</div>
+				</div>
+				<div class="movie" img scr="">
+					<div class="rankBadge">6</div>
+					<div class="info">
+						<div class="text">
+							<h3>제목</h3>
+							<p>내용 &nbsp; 배우 &nbsp; 평점</p>
+						</div>
+					</div>
+				</div>
+				<div class="movie" img scr="">
+					<div class="rankBadge">7</div>
+					<div class="info">
+						<div class="text">
+							<h3>제목</h3>
+							<p>내용 &nbsp; 배우 &nbsp; 평점</p>
+						</div>
+					</div>
+				</div>
+				<div class="movie" img scr="">
+					<div class="rankBadge">8</div>
+					<div class="info">
+						<div class="text">
+							<h3>제목</h3>
+							<p>내용 &nbsp; 배우 &nbsp; 평점</p>
+						</div>
+					</div>
+				</div>
+				<div class="movie" img scr="">
+					<div class="rankBadge">9</div>
+					<div class="info">
+						<div class="text">
+							<h3>제목</h3>
+							<p>내용 &nbsp; 배우 &nbsp; 평점</p>
+						</div>
+					</div>
+				</div>
+				<div class="movie" img scr="">
+					<div class="rankBadge">10</div>
+					<div class="info">
+						<div class="text">
+							<h3>제목</h3>
+							<p>내용 &nbsp; 배우 &nbsp; 평점</p>
+						</div>
+					</div>
+				</div>
+				
 
-        .listTitle {
-            line-height: 30px;
-            max-height: 60px;
-            left: 500px;
-            padding: 4px 20px 9px 0;
-        }
+				<div class="rightScroll">
+					<div class="nextBtn"">
+						<img
+							src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxMlYxNkgweiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiMyOTJBMzIiIHN0cm9rZT0iIzI5MkEzMiIgc3Ryb2tlLXdpZHRoPSIuMzUiIGQ9Ik0zLjQyOSAxMy40MDlMNC4zNTQgMTQuMjU4IDEwLjY4IDguNDYgMTEuMTQzIDguMDM2IDQuMzU0IDEuODEzIDMuNDI5IDIuNjYyIDkuMjkxIDguMDM2eiIvPgogICAgPC9nPgo8L3N2Zz4K">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-        .leftScroll {
-            border: 1px solid red;
-            position: absolute;
-            top: 100px;
-            left: 10px;
-            width: 35px;
-            height: 200px;
-        }
 
-        .rightScroll {
-            border: 1px solid red;
-            display: flex;
-            position: absolute;
-            top: 100px;
-            right: 10px;
-            width: 35px;
-            height: 200px;
-        }
-        
-        #prev {
-            font-size: 40px;
-            color: black;
-            margin : auto;
+	<script type="text/javascript">
+		var swiper = new Swiper('.innerContainer', {
+			slidesPerView : 6,
+			spaceBetween : 30,
+			slidesPerGroup : 6,
+			loop : true,
+			navigation : {
+				nextEl : '.nextBtn',
+				prevEl : '.prevBtn',
+			},
+		});
+	</script>
 
-        }
-
-        #next {
-            font-size: 40px;
-            color: black;
-
-        }
-
-        .movie {
-            display: inline-block;
-            background: lightgray;
-            border-radius: 30px;
-            margin-left: 30px;
-            width: 200px;
-            height: 280px;
-        }
-
-    </style>
-</head>
-
-<body>
-    <div class="body">
-        <div class="ListContainer">
-            <div id="redLine" class="leftScroll">
-                <i class="fas fa-chevron-circle-left" id="prev"></i>
-            </div>
-            <div class="listTitle">박스오피스</div>
-            <div class="movie">영화1</div>
-            <div class="movie">영화2</div>
-            <div class="movie">영화3</div>
-            <div class="movie">영화4</div>
-            <div class="movie">영화5</div>
-            <div class="movie">영화6</div>
-            <div class="movie">영화7</div>
-            <div class="movie">영화8</div>
-            <div class="movie">영화9</div>
-            <div class="movie">영화10</div>
-            <div class="rightScroll">
-                <i class="fas fa-chevron-circle-right" id="next"></i>
-            </div>
-        </div>  <div class="ListContainer">
-            <div id="redLine" class="leftScroll">
-                <i class="fas fa-chevron-circle-left" id="prev"></i>
-            </div>
-            <div class="listTitle">박스오피스</div>
-            <div class="movie">영화1</div>
-            <div class="movie">영화2</div>
-            <div class="movie">영화3</div>
-            <div class="movie">영화4</div>
-            <div class="movie">영화5</div>
-            <div class="movie">영화6</div>
-            <div class="movie">영화7</div>
-            <div class="movie">영화8</div>
-            <div class="movie">영화9</div>
-            <div class="movie">영화10</div>
-            <div class="rightScroll">
-                <i class="fas fa-chevron-circle-right" id="next"></i>
-            </div>
-        </div>
-         <div class="ListContainer">
-            <div id="redLine" class="leftScroll">
-                <i class="fas fa-chevron-circle-left" id="prev"></i>
-            </div>
-            <div class="listTitle">박스오피스</div>
-            <div class="movie">영화1</div>
-            <div class="movie">영화2</div>
-            <div class="movie">영화3</div>
-            <div class="movie">영화4</div>
-            <div class="movie">영화5</div>
-            <div class="movie">영화6</div>
-            <div class="movie">영화7</div>
-            <div class="movie">영화8</div>
-            <div class="movie">영화9</div>
-            <div class="movie">영화10</div>
-            <div class="rightScroll">
-                <i class="fas fa-chevron-circle-right" id="next"></i>
-            </div>
-        </div>
-</body>  <div class="ListContainer">
-            <div id="redLine" class="leftScroll">
-                <i class="fas fa-chevron-circle-left" id="prev"></i>
-            </div>
-            <div class="listTitle">박스오피스</div>
-            <div class="movie">영화1</div>
-            <div class="movie">영화2</div>
-            <div class="movie">영화3</div>
-            <div class="movie">영화4</div>
-            <div class="movie">영화5</div>
-            <div class="movie">영화6</div>
-            <div class="movie">영화7</div>
-            <div class="movie">영화8</div>
-            <div class="movie">영화9</div>
-            <div class="movie">영화10</div>
-            <div class="rightScroll">
-                <i class="fas fa-chevron-circle-right" id="next"></i>
-            </div>
-        </div>
-
-</html>
+	</body>
+	</html>
