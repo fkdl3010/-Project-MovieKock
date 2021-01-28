@@ -1,0 +1,77 @@
+@charset "EUC-KR";
+
+ #wrap{
+            width: 1300px;
+            height: 1000px;
+            border: 1px solid black;
+            margin: auto;
+        }
+      
+        #header{
+            border: 1px solid red;
+            position: relative;
+            top: 100px;
+        }
+        #heading{
+            font-weight: bold;
+            font-size: 35px;
+            padding-left: 5px;
+        }
+        
+        #topmenu{
+            width:1300px;
+            height: 50px;
+            background-color: lightgray;
+        }
+      
+       
+        li{
+            list-style: none;
+            float: left;
+            line-height: 50px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 30px;
+            width: 180px;
+            background-color : lightgray;
+            border-left: 1px solid black;
+            padding: 0px 10px 0px 10px;
+        }
+        
+        li:first-child{
+            border-left: none;
+            margin-left:  0px;
+        }
+        
+        li:visited{
+            background-color: white;
+        }
+    #random{
+            border: 1px solid blue;
+            margin: auto;
+            height: 900px;
+            position: relative;
+        }
+    #movie-box{
+        border: 1px solid black;
+        border-radius: 15px;
+        width: 420px;
+        height: 480px;
+        position: relative;
+        left: 430px;
+        top : 260px;
+    }
+    input{
+        border: 1px solid black;
+        border-radius: 10px;
+        width: 180px;
+        height: 70px;
+        position: absolute;
+        bottom : 70px;
+        left: 43%;
+        font-size: 20px;
+        font-weight: bold;
+        background-color: lightgray;
+        
+        }
+    

@@ -6,8 +6,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>계정 찾</title>
-  <link rel="stylesheet" href="id-pwPage.css"/>
+  <link rel="stylesheet" href="/movie/assets/style/id-pwPage.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+  <link rel="stylesheet" href="/movie/assets/style/common.css"/>
+  
 </head>
 <body>
 
