@@ -3,6 +3,9 @@
 	.signupPage_top_logo {
 		text-align: center;
 	}
+	.top_logo{
+		width: 7%;
+	}
 	
 	.top_text {
 		font-size: 30px;
@@ -13,6 +16,7 @@
 		display: inline-block;
 		width: 100%;
 		text-align: center;
+		margin: auto;
 	}
 	
 	.main {

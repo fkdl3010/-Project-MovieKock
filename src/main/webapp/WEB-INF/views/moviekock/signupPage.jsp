@@ -3,14 +3,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+<!-- CSS -->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<!-- CSS -->
 <link rel="stylesheet" href="/movie/assets/style/signupPage.css"/>
 </head>
 <body>
 		<div class="signupPage_top_logo">
-			<img alt="회원가입페이지 상단로고" src="/movie/assets/images/logo.jpg" />
+			<img class="top_logo" alt="회원가입페이지 상단로고" src="/movie/assets/images/logo.jpg" />
 		</div>
 		<div class="wrap">
 			<form action="" method="post">
