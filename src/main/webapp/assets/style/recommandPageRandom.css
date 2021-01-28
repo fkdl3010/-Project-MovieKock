@@ -1,14 +1,10 @@
-@charset "EUC-KR";
-
- #wrap{
+    #wrap{
             width: 1300px;
             height: 1000px;
-            border: 1px solid black;
             margin: auto;
         }
       
         #header{
-            border: 1px solid red;
             position: relative;
             top: 100px;
         }
@@ -24,8 +20,7 @@
             background-color: lightgray;
         }
       
-       
-        li{
+        .menu-bar{
             list-style: none;
             float: left;
             line-height: 50px;
@@ -37,41 +32,40 @@
             border-left: 1px solid black;
             padding: 0px 10px 0px 10px;
         }
-        
+   
         li:first-child{
             border-left: none;
-            margin-left:  0px;
+            padding-left: 0px;
         }
         
-        li:visited{
-            background-color: white;
+        .menu-bar:hover{
+            background-color: red;
         }
-    #random{
-            border: 1px solid blue;
+        
+        #random{
             margin: auto;
             height: 900px;
             position: relative;
         }
-    #movie-box{
-        border: 1px solid black;
-        border-radius: 15px;
-        width: 420px;
-        height: 480px;
-        position: relative;
-        left: 430px;
-        top : 260px;
-    }
-    input{
-        border: 1px solid black;
-        border-radius: 10px;
-        width: 180px;
-        height: 70px;
-        position: absolute;
-        bottom : 70px;
-        left: 43%;
-        font-size: 20px;
-        font-weight: bold;
-        background-color: lightgray;
+        #movie-box{
+            border: 1px solid black;
+            border-radius: 15px;
+            width: 420px;
+            height: 480px;
+            position: relative;
+            left: 430px;
+            top : 230px;
+        }
+        input{
+            border: 1px solid black;
+            border-radius: 10px;
+            width: 180px;
+            height: 70px;
+            position: absolute;
+            bottom : 70px;
+            left: 43%;
+            font-size: 20px;
+            font-weight: bold;
+            background-color: lightgray;
         
         }
-    
