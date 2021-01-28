@@ -6,8 +6,14 @@
       width: 100%;
     }
     
+    .main_wrapper{
+    	padding: 10px;
+		width: 850px;
+		margin: auto;
+    }
+    
     .main {
-      margin: 0px 100px 50px 100px;
+    	display: block;
     }
     
     .snap{
@@ -79,9 +85,11 @@
     }
 	
 	.info_main_bot{
+		width: 90%;
 		border: 1px solid #ccc;
 		border-radius: 15px;
 		padding: 20px;
+		display: inline-block;
 	}
 	
 	.info_main_bot_1th {
@@ -112,10 +120,13 @@
 	<jsp:param value="인덱스" name="title" />
 </jsp:include>
 	<div class="wrap">
-		<div class="main">
 			<div class="info_main_top">
 				<img alt="스냅샷" class="snap" src="/movie/assets/images/snapshot.jpg" />
 			</div>
+		<div class="main_wrapper">
+		
+		
+		<div class="main">
 			<div class="info_main_mid">
 		        <div class="info_main_mid_left info_main_mid_box">
 		          <div class="movie_poster">
@@ -175,6 +186,7 @@
 					
 				</div>
 			</div>
+		</div>
 		</div>
 	</div>
 	
