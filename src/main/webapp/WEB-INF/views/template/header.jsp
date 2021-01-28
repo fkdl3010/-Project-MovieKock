@@ -19,12 +19,21 @@
 </head>
 <body>
   <div class="main-template-header">
-    <span class="menu-template-bar">
-      <i class="fas fa-bars fa-3x"></i>
-    </span>
     <span class="main-template-logo">
       <i class="fas fa-video fa-4x"></i>
     </span>
+    <div class="main-header-link-box">
+      <span class="ranking-link">
+        <a href="#" class="ranking-link-a">
+        순위 추천
+        </a>
+      </span>
+      <span class="recommend-link">
+        <a href="#" class="recommend-link-a">
+        추천 받기
+        </a>  
+      </span>
+    </div>
     <div class="login-search-box">
       <form class="search-form">
         <input type="text" class="input-search"placeholder="검색어를 입력해 주세요."/>
