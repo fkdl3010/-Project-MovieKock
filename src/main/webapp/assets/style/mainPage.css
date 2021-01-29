@@ -62,3 +62,7 @@
 	fill: black !important;
 	stroke: black !important;
 }
+
+:focus {
+	outline: none;
+}
