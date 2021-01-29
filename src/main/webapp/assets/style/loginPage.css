@@ -17,6 +17,10 @@ a{
   text-decoration: none;
 }
 
+.footer{
+  text-align: right;
+}
+
 .main-wrapper{
   width: 60rem;
   padding: 5rem;
@@ -24,16 +28,22 @@ a{
 }
 
 .footer-link{
-  width: 32.2%;
-  height: 30%;
-  line-height: 60px;
   display: inline-block;
+  height: 10%;
+  width: 30.2%;
+  line-height: 30px;
   text-align: center;
 }
-.main-footer-link{
-  border-left: 1px solid gray;
+.id-pw{
   border-right: 1px solid gray;
+  padding-right: 10px;
 }
+
+.signUp{
+    width: 11%;
+    margin-left: 10px;
+}
+
 
 .login-btn{
   width: 100%;
@@ -45,7 +55,7 @@ a{
 
 .login-input{
   width: 100%;
-  padding: 3% 0;
+  padding: 3% 3%;
 }
 
 .header{
@@ -74,4 +84,13 @@ a{
   margin: 1rem 0;
   border-radius: 10px;
   border: 1px solid lightgray;
+}
+
+.modal-dialog{
+  width: 800px;
+  height: 460px;
+}
+
+.modal-content{
+  height: 100%;
 }
