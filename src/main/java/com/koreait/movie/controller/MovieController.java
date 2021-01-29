@@ -66,4 +66,9 @@ public class MovieController {
 	public String infoPage() {
 		return "moviekock/movie_info_page";
 	}
+	
+	@RequestMapping(value="myWriteViewPage.do")
+	public String myWriteViewPage() {
+		return "moviekock/myWriteViewPage";
+	}
 }
