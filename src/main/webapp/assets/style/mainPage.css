@@ -8,7 +8,7 @@
 }
 
 .swiper-container {
-	width: 1200px;
+	width: 1220px;
 	height: 330px;
 	position: relative;
 }
@@ -61,4 +61,8 @@
 	color: #000 !important;
 	fill: black !important;
 	stroke: black !important;
+}
+
+:focus {
+	outline: none;
 }

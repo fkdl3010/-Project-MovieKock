@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <jsp:include page="../template/header.jsp">
-	<jsp:param value="로그인 페이지" name="title" />
+	<jsp:param value="내가 쓴 글" name="title" />
 </jsp:include>
 <link rel="stylesheet" href="/movie/assets/style/myWritePage.css"/>
  
