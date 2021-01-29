@@ -14,18 +14,19 @@
 	
 	/***** 스냅샷 *****/
 	.snap{
-		width: 100%;
+		width: 850px;
 		height: 350px;
 	}
 
 	.info_main_top {
-		width: 100%;
+		margin: auto;
+		width: 850px;
 	}
 	
 /***** 포스터, 제목 *****/
 	.info_main_mid{
 		margin: auto;
-		width: 790px;
+		width: 740px;
 		height: 220px;
 		margin-bottom: 15px;
 		display: flex;
@@ -160,15 +161,12 @@
 }
 
 .comment_bot_1th, .comment_bot_2nd, .comment_bot_3rd {
-	width: 200px;
-	height: 200px;
+	width: 220px;
+	height: 220px;
 	background: #ddd;
 	border-radius: 15px; 
 	position: relative;
 	padding: 10px;
-}
-
-.comment_bot_1th {
 }
 
 .comment_main_top {

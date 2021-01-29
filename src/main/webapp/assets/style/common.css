@@ -5,6 +5,7 @@
 .main-template-header{
   display: flex;
   margin-bottom: 50px;
+  padding: 20px 30px 20px 20px;
 }
 
 .main-header-link-box{
@@ -17,12 +18,16 @@
 }
 
 .ranking-link,
-.recommend-link{
+.recommend-link,
+.faq-link{
   position: relative;
+  display: inline-block;
+  width: 100px;
 }
 
 .ranking-link-a,
-.recommend-link-a{
+.recommend-link-a,
+.faq-link-a{
   padding: 8%;
 }
 
@@ -30,16 +35,20 @@
   display: flex;
   position: absolute;
   right: 0px;
+  margin-right: 20px;
+  align-items: center;
+  
 }
 
 
 .main-template-logo{
   position: relative;
-  left: 50px;
+  left: 3%;
 }
 
 .user-btn{
   margin-right: 20px;
+  top: 10px;
 }
 
 .input-search{
@@ -47,17 +56,17 @@
   margin: 5px;
   right: -20px;
   padding: 10px;
-  width: 230px;
+  width: 250px;
 }
 .fa-search{
   
-  padding: 4.7px;
+  padding: 7.5px;
   font-size: 25px;
 }
-.btn{
+.btn-a{
   position: relative;
-  top: 5px;
   right: 38px;
+  top: 4px
 }
 .search-btn{
   border: 1px solid rgba(0, 0, 0,0.3);

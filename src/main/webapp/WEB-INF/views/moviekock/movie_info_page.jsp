@@ -173,8 +173,9 @@
 						<div class="comment_top_left">
 							코멘트 200+
 						</div>
+						<!-- modal comment -->
 						<div class="comment_top_right">
-							<input type="button" value="코멘트 작성하기" onclick="" />
+							<%@ include file="../template/modal_comment.jsp" %>
 						</div>
 					</div>
 					<div class="info_main_bot_comment_bot">
@@ -238,8 +239,8 @@ dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddsssssssssssss
 					</div>
 					<input type="button" value="더보기" onclick="" />
 				</div>
-				<div class="info_main_bot_4th">
-					
+				<div class="info_main_bot_movies">
+				
 				</div>
 			</div>
 		</div>
