@@ -10,18 +10,17 @@
 	.top_text {
 		font-size: 30px;
 		font-weight: bold;
-	}
+	}	
 	
 	.wrap {
 		display: inline-block;
 		width: 100%;
 		text-align: center;
-		margin: auto;
 	}
 	
 	.main {
 		display: inline-block;
-		margin: 50px 200px 0px 200px;
+		margin: auto;
 		font-size:28px;
 		text-align: left;
 	}
