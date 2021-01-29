@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+	.wrap {
+		width: 100%;
+		
+	}
+	
+	.box {
+		width: 100%;
+		margin: 0px;
+		font-size: 10px;
+	}
+	
+	.box1 {
+		width: 600px;
+		height: 900px;
+		border: 1px;
+		border-radius: 20px 20px;
+		background: gray;
+		margin: auto;
+		fontsize: 20px;
+		z-index: 1;
+	}
+	
+	.box2 {
+		width: 600px;
+		height: 600px;
+		border: 1px;
+		background: red;
+		margin: auto;
+	}
+	
+	.box3 {
+		width: 500px;
+		height: 500px;
+		border: 1px;
+		background: blue;
+		margin: auto;
+	}
+	
+	.box4 {
+		width: 100px;
+		heght: 20px;
+		border: 1px;
+		border-radius: 10px 10px 10px 10px;
+		background: orange;
+		margin: auto;
+		font-size: 10px;
+		z-index: 2;
+	}
+	
+	
+	.more_button {
+		margin:auto;
+		width: 30px;
+		height: 6px;
+	}
+	

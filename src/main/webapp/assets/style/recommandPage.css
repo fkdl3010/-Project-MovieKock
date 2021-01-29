@@ -1,7 +1,9 @@
+@charset "UTF-8";
     #wrap{
             width: 1300px;
             height: 1000px;
             margin: auto;
+            border: 1px solid black;
         }
       
         #header{
@@ -53,8 +55,8 @@
             width: 420px;
             height: 480px;
             position: relative;
-            left: 430px;
-            top : 230px;
+            left: 450px;
+            top : 4000px;
         }
         input{
             border: 1px solid black;
