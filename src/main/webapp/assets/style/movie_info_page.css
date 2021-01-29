@@ -160,15 +160,12 @@
 }
 
 .comment_bot_1th, .comment_bot_2nd, .comment_bot_3rd {
-	width: 200px;
-	height: 200px;
+	width: 220px;
+	height: 220px;
 	background: #ddd;
 	border-radius: 15px; 
 	position: relative;
 	padding: 10px;
-}
-
-.comment_bot_1th {
 }
 
 .comment_main_top {
