@@ -1,0 +1,223 @@
+@charset "UTF-8";
+
+	.wrap {
+		text-align: center;
+		width: 100%;
+	}
+	
+	.main {
+		padding: 10px;
+	width: 850px;
+	margin: auto;
+		display: block;
+	}
+	
+	/***** 스냅샷 *****/
+	.snap{
+		width: 850px;
+		height: 350px;
+	}
+
+	.info_main_top {
+		margin: auto;
+		width: 850px;
+	}
+	
+/***** 포스터, 제목 *****/
+	.info_main_mid{
+		margin: auto;
+		width: 740px;
+		height: 220px;
+		margin-bottom: 15px;
+		display: flex;
+	}
+
+	.info_main_mid_left{
+		width: 300px;
+		height: 220px;
+	}
+
+	.info_main_mid_mid{
+		padding-left: 30px;
+		width: 100%;
+		height: 220px;
+		text-align: left;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.info_main_mid_right{
+		height: 220px;
+		position: relative;
+	}
+
+	.info_main_mid_mid_title{
+		margin-top: 100px;
+		
+		font-weight: bold;
+		font-size: 20px;
+		display: table-cell;
+		vertical-align: bottom;
+	}
+	.info_main_mid_mid_contents{
+		margin-top: 20px;
+		height: 100px;
+	}
+	.textdeco{
+		border-bottom: 1px solid rgba(0, 0, 0, 0.562);
+	}
+	.movie_info_opendate{
+		display: inline-block;
+		margin: 7px 0px;
+	}
+	.form-btn{
+		width: 255px;
+		padding: 12px 0px;
+		
+	}
+	.info_main_mid_right{
+		display: table-cell;
+		vertical-align: bottom;
+	}
+	.movie_poster{
+		background-color: gray;
+		width: 190px;
+		height: 220px;
+		margin: auto;
+	}
+
+/***** 정보 *****/
+
+.info_main_bot{
+	width: 90%;
+	border: 1px solid #ccc;
+	border-radius: 15px;
+	display: inline-block;
+	padding: 0px 20px 20px 20px;
+}
+
+/***** 기본 정보 *****/
+.info_main_bot_basic_info {
+	padding: 20px 0px;
+	text-align: left;
+	border-bottom: 2px solid #bbb;	/* 구분선 */
+}
+
+/***** 출연/제작 *****/
+.info_main_bot_staff {
+	display: flex;
+	flex-flow: row wrap;
+	border-bottom: 2px solid #bbb;	/* 구분선 */
+	padding: 0px 0px 20px 0px;
+}
+
+.bot_staff_profiles {
+	margin-top: 20px;
+	width: 50%;
+	display: flex;
+}
+
+.bot_staff_profiles_img {
+	text-align: left;
+}
+
+.staff_profile_img{
+	background: black;
+	width: 150px;
+	height: 150px;
+}
+
+.bot_staff_profiles_txt{
+	margin-left: 20px;
+	width: 150px;
+	height: 90px;
+	padding-top: 60px;
+	text-align: left;
+	font-size: 20px;
+}
+
+/***** 코멘트 *****/
+.info_main_bot_comment {
+	border-bottom: 2px solid #bbb;	/* 구분선 */
+	padding: 20px 0px 60px 0px;
+	position: relative;
+}
+
+.info_main_bot_comment > input:last-of-type {
+	position: absolute;
+	right: 0px;
+	bottom: 20px;
+}
+
+.info_main_bot_comment_top {
+	display: flex;
+	justify-content: space-between;
+}
+
+.info_main_bot_comment_bot {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 20px;
+}
+
+.comment_bot_1th, .comment_bot_2nd, .comment_bot_3rd {
+	width: 220px;
+	height: 220px;
+	background: #ddd;
+	border-radius: 15px; 
+	position: relative;
+	padding: 10px;
+}
+
+.comment_main_top {
+	display: flex;
+	justify-content: space-between;
+	
+}
+
+.comment_main_mid {
+	padding: 10px 0px;
+	border-top: 1px solid #bbb;
+	border-bottom: 1px solid #bbb;
+	margin: 10px 0px;
+}
+
+.comment_main_mid_txt {
+	resize: none;
+	overflow: hidden;
+	width: 200px;
+	height: 100px;
+	background: #ddd;
+	border: none;
+}
+
+.comment_main_mid_txt:focus {
+	outline: none;
+}
+.comment_main_bot {
+	display: flex;
+}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
