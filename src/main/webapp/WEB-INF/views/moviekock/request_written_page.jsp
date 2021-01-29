@@ -1,47 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
-<style>
-	
-	.wrap {
-		width: 100%;
-	}
-	
-	.main {
-		margin: auto;
-		margin-top: 100px;
-		width: 800px;
-	}
-	
-	.table {
-		text-align: center;
-	}
-	
-	.main_bot {
-		border: 1px solid black;
-		border-radius: 10px;
-		padding: 15px;
-		height: 400px;
-	}
-	
-	.request_list_1st_tr {
-		background: #ddd;
-	}
-	
-	.request_list_td_resp {
-		text-align: left;
-	}
-	
-	.request_list_tr > .td:nth-of-type(2) {
-		border-left: 1px solid #ddd;
-		border-right: 1px solid #ddd;
-	}
-	
-</style>
 <jsp:include page="../template/header.jsp">
 	<jsp:param value="인덱스" name="title" />
 </jsp:include>
 
+<link rel="stylesheet" href="/movie/assets/style/request_written_page.css"/>
 	<div class="wrap">
 		<div class="main">
 			<div class="main_bot">
