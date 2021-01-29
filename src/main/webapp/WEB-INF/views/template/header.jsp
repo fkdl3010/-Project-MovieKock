@@ -33,6 +33,11 @@
         추천 받기
         </a>  
       </span>
+      <span class="qna-link">
+        <a href="#" class="qna-link-a">
+        문의 하기
+        </a>  
+      </span>
     </div>
     <div class="login-search-box">
       <form class="search-form">

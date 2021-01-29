@@ -17,12 +17,15 @@
 }
 
 .ranking-link,
-.recommend-link{
+.recommend-link,
+.qna-link{
   position: relative;
+  display: inline-block;
 }
 
 .ranking-link-a,
-.recommend-link-a{
+.recommend-link-a,
+.qna-link-a{
   padding: 8%;
 }
 
