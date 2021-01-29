@@ -10,12 +10,12 @@
 <body>
  <div id="wrap">
     <div id="header">
-	   <div id="heading">��õ ��ȭ</div>
+	   <div id="heading">추천 영화</div>
         <div id="topmenu">
            <ul>
-               <li class="menu-bar">���� ��õ</li>
-               <li class="menu-bar">��к� ��õ</li>
-               <li class="menu-bar">��Ȳ�� ��õ</li>
+               <li class="menu-bar">랜덤 추천</li>
+               <li class="menu-bar">기분별 추천</li>
+               <li class="menu-bar">상황별 추천</li>
            </ul>
         </div>
 	   </div>
@@ -23,7 +23,7 @@
         <div id="movie-box">
             <img src="" alt="movie-poster"/>
         </div>
-        <input type="button" value="��õ �ޱ�"/>
+        <input type="button" value="추천 받기"/>
     </div>
 </div>
 </body>

@@ -10,6 +10,8 @@
 	<a href="myPage.do">마이페이지 이동</a><br>
 	<a href="2nd.do">2번째 페이지로 이동</a><br>
 	<a href="loginPage.do">로그인 페이지로 이동</a><br>
+	<a href="recommandPage.do">추천 페이지로 이동</a><br>
+
 
 	<a href="myWritePage.do">내가 쓴 글 페이지 이동</a><br>
 	<a href="signupPage.do">회원가입</a><br>

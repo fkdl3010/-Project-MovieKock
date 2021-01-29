@@ -5,94 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
-	.signupPage_top_logo {
-		text-align: center;
-	}
-	.top_logo{
-		width: 7%;
-	}
-	
-	.wrap {
-		width: 100%;
-		text-align: center;
-		margin: auto;
-	}
-	
-	.main {
-		margin: 50px 200px 0px 200px;
-		font-size:28px;
-		text-align: center;
-	}
-	
-	.pa_top_font{
-		font-weight: bold;
-	}
-	
-	.pa_mid{
-		background: #eee;
-		border-radius: 10px;
-		display: inline-block;
-	}
-	
-	.pa_mid_font {
-		font-size: 80%;
-	}
-	
-	
-	.pa_bot {
-		display: block;
-		margin-top: 20px;
-	}
-	
-	.table {
-		border-radius: 10px;
-		background: #eee;
-		display: inline-block;
-		font-size: 80%;
-	}
-	
-	
-	.tr {
-		display: inline-block;
-		margin: 10px;
-	}
-	
-	.tr > .td:nth-of-type(1) {
-		border-bottom: 1px solid #ccc;
-	}
-	
-	.pa_btns{
-		display: inline-block;
-		width: 20%;
-		margin-top: 20px;
-	}
-	
-	.pa_btn_no, .pa_btn_yes {
-		width: 120px;
-		height: 50px;
-		font-weight: bold;
-	}
-	
-	.pa_btn_no {
-		border: none;
-		border-radius: 20px;
-		background: #ccc;
-	}
-	
-	.pa_btn_yes {
-		border: none;
-		border-radius: 20px;
-		color: white;
-		background: #abc;
-	}
-</style>
-<script type="text/javascript">
-	function fn_agreement_no(f){
-		alert('이전페이지로 돌아갑니다.');
-		history.back();
-	}
-</script>
+<link rel="stylesheet" href="/movie/assets/style/privacy_agreement.css">
 </head>
 <body>
 		<div class="signupPage_top_logo">
@@ -125,11 +38,18 @@
 						</div>
 					</div>
 					<div class="pa_btns">
-						<input type="button" value="미동의" class="pa_btn_no" onclick="fn_agreement_no(this.form)" />
+						<input type="button" value="미동의" id="no-agree" class="pa_btn_no" onclick="fn_agreement_no(this.form)" />
 						<button class="pa_btn_yes">동의</button>
 					</div>
 				</form>
 			</div>
 		</div>
+<script type="text/javascript">
+	
+	function fn_agreement_no(f){
+		alert('이전페이지로 돌아갑니다.');
+		$('#close-btn').trigger('click');
+	}
+</script>
 </body>
 </html>
