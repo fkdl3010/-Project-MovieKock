@@ -17,7 +17,8 @@
 	<a href="idPwPage.do">아이디 비밀번호 찾기</a><br>
 	<a href="recommandPageRandom.do">영화 추천 페이지이동</a><br>
 	<a href="privacy_agreement_page.do">개인정보약관동의사이트</a><br>
-	
+	<a href="movie_info_page.do">영화 INFO 페이지</a><br>
+
 	
 	대충 내용<br/>
 	대충 내용<br/>

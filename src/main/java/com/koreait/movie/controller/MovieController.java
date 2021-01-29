@@ -61,4 +61,9 @@ public class MovieController {
 	public String privacy_agreement_page() {
 		return "moviekock/privacy_agreement_page";
 	}
+	
+	@RequestMapping(value="movie_info_page.do")
+	public String infoPage() {
+		return "moviekock/movie_info_page";
+	}
 }
