@@ -75,19 +75,21 @@
 /* footer */
 
 .footer{
-	position: relative; 
-	bottom: 0px;
+	width: 100%;
+	text-align: center;
 }
 
 .partners {
-	text-align: center;
-	margin: 100px 200px 100px 200px;
+	width: 80%;
+	margin: auto;
+	margin-top: 100px;
+	margin-bottom: 100px;
 	display: flex;
+	font-size: 111%;
+	justify-content: space-between;
 }
 .partners_info {
 	text-align: left;
-	margin-right: 40px;
-	font-size: 26px;
 	color: gray;
 }
 
