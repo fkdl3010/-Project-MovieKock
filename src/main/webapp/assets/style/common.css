@@ -5,6 +5,7 @@
 .main-template-header{
   display: flex;
   margin-bottom: 50px;
+  padding: 20px 30px 20px 20px;
 }
 
 .main-header-link-box{
@@ -18,14 +19,25 @@
 
 .ranking-link,
 .recommend-link,
+<<<<<<< HEAD
 .qna-link{
   position: relative;
   display: inline-block;
+=======
+.faq-link{
+  position: relative;
+  display: inline-block;
+  width: 100px;
+>>>>>>> d25b52861fd7079f7b483a04962ebaf31d1c98ac
 }
 
 .ranking-link-a,
 .recommend-link-a,
+<<<<<<< HEAD
 .qna-link-a{
+=======
+.faq-link-a{
+>>>>>>> d25b52861fd7079f7b483a04962ebaf31d1c98ac
   padding: 8%;
 }
 
@@ -33,6 +45,9 @@
   display: flex;
   position: absolute;
   right: 0px;
+  margin-right: 20px;
+  align-items: center;
+  
 }
 
 
@@ -43,6 +58,7 @@
 
 .user-btn{
   margin-right: 20px;
+  top: 10px;
 }
 
 .input-search{
@@ -50,17 +66,17 @@
   margin: 5px;
   right: -20px;
   padding: 10px;
-  width: 230px;
+  width: 250px;
 }
 .fa-search{
   
-  padding: 4.7px;
+  padding: 7.5px;
   font-size: 25px;
 }
-.btn{
+.btn-a{
   position: relative;
-  top: 5px;
   right: 38px;
+  top: 4px
 }
 .search-btn{
   border: 1px solid rgba(0, 0, 0,0.3);
