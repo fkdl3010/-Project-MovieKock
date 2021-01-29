@@ -19,25 +19,15 @@
 
 .ranking-link,
 .recommend-link,
-<<<<<<< HEAD
-.qna-link{
-  position: relative;
-  display: inline-block;
-=======
 .faq-link{
   position: relative;
   display: inline-block;
   width: 100px;
->>>>>>> d25b52861fd7079f7b483a04962ebaf31d1c98ac
 }
 
 .ranking-link-a,
 .recommend-link-a,
-<<<<<<< HEAD
-.qna-link-a{
-=======
 .faq-link-a{
->>>>>>> d25b52861fd7079f7b483a04962ebaf31d1c98ac
   padding: 8%;
 }
 

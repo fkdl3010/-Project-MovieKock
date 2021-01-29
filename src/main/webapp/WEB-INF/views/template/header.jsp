@@ -37,13 +37,8 @@
         추천 받기
         </a>  
       </span>
-<<<<<<< HEAD
-      <span class="qna-link">
-        <a href="#" class="qna-link-a">
-=======
       <span class="faq-link">
-        <a href="#" class="faq-link-a">
->>>>>>> d25b52861fd7079f7b483a04962ebaf31d1c98ac
+        <a href="request_list_page.do" class="faq-link-a">
         문의 하기
         </a>  
       </span>
