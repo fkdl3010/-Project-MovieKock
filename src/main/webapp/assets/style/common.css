@@ -1,97 +1,99 @@
 @charset "UTF-8";
 
 /* header */
-
-.main-template-header{
-  display: flex;
-  margin-bottom: 50px;
-  padding: 20px 30px 20px 20px;
+.main-template-header {
+	display: flex;
+	margin-bottom: 50px;
+	padding: 20px 30px 20px 20px;
 }
 
-.main-header-link-box{
-  position: relative;
-  left: 5%;
-  width: 20%;
-  line-height: 60px;
-  text-align: center;
-  
+.main-header-link-box {
+	position: relative;
+	left: 5%;
+	width: 20%;
+	line-height: 60px;
+	text-align: center;
 }
 
-.ranking-link,
-.recommend-link,
-.faq-link{
-  position: relative;
-  display: inline-block;
-  width: 100px;
+.ranking-link, .recommend-link, .faq-link {
+	position: relative;
+	display: inline-block;
+	width: 100px;
 }
 
-.ranking-link-a,
-.recommend-link-a,
-.faq-link-a{
-  padding: 8%;
+.ranking-link-a, .recommend-link-a, .faq-link-a {
+	padding: 8%;
 }
 
-.login-search-box{
-  display: flex;
-  position: absolute;
-  right: 0px;
-  margin-right: 20px;
-  align-items: center;
-  
+.login-search-box {
+	display: flex;
+	position: absolute;
+	right: 0px;
+	margin-right: 20px;
+	align-items: center;
 }
 
-
-.main-template-logo{
-  position: relative;
-  left: 3%;
+.main-template-logo {
+	position: relative;
+	left: 3%;
 }
 
-.user-btn{
-  margin-right: 20px;
-  top: 10px;
+.user-btn {
+	margin-right: 20px;
+	top: 10px;
 }
 
-.input-search{
-  position: relative;
-  margin: 5px;
-  right: -20px;
-  padding: 10px;
-  width: 250px;
+.input-search {
+	position: relative;
+	margin: 5px;
+	right: -20px;
+	padding: 10px;
+	width: 250px;
 }
-.fa-search{
-  
-  padding: 7.5px;
-  font-size: 25px;
+
+.fa-search {
+	padding: 7.5px;
+	font-size: 25px;
 }
-.btn-a{
-  position: relative;
-  right: 38px;
-  top: 4px
+
+.btn-a {
+	position: relative;
+	right: 38px;
+	top: 4px
 }
-.search-btn{
-  border: 1px solid rgba(0, 0, 0,0.3);
+
+.search-btn {
+	border: 1px solid rgba(0, 0, 0, 0.3);
 }
 
 /* footer */
+.footer {
+	background: #4b4262;
+	color: #fff;
+	width: 100%;
+	height: 230px;
+	margin-top: 50px;
+}
 
-.footer{
-	position: relative; 
-	bottom: 0px;
+.footerLogo {
+	padding: 20px 0px 0px 280px;
 }
 
 .partners {
-	text-align: center;
-	margin: 100px 200px 100px 200px;
-	display: flex;
-}
-.partners_info {
-	text-align: left;
-	margin-right: 40px;
-	font-size: 26px;
-	color: gray;
+	margin: 30px 0px 30px 275px;
+	padding-left: 5px;
+	color: #e6e6e6;
 }
 
-.partners_info > div:nth-of-type(2), .partners_info > div:nth-of-type(3) {
+.partners_info {
+	display: inline-block;
+	font-size: 13px;
+	margin: 10px 5px 5px 0px;
+}
+
+.title{
+	font-size : 18px;
+}
+.partners_info>div:nth-of-type(1), span {
 	font-weight: bold;
-	margin-top: 16px;
 }

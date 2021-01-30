@@ -134,9 +134,9 @@
 					</div>
 				</div>
 			</div>
+			<div class="swiper-button-next n1"></div>
+			<div class="swiper-button-prev p1"></div>
 		</div>
-		<div class="swiper-button-next n1"></div>
-		<div class="swiper-button-prev p1"></div>
 	</div>
 
 	<div class="main">
@@ -252,10 +252,9 @@
 					</div>
 				</div>
 			</div>
+			<div class="swiper-button-next n2"></div>
+			<div class="swiper-button-prev n2"></div>
 		</div>
-		<div class="swiper-button-next n2"></div>
-		<div class="swiper-button-prev n2"></div>
-
 	</div>
 	<div class="main">
 		<div class="swiper-container s3">
@@ -371,9 +370,10 @@
 					</div>
 				</div>
 			</div>
+			<span></span>
+			<div class="swiper-button-next n3"></div></span>
+			<div class="swiper-button-prev p3"></div></span>
 		</div>
-		<div class="swiper-button-next n3"></div>
-		<div class="swiper-button-prev p3"></div>
 	</div>
 
 	<script src="../dist/js/swiper.min.js"></script>
@@ -412,5 +412,4 @@
 			},
 		});
 	</script>
-
-	</html>
+	<%@ include file="../template/footer.jsp"%>

@@ -1,41 +1,28 @@
-.wrap {
-	display: grid;
-}
-
-.main {
-	position: relative;
-	margin: 1px 50px 1px 50px;
-}
-
 .swiper-container {
-	width: 1220px;
-	height: 330px;
-	position: relative;
+	width: 1300px;
+	height: 300px;
+	margin-bottom: 30px;
 }
 
 .rankBadge {
-	width: 30px;
-	height: 30px;
+	width: 40px;
+	height: 40px;
 	margin: 0px 152px 216px 0px;
 	line-height: 30px;
 	background-color: rgba(0, 0, 0, 0.77);
 	color: rgb(255, 255, 255);
-	font-weight: 700;
+	font-weight: 800;
 	text-align: center;
 	border-radius: 4px;
 	position: absolute;
 }
 
 .swiper-slide {
-	position: relative;
+	/* position: relative; */
 	background: lightgray;
 	border-radius: 10px;
 	height: 250px;
 	overflow: hidden;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
 }
 
 .info {
@@ -43,26 +30,19 @@
 	top: 100%;
 	width: 200px;
 	color: #141414;
-	text-align: left;
 	font-size: 15px;
+	color: #141414;
 }
 
 .swiper-slide:hover .info {
 	background: #4b4262;
 	padding-left: 10px;
 	color: white;
-	top: 55%;
+	top: 52%;
 	transition: all 2s;
 }
 
 .swiper-button-next, .swiper-button-prev {
 	background-color: none;
-	padding: 30px;
 	color: #000 !important;
-	fill: black !important;
-	stroke: black !important;
-}
-
-:focus {
-	outline: none;
 }
