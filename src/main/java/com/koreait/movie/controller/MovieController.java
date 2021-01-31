@@ -52,9 +52,9 @@ public class MovieController {
 		return "moviekock/id-pwPage";
 	}
 	
-	@RequestMapping(value="recommandPageRandom.do")
-	public String recommandPageRandom() {
-		return "moviekock/recommandPageRandom";
+	@RequestMapping(value="recommandPage.do")
+	public String recommandPage() {
+		return "moviekock/recommandPage";
 	}
 	
 	@RequestMapping(value="privacy_agreement_page.do")
