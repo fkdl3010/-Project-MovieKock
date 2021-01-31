@@ -53,7 +53,11 @@ public class MovieController {
 	}
 	
 	@RequestMapping(value="recommandPage.do")
+<<<<<<< HEAD
 	public String recommandPage() {
+=======
+	public String recommandPageRandom() {
+>>>>>>> 9d08349540925ec25cc38675d14de2c2bc111bff
 		return "moviekock/recommandPage";
 	}
 	
