@@ -17,7 +17,7 @@
 
     <div class="logo-wrapper">
       <div class="logo-px">
-        <i class="fas fa-video fa-5x"></i>
+        <a href="mainPage.do"><i class="fas fa-video fa-5x"></i></a>
       </div>
     </div>
 

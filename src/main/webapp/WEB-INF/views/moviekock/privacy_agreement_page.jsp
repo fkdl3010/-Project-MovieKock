@@ -9,7 +9,7 @@
 </head>
 <body>
 		<div class="signupPage_top_logo">
-			<img class="top_logo" alt="회원가입페이지 상단로고" src="/movie/assets/images/logo.jpg" />
+			<a href="mainPage.do"><img class="top_logo" alt="회원가입페이지 상단로고" src="/movie/assets/images/logo.jpg" /></a>
 		</div>
 		<div class="wrap">
 			<div class="main">
@@ -47,7 +47,7 @@
 <script type="text/javascript">
 	
 	function fn_agreement_no(f){
-		alert('이전페이지로 돌아갑니다.');
+		alert('회원가입을 취소합니다.');
 		$('#close-btn').trigger('click');
 	}
 </script>

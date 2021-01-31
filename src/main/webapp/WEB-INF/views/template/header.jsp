@@ -24,7 +24,7 @@
 <body>
   <div class="main-template-header">
     <span class="main-template-logo">
-      <i class="fas fa-video fa-4x"></i>
+      <a href="mainPage.do"><i class="fas fa-video fa-4x"></i></a>
     </span>
     <div class="main-header-link-box">
       <span class="ranking-link">
