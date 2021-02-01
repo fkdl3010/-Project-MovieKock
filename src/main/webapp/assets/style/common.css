@@ -1,41 +1,56 @@
 @charset "UTF-8";
 
 /* header */
-.main-template-header {
-	display: flex;
-	margin-bottom: 50px;
-	padding: 20px 30px 20px 20px;
+
+
+.main-template-header{
+  display: flex;
 }
 
-.main-header-link-box {
-	position: relative;
-	left: 5%;
-	width: 20%;
-	line-height: 60px;
-	text-align: center;
+.top-wrap{
+  padding: 20px 30px 20px 60px;
+
 }
 
-.ranking-link, .recommend-link, .faq-link {
-	position: relative;
-	display: inline-block;
-	width: 100px;
+.main-header-link-box{
+  position: relative;
+  line-height: 60px;
+  
 }
 
-.ranking-link-a, .recommend-link-a, .faq-link-a {
-	padding: 8%;
+.ranking-link,
+.recommend-link,
+.faq-link,
+.category-link{
+  position: relative;
+  display: inline-block;
+  width: 90px;
 }
 
-.login-search-box {
-	display: flex;
-	position: absolute;
-	right: 0px;
-	margin-right: 20px;
-	align-items: center;
+.ranking-link-a,
+.recommend-link-a,
+.faq-link-a,
+.category-link-a{
+  padding: 8%;
 }
 
-.main-template-logo {
-	position: relative;
-	left: 3%;
+.ranking-link-a{
+  padding-left: 0px;
+}
+
+.login-search-box{
+  display: flex;
+  position: absolute;
+  right: 0px;
+  margin-right: 20px;
+  align-items: center;
+  
+}
+
+
+.main-template-logo{
+  position: relative;
+
 }
 
 .user-btn {
