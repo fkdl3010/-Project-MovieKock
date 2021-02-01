@@ -61,10 +61,11 @@
 	text-align: left;
 }
 
-.info_main_mid_right{
-	height: 220px;
-	position: relative;
-}
+
+	.info_main_mid_right{
+		position: relative;
+	}
+
 
 .info_main_mid_mid_title{
 	font-weight: bold;
@@ -270,7 +271,13 @@
 }
 	
 	
-	
+#star-rating{
+  margin-bottom: 10px;
+}
+
+.my-rating-contents{
+  margin-top: 90px;
+}	
 	
 	
 	
