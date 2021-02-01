@@ -3,11 +3,15 @@
 <jsp:include page="../template/header.jsp">
 	<jsp:param value="인덱스" name="title" />
 </jsp:include>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
 <link rel="stylesheet" href="/movie/assets/style/movie_info_page.css"/>
 	<div class="wrap">
-			<div class="info_main_top">
+		<div class="info_main_top">
+			<div class="snap_background_left"></div>
 				<img alt="스냅샷" class="snap" src="/movie/assets/images/snapshot.jpg" />
-			</div>
+			<div class="snap_background_right"></div>
+		</div>
 		<div class="main">
 			<div class="info_main_mid">
 		        <div class="info_main_mid_left info_main_mid_box">
@@ -26,6 +30,8 @@
 		          </div>
 		        </div>
 		        <div class="info_main_mid_right info_main_mid_box">
+		          <div class="my-rating-contents">평가하기</div>
+				  <div id="star-rating"></div>
 		          <form class="info_main_mid_right">
 		            <button class="form-btn">+보고싶어요</button>
 		          </form>
@@ -46,6 +52,7 @@
 					</div>
 				</div>
 				<div class="info_main_bot_staff">
+					<div class="info_main_bot_staff_font">출연 / 제작</div>
 					<!-- 구분선 출연/제작 1 -->
 					<div class="bot_staff_profiles">
 						<div class="bot_staff_profiles_img">
@@ -240,13 +247,93 @@ dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddsssssssssssss
 					<input type="button" value="더보기" onclick="" />
 				</div>
 				<div class="info_main_bot_movies">
-				
+					<div class="main_bot_movies_poster">
+						<div class="main_bot_poster_info">
+							<div>제목</div>
+							<span>내용 &nbsp; 배우 &nbsp; 평점</span>
+						</div>
+					</div>
+					<div class="main_bot_movies_poster">
+						<div class="main_bot_poster_info">
+							<div>제목</div>
+							<span>내용 &nbsp; 배우 &nbsp; 평점</span>
+						</div>
+					</div>
+					<div class="main_bot_movies_poster">
+						<div class="main_bot_poster_info">
+							<div>제목</div>
+							<span>내용 &nbsp; 배우 &nbsp; 평점</span>
+						</div>
+					</div>
+					<div class="main_bot_movies_poster">
+						<div class="main_bot_poster_info">
+							<div>제목</div>
+							<span>내용 &nbsp; 배우 &nbsp; 평점</span>
+						</div>
+					</div>
+					<div class="main_bot_movies_poster">
+						<div class="main_bot_poster_info">
+							<div>제목</div>
+							<span>내용 &nbsp; 배우 &nbsp; 평점</span>
+						</div>
+					</div>
+					<div class="main_bot_movies_poster">
+						<div class="main_bot_poster_info">
+							<div>제목</div>
+							<span>내용 &nbsp; 배우 &nbsp; 평점</span>
+						</div>
+					</div>
+					<div class="main_bot_movies_poster">
+						<div class="main_bot_poster_info">
+							<div>제목</div>
+							<span>내용 &nbsp; 배우 &nbsp; 평점</span>
+						</div>
+					</div>
+					<div class="main_bot_movies_poster">
+						<div class="main_bot_poster_info">
+							<div>제목</div>
+							<span>내용 &nbsp; 배우 &nbsp; 평점</span>
+						</div>
+					</div>
+					<div class="main_bot_movies_poster">
+						<div class="main_bot_poster_info">
+							<div>제목</div>
+							<span>내용 &nbsp; 배우 &nbsp; 평점</span>
+						</div>
+					</div>
+					<div class="main_bot_movies_poster">
+						<div class="main_bot_poster_info">
+							<div>제목</div>
+							<span>내용 &nbsp; 배우 &nbsp; 평점</span>
+						</div>
+					</div>
+					<div class="main_bot_movies_poster">
+						<div class="main_bot_poster_info">
+							<div>제목</div>
+							<span>내용 &nbsp; 배우 &nbsp; 평점</span>
+						</div>
+					</div>
+					<div class="main_bot_movies_poster">
+						<div class="main_bot_poster_info">
+							<div>제목</div>
+							<span>내용 &nbsp; 배우 &nbsp; 평점</span>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 	
 	
-	
+<script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
+<script>
+ 
+	$("#star-rating").rateYo({
+		rating: 1.5,
+		halfStar: true,
+		starWidth: "45px"
+	});
+		
+	</script>	
 	
 <%@ include file="../template/footer.jsp" %>
