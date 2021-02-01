@@ -2,21 +2,22 @@
 
 	.wrap {
 		width: 100%;
+        height: 800px;
         height: 100%;
-        
         padding: 20px;
 	}
     .main_head {
         width: 90%;
         height: 30%;
-        
+        margin: auto;
+        position:absolute;
+        top:-50px;
         margin: auto;
     }
     h3 {
         position: absolute;
         top:250px;
         left:460px;
-        
     }
     p {
         position: absolute;
@@ -29,23 +30,24 @@
         width: 90%;
         height: 70%;
         position: absolute;
+        top: 270px;
+        left: 120px;
+        margin: 0px auto;
         top: 320px;
         left: 120px;
         margin: 0px auto;
-        
     }
     .box1 {
         width: 60%;
         height: 620px;
         border: 2px solid;
-        
         margin: 0px auto;
-        
     }
     .btn {
         width:100px;
         height: 44px;
         position: absolute;
+        bottom: 40px;
         bottom: 80px;
         right: 370px;
         font-size: 16px;
@@ -61,14 +63,12 @@
     .box2 {
         width: 100%;
         height: 200px;
-        
     }
     .box3{
         width: 100%;
         height: 400px;
-        
         margin: 0px auto;
-        
+        margin: 0px auto;
     }
     select {
         width: 175px;
@@ -108,7 +108,6 @@
     .display-none {
     	display: none;
     }
-    
     .display-block {
     	display: block;
     }

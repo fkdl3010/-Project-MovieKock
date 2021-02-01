@@ -8,7 +8,9 @@
 <link rel="stylesheet" href="/movie/assets/style/movie_info_page.css"/>
 	<div class="wrap">
 		<div class="info_main_top">
-			<img alt="스냅샷" class="snap" src="/movie/assets/images/snapshot.jpg" />
+			<div class="snap_background_left"></div>
+				<img alt="스냅샷" class="snap" src="/movie/assets/images/snapshot.jpg" />
+			<div class="snap_background_right"></div>
 		</div>
 		<div class="main">
 			<div class="info_main_mid">
