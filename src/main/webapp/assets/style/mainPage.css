@@ -1,35 +1,41 @@
-.main {
-	position: relative;
-	margin: 1px 50px 1px 120px;
-	width: 1300px;
+.wrap {
+	display: grid;
 }
 
-.swiper-wrapper {
-	height: 260px !important;
+.main {
+	position: relative;
+	margin: 1px 50px 1px 50px;
 }
 
 .swiper-container {
-	width: 1200px;
+	width: 1220px;
 	height: 330px;
-	position: absolute;
+	position: relative;
 }
 
 .rankBadge {
-	width: 40px;
-	height: 40px;
+	width: 30px;
+	height: 30px;
 	margin: 0px 152px 216px 0px;
-	line-height: 40px;
+	line-height: 30px;
 	background-color: rgba(0, 0, 0, 0.77);
 	color: rgb(255, 255, 255);
-	font-weight: 800;
+	font-weight: 700;
 	text-align: center;
 	border-radius: 4px;
+	position: absolute;
 }
 
 .swiper-slide {
+	position: relative;
 	background: lightgray;
 	border-radius: 10px;
+	height: 250px;
 	overflow: hidden;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
 }
 
 .info {
@@ -37,6 +43,7 @@
 	top: 100%;
 	width: 200px;
 	color: #141414;
+	text-align: left;
 	font-size: 15px;
 }
 
@@ -44,11 +51,18 @@
 	background: #4b4262;
 	padding-left: 10px;
 	color: white;
-	top: 66%; /* 숫자 높을수록 텍스트는 낮게 올라옴*/
+	top: 55%;
 	transition: all 2s;
 }
 
 .swiper-button-next, .swiper-button-prev {
+	background-color: none;
+	padding: 30px;
 	color: #000 !important;
-	top: 60% !important;
+	fill: black !important;
+	stroke: black !important;
+}
+
+:focus {
+	outline: none;
 }
