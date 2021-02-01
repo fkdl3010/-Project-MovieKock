@@ -2,34 +2,22 @@
 
 	.wrap {
 		width: 100%;
-<<<<<<< HEAD
         height: 800px;
-=======
         height: 100%;
-        
         padding: 20px;
->>>>>>> 33b0e292c67661c4d26190fe9530bad9e9aa8e5f
 	}
     .main_head {
         width: 90%;
         height: 30%;
-<<<<<<< HEAD
         margin: auto;
         position:absolute;
         top:-50px;
-=======
-        
         margin: auto;
->>>>>>> 33b0e292c67661c4d26190fe9530bad9e9aa8e5f
     }
     h3 {
         position: absolute;
         top:250px;
         left:460px;
-<<<<<<< HEAD
-=======
-        
->>>>>>> 33b0e292c67661c4d26190fe9530bad9e9aa8e5f
     }
     p {
         position: absolute;
@@ -42,38 +30,25 @@
         width: 90%;
         height: 70%;
         position: absolute;
-<<<<<<< HEAD
         top: 270px;
         left: 120px;
         margin: 0px auto;
-=======
         top: 320px;
         left: 120px;
         margin: 0px auto;
-        
->>>>>>> 33b0e292c67661c4d26190fe9530bad9e9aa8e5f
     }
     .box1 {
         width: 60%;
         height: 620px;
         border: 2px solid;
-<<<<<<< HEAD
         margin: 0px auto;
-=======
-        
-        margin: 0px auto;
-        
->>>>>>> 33b0e292c67661c4d26190fe9530bad9e9aa8e5f
     }
     .btn {
         width:100px;
         height: 44px;
         position: absolute;
-<<<<<<< HEAD
         bottom: 40px;
-=======
         bottom: 80px;
->>>>>>> 33b0e292c67661c4d26190fe9530bad9e9aa8e5f
         right: 370px;
         font-size: 16px;
         color: rgb(255, 255, 255);
@@ -88,21 +63,12 @@
     .box2 {
         width: 100%;
         height: 200px;
-<<<<<<< HEAD
-=======
-        
->>>>>>> 33b0e292c67661c4d26190fe9530bad9e9aa8e5f
     }
     .box3{
         width: 100%;
         height: 400px;
-<<<<<<< HEAD
         margin: 0px auto;
-=======
-        
         margin: 0px auto;
-        
->>>>>>> 33b0e292c67661c4d26190fe9530bad9e9aa8e5f
     }
     select {
         width: 175px;
@@ -142,10 +108,6 @@
     .display-none {
     	display: none;
     }
-<<<<<<< HEAD
-=======
-    
->>>>>>> 33b0e292c67661c4d26190fe9530bad9e9aa8e5f
     .display-block {
     	display: block;
     }
