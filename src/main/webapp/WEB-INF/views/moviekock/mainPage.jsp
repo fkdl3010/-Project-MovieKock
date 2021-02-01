@@ -255,8 +255,8 @@
 		</div>
 		<div class="swiper-button-next n2"></div>
 		<div class="swiper-button-prev n2"></div>
-
 	</div>
+
 	<div class="main">
 		<div class="swiper-container s3">
 			<h3>박스오피스</h3>
@@ -413,4 +413,4 @@
 		});
 	</script>
 
-	</html>
+	<%@ include file="../template/footer.jsp"%>
