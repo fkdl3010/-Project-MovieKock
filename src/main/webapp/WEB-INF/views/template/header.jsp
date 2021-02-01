@@ -22,37 +22,44 @@
   <link rel="stylesheet" href="/movie/assets/style/common.css"/>
 </head>
 <body>
-  <div class="main-template-header">
-    <span class="main-template-logo">
-      <i class="fas fa-video fa-4x"></i>
-    </span>
+  <div class="top-wrap">
+
+    <div class="main-template-header">
+      <span class="main-template-logo">
+        <i class="fas fa-video fa-4x"></i>
+      </span>
+      <div class="login-search-box">
+        <form class="search-form">
+          <input type="text" class="input-search"placeholder="검색어를 입력해 주세요."/>
+          <span class="btn-a">
+            <button class="search-btn"><i class="fas fa-search"></i></button>
+          </span>
+        </form>
+        <span class="user-btn">
+          <i class="fas fa-user-circle fa-3x"></i>
+        </span>
+      </div>
+    </div>
     <div class="main-header-link-box">
       <span class="ranking-link">
         <a href="#" class="ranking-link-a">
-        순위 추천
+          순위 추천
         </a>
       </span>
       <span class="recommend-link">
         <a href="#" class="recommend-link-a">
-        추천 받기
+          추천 받기
+        </a>  
+      </span>
+      <span class="category-link">
+        <a href="request_list_page.do" class="category-link-a">
+          장르별
         </a>  
       </span>
       <span class="faq-link">
         <a href="request_list_page.do" class="faq-link-a">
-        문의 하기
+          문의 하기
         </a>  
       </span>
     </div>
-    <div class="login-search-box">
-      <form class="search-form">
-        <input type="text" class="input-search"placeholder="검색어를 입력해 주세요."/>
-        <span class="btn-a">
-          <button class="search-btn"><i class="fas fa-search"></i></button>
-        </span>
-      </form>
-      <span class="user-btn">
-        <i class="fas fa-user-circle fa-3x"></i>
-      </span>
-    </div>
-
   </div>

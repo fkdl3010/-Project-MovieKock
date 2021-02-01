@@ -34,10 +34,35 @@
 
     </div>
     <div class="footer">
-      <a href="#"><span class="footer-link">아이디 찾기</span></a>
-      <a href="#"><span class="footer-link main-footer-link">아이디 찾기</span></a>
-      <a href="#"><span class="footer-link">아이디 찾기</span></a>
+      <a href="#"><span class="footer-link id-pw">아이디 / 비밀번호 찾기</span></a>
+      <a href="#" data-target="#layerpop" data-toggle="modal"><span class="footer-link signUp">회원가입</span></a>
+      
+
     </div>
   </div>
+
+  <!-- modal -->
+  <div class="modal fade" id="layerpop" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- header -->
+        <div class="modal-header">
+          <!-- 닫기(x) 버튼 -->
+          <button type="button" class="close" data-dismiss="modal">×</button>
+          <!-- header title -->
+          <h4 class="modal-title">영화 이름</h4>
+        </div>
+        <!-- body -->
+        <div class="modal-body">
+            <%@ include file="privacy_agreement_page.jsp" %>
+        </div>
+        <!-- Footer -->
+        <div class="modal-footer">
+          <button type="button" id="close-btn" class="btn btn-default" data-dismiss="modal">닫기</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
 </body>
 </html>

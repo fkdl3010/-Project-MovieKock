@@ -115,6 +115,24 @@
 						</div>
 					</div>
 				</div>
+				<div class="swiper-slide">
+					<div class="rankBadge">11</div>
+					<div class="info">
+						<div class="text">
+							<h3>제목</h3>
+							<p>내용 &nbsp; 배우 &nbsp; 평점</p>
+						</div>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="rankBadge">12</div>
+					<div class="info">
+						<div class="text">
+							<h3>제목</h3>
+							<p>내용 &nbsp; 배우 &nbsp; 평점</p>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 		<div class="swiper-button-next n1"></div>
@@ -215,12 +233,30 @@
 						</div>
 					</div>
 				</div>
+				<div class="swiper-slide">
+					<div class="rankBadge">11</div>
+					<div class="info">
+						<div class="text">
+							<h3>제목</h3>
+							<p>내용 &nbsp; 배우 &nbsp; 평점</p>
+						</div>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="rankBadge">12</div>
+					<div class="info">
+						<div class="text">
+							<h3>제목</h3>
+							<p>내용 &nbsp; 배우 &nbsp; 평점</p>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 		<div class="swiper-button-next n2"></div>
-		<div class="swiper-button-prev p2"></div>
-
+		<div class="swiper-button-prev n2"></div>
 	</div>
+
 	<div class="main">
 		<div class="swiper-container s3">
 			<h3>박스오피스</h3>
@@ -316,39 +352,32 @@
 						</div>
 					</div>
 				</div>
+				<div class="swiper-slide">
+					<div class="rankBadge">11</div>
+					<div class="info">
+						<div class="text">
+							<h3>제목</h3>
+							<p>내용 &nbsp; 배우 &nbsp; 평점</p>
+						</div>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="rankBadge">12</div>
+					<div class="info">
+						<div class="text">
+							<h3>제목</h3>
+							<p>내용 &nbsp; 배우 &nbsp; 평점</p>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
-		<div id="btn">
-			<div class="swiper-button-next" id="n3"></div>
-			<div class="swiper-button-prev" id="p3"></div>
-		</div>
+		<div class="swiper-button-next n3"></div>
+		<div class="swiper-button-prev p3"></div>
 	</div>
 
-	<!-- Swiper JS -->
 	<script src="../dist/js/swiper.min.js"></script>
-
-	<!-- Initialize Swiper -->
-
 	<script>
-		/* $(".swiper-container").each(
-				function(index, element) {
-					var $this = $(this);
-					$this.addClass('instance-' + index);
-					var swiper = new Swiper('.swiper-container', {
-						slidesPerView : 6,
-						spaceBetween : 20,
-						slidesPerGroup : 6,
-						loop : true,
-						loopFillGroupWithBlank : false,
-						navigation : {
-							nextEl : $('.instance-' + index).siblings(
-									'.swiper-button-next'),
-							prevEl : $('.instance-' + index).siblings(
-									'.swiper-button-prev'),
-						},
-					});
-				}); */
-
 		new Swiper('.s1', {
 			slidesPerView : 6,
 			spaceBetween : 20,
@@ -378,10 +407,10 @@
 			loop : true,
 			loopFillGroupWithBlank : false,
 			navigation : {
-				nextEl : '#n3',
-				prevEl : '#p3',
+				nextEl : '.n3',
+				prevEl : '.p3',
 			},
 		});
 	</script>
 
-	</html>
+	<%@ include file="../template/footer.jsp"%>

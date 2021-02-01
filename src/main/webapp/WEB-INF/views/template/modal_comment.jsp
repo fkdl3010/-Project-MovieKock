@@ -14,29 +14,41 @@
 	}
 	
 	.modal-header {
-		width: 600px;
+		width: 598px;
 		height: 50px;
 	}
 	
 	.modal-body {
 		padding: 0px;
 	}
-	.modal-txt {
+	
+	.comment_contents, .comment_title {
 		width: 598px;
-		height: 150px;
-		padding: 10px;
-		resize: none;
-		overflow: hidden;
-		border: none;
+		border: 0px;
+		border-bottom: 2px solid #ddd;
+		margin: 0px;
+		font-size: 16px;
+		padding: 0px 0px 0px 10px;
 	}
 	
-	.modal-txt:focus {
+	.comment_title {
+		height: 50px;
+	}
+	
+	.comment_contents {
+		height: 400px;
+	}
+	
+	.comment_contents:focus, .comment_title:focus {
 		outline: none;
 	}
 	
 	.modal-footer {
-		width: 600px;
-		height: 50px;
+		width: 598px;
+	}
+	
+	.btn-default {
+		margin: auto;
 	}
 	
 </style>
@@ -55,11 +67,12 @@
 	      </div>
 	      <!-- body -->
 	      <div class="modal-body">
-	            <textarea class="modal-txt"></textarea>
+	      		<input type="text" class="comment_title" placeholder="제목을 입력해주세요." />
+	      		<input type="text" class="comment_contents" placeholder="내용을 입력해주세요." />
 	      </div>
 	      <!-- Footer -->
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+	        <button type="button" class="btn btn-default" data-dismiss="modal">완료</button>
 	      </div>
 	    </div>
 	  </div>

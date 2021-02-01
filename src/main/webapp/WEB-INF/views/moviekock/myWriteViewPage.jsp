@@ -1,8 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<jsp:include page="../template/header.jsp">
-	<jsp:param value="내가쓴글 뷰 페이지" name="title" />
-</jsp:include>
 	<link rel="stylesheet" href="/movie/assets/style/myWriteViewPage.css"/>
 	 <div class="container">
     <div class="main-wrapper-my-write">
@@ -47,4 +44,3 @@
 
     </div>
   </div>
-<%@ include file="../template/footer.jsp" %>

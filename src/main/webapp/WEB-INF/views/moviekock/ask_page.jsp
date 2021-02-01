@@ -10,7 +10,11 @@
         <div class="main_head">
 	        <h3>문의 목록</h3>
 	        <p>문의 하기</p>
+<<<<<<< HEAD
         </div>  
+=======
+        </div> 
+>>>>>>> 33b0e292c67661c4d26190fe9530bad9e9aa8e5f
         <div class="main_body">
             <div class="box1">
                <input type="button" id="btn" class="btn" value="문의하기" onclick="" />
@@ -37,12 +41,42 @@
             </div>
         </div>
     </div>  
+<<<<<<< HEAD
     
     <script src="/movie/assets/script/ask_page.js"></script>
         
 <%@ include file="../template/footer.jsp" %>
 	
 
+=======
+        
+<%@ include file="../template/footer.jsp" %>
+	
+	
+	<script type="text/javascript">
+	
+		let secret = document.querySelector('#pw');
+	    let btn = document.querySelector('#secret-btn');
+	    function btnHandler(){
+	
+	        if(secret.className == 'display-none'){
+	            secret.classList.replace('display-none' , 'display-block');
+	        }else{
+	            secret.classList.replace('display-block' , 'display-none');
+	
+	        }
+	
+	
+	    }
+	
+	    function init(){
+	        btn.addEventListener('click', btnHandler);
+	    }
+	
+	    init();
+	</script>
+	
+>>>>>>> 33b0e292c67661c4d26190fe9530bad9e9aa8e5f
 
 	
 	
