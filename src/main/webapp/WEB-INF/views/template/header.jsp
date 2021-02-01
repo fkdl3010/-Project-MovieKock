@@ -22,12 +22,6 @@
   <link rel="stylesheet" href="/movie/assets/style/common.css"/>
 </head>
 <body>
-
-  <div class="main-template-header">
-    <span class="main-template-logo">
-      <a href="mainPage.do"><i class="fas fa-video fa-4x"></i></a>
-    </span>
-
   <div class="top-wrap">
 
     <div class="main-template-header">
@@ -46,7 +40,6 @@
         </span>
       </div>
     </div>
-
     <div class="main-header-link-box">
       <span class="ranking-link">
         <a href="#" class="ranking-link-a">
