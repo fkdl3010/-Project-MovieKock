@@ -60,29 +60,29 @@
        
         <div id="situ-frame" class="display">
         	<div id="tag-frame">
-            	<div class="situation-box">#썸</div>
-            	<div class="situation-box">#혼술</div>
-            	<div class="situation-box">#지방출장</div>
-            	<div class="situation-box">#새해</div>
-            	<div class="situation-box">#여행</div>
-            	<div class="situation-box">#카페</div>
-            	<div class="situation-box">#성공</div>
-            	<div class="situation-box">#생일파티</div>
-            	<div class="situation-box">#불금</div>
-            	<div class="situation-box">#이별했을 때</div>
-            	<div class="situation-box">#새벽감성</div>
-            	<div class="situation-box">#클래식</div>
-            	<div class="situation-box">#코로나</div>
-            	<div class="situation-box">#싸움</div>
-            	<div class="situation-box">#의지활활</div>
-            	<div class="situation-box">#공부</div>
-            	<div class="situation-box">#기분전환</div>
-            	<div class="situation-box">#출/퇴근길</div>
-            	<div class="situation-box">#운동</div>
-            	<div class="situation-box">#하우스파티</div>
-            	<div class="situation-box">#해외</div>
-            	<div class="situation-box">#차박</div>
-            	<div class="situation-box">#루프탑</div>
+            	<div class="situation-box" id="tag1">#썸</div>
+            	<div class="situation-box" id="tag2">#혼술</div>
+            	<div class="situation-box" id="tag3">#지방출장</div>
+            	<div class="situation-box" id="tag4">#새해</div>
+            	<div class="situation-box" id="tag5">#여행</div>
+            	<div class="situation-box" id="tag6">#카페</div>
+            	<div class="situation-box" id="tag7">#성공</div>
+            	<div class="situation-box" id="tag8">#생일파티</div>
+            	<div class="situation-box" id="tag9">#불금</div>
+            	<div class="situation-box" id="tag10">#이별했을 때</div>
+            	<div class="situation-box" id="tag11">#새벽감성</div>
+            	<div class="situation-box" id="tag12">#클래식</div>
+            	<div class="situation-box" id="tag13">#코로나</div>
+            	<div class="situation-box" id="tag14">#싸움</div>
+            	<div class="situation-box" id="tag15">#의지활활</div>
+            	<div class="situation-box" id="tag16">#공부</div>
+            	<div class="situation-box" id="tag17">#기분전환</div>
+            	<div class="situation-box" id="tag18">#출/퇴근길</div>
+            	<div class="situation-box" id="tag19">#운동</div>
+            	<div class="situation-box" id="tag20">#하우스파티</div>
+            	<div class="situation-box" id="tag21">#해외</div>
+            	<div class="situation-box" id="tag22">#차박</div>
+            	<div class="situation-box" id="tag23">#루프탑</div>
             	       
         	</div>
     	</div>

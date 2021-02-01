@@ -22,3 +22,13 @@ function situbtn(){
 		$('#situ-frame').show();
 	}
 }
+
+
+
+$(document).ready(function(){
+$('.situation-box').click(function(){
+	$(this).removeClass('clicked');
+	$(this).addClass('clicked');
+})
+})
+

@@ -45,10 +45,14 @@
         }
         
         #profile{
-            position: relative;
-            width : 80px;
+            position: absolute;
+            width : 100px;
             height: 80px;
-            bottom: 100px;
-            left: 10px;
+            top : 220px;
+            left: 40px;
             
+        }
+        
+        textarea{
+        	border-color: white;
         }

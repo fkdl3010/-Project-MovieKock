@@ -37,7 +37,7 @@
 	  #situ-frame{
          	position : absolute;
             top : 250px;
-			left : 150px;
+			left : 100px;
         }
         
         #tag-frame{
@@ -124,21 +124,18 @@
   			color:white;
 		}
 	
-	
+		
+		.clicked{
+			color : navy;
+			border-color: navy;
+			
+		}
+		
 		input:hover{
 			background-color:gray;
   			color:white;
 		}
-        .active:active {
-  				backgronud: gray;
-			}
-		.focus:focus {
- 		 color: red;
-		}
-		:target {
- 			 color: red;
-		}
-		
+     
 		.situation-box:hover{
 			border:5px solid navy;
   			color:navy;
