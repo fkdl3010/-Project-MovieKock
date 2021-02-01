@@ -1,5 +1,9 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: ljh03
+=======
+Built-By: LG
+>>>>>>> 197a4fd2cb163d1a4ae992b2c225485ca5ef4033
 Build-Jdk: 1.8.0_202
 Created-By: Maven Integration for Eclipse
 
