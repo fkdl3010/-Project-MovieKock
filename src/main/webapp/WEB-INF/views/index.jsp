@@ -20,6 +20,7 @@
 	<a href="recommandPage.do">영화 추천 페이지이동</a><br>
 	<a href="privacy_agreement_page.do">개인정보약관동의사이트</a><br>
 	<a href="movie_info_page.do">영화 INFO 페이지</a><br>
+<<<<<<< HEAD
 
 	<a href="myWriteViewPage.do">내가 쓴글 보기페이지</a><br>
 	<a href="ask_page.do">문의하기 페이지</a><br>
@@ -29,6 +30,14 @@
 	<a href="#" data-target="#layerpop" data-toggle="modal">내가 쓴글 보기페이지</a><br>
 	<a href="ask_page.do">문의하기</a><br>
 
+=======
+	<a href="myWriteViewPage.do">내가 쓴글 보기페이지</a><br>
+	<a href="ask_page.do">문의하기 페이지</a><br>
+	
+
+	<a href="#" data-target="#layerpop" data-toggle="modal">내가 쓴글 보기페이지</a><br>
+	<a href="ask_page.do">문의하기</a><br>
+>>>>>>> ab92aa52e34dc6527978035bfa4fdec9b33458fc
 	
 	
 
