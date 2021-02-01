@@ -22,12 +22,12 @@
   <link rel="stylesheet" href="/movie/assets/style/common.css"/>
 </head>
 <body>
-<<<<<<< HEAD
+
   <div class="main-template-header">
     <span class="main-template-logo">
       <a href="mainPage.do"><i class="fas fa-video fa-4x"></i></a>
     </span>
-=======
+
   <div class="top-wrap">
 
     <div class="main-template-header">
@@ -46,7 +46,7 @@
         </span>
       </div>
     </div>
->>>>>>> e7978dbf52bac41b7914295da09dab5370b4554f
+
     <div class="main-header-link-box">
       <span class="ranking-link">
         <a href="#" class="ranking-link-a">
