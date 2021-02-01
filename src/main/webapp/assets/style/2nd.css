@@ -7,10 +7,10 @@ html {
   position: relative;
 }
 
-
-.right{
-  position: absolute;
-  right:0px;
+.form-inline{
+	display: flex;
+	justify-content: space-between;
+	
 }
 
 .main-wrapper{
