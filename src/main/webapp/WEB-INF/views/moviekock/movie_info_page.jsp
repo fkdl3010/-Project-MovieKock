@@ -5,9 +5,9 @@
 </jsp:include>
 <link rel="stylesheet" href="/movie/assets/style/movie_info_page.css"/>
 	<div class="wrap">
-			<div class="info_main_top">
-				<img alt="스냅샷" class="snap" src="/movie/assets/images/snapshot.jpg" />
-			</div>
+		<div class="info_main_top">
+			<img alt="스냅샷" class="snap" src="/movie/assets/images/snapshot.jpg" />
+		</div>
 		<div class="main">
 			<div class="info_main_mid">
 		        <div class="info_main_mid_left info_main_mid_box">
@@ -46,6 +46,7 @@
 					</div>
 				</div>
 				<div class="info_main_bot_staff">
+					<div class="info_main_bot_staff_font">출연 / 제작</div>
 					<!-- 구분선 출연/제작 1 -->
 					<div class="bot_staff_profiles">
 						<div class="bot_staff_profiles_img">
@@ -240,7 +241,78 @@ dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddsssssssssssss
 					<input type="button" value="더보기" onclick="" />
 				</div>
 				<div class="info_main_bot_movies">
-				
+					<div class="main_bot_movies_poster">
+						<div class="main_bot_poster_info">
+							<div>제목</div>
+							<span>내용 &nbsp; 배우 &nbsp; 평점</span>
+						</div>
+					</div>
+					<div class="main_bot_movies_poster">
+						<div class="main_bot_poster_info">
+							<div>제목</div>
+							<span>내용 &nbsp; 배우 &nbsp; 평점</span>
+						</div>
+					</div>
+					<div class="main_bot_movies_poster">
+						<div class="main_bot_poster_info">
+							<div>제목</div>
+							<span>내용 &nbsp; 배우 &nbsp; 평점</span>
+						</div>
+					</div>
+					<div class="main_bot_movies_poster">
+						<div class="main_bot_poster_info">
+							<div>제목</div>
+							<span>내용 &nbsp; 배우 &nbsp; 평점</span>
+						</div>
+					</div>
+					<div class="main_bot_movies_poster">
+						<div class="main_bot_poster_info">
+							<div>제목</div>
+							<span>내용 &nbsp; 배우 &nbsp; 평점</span>
+						</div>
+					</div>
+					<div class="main_bot_movies_poster">
+						<div class="main_bot_poster_info">
+							<div>제목</div>
+							<span>내용 &nbsp; 배우 &nbsp; 평점</span>
+						</div>
+					</div>
+					<div class="main_bot_movies_poster">
+						<div class="main_bot_poster_info">
+							<div>제목</div>
+							<span>내용 &nbsp; 배우 &nbsp; 평점</span>
+						</div>
+					</div>
+					<div class="main_bot_movies_poster">
+						<div class="main_bot_poster_info">
+							<div>제목</div>
+							<span>내용 &nbsp; 배우 &nbsp; 평점</span>
+						</div>
+					</div>
+					<div class="main_bot_movies_poster">
+						<div class="main_bot_poster_info">
+							<div>제목</div>
+							<span>내용 &nbsp; 배우 &nbsp; 평점</span>
+						</div>
+					</div>
+					<div class="main_bot_movies_poster">
+						<div class="main_bot_poster_info">
+							<div>제목</div>
+							<span>내용 &nbsp; 배우 &nbsp; 평점</span>
+						</div>
+					</div>
+					<div class="main_bot_movies_poster">
+						<div class="main_bot_poster_info">
+							<div>제목</div>
+							<span>내용 &nbsp; 배우 &nbsp; 평점</span>
+						</div>
+					</div>
+					<div class="main_bot_movies_poster">
+						<div class="main_bot_poster_info">
+							<div>제목</div>
+							<span>내용 &nbsp; 배우 &nbsp; 평점</span>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
