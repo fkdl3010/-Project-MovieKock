@@ -1,4 +1,3 @@
-/*
 package com.koreait.movie.controller;
 
 
@@ -77,4 +76,3 @@ public class MovieController {
 	
 	
 }
-*/
