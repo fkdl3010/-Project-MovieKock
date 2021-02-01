@@ -212,11 +212,23 @@
 }
 
 .main_bot_movies_poster {
-	width: 220px;
-	height: 250px;
-	background: #ddd;
-	border-radius: 15px;
-	margin-bottom: 20px;
+	width: 200px;
+	color: #141414;
+	text-align: left;
+	font-size: 15px;
+/* 	width: 220px; */
+/* 	height: 250px; */
+/* 	background: #ddd; */
+/* 	border-radius: 15px; */
+/* 	margin-bottom: 20px; */
+}
+
+.main_bot_movies_poster:hover .main_bot_poster_info {
+	background: #4b4262;
+	padding-left: 10px;
+	color: white;
+	top: 55%;
+	transition: all 2s;
 }
 
 .main_bot_movies_poster:nth-of-type(10), .main_bot_movies_poster:nth-of-type(11), .main_bot_movies_poster:nth-of-type(12) {
@@ -229,6 +241,9 @@
 	display: none;
 }
 
+:focus {
+	outline: none;
+}
 	
 	
 	
