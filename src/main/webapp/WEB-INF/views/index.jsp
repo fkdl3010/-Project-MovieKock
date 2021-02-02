@@ -49,7 +49,7 @@
         </div>
         <!-- body -->
         <div class="modal-body">
-            <jsp:include page="moviekock/myWriteViewPage.jsp">
+            <jsp:include page="my_page/my_write_view_page.jsp">
 				<jsp:param value="test" name="title" />
 			</jsp:include>
         </div>
