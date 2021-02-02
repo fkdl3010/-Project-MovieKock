@@ -19,11 +19,13 @@
 
 	<div class="id-pw-main-wrapper">
 
-		<div class="logo-wrapper">
-			<div class="logo-px">
-				<i class="fas fa-video fa-5x"></i>
-			</div>
-		</div>
+
+    <div class="logo-wrapper">
+      <div class="logo-px">
+        <a href="mainPage.do"><i class="fas fa-video fa-5x"></i></a>
+      </div>
+    </div>
+
 
 		<div class="contents-wrapper">
 			<div class="contents-header">아이디, 비밀번호 찾기</div>
