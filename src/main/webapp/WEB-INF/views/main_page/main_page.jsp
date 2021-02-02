@@ -4,7 +4,7 @@
 	<jsp:param value="메인페이지" name="title" />
 </jsp:include>
 
-<link rel="stylesheet" href="/movie/assets/style/mainPage.css" />
+<link rel="stylesheet" href="/movie/assets/style/main_page_css/main_page.css" />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css%22%3E" />
 <link rel="stylesheet"
