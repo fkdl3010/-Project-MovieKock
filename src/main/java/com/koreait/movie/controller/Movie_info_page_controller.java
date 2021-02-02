@@ -9,4 +9,8 @@ public class Movie_info_page_controller {
 	public String movie_info_page() {
 		return "movie_info_page/movie_info_page";
 	}
+	@RequestMapping(value="movie_comment_page.do")
+	public String movie_comment_page() {
+		return "movie_info_page/movie_comment_page";
+	}
 }
