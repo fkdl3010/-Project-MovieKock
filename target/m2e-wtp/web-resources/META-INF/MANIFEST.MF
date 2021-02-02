@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 Manifest-Version: 1.0
 Built-By: yhoo0
 Build-Jdk: 1.8.0_202
@@ -11,3 +12,10 @@ Build-Jdk: 1.8.0_202
 Created-By: Maven Integration for Eclipse
 
 >>>>>>> ab92aa52e34dc6527978035bfa4fdec9b33458fc
+=======
+Manifest-Version: 1.0
+Built-By: gil
+Build-Jdk: 1.8.0_202
+Created-By: Maven Integration for Eclipse
+
+>>>>>>> 9a7075aefd83a64cf485bbb76e36f36cc182ef04

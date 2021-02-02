@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-	<link rel="stylesheet" href="/movie/assets/style/myWriteViewPage.css"/>
+	<link rel="stylesheet" href="/movie/assets/style/my_page_css/my_write_view_page.css"/>
 	 <div class="container">
     <div class="main-wrapper-my-write">
 

@@ -6,6 +6,7 @@
 <!-- CSS -->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<<<<<<< HEAD:src/main/webapp/WEB-INF/views/moviekock/signupPage.jsp
 <link rel="stylesheet" href="/movie/assets/style/signupPage.css"/>
 <script type="text/javascript">
 	
@@ -21,6 +22,9 @@
 		f.action = 'mainPage.do';
 	}
 </script>
+=======
+<link rel="stylesheet" href="/movie/assets/style/singup_signin_page_css/signup_page.css"/>
+>>>>>>> 9a7075aefd83a64cf485bbb76e36f36cc182ef04:src/main/webapp/WEB-INF/views/signup_signin_page/signup_page.jsp
 </head>
 <body>
 		<div class="signupPage_top_logo">
