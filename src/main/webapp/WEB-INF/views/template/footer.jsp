@@ -1,8 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 
-	<div class="footer">
-		<div class="partners">
+<link rel="stylesheet" href="/movie/assets/style/common.css" />
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+
+<div class="footer">
+	<div class="partners">
+		<div class="footerLogo"> <a href="#"><i
+				class="fas fa-video fa-5x"></i></a>
+		</div>
+		<div class="textBox">
+			<div class="title">About Us</div>
 			<div class="partners_info">
 				<div>이주현</div>
 				<div>ljh3900@gmail.com</div>
@@ -30,10 +40,6 @@
 			</div>
 		</div>
 	</div>
-
-
-	<div class="footer">
-    </div>	
-	
+</div>
 </body>
 </html>

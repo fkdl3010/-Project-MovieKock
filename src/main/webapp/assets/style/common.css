@@ -2,33 +2,40 @@
 
 /* header */
 
+
 .main-template-header{
   display: flex;
-  margin-bottom: 50px;
-  padding: 20px 30px 20px 20px;
+}
+
+.top-wrap{
+  padding: 20px 30px 20px 60px;
+
 }
 
 .main-header-link-box{
   position: relative;
-  left: 5%;
-  width: 20%;
   line-height: 60px;
-  text-align: center;
   
 }
 
 .ranking-link,
 .recommend-link,
-.faq-link{
+.faq-link,
+.category-link{
   position: relative;
   display: inline-block;
-  width: 100px;
+  width: 90px;
 }
 
 .ranking-link-a,
 .recommend-link-a,
-.faq-link-a{
+.faq-link-a,
+.category-link-a{
   padding: 8%;
+}
+
+.ranking-link-a{
+  padding-left: 0px;
 }
 
 .login-search-box{
@@ -43,57 +50,74 @@
 
 .main-template-logo{
   position: relative;
-  left: 3%;
+
 }
 
-.user-btn{
-  margin-right: 20px;
-  top: 10px;
+.user-btn {
+	margin-right: 20px;
+	top: 10px;
 }
 
-.input-search{
-  position: relative;
-  margin: 5px;
-  right: -20px;
-  padding: 10px;
-  width: 250px;
+.input-search {
+	position: relative;
+	margin: 5px;
+	right: -20px;
+	padding: 10px;
+	width: 250px;
 }
-.fa-search{
-  
-  padding: 7.5px;
-  font-size: 25px;
+
+.fa-search {
+	padding: 7.5px;
+	font-size: 25px;
 }
-.btn-a{
-  position: relative;
-  right: 38px;
-  top: 4px
+
+.btn-a {
+	position: relative;
+	right: 38px;
+	top: 4px
 }
-.search-btn{
-  border: 1px solid rgba(0, 0, 0,0.3);
+
+.search-btn {
+	border: 1px solid rgba(0, 0, 0, 0.3);
 }
 
 /* footer */
-
-.footer{
+.footer {
+	background: #4b4262;
 	width: 100%;
-	text-align: center;
+	height: 160px;
+	margin-top: 50px;
+	overflow: hidden;
 }
 
 .partners {
-	width: 80%;
-	margin: auto;
-	margin-top: 100px;
-	margin-bottom: 100px;
-	display: flex;
-	font-size: 111%;
-	justify-content: space-between;
-}
-.partners_info {
-	text-align: left;
-	color: gray;
+	/* border: 2px solid black; */
+	margin: 30px 0px 30px 380px;
+	color: #e6e6e6;
+	position: relative;
 }
 
-.partners_info > div:nth-of-type(2), .partners_info > div:nth-of-type(3) {
+.textBox {
+	margin-left: 140px;
+}
+
+.footerLogo {
+	position: absolute;
+	margin-top: 15px;
+}
+
+.partners_info {
+	display: inline-block;
+	font-size: 12px;
+	margin: 15px 5px 5px 0px;
+}
+
+.title {
+	font-size: 18px;
+}
+
+.partners_info>div:nth-of-type(1) {
 	font-weight: bold;
-	margin-top: 16px;
+	font-size: 14px;
+	margin-bottom: 5px;
 }
