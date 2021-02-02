@@ -4,7 +4,7 @@
 	<jsp:param value="인덱스" name="title" />
 </jsp:include>
 
-<link rel="stylesheet" href="/movie/assets/style/request_written_page.css"/>
+<link rel="stylesheet" href="/movie/assets/style/request_page_css/request_view_page.css"/>
 	<div class="wrap">
 		<div class="main">
 			<div class="main_bot">
