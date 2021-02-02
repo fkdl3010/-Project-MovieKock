@@ -6,15 +6,34 @@
 <!-- CSS -->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<<<<<<< HEAD:src/main/webapp/WEB-INF/views/moviekock/signupPage.jsp
+<link rel="stylesheet" href="/movie/assets/style/signupPage.css"/>
+<script type="text/javascript">
+	
+	function fn_cancle(f){
+		if(confirm("회원가입을 취소하시겠습니까?") == true){
+			history.back();
+		}
+	}
+	
+	function fn_finish(f){
+		alert("회원가입이 정상적으로 완료되었습니다.");
+		f.submit();
+		f.action = 'mainPage.do';
+	}
+</script>
+=======
 <link rel="stylesheet" href="/movie/assets/style/singup_signin_page_css/signup_page.css"/>
+>>>>>>> 9a7075aefd83a64cf485bbb76e36f36cc182ef04:src/main/webapp/WEB-INF/views/signup_signin_page/signup_page.jsp
 </head>
 <body>
 		<div class="signupPage_top_logo">
-			<img class="top_logo" alt="회원가입페이지 상단로고" src="/movie/assets/images/logo.jpg" />
+			<a href="mainPage.do"><img class="top_logo" alt="회원가입페이지 상단로고" src="/movie/assets/images/logo.jpg" /></a>
 		</div>
 		<div class="wrap">
+			<div id="main-wrap">
 			<form action="" method="post">
-				<div class="top_teboxt">
+				<div class="top_text">
 					무비콕 정보를 입력해주세요
 				</div>
 				<div class="main">
@@ -36,10 +55,11 @@
 					<input type="text" id="phone" class="inp_txt" placeholder="핸드폰 번호를 입력해주세요." />
 				</div>
 				<div class="bot_btn">
-					<input type="button" class="inp_btn_bot" value="취소하기" onclick="" />
-					<button class="inp_btn_bot">가입완료</button>
+					<input type="button" class="inp_btn_bot" value="취소하기" onclick="fn_cancle(this.form)" />
+					<button class="inp_btn_bot" onclick="fn_finish(this.form)">가입완료</button>
 				</div>
 			</form>
+			</div>
 		</div>	
 	
 </body>
