@@ -32,7 +32,7 @@ a{
 .footer-link{
   display: inline-block;
   height: 10%;
-  width: 30.2%;
+  width: 32.2%;
   line-height: 30px;
   text-align: center;
  
@@ -43,7 +43,7 @@ a{
 }
 
 .signUp{
-    width: 11%;
+    width: 13%;
     margin-left: 10px;
 }
 
@@ -79,6 +79,10 @@ a{
   text-align: center;
 }
 
+.modal-title {
+	font-weight: bold;	
+}
+
 .main-wrapper div{
   margin: 1rem;
 }
@@ -96,4 +100,7 @@ a{
 
 .modal-content{
   height: 100%;
+}
+:focus {
+	text-decoration: none;
 }
