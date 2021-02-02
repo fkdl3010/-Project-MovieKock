@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
-<link rel="stylesheet" href="/movie/assets/style/recommand_page_css/recommandPage.css" />
+<link rel="stylesheet" href="/movie/assets/style/recommand_page_css/recommand_page.css" />
 
 <script type="text/javascript">
 function randombtn(){
