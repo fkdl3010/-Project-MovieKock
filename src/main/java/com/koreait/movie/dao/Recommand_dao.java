@@ -1,5 +1,5 @@
 package com.koreait.movie.dao;
 
-public class my_dao {
+public class Recommand_dao {
 
 }

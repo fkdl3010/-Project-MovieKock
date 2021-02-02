@@ -1,7 +1,11 @@
 package com.koreait.movie.controller;
 
+import java.util.Map;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 
@@ -31,5 +35,15 @@ public class Signup_signin_page_controller {
 	public String privacy_agreement_page() {
 		return "signup_signin_page/privacy_agreement_page";
 	}
+	
+	/*** 아이디 체크 ***/
+	@RequestMapping(value="'userIdCheck/userId",
+					method=RequestMethod.POST,
+					produces="application/json; charset=utf-8")
+	@ResponseBody
+	public Map<String, Object> signUp_idCheck(){
+		
+	}
+	
 	
 }
