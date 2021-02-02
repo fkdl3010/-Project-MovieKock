@@ -4,7 +4,7 @@
 	<jsp:param value="2번째 페이지" name="title" />
 </jsp:include>
 
-  <link rel="stylesheet" href="/movie/assets/style/2nd.css"/>
+  <link rel="stylesheet" href="/movie/assets/style/recommand_page_css/category_recommand_page.css"/>
 
   <div class="main-wrapper">
 
