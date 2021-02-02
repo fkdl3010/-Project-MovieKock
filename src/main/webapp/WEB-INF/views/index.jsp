@@ -32,7 +32,7 @@
 	<a href="request_write_page.do">문의하기 페이지</a><br>
 	<a href="request_list_page.do">문의목록 페이지</a><br>
 	<a href="request_view_page.do">문의보기 페이지</a><br>
-	
+	a
 
 	
 	
