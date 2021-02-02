@@ -13,7 +13,7 @@
   <div class="main-choice">
     <div class="main-choice-header">
       <span class="main-template-logo">
-        <i class="fas fa-video fa-4x"></i>
+        <a href="mainPage.do"><i class="fas fa-video fa-4x"></i></a>
       </span>
     </div>
 
