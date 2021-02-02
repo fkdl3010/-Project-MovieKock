@@ -42,7 +42,7 @@ public class Signup_signin_page_controller {
 					produces="application/json; charset=utf-8")
 	@ResponseBody
 	public Map<String, Object> signUp_idCheck(){
-		
+		return null;
 	}
 	
 	
