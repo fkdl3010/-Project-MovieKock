@@ -24,9 +24,9 @@
                       <table>
 						<thead>
 							<tr>
-								<td>영화제목</td>
-								<td>제목</td>
-								<td>날짜</td>
+								<a href="movie_info_page.do"><td>영화제목</td></a>
+								<a href="movie_info_page.do"><td>제목</td></a>
+								<a href="movie_info_page.do"><td>날짜</td></a>
 							</tr>
 						</thead>
 					</table>    
