@@ -8,28 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class CommonController {
 	
 	
-	@RequestMapping(value="/")
+	@RequestMapping(value="")
 	public String index() {
 		return "index";
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	
