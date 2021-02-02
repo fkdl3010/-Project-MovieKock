@@ -5,8 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>계정 찾</title>
-<link rel="stylesheet" href="/movie/assets/style/id-pwPage.css" />
+<title>계정 찾기</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="/movie/assets/style/common.css" />
@@ -14,6 +13,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="/movie/assets/style/singup_signin_page_css/find_idpw_page.css"	/>
 </head>
 <body>
 

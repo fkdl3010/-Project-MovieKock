@@ -5,7 +5,7 @@
     <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title></title>
-    <link rel="stylesheet" href="/movie/assets/style/myPage.css"/>
+    <link rel="stylesheet" href="/movie/assets/style/my_page_css/my_page.css"/>
     <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
     </head>
     <body>
