@@ -136,7 +136,7 @@ END;
 
 
 -- movie Table Create SQL
-CREATE TABLE feel
+CREATE TABLE color
 (
     feel_no      NUMBER          NOT NULL, 
     feel_name    VARCHAR2(20)    NULL, 
@@ -144,7 +144,7 @@ CREATE TABLE feel
 )
 /
 
-CREATE SEQUENCE feel_SEQ
+CREATE SEQUENCE color_SEQ
 START WITH 1
 INCREMENT BY 1;
 /
@@ -153,7 +153,7 @@ CREATE OR REPLACE TRIGGER color_AI_TRG
 BEFORE INSERT ON color 
 REFERENCING NEW AS NEW FOR EACH ROW 
 BEGIN 
-    SELECT feel_SEQ.NEXTVAL
+    SELECT color_SEQ.NEXTVAL
     INTO :NEW.feel_no
     FROM DUAL;
 END;
@@ -458,84 +458,84 @@ ALTER TABLE main_view
 
 
 -- movie Table Create SQL
-CREATE TABLE comment
+CREATE TABLE comments
 (
     comment_no         NUMBER            NOT NULL, 
     comment_content    VARCHAR2(4000)    NULL, 
     comment_date       DATE              NULL, 
-    user_no            NUMBER            NULL, 
     movie_no           NUMBER            NULL, 
     comment_like       NUMBER            NULL, 
-    CONSTRAINT COMMENT_PK PRIMARY KEY (comment_no)
+    user_no            NUMBER            NULL, 
+    CONSTRAINT COMMENTS_PK PRIMARY KEY (comment_no)
 )
 /
 
-CREATE SEQUENCE comment_SEQ
+CREATE SEQUENCE comments_SEQ
 START WITH 1
 INCREMENT BY 1;
 /
 
-CREATE OR REPLACE TRIGGER comment_AI_TRG
-BEFORE INSERT ON comment 
+CREATE OR REPLACE TRIGGER comments_AI_TRG
+BEFORE INSERT ON comments 
 REFERENCING NEW AS NEW FOR EACH ROW 
 BEGIN 
-    SELECT comment_SEQ.NEXTVAL
+    SELECT comments_SEQ.NEXTVAL
     INTO :NEW.comment_no
     FROM DUAL;
 END;
 /
 
---DROP TRIGGER comment_AI_TRG;
+--DROP TRIGGER comments_AI_TRG;
 /
 
---DROP SEQUENCE comment_SEQ;
+--DROP SEQUENCE comments_SEQ;
 /
 
-ALTER TABLE comment
-    ADD CONSTRAINT FK_comment_user_no_Users_user_ FOREIGN KEY (user_no)
-        REFERENCES Users (user_id)
-/
-
-ALTER TABLE comment
-    ADD CONSTRAINT FK_comment_movie_no_movie_movi FOREIGN KEY (movie_no)
+ALTER TABLE comments
+    ADD CONSTRAINT FK_comments_movie_no_movie_mov FOREIGN KEY (movie_no)
         REFERENCES movie (movie_no)
+/
+
+ALTER TABLE comments
+    ADD CONSTRAINT FK_comments_user_no_Users_user FOREIGN KEY (user_no)
+        REFERENCES Users (user_no)
 /
 
 
 -- movie Table Create SQL
-CREATE TABLE faq_comment
+CREATE TABLE faq_comments
 (
     faq_comment_no         NUMBER            NOT NULL, 
     faq_no                 NUMBER            NULL, 
     faq_comment_content    VARCHAR2(4000)    NULL, 
     faq_comment_date       DATE              NULL, 
-    CONSTRAINT FAQ_COMMENT_PK PRIMARY KEY (faq_comment_no)
+    CONSTRAINT FAQ_COMMENTS_PK PRIMARY KEY (faq_comment_no)
 )
 /
 
-CREATE SEQUENCE faq_comment_SEQ
+CREATE SEQUENCE faq_comments_SEQ
 START WITH 1
 INCREMENT BY 1;
 /
 
-CREATE OR REPLACE TRIGGER faq_comment_AI_TRG
-BEFORE INSERT ON faq_comment 
+CREATE OR REPLACE TRIGGER faq_comments_AI_TRG
+BEFORE INSERT ON faq_comments 
 REFERENCING NEW AS NEW FOR EACH ROW 
 BEGIN 
-    SELECT faq_comment_SEQ.NEXTVAL
+    SELECT faq_comments_SEQ.NEXTVAL
     INTO :NEW.faq_comment_no
     FROM DUAL;
 END;
 /
 
---DROP TRIGGER faq_comment_AI_TRG;
+--DROP TRIGGER faq_comments_AI_TRG;
 /
 
---DROP SEQUENCE faq_comment_SEQ;
+--DROP SEQUENCE faq_comments_SEQ;
 /
 
-ALTER TABLE faq_comment
-    ADD CONSTRAINT FK_faq_comment_faq_no_FAQ_faq_ FOREIGN KEY (faq_no)
+ALTER TABLE faq_comments
+    ADD CONSTRAINT FK_faq_comments_faq_no_FAQ_faq FOREIGN KEY (faq_no)
         REFERENCES FAQ (faq_no)
 /
 

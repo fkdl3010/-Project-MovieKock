@@ -6,7 +6,10 @@
 </jsp:include>
 
 
-	<a href="main_page.do">메인페이지</a><br><br>
+	<a href="main_page.do">메인페이지</a><br>
+	<a href="search_result_page.do">검색</a>
+	<br><br>
+	
 	
 	-마이 페이지-<br>
 	<a href="my_page.do">마이페이지 이동</a><br>
