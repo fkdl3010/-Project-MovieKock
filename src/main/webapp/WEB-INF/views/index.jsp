@@ -26,6 +26,7 @@
 
 	<a href="#" data-target="#layerpop" data-toggle="modal">내가 쓴글 보기페이지</a><br>
 	<a href="ask_page.do">문의하기</a><br>
+	<a href="comment_page.do">코멘트 페이지</a><br>
 	
 	
 

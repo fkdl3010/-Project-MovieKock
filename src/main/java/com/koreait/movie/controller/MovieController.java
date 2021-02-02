@@ -18,7 +18,6 @@ public class MovieController {
 		return "moviekock/myPage";
 	}
 	
-	
 	@RequestMapping(value="mainPage.do")
 	public String mainPage() {
 		return "moviekock/mainPage";
@@ -43,9 +42,9 @@ public class MovieController {
 		return "moviekock/choicePage";
 	}
 	
-	@RequestMapping(value="myWritePage.do")
-	public String myWritePage() {
-		return "moviekock/myWritePage";
+	@RequestMapping(value="my_write_page.do")
+	public String my_write_page() {
+		return "moviekock/my_write_page";
 	}
 	
 	@RequestMapping(value="idPwPage.do")
@@ -68,11 +67,20 @@ public class MovieController {
 		return "moviekock/movie_info_page";
 	}
 	
-	
 	@RequestMapping(value="myWriteViewPage.do")
 	public String myWriteViewPage() {
 		return "moviekock/myWriteViewPage";
 	}
+	@RequestMapping(value="ask_page.do")
+	public String ask_page() {
+		return "moviekock/ask_page";
+	}
+	@RequestMapping(value="comment_page.do")
+	public String comment_page() {
+		return "moviekock/comment_page.do";
+	}
+	
+	
 	
 	
 }
