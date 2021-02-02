@@ -4,11 +4,11 @@
 		text-align: center;
 	}
 	.top_logo{
-		width: 7%;
+		width: 5%;
 	}
 	
 	.top_text {
-		font-size: 30px;
+		font-size: 20px;
 		font-weight: bold;
 	}	
 	
@@ -18,13 +18,24 @@
 		text-align: center;
 	}
 	
+	#main-wrap{
+		margin : auto;
+		width : 35rem;
+		border : 2px solid gray;
+		padding : 20px;
+	
+	}
 	.main {
 		display: inline-block;
 		margin: auto;
-		font-size:28px;
+		font-size:25px;
 		text-align: left;
+		font-weight: 600;
 	}
 	
+	.label_text{
+		margin-top : 10px;
+	}
 	
 	
 	input:focus {
@@ -43,8 +54,8 @@
 	}
 	
 	.inp_btn {
-		width: 100px;
-		height: 50px;
+		width: 70px;
+		height: 40px;
 	}
 
 	.inp_btn_bot {
