@@ -1,0 +1,58 @@
+@charset "EUC-KR";
+
+        .big-box{
+            border: 4px solid black;
+            border-radius: 30px;
+            width: 600px;
+            height: 800px;
+            margin: auto;
+            position: relative;
+        }
+        
+        .small-box{
+            border: 3px solid black;
+            width: 230px;
+            height: 180px;
+            margin: 300px 20px 200px 20px;
+          
+        }
+        
+        #card-box1{
+            width: 490px;
+            position: absolute;
+            bottom: 90px;
+            left: 35px;
+           
+        }
+        
+        #card-box2{
+            position: absolute;
+            top : 230px;
+            left: 35px;
+            
+        }
+        #card-box3{
+            position: absolute;
+            top : 230px;
+            right: 30px;
+        }
+        
+        #alter{
+            position: absolute;
+            width: 40px;
+            bottom: 10px;
+            right: 10px;
+        }
+        
+        #profile{
+            position: absolute;
+            width : 100px;
+            height: 80px;
+            top : 220px;
+            left: 40px;
+            
+        }
+        
+        textarea{
+        	border-color: white;
+        }
