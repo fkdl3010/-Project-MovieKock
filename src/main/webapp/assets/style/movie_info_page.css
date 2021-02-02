@@ -13,74 +13,92 @@
 		background: white;
 	}
 	
-	/***** 스냅샷 *****/
-	.snap{
-		width: 850px;
-		height: 350px;
-	}
+/***** 스냅샷 *****/
+.snap_background_left{
+	width: 25%;
+	height: 350px;
+	background: linear-gradient(-90deg, black, gray);
+	display: block;
+}
+.snap_background_right{
+	width: 25%;
+	height: 350px;
+	background: linear-gradient(90deg, black, gray);
+	display: block;
 
-	.info_main_top {
-		width: 100%;
-	}
+}
+
+.snap{
+	width: 50%;
+	height: 350px;
+	display: block;
+}
+
+.info_main_top {
+	width: 100%;
+	display: flex;
+	position: relative;
+}
 	
 /***** 포스터, 제목 *****/
-	.info_main_mid{
-		margin: auto;
-		width: 740px;
-		height: 220px;
-		margin-bottom: 15px;
-		display: flex;
-	}
+.info_main_mid{
+	margin: auto;
+	width: 740px;
+	height: 220px;
+	margin-bottom: 15px;
+	display: flex;
+}
 
-	.info_main_mid_left{
-		width: 300px;
-		height: 220px;
-	}
+.info_main_mid_left{
+	width: 300px;
+	height: 220px;
+}
 
-	.info_main_mid_mid{
-		padding-left: 30px;
-		width: 100%;
-		height: 220px;
-		text-align: left;
-	}
+.info_main_mid_mid{
+	padding-left: 30px;
+	width: 100%;
+	height: 220px;
+	text-align: left;
+}
+
 
 	.info_main_mid_right{
-		height: 220px;
 		position: relative;
 	}
 
-	.info_main_mid_mid_title{
-		font-weight: bold;
-		font-size: 20px;
-		display: table-cell;
-		vertical-align: bottom;
-	}
-	.info_main_mid_mid_contents{
-		margin-top: 20px;
-		height: 100px;
-	}
-	.textdeco{
-		border-bottom: 1px solid rgba(0, 0, 0, 0.562);
-	}
-	.movie_info_opendate{
-		display: inline-block;
-		margin: 7px 0px;
-	}
-	.form-btn{
-		width: 230px;
-		padding: 12px 0px;
-		
-	}
-	.info_main_mid_right{
-		display: table-cell;
-		vertical-align: bottom;
-	}
-	.movie_poster{
-		background-color: gray;
-		width: 190px;
-		height: 220px;
-		margin: auto;
-	}
+
+.info_main_mid_mid_title{
+	font-weight: bold;
+	font-size: 20px;
+	display: table-cell;
+	vertical-align: bottom;
+}
+.info_main_mid_mid_contents{
+	margin-top: 20px;
+	height: 100px;
+}
+.textdeco{
+	border-bottom: 1px solid rgba(0, 0, 0, 0.562);
+}
+.movie_info_opendate{
+	display: inline-block;
+	margin: 7px 0px;
+}
+.form-btn{
+	width: 230px;
+	padding: 12px 0px;
+	
+}
+.info_main_mid_right{
+	display: table-cell;
+	vertical-align: bottom;
+}
+.movie_poster{
+	background-color: gray;
+	width: 190px;
+	height: 220px;
+	margin: auto;
+}
 
 /***** 정보 *****/
 
@@ -212,26 +230,54 @@
 }
 
 .main_bot_movies_poster {
-	width: 220px;
-	height: 250px;
+	position: relative;
 	background: #ddd;
 	border-radius: 15px;
+	width: 220px;
+	height: 250px;
+	overflow: hidden;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
 	margin-bottom: 20px;
-}
-
-.main_bot_movies_poster:nth-of-type(10), .main_bot_movies_poster:nth-of-type(11), .main_bot_movies_poster:nth-of-type(12) {
-	margin-bottom: 0px;
 }
 
 .main_bot_poster_info {
 	padding: 10px;
 	text-align: left;
-	display: none;
+	position: absolute;
+	font-size: 15px;
+	top: 100%;
+	width: 220px;
 }
 
+.main_bot_movies_poster:hover .main_bot_poster_info {
+	background: #4b4262;
+	padding-left: 10px;
+	color: white;
+	transition: all 2s;
+	border-radius: 15px;
+	top: 77%;
+}
+
+
+.main_bot_movies_poster:nth-of-type(10), .main_bot_movies_poster:nth-of-type(11), .main_bot_movies_poster:nth-of-type(12) {
+	margin-bottom: 0px;
+}
+
+:focus {
+	outline: none;
+}
 	
 	
-	
+#star-rating{
+  margin-bottom: 10px;
+}
+
+.my-rating-contents{
+  margin-top: 90px;
+}	
 	
 	
 	
