@@ -1,5 +1,5 @@
 package com.koreait.movie.dao;
 
-public class MovieDao {
+public class Signup_signin_dao {
 
 }

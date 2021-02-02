@@ -29,13 +29,14 @@
 	<a href="privacy_agreement_page.do">개인정보약관동의사이트</a><br><br>
 	
 	-영화 정보보기 페이지-<br>
-	<a href="movie_info_page.do">영화 INFO 페이지</a><br><br>
+	<a href="movie_info_page.do">영화 INFO 페이지</a><br>
+	<a href="movie_comment_page.do">코멘트 페이지</a><br><br>
 	
 	-문의하기-<br>
 	<a href="request_write_page.do">문의하기 페이지</a><br>
 	<a href="request_list_page.do">문의목록 페이지</a><br>
 	<a href="request_view_page.do">문의보기 페이지</a><br>
-	
+	a
 
 	
 	
