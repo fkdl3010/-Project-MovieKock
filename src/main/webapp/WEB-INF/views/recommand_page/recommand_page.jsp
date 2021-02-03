@@ -33,6 +33,14 @@ function situbtn(){
 	}
 }
 
+<script type="text/javascript">
+var images = new Array("/movie/assets/images/poster/굿바이_싱글_포스터.jpg","/movie/assets/images/poster/사자_포스터.jpg","/movie/assets/images/poster/사자_포스터.jpg"); 
+
+
+var index = Math.round(Math.random * 3);
+
+document.write("<img width=130 name='image" + i + "' src='" + images [i] + "'></img>");
+
 </script>
 <body>
  <div id="wrap">
