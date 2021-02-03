@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,11 +12,6 @@
 </head>
 <body>
   <div class="main-choice">
-    <div class="main-choice-header">
-      <span class="main-template-logo">
-        <a href="mainPage.do"><i class="fas fa-video fa-4x"></i></a>
-      </span>
-    </div>
 
     <div class="progress-box">
       <h3 class="progress-text">10개 이상의 영화를 선택해 주새요.</h3>
@@ -28,23 +24,49 @@
       </form>
     </div>
 
-    <div class="main-movieList">
-      <div class="list"></div>
-      <div class="list"></div>
-      <div class="list"></div>
-      <div class="list"></div>
-      <div class="list"></div>
-      <div class="list"></div>
-      <div class="list"></div>
-      <div class="list"></div>
-      <div class="list"></div>
-      <div class="list"></div>
-      <div class="list"></div>
-      <div class="list"></div>
+    <div class="main-movieList" id="main-movieList">
+    
+    	<div class="listBox" id="listBox">
+    	
+	      <c:if test="${empty movieDefaultList}">
+	      	없음
+	      </c:if>
+	      <c:if test="${not empty movieDefaultList }">
+	      	<c:forEach var="movie" items="${movieDefaultList }">
+	      		<div class="list" style="background-image: url('/movie/assets/images/poster/${movie.movie_title}_포스터.jpg'); background-size: 250px 300px;"></div>
+	      	</c:forEach>
+	      	
+	      </c:if>
+	      
+    	</div>
     </div>
 
   </div>
 
   <script src="/movie/assets/script/choicePage.js"></script>
+  <script>
+  	
+  	
+  	const main = document.querySelector('#main-movieList');
+  	const listBox = document.createElement('div');
+  	
+  	
+  	function getMovieList(){
+  		
+  		
+  		
+  		
+  	}
+  
+  
+  	function init(){
+  		
+  		
+  	}
+  	
+  	init();
+  	
+  
+  </script>
 </body>
 </html>
