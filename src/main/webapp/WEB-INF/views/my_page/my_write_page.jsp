@@ -14,7 +14,7 @@
 
 	<div class="wrap">
 		<div class="main">
-			<div class="box1">
+			<!-- <div class="box1">
 				<div class="box3">
 					<i class="fas fa-user-alt fa-8x" id=user_icon></i>
 				</div>
@@ -30,6 +30,16 @@
 									<td>제목</td>
 									<td>날짜</td>
 								</tr>
+								<tr>
+									<td>영화제목</td>
+									<td>제목</td>
+									<td>날짜</td>
+								</tr>
+								<tr>
+									<td>영화제목</td>
+									<td>제목</td>
+									<td>날짜</td>
+								</tr>
 							</thead>
 						</table>
 					</div>
@@ -37,7 +47,12 @@
 						<h3>내가 쓴 글</h3>
 					</div>
 				</div>
-			</div>
+			</div> -->
+
+			<section>
+				<div class="box_top"></div>
+				<div class="box_bottom"></div>
+			</section>
 		</div>
 	</div>
 
