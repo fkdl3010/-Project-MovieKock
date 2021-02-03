@@ -1,5 +1,5 @@
 package com.koreait.movie.dao;
 
-public class Request_dao {
+public interface Request_dao {
 
 }

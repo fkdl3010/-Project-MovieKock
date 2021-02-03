@@ -9,9 +9,12 @@
     .main_head {
         width: 90%;
         height: 30%;
+<<<<<<< HEAD:src/main/webapp/assets/style/ask_page.css
+=======
         margin: auto;
         position:absolute;
         top:-50px;
+>>>>>>> b9591b434fdfd2222970a27ce3f1eadcb87f061e:src/main/webapp/assets/style/request_page_css/request_write_page.css
         margin: auto;
     }
     h3 {
