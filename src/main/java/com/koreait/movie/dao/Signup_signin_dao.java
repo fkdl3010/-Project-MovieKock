@@ -11,4 +11,6 @@ public interface Signup_signin_dao {
 	public Integer signEmailCheck(String email);
 	
 	public int signUserInsert(UserDto userDto);
+	
+	public UserDto loginUser(UserDto userDto);
 }
