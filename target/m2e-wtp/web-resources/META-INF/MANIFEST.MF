@@ -1,11 +1,9 @@
 Manifest-Version: 1.0
-<<<<<<< HEAD
-Built-By: ITSC
-=======
+
 
 Built-By: LG
 
->>>>>>> fea22fea15b79cbb4339352b19b2c74794af57b8
+
 Build-Jdk: 1.8.0_202
 Created-By: Maven Integration for Eclipse
 
