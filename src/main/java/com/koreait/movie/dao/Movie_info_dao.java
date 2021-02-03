@@ -1,5 +1,5 @@
 package com.koreait.movie.dao;
 
-public class Movie_info_dao {
+public interface Movie_info_dao {
 
 }
