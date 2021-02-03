@@ -63,3 +63,20 @@
 		width: 150px;
 		height: 60px;
 	}
+	
+	.normal{
+		font-size: 13px;
+		color: gray;
+	}
+	
+	.possible{
+			font-size: 13px;
+	
+		color: green;
+	}
+	
+	.impossible{
+			font-size: 13px;
+	
+		color: red;
+	}
