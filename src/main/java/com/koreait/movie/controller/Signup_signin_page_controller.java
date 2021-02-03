@@ -75,6 +75,7 @@ public class Signup_signin_page_controller {
 					method=RequestMethod.POST,
 					produces="application/json; charset=utf-8")
 	@ResponseBody
+
 	public Map<String, Object> signUp_idCheck(@PathVariable("userId") String userId,
 												Model model){
 		model.addAttribute("userId", userId);
@@ -118,6 +119,7 @@ public class Signup_signin_page_controller {
 		insertUserCommand.execute(sqlSession, model);
 		
 		return "redirect:/";
+
 	}
 	
 	
