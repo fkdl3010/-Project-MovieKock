@@ -17,7 +17,10 @@
 	function fn_login(f){
 		if(f.id.value == '' || f.pw.value == ''){
 			alert('아이디와 비밀번호를 모두 입력하세요');
+			return;
 		}
+		f.action = '';
+		f.submit();
 	}
 </script>
 <body>
@@ -33,8 +36,8 @@
     	</div>
     	<div class="control-form">
      	 <form action="" class="login-form" method="post">
-        	<input type="text" class="login-input"name="id" placeholder="로그인" />
-        	<input type="password" class="login-input" name="pw" placeholder="비밀번호" />
+        	<input type="text" class="login-input" id="id" name="id" placeholder="로그인" />
+        	<input type="password" class="login-input" id="pw" name="pw" placeholder="비밀번호" />
         	<input type="checkbox" name="rememberId" id="rememberId"/>
         	<label for="rememberId">아이디 저장</label>
         	<input type="button" class="login-btn" value="로그인" onclick="fn_login(this.form)" />
