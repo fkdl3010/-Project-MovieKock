@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+
+<mapper namespace="com.koreait.movie.dao.Signup_signin_dao">
+
+	<select id="signIdCheck" parameterType="String" resultType="int">
+		select user_no
+		from users
+		where user_id = #{id}
+	</select>
+	
+	<select id="signNickCheck" parameterType="String" resultType="int">
+		select user_no
+		from users
+		where user_nickname = #{nick}
+	</select>
+	
+	<select id="signEmailCheck" parameterType="String" resultType="int">
+		select user_no
+		from users
+		where user_email = #{email}
+	</select>
+	
+	<insert id="signUserInsert" parameterType="com.koreait.movie.dto.UserDto">
+		insert 
+		into users
+		values(users_seq.nextval,
+		 	#{user_id},
+		  	#{user_pw},
+	  		#{user_nickname},
+		   	#{user_name},
+		    #{user_email},
+		    #{user_phone},
+		      sysdate,
+		       'none')
+	</insert>
+	
+</mapper>

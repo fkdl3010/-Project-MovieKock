@@ -1,99 +1,107 @@
 @charset "UTF-8";
 
-.main-wrapper input{
-  display: block;
+html, body {
+	display: grid;
+	place-items: center;
+	min-height: 100vh;
 }
 
-.main-wrapper button{
-  display: block;
+.main-wrapper input {
+	display: block;
 }
 
-input[type="checkbox"]{
-  display: inline-block;
+.main-wrapper button {
+	display: block;
 }
 
-a{
-  color: black;
-  text-decoration: none;
+input[type="checkbox"] {
+	display: inline-block;
 }
 
-.footer{
-  text-align: right;
+a {
+	color: black;
+	text-decoration: none;
 }
 
-.main-wrapper{
-  width: 60rem;
-  padding: 5rem;
-  margin: auto;
-  margin-top : 100px;
+.footer {
+	text-align: center;
 }
 
-
-.footer-link{
-  display: inline-block;
-  height: 10%;
-  width: 30.2%;
-  line-height: 30px;
-  text-align: center;
- 
-}
-.id-pw{
-  border-right: 1px solid gray;
-  padding-right: 10px;
+.main-wrapper {
+	width: 60rem;
+	padding: 5rem;
+	margin: auto;
 }
 
-.signUp{
-    width: 11%;
-    margin-left: 10px;
+.footer-link {
+	display: inline-block;
+	height: 10%;
+	width: 40%;
+	line-height: 30px;
+	text-align: center;
+	margin-top: 20px;
 }
 
-
-.login-btn{
-  width: 100%;
-  padding: 3% 0;
-  margin: 1rem 0;
-  border-radius: 10px;
-  border: 1px solid lightgray;
+.id-pw {
+	border-right: 1px solid gray;
+	padding-right: 32px;
 }
 
-.login-input{
-  width: 100%;
-  padding: 3% 3%;
+.signUp {
+	width: 25%;
+	margin-left: 10px;
 }
 
-.header{
-  text-align: center;
+.login-btn {
+	width: 100%;
+	padding: 3% 0;
+	margin: 1rem 0;
+	border-radius: 10px;
+	border: 1px solid lightgray;
 }
 
-.heading{
-  font-size: 3em;
-  font-weight: bold;
+.login-input {
+	width: 100%;
+	padding: 3% 3%;
 }
 
-.heading-contents{
-  font-size: 1.8em;
-  font-weight: bold;
+.header {
+	text-align: center;
+	margin-bottom: 30px !important;
 }
 
-.logo{
-  text-align: center;
+.heading {
+	font-size: 3.0em;
+	font-weight: bold;
+	margin-bottom: 0px !important;
 }
 
-.main-wrapper div{
-  margin: 1rem;
+.heading-contents {
+	font-size: 1.3em;
+	font-weight: bold;
+	margin-top: 0px !important;
 }
 
-.login-input{
-  margin: 1rem 0;
-  border-radius: 10px;
-  border: 1px solid lightgray;
+.main-wrapper div {
+	margin: 0.8rem;
 }
 
-.modal-dialog{
-  width: 800px;
-  height: 460px;
+.logo {
+	text-align: center;
+	padding-bottom: 17px;
 }
 
-.modal-content{
-  height: 100%;
+.login-input {
+	margin: 1rem 0;
+	border-radius: 10px;
+	border: 1px solid lightgray;
+}
+
+.modal-dialog {
+	width: 800px;
+	height: 460px;
+}
+
+.modal-content {
+	height: 100%;
 }

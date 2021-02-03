@@ -13,11 +13,21 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
   <link rel="stylesheet" href="/movie/assets/style/singup_signin_page_css/login_page.css"/>
 </head>
+<script type="text/javascript">
+	function fn_login(f){
+		if(f.id.value == '' || f.pw.value == ''){
+			alert('아이디와 비밀번호를 모두 입력하세요');
+			return;
+		}
+		f.action = '';
+		f.submit();
+	}
+</script>
 <body>
   <div class="main-wrapper">
   	
     <div class="logo">
-     <a href="mainPage.do"><i class="fas fa-video fa-5x"></i></a>
+     <a href="main_page.do"><i class="fas fa-video fa-5x"></i></a>
     </div>
   
     	<div class="header">
@@ -25,16 +35,16 @@
       	<div class="heading-contents">무비콕에 오신 걸 환영합니다.</div>
     	</div>
     	<div class="control-form">
-     	 <form action="" class="login-form">
-        	<input type="text" class="login-input"name="id" placeholder="로그인" />
-        	<input type="password" class="login-input" name="pw" placeholder="비밀번호" />
+     	 <form action="" class="login-form" method="post">
+        	<input type="text" class="login-input" id="id" name="id" placeholder="로그인" />
+        	<input type="password" class="login-input" id="pw" name="pw" placeholder="비밀번호" />
         	<input type="checkbox" name="rememberId" id="rememberId"/>
         	<label for="rememberId">아이디 저장</label>
-        	<button class="login-btn">로그인</button>
+        	<input type="button" class="login-btn" value="로그인" onclick="fn_login(this.form)" />
       	</form>
     	</div>
     	<div class="footer">
-      	<a href="#"><span class="footer-link id-pw">아이디 / 비밀번호 찾기</span></a>
+      	<a href="/movie/find_idpw_page.do"><span class="footer-link id-pw">아이디 / 비밀번호 찾기</span></a>
       	<a href="#" data-target="#layerpop" data-toggle="modal"><span class="footer-link signUp">회원가입</span></a>
     	</div>
    
@@ -49,7 +59,7 @@
           <!-- 닫기(x) 버튼 -->
           <button type="button" class="close" data-dismiss="modal">×</button>
           <!-- header title -->
-          <h4 class="modal-title">영화 이름</h4>
+          <h4 class="modal-title">개인 정보 수집 · 이용에 대한 동의</h4>
         </div>
         <!-- body -->
         <div class="modal-body">
