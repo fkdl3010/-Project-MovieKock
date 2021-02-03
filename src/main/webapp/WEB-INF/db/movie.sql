@@ -581,4 +581,3 @@ ALTER TABLE movie_taste
         REFERENCES movie (movie_no)
 /
 
-insert into USERS values(users_seq.nextval,'test','1111','test','test','test@email.com','010-1234',sysdate,'test');
