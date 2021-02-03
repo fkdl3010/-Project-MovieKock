@@ -14,9 +14,4 @@ public class Movie_info_page_controller {
 		return "movie_info_page/movie_comment_page";
 	}
 	
-	@RequestMapping(value="")
-	public String moive_info_page() {
-		return "movie_info_page/movie_info_page";
-	}
-	
 }

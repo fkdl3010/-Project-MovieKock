@@ -2,7 +2,9 @@ package com.koreait.movie.command.signup_signin;
 
 import java.util.Map;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
@@ -21,9 +23,19 @@ public class Signup_signin_loginCommand implements CommonVoidCommand {
 		Map<String, Object> map = model.asMap();
 		
 		HttpServletRequest request = (HttpServletRequest)map.get("request");
+		HttpServletResponse response = (HttpServletResponse)map.get("response");
 		
 		String user_id = request.getParameter("id");
 		String user_pw = request.getParameter("pw");
+		String rememberId = request.getParameter("rememberId");
+		
+		Cookie cookie = null;
+		
+		if (rememberId != null) {
+			cookie = new Cookie("id", user_id);
+			cookie.setMaxAge(60*60*24*7);
+			response.addCookie(cookie);
+		}
 		
 		UserDto userDto = new UserDto();
 		
@@ -40,8 +52,7 @@ public class Signup_signin_loginCommand implements CommonVoidCommand {
 			model.addAttribute("loginResult", false);
 		} else {
 			model.addAttribute("loginResult", true);
-			model.addAttribute("loginUser", loginUser);
-//			session.setAttribute("loginUser", loginUser);
+			session.setAttribute("loginUser", loginUser);
 		}
 	}
 

@@ -26,7 +26,7 @@
       	<div class="heading-contents">무비콕에 오신 걸 환영합니다.</div>
     	</div>
     	<div class="control-form">
-     	 <form class="login-form" method="post">
+     	 <form class="login-form" id="loginForm" name="loginForm" method="post">
         	<input type="text" class="login-input" id="id" name="id" placeholder="아이디" />
         	<input type="password" class="login-input" id="pw" name="pw" placeholder="비밀번호" />
         	<input type="checkbox" name="rememberId" id="rememberId"/>
@@ -50,6 +50,17 @@
 			f.submit();
 		}
 	}
+	
+	window.onload = function(){
+		if("${cookie.id.value}" != ""){
+			document.querySelector('#id').value ="${cookie.id.value}";
+			document.querySelector('#rememberId').checked = true;
+		}
+		
+	}
+	
+	console.log("${cookie.id.value}");
+	
 </script>
 
   <!-- modal -->

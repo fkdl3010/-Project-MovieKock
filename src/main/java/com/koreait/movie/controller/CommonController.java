@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class CommonController {
 
 
-	@RequestMapping(value= {"","index.do"})
+	@RequestMapping(value= {"", "index.do"})
 	public String index() {
 		return "index";
 	}

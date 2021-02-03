@@ -3,6 +3,7 @@ package com.koreait.movie.controller;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,12 +15,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.koreait.movie.command.signup_signin.Signup_signin_insertUserCommand;
-import com.koreait.movie.command.signup_signin.Signup_signin_loginCommand;
 import com.koreait.movie.command.signup_signin.Signup_signin_emailCheckCommand;
 import com.koreait.movie.command.signup_signin.Signup_signin_idCheckCommand;
+import com.koreait.movie.command.signup_signin.Signup_signin_insertUserCommand;
+import com.koreait.movie.command.signup_signin.Signup_signin_loginCommand;
+import com.koreait.movie.command.signup_signin.Signup_signin_logoutCommand;
 import com.koreait.movie.command.signup_signin.Signup_signin_nickCheckCommand;
-import com.koreait.movie.common.CommonMapCommand;
 
 @Controller
 
@@ -34,18 +35,21 @@ public class Signup_signin_page_controller {
 	private Signup_signin_emailCheckCommand emailCheckCommand;
 	private Signup_signin_insertUserCommand insertUserCommand;
 	private Signup_signin_loginCommand loginCommand;
+	private Signup_signin_logoutCommand logoutCommand;
 	
 	@Autowired
 	public void setBean(Signup_signin_idCheckCommand idcheckCommand,
 						Signup_signin_nickCheckCommand nickCheckCommand,
 						Signup_signin_emailCheckCommand emailCheckCommand,
 						Signup_signin_insertUserCommand insertUserCommand,
-						Signup_signin_loginCommand loginCommand) {
+						Signup_signin_loginCommand loginCommand,
+						Signup_signin_logoutCommand logoutCommand) {
 		this.idcheckCommand = idcheckCommand;
 		this.nickCheckCommand = nickCheckCommand;
 		this.emailCheckCommand = emailCheckCommand;
 		this.insertUserCommand = insertUserCommand;
 		this.loginCommand = loginCommand;
+		this.logoutCommand = logoutCommand;
 	}
 	
 	
@@ -130,16 +134,29 @@ public class Signup_signin_page_controller {
 	@RequestMapping(value="login.do",
 					  method=RequestMethod.POST)
 	public String login(HttpServletRequest request,
-//						 RedirectAttributes rttr,
+						  HttpServletResponse response,
 						 Model model) {
 		model.addAttribute("request", request);
-//		model.addAttribute("rttr", rttr);
+		model.addAttribute("response", response);
 		
 		loginCommand.execute(sqlSession, model);
 		
 		return "signup_signin_page/login_result_page";
 		
 	}
-
+	
+	/*** 로그아웃 ***/
+	@RequestMapping(value="logout.do"
+					  )
+	public String logout(HttpServletRequest request,
+						 Model model) {
+		model.addAttribute("request", request);
+		
+		logoutCommand.execute(sqlSession, model);
+		
+		
+		return "signup_signin_page/logout_result_page";
+	}
+	
 	
 }
