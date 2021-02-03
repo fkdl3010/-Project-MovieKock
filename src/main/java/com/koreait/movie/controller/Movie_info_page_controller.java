@@ -13,4 +13,7 @@ public class Movie_info_page_controller {
 	public String movie_comment_page() {
 		return "movie_info_page/movie_comment_page";
 	}
+	
+	
+	
 }
