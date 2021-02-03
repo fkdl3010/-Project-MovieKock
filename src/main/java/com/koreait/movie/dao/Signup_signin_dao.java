@@ -15,5 +15,9 @@ public interface Signup_signin_dao {
 	
 	public int signUserInsert(UserDto userDto);
 	
+
+	public UserDto loginUser(UserDto userDto);
+
 	public List<MovieDto> signMovieDefaultList();
+
 }

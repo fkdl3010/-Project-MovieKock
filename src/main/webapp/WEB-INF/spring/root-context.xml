@@ -75,6 +75,10 @@
 	<bean id="nickCheckCommand" class="com.koreait.movie.command.signup_signin.Signup_signin_nickCheckCommand"></bean>
 	<bean id="emailCheckCommand" class="com.koreait.movie.command.signup_signin.Signup_signin_emailCheckCommand"></bean>
 	<bean id="insertUserCommand" class="com.koreait.movie.command.signup_signin.Signup_signin_insertUserCommand"></bean>
+
+	<bean id="loginCommand" class="com.koreait.movie.command.signup_signin.Signup_signin_loginCommand"></bean>
+
 	<bean id="choiceMovieDefaultListCommand" class="com.koreait.movie.command.signup_signin.Signup_signin_choiceMovieDefaultListCommand"></bean>
+
 </beans>
 
