@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.koreait.movie.common.CommonVoidCommand;
+import com.koreait.movie.common.Sha256;
 import com.koreait.movie.dao.Signup_signin_dao;
 import com.koreait.movie.dto.UserDto;
 
@@ -23,7 +24,7 @@ public class Signup_signin_insertUserCommand implements CommonVoidCommand{
 		RedirectAttributes rttr = (RedirectAttributes)map.get("rttr");
 		
 		String user_id = request.getParameter("id");
-		String user_pw = request.getParameter("pw");
+		String user_pw = Sha256.sha256(request.getParameter("pw"));
 		String user_nickname = request.getParameter("nickName");
 		String user_name = request.getParameter("name");
 		String user_email = request.getParameter("email");
