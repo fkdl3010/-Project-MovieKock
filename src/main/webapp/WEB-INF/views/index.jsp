@@ -6,13 +6,13 @@
 </jsp:include>
 
 
-<<<<<<< HEAD
+
 	<a href="mainPage.do">메인페이지</a><br>
 	<a href="myPage.do">마이페이지 이동</a><br>
 	<a href="2nd.do">2번째 페이지로 이동</a><br>
 	<a href="loginPage.do">로그인 페이지로 이동</a><br>
 
-=======
+
 	<a href="main_page.do">메인페이지</a><br><br>
 	
 	-마이 페이지-<br>
@@ -20,13 +20,12 @@
 	<a href="my_write_page.do">내가 쓴 글 페이지 이동</a><br>
 	<a href="my_write_view_page.do">내가 쓴글 보기페이지</a><br>
 	<a href="#" data-target="#layerpop" data-toggle="modal">내가 쓴글 보기페이지-모달창-</a><br><br>
->>>>>>> 9a7075aefd83a64cf485bbb76e36f36cc182ef04
 
 	-추천 페이지-<br>
 	<a href="category_recommand_page.do">장르별 추천 페이지로 이동</a><br>
 	<a href="recommand_page.do">기분 상황별 추천 페이지이동</a><br><br>
 
-<<<<<<< HEAD
+
 	<a href="my_write_page.do">내가 쓴 글 페이지 이동</a><br>
 	<a href="signupPage.do">회원가입</a><br>
 	<a href="choicePage.do">회원가입시 영화선택페이지</a><br>
@@ -34,7 +33,7 @@
 	<a href="recommandPage.do">영화 추천 페이지이동</a><br>
 	<a href="privacy_agreement_page.do">개인정보약관동의사이트</a><br>
 	<a href="movie_info_page.do">영화 INFO 페이지</a><br>
-<<<<<<< HEAD
+
 
 	<a href="myWriteViewPage.do">내가 쓴글 보기페이지</a><br>
 	<a href="ask_page.do">문의하기 페이지</a><br>
@@ -44,15 +43,14 @@
 	<a href="#" data-target="#layerpop" data-toggle="modal">내가 쓴글 보기페이지</a><br>
 	<a href="ask_page.do">문의하기</a><br>
 
-=======
+
 	<a href="myWriteViewPage.do">내가 쓴글 보기페이지</a><br>
 	<a href="ask_page.do">문의하기 페이지</a><br>
 	
 
 	<a href="#" data-target="#layerpop" data-toggle="modal">내가 쓴글 보기페이지</a><br>
 	<a href="ask_page.do">문의하기</a><br>
->>>>>>> ab92aa52e34dc6527978035bfa4fdec9b33458fc
-=======
+
 	-회원가입-<br>
 	<a href="login_page.do">로그인 페이지로 이동</a><br>
 	<a href="signup_page.do">회원가입</a><br>
@@ -69,9 +67,6 @@
 	<a href="request_view_page.do">문의보기 페이지</a><br>
 	
 
->>>>>>> 9a7075aefd83a64cf485bbb76e36f36cc182ef04
-	
-	
 
 	
 	<!-- modal -->
