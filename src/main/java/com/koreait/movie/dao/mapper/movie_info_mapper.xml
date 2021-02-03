@@ -6,6 +6,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.koreait.movie.dao.Movie_info_dao">
 	
+	<select id="my_write" resultType="com.koreait.movie.dto.CommentDto">
+		SELECT movie_no, comment_content, comment_date
+		  FROM comment
+	</select>
 	
 	
 </mapper>
