@@ -38,4 +38,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		       'none')
 	</insert>
 	
+
+	<select id="loginUser" parameterType="com.koreait.movie.dto.UserDto" resultType="com.koreait.movie.dto.UserDto">
+		select *
+		  from users
+		 where user_id=#{user_id} and
+		  	   user_pw=#{user_pw}
+
+	</select>
+	
+	<!-- 회원가입시 영화 선택 디폴트 리스트 -->
+	<select id="signMovieDefaultList" resultType="com.koreait.movie.dto.MovieDto">
+		select *
+		from movie
+		where movie_no between 1 and 18
+
+	</select>
+	
 </mapper>

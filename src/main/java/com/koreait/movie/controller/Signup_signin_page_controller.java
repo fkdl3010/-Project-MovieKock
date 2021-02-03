@@ -15,6 +15,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.koreait.movie.command.signup_signin.Signup_signin_insertUserCommand;
+
+import com.koreait.movie.command.signup_signin.Signup_signin_loginCommand;
+
+import com.koreait.movie.command.signup_signin.Signup_signin_choiceMovieDefaultListCommand;
+
 import com.koreait.movie.command.signup_signin.Signup_signin_emailCheckCommand;
 import com.koreait.movie.command.signup_signin.Signup_signin_idCheckCommand;
 import com.koreait.movie.command.signup_signin.Signup_signin_nickCheckCommand;
@@ -32,16 +37,31 @@ public class Signup_signin_page_controller {
 	private Signup_signin_nickCheckCommand nickCheckCommand;
 	private Signup_signin_emailCheckCommand emailCheckCommand;
 	private Signup_signin_insertUserCommand insertUserCommand;
+
+	private Signup_signin_loginCommand loginCommand;
+
+	private Signup_signin_choiceMovieDefaultListCommand choiceMovieDefaultListCommand;
+
 	
 	@Autowired
 	public void setBean(Signup_signin_idCheckCommand idcheckCommand,
 						Signup_signin_nickCheckCommand nickCheckCommand,
 						Signup_signin_emailCheckCommand emailCheckCommand,
-						Signup_signin_insertUserCommand insertUserCommand) {
+						Signup_signin_insertUserCommand insertUserCommand,
+
+						Signup_signin_loginCommand loginCommand) {
+
+						Signup_signin_choiceMovieDefaultListCommand choiceMovieDefaultListCommand) {
+
 		this.idcheckCommand = idcheckCommand;
 		this.nickCheckCommand = nickCheckCommand;
 		this.emailCheckCommand = emailCheckCommand;
 		this.insertUserCommand = insertUserCommand;
+
+		this.loginCommand = loginCommand;
+
+		this.choiceMovieDefaultListCommand = choiceMovieDefaultListCommand;
+
 	}
 	
 	
@@ -55,10 +75,18 @@ public class Signup_signin_page_controller {
 		return "signup_signin_page/login_page";
 	}
 	
+	
+	/*** 회원 가입 시 영화 선택 리스트 페이지 ***/
 	@RequestMapping(value="signup_choice_page.do")
-	public String signup_choice_page() {
+	public String signup_choice_page(Model model) {
+		
+		choiceMovieDefaultListCommand.execute(sqlSession, model);
+		
 		return "signup_signin_page/signup_choice_page";
 	}
+	
+	
+	
 	
 	@RequestMapping(value="find_idpw_page.do")
 	public String find_idpw_page() {
@@ -122,5 +150,20 @@ public class Signup_signin_page_controller {
 
 	}
 	
+	/*** 로그인 ***/
+	@RequestMapping(value="login.do",
+					  method=RequestMethod.POST)
+	public String login(HttpServletRequest request,
+//						 RedirectAttributes rttr,
+						 Model model) {
+		model.addAttribute("request", request);
+//		model.addAttribute("rttr", rttr);
+		
+		loginCommand.execute(sqlSession, model);
+		
+		return "signup_signin_page/login_result_page";
+		
+	}
+
 	
 }
