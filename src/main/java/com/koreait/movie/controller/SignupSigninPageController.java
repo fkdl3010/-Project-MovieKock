@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,9 +16,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.koreait.movie.command.signupSignin.ScrollMovieList;
 import com.koreait.movie.command.signupSignin.SignupSigninChoiceMovieDefaultListCommand;
 import com.koreait.movie.command.signupSignin.SignupSigninEmailCheckCommand;
+import com.koreait.movie.command.signupSignin.SignupSigninFindIdCommand;
 import com.koreait.movie.command.signupSignin.SignupSigninIdCheckCommand;
 import com.koreait.movie.command.signupSignin.SignupSigninInsertUserCommand;
 import com.koreait.movie.command.signupSignin.SignupSigninLoginCommand;
@@ -40,7 +41,8 @@ public class SignupSigninPageController {
 	private SignupSigninLogoutCommand logoutCommand;
 	private SignupSigninChoiceMovieDefaultListCommand choiceMovieDefaultListCommand;
 	private SignupSigninUserSelectMovieListCommand userSelectMovieListCommand;
-	private ScrollMovieList scrollMovieList;
+	private SignupSigninFindIdCommand findIdCommand;
+	
 	@Autowired
 	public void setBean(SignupSigninIdCheckCommand idcheckCommand,
 						SignupSigninNickCheckCommand nickCheckCommand,
@@ -50,8 +52,7 @@ public class SignupSigninPageController {
 						SignupSigninLogoutCommand logoutCommand,
 						SignupSigninChoiceMovieDefaultListCommand choiceMovieDefaultListCommand,
 						SignupSigninUserSelectMovieListCommand userSelectMovieListCommand,
-						ScrollMovieList scrollMovieList
-						) {
+						SignupSigninFindIdCommand findIdCommand) {
 		this.idcheckCommand = idcheckCommand;
 		this.nickCheckCommand = nickCheckCommand;
 		this.emailCheckCommand = emailCheckCommand;
@@ -60,8 +61,7 @@ public class SignupSigninPageController {
 		this.logoutCommand = logoutCommand;
 		this.choiceMovieDefaultListCommand = choiceMovieDefaultListCommand;
 		this.userSelectMovieListCommand = userSelectMovieListCommand;
-		this.scrollMovieList = scrollMovieList;
-
+		this.findIdCommand = findIdCommand;
 	}
 	
 	
@@ -75,12 +75,8 @@ public class SignupSigninPageController {
 		return "signupSigninPage/loginPage";
 	}
 	
-	/*** 회원 가입 시 영화 선택 리스트 페이지 ***/
 	@RequestMapping(value="signupChoicePage.do")
-	public String signup_choice_page(Model model) {
-		
-		choiceMovieDefaultListCommand.execute(sqlSession, model);
-		
+	public String signupChoicePage() {
 		return "signupSigninPage/signupChoicePage";
 	}
 	
@@ -177,16 +173,23 @@ public class SignupSigninPageController {
 		return null;
 		
 	}
-	/*** 스크롤 하단 영화 리스트 불러오기 ***/
-	@RequestMapping(value="scrollMovieList/{scrollCount}",
-					method = RequestMethod.GET,
-					produces = "application/json; charset=utf-8")
-	@ResponseBody
-	public Map<String, Object> scrollMovieList(@PathVariable("scrollCount") int scrollCount,Model model){
+	
+	/***** 이메일 *****/
+	
+	@Autowired
+	private JavaMailSender mailSender;
+	
+	/***** 아이디 찾기 *****/
+	@RequestMapping(value="findId.do", method=RequestMethod.POST)
+	public String emailAuth(HttpServletRequest request,
+			                Model model) {
 		
-		model.addAttribute("scrollCount", scrollCount);
+		model.addAttribute("request", request);
+		model.addAttribute("mailSender", mailSender);
+		findIdCommand.execute(sqlSession, model);
 		
-		return scrollMovieList.execute(sqlSession, model);
+		return "signupSigninPage/findIdResultPage";
+		
 	}
 
 }
