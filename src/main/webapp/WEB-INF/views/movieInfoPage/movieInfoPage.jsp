@@ -182,7 +182,7 @@
 						</div>
 						<!-- modal comment -->
 						<div class="comment_top_right">
-							<%@ include file="../template/modal_comment.jsp" %>
+							<%@ include file="../template/modalComment.jsp" %>
 						</div>
 					</div>
 					<div class="info_main_bot_comment_bot">

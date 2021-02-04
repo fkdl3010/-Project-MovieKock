@@ -71,7 +71,7 @@
         </div>
         <!-- body -->
         <div class="modal-body">
-            <jsp:include page="my_page/my_write_view_page.jsp">
+            <jsp:include page="myPage/myWriteViewPage.jsp">
 				<jsp:param value="test" name="title" />
 			</jsp:include>
         </div>

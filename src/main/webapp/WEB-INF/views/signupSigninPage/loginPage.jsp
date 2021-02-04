@@ -76,7 +76,7 @@
         </div>
         <!-- body -->
         <div class="modal-body">
-            <%@ include file="privacy_agreement_page.jsp" %>
+            <%@ include file="privacyAgreementPage.jsp" %>
         </div>
         <!-- Footer -->
         <div class="modal-footer">
