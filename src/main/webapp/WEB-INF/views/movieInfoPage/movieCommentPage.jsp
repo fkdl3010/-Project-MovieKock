@@ -7,7 +7,7 @@
 </jsp:include>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
-<link rel="stylesheet" href="/movie/assets/style/movie_info_page_css/movie_comment_page.css"/>
+<link rel="stylesheet" href="/movie/assets/style/movieInfoPageCss/movieCommentPage.css"/>
 
 <body>
 

@@ -5,7 +5,7 @@
 </jsp:include>
 
 <link rel="stylesheet"
-	href="/movie/assets/style/main_page_css/search_result_page.css" />
+	href="/movie/assets/style/mainPageCss/searchResultPage.css" />
 
 <div class="wrap">
 	<div class="main">

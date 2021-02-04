@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="/movie/assets/style/singup_signin_page_css/privacy_agreement_page.css">
+<link rel="stylesheet" href="/movie/assets/style/singupSigninPageCss/privacyAgreementPage.css">
 </head>
 <body>
 		<div class="signupPage_top_logo">

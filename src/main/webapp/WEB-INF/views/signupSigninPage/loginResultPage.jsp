@@ -7,7 +7,7 @@
 		location.href='index.do';
 	} else {
 		alert('일치하는 회원이 없습니다.');
-		location.href='login_page.do';
+		location.href='loginPage.do';
 	}
 	
 </script>

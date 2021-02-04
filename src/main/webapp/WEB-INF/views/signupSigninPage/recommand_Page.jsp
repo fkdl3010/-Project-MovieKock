@@ -5,7 +5,7 @@
 </jsp:include>
 <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
 <script src="/movie/assets/script/recommandPage.js"></script>
-<link rel="stylesheet" href="/movie/assets/style/recommand_Page.css" />
+<link rel="stylesheet" href="/movie/assets/style/recommandPage.css" />
  <div id="wrap">
        	<div id="main">
      	<div id="header">

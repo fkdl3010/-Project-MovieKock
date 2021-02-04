@@ -13,7 +13,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="/movie/assets/style/singup_signin_page_css/find_idpw_page.css"	/>
+	<link rel="stylesheet" href="/movie/assets/style/singupSigninPageCss/findIdpwPage.css"	/>
 </head>
 <body>
 

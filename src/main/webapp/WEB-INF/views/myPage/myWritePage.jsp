@@ -6,7 +6,7 @@
 	<jsp:param value="내가 쓴 글" name="title" />
 </jsp:include>
 <link rel="stylesheet"
-	href="/movie/assets/style/my_page_css/my_write_page.css" />
+	href="/movie/assets/style/myPageCss/myWritePage.css" />
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
 

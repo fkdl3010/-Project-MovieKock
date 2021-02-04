@@ -4,7 +4,7 @@
 <jsp:include page="../template/header.jsp">
 	<jsp:param value="문의하기" name="title" />
 </jsp:include>
-<link rel="stylesheet" href="/movie/assets/style/request_page_css/request_write_page.css"/>
+<link rel="stylesheet" href="/movie/assets/style/requestPageCss/requestWritePage.css"/>
 <body>
 	<div class="wrap">
         <div class="main_head">

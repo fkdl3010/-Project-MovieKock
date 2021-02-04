@@ -6,7 +6,7 @@
 	<jsp:param value="인덱스" name="title" />
 </jsp:include>
       <title></title>
-<link rel="stylesheet" href="/movie/assets/style/my_Page.css"/>
+<link rel="stylesheet" href="/movie/assets/style/myPage.css"/>
 <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
         <div class="big-box">
                 <i id="profile" class="fas fa-user-circle"></i>

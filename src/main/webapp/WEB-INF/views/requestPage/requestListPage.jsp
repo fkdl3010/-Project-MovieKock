@@ -4,7 +4,7 @@
 <jsp:include page="../template/header.jsp">
 	<jsp:param value="인덱스" name="title" />
 </jsp:include>
-<link rel="stylesheet" href="/movie/assets/style/request_page_css/request_list_page.css"/>
+<link rel="stylesheet" href="/movie/assets/style/requestPageCss/requestListPage.css"/>
 	<div class="wrap">
 		<div class="main">
 			<div class="main_top_font">
