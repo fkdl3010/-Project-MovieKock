@@ -55,13 +55,27 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	</select>
 	
-	<select id="userSelectMovieList" parameterType="Map" resultType="int">
+	<!-- 회원가입시 영화 선택 장르 번호 -->
+	<select id="userSelectMovieList" parameterType="Map" resultType="String">
+	
 		select distinct genre_no
 		from movie_genre
 		where movie_no in 
 		<foreach collection="movieList" item="movie_no" open="(" separator="," close=")">
 			#{movie_no}
 		</foreach>
+		
 	</select>
+	
+	<!-- 회원가입시 선택한 영화 장르 삽입 -->
+	<insert id="userInsertGenre" parameterType="Map">
+		
+		<foreach collection="genre" item="genre_no" open="INSERT ALL " separator=" " close="SELECT * FROM DUAL">
+			into
+			movie_taste
+			values
+		    (movie_taste_seq.nextval, #{genre_no},#{user_no} )
+		</foreach>
+	</insert>
 	
 </mapper>

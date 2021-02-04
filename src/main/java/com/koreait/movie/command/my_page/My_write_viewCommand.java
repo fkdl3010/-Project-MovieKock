@@ -20,8 +20,8 @@ public class My_write_viewCommand implements CommonMapCommand {
 		HttpServletRequest request = (HttpServletRequest)map.get("request");
 		int no = Integer.parseInt(request.getParameter("user_no"));
 		My_write_dao my_write_dao = sqlSession.getMapper(My_write_dao.class);
-		CommentDto dto = my_write_dao.my_write(user_no);
-		model.addAttribute("CommentDto", dto);  // view.jsp 에서 열어 볼 수 있게 넣어준다.
+//		CommentDto dto = my_write_dao.my_write(user_no);
+//		model.addAttribute("CommentDto", dto);  // view.jsp 에서 열어 볼 수 있게 넣어준다.
 		
 		
 		return null;
