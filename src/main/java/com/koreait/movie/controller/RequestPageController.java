@@ -15,8 +15,12 @@ public class RequestPageController {
 	public String requestListPage() {
 		return "requestPage/requestListPage";
 	}
-	@RequestMapping(value="requestViewPage.do")
-	public String requestViewPage() {
-		return "requestPage/requestViewPage";
+	@RequestMapping(value="requestViewPage.do",method=RequestMethod.GET)
+	public String request_view_page(HttpServletRequest request, Model model) {
+		model.addAttribute("request", request);
+		Request_viewCommand command = new Request_viewCommand();
+		command.execute(sqlSession, model);
+		
+		return "request_page/request_view_page";
 	}
 }

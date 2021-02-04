@@ -10,11 +10,10 @@ import com.koreait.movie.common.CommonMapCommand;
 public class MyWriteCommand implements CommonMapCommand {
 
 	@Override
-	public Map<String, Object> execute(SqlSession sqlSession, Model model) {
-
+	public void execute(SqlSession sqlSession, Model model) {
 		
-		
-		return null;
+		Mydao my_dao = sqlSession.getMapper(Mydao.class);
+		model.addAttribute("my_write", my_dao.my_write_page());
 	}
 
 }

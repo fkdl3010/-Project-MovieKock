@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.koreait.movie.command.movieInfo.MovieInfoCommand;
 import com.koreait.movie.command.myPage.MyWriteViewCommand;
 
 public class MyWriteController {
@@ -18,5 +19,14 @@ public class MyWriteController {
 	    command.execute(sqlSession, model);
 	    return "myPage/myWriteView";   
 	}
-
+	
+	@RequestMapping(value="movie_info_page.do", method=RequestMethod.GET)
+	public String movie_info(HttpServletRequest request, Model model, SqlSession sqlSession) {
+	    model.addAttribute("request", request);
+	    MovieInfoCommand command = new MovieInfoCommand();
+	    command.execute(sqlSession, model);
+	    
+	    return "my_page/movie_info_page";   
+	}
+	
 }
