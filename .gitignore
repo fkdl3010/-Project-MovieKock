@@ -120,6 +120,9 @@ target/
 .AppleDouble
 .LSOverride
 
+MANIFEST.MF
+pom.properties
+
 # Icon must end with two \r
 Icon
 
