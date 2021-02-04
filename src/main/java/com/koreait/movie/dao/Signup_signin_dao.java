@@ -1,6 +1,7 @@
 package com.koreait.movie.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import com.koreait.movie.dto.MovieDto;
 import com.koreait.movie.dto.UserDto;
@@ -19,5 +20,7 @@ public interface Signup_signin_dao {
 	public UserDto loginUser(UserDto userDto);
 
 	public List<MovieDto> signMovieDefaultList();
+	
+	public List<Integer> userSelectMovieList(Map<String, Object> map);
 
 }
