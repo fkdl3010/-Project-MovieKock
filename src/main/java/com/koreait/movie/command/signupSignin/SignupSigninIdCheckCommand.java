@@ -1,4 +1,4 @@
-package com.koreait.movie.command.signup_signin;
+package com.koreait.movie.command.signupSignin;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -7,26 +7,26 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.ui.Model;
 
 import com.koreait.movie.common.CommonMapCommand;
-import com.koreait.movie.dao.Signup_signin_dao;
+import com.koreait.movie.dao.SignupSigninDao;
 
-public class Signup_signin_nickCheckCommand implements CommonMapCommand {
+public class SignupSigninIdCheckCommand implements CommonMapCommand {
 
 	@Override
 	public Map<String, Object> execute(SqlSession sqlSession, Model model) {
 
 		Map<String, Object> map = model.asMap();
 		
-		String nick = (String)map.get("userNick");
+		String id = (String)map.get("userId");
 		
-		Signup_signin_dao dao = sqlSession.getMapper(Signup_signin_dao.class);
+		SignupSigninDao dao = sqlSession.getMapper(SignupSigninDao.class);
 		
-		Integer result = dao.signNickCheck(nick);
+		Integer result = dao.signIdCheck(id);
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		
 		if(result == null) {
-			resultMap.put("nickCheckResult", "yes");
+			resultMap.put("idCheckResult", "yes");
 		}else {
-			resultMap.put("nickCheckResult", "no");
+			resultMap.put("idCheckResult", "no");
 			
 		}
 		

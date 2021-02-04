@@ -2,7 +2,7 @@ package com.koreait.movie.dao;
 
 import java.sql.Date;
 
-public interface My_write_dao {
+public interface MyWriteDao {
 	
 	public Integer user_no(int user_no);
 	

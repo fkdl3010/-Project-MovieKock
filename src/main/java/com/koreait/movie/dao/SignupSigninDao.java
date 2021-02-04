@@ -6,7 +6,7 @@ import java.util.Map;
 import com.koreait.movie.dto.MovieDto;
 import com.koreait.movie.dto.UserDto;
 
-public interface Signup_signin_dao {
+public interface SignupSigninDao {
 	
 	public Integer signIdCheck(String id);
 	

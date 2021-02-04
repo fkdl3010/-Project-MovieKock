@@ -1,4 +1,4 @@
-package com.koreait.movie.command.signup_signin;
+package com.koreait.movie.command.signupSignin;
 
 import java.util.Map;
 
@@ -10,7 +10,7 @@ import org.springframework.ui.Model;
 
 import com.koreait.movie.common.CommonVoidCommand;
 
-public class Signup_signin_logoutCommand implements CommonVoidCommand {
+public class SignupSigninLogoutCommand implements CommonVoidCommand {
 
 	@Override
 	public void execute(SqlSession sqlSession, Model model) {

@@ -1,4 +1,4 @@
-package com.koreait.movie.command.my_page;
+package com.koreait.movie.command.myPage;
 
 import java.util.Map;
 
@@ -7,7 +7,7 @@ import org.springframework.ui.Model;
 
 import com.koreait.movie.common.CommonMapCommand;
 
-public class My_writeCommand implements CommonMapCommand {
+public class MyWriteCommand implements CommonMapCommand {
 
 	@Override
 	public Map<String, Object> execute(SqlSession sqlSession, Model model) {
