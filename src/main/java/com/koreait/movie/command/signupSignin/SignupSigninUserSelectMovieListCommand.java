@@ -35,6 +35,9 @@ public class SignupSigninUserSelectMovieListCommand implements CommonVoidCommand
 		SignupSigninDao dao = sqlSession.getMapper(SignupSigninDao.class);
 		
 		List<Integer> genre = dao.userSelectMovieList(resultMap);
+		resultMap.put("genre", genre);
+		resultMap.put("user_no", 1);
+		int insertResult = dao.userInsertGenre(resultMap);
 		
 	}
 

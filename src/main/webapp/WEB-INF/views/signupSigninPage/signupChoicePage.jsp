@@ -46,8 +46,51 @@
 
   </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
   <script>
 
+  
+  /* 스크롤 하단 감지 영화 리스트뽑아오기 */
+        let scrollCount = 4;
+  $(window).scroll(function() {
+        
+        let scrolltop = $(document).scrollTop();
+        let height = $(document).height();
+        let height_win = $(window).height();
+        
+        
+        /* 스크롤이 하단에 위치한다면 */
+     if (Math.round( $(window).scrollTop()) == $(document).height() - $(window).height()) {
+        
+        	$.ajax({
+        		url: 'scrollMovieList/'+ scrollCount,
+        		type: 'get',
+        		dataType: 'json',
+        		success: function(responseObj){
+        			const movieList = responseObj.scrollMovieList;
+        			
+        			movieList.forEach(function(movieN){
+        				const movieOne = '<div class="list afterInsert" style="background-image: url(/movie/assets/images/poster/'+ movieN.movie_title+'_포스터.jpg' + '); background-size: 250px 300px;">'
+        										+'<input type="checkbox" name="movie_no" class="movie_no" value='+movieN.movie_no+' style="display: none;"/>'+'</div>';
+        				$('.listBox').append(movieOne);
+        			});
+        			
+        			
+        			scrollCount++;
+        		},
+        		error: function(){
+        			
+        		}
+        		
+        	});
+        }
+        
+   });  
+    
+
+  
+  
+  
   const main = document.querySelector('#main-movieList');
   const listBox = document.createElement('div');
   const movieList = document.querySelectorAll('.list');
@@ -60,8 +103,10 @@
   
   /* 영화 div 박스 안에 체크박스 컨트롤 fn */
   function movieChecked(event){
-    const checkBox = event.target.childNodes[1];
-	
+    let checkBox = event.target.childNodes[1];
+	if(!checkBox){
+		checkBox = event.target.childNodes[0];
+	}
     if(checkBox.getAttribute('checked') == "false" || checkBox.getAttribute('checked') == null){
 	    checkBox.setAttribute('checked',"true");
 	    return true;
@@ -74,11 +119,18 @@
     
     
   }
-  
+  $(document).on("click","div .list",handleBar);
+
   function handleBar(event){
 	
 	const movieBox = event.target;
-    const movieNo = event.target.childNodes[1];
+    let movieNo = event.target.childNodes[1];
+	if(!movieNo || movieNo == ''){
+		movieNo = event.target.childNodes[0];
+	}else{
+	    movieNo = event.target.childNodes[1];
+	}
+	console.log(movieNo);
     const opClass = 'checked';
     
     /* 영화가 선택되어있다면 userSelect 배열에 movie_no값을 추가해주고 프로그레스바를 컨트롤한다
@@ -86,12 +138,14 @@
     */
 	if(movieChecked(event)){
 		userSelect.push(movieNo.value);
+		console.log(123);
 		movieBox.classList.add(opClass);
 		bar.value++;
 	}else{
 		userSelect.splice(userSelect.indexOf(movieNo.value),1);
 		movieBox.classList.remove(opClass);
 		bar.value--;
+		console.log(123);
 	}
     
     console.log(userSelect);
@@ -117,14 +171,7 @@
     }
   }
 
-  function addEvent(){
-    list.forEach(function(box){
-      box.addEventListener('click',handleBar);
-    });
-  }
-
   function init(){
-    addEvent();
   }
 
 
