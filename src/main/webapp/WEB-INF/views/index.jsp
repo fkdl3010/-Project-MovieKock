@@ -11,8 +11,8 @@
 	
 </script>
 
-	<a href="main_page.do">메인페이지</a><br>
-	<a href="search_result_page.do">검색</a>
+	<a href="mainPage.do">메인페이지</a><br>
+	<a href="searchResultPage.do">검색</a>
 	<br><br>
 	
 	
