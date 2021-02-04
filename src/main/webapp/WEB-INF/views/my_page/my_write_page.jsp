@@ -26,7 +26,7 @@
 						<table>
 							<thead>
 								<tr>
-									<td>영화제목</td>
+									<td>영화제목<a href="my_write_view_page.do?no=${CommentDto.user_no}">${CommentDto.contents_no}</a></td>
 									<td>제목</td>
 									<td>날짜</td>
 								</tr>

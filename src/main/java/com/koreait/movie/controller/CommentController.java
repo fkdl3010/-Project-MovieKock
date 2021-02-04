@@ -1,33 +1,24 @@
 package com.koreait.movie.controller;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.activation.CommandMap;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
-
-import com.koreait.movie.command.comment.CommentCommand;
-
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class CommentController {
 
-	@RequestMapping(value = "/movie/my_write_view_page")
-	public ModelAndView my_write_view_page(CommandMap commandMap) throws Exception {
-		
-		ModelAndView mv = new ModelAndView("/movie/my_write_view_page");
-		Map<String, Object> detail = movieService.viewBoardDetail(commandMap.getMap());
-		mv.addObject("detail",detail); 
-		
-		return mv;
+	@RequestMapping(value="my_write_view_page.do", method=RequestMethod.GET)
+	public String view(HttpServletRequest request, Model model) {
+	    model.addAttribute("request", request);
+	    My_write_view_page_Command command = new My_write_view_page_Command();
+	    command.execute(sqlSession, model);
+	    return "my_page/my_write_view_page";   
 	}
+
+	
 	
 	
 	/*

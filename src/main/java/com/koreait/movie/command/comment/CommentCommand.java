@@ -27,26 +27,24 @@ public class CommentCommand implements CommonMapCommand {
 		
 		}  
 		
-		// beginRecord + endRecord를 list를 가져오는 simpleList()에 전달합니다.
+		int user_no = user_no;
+		int movie_no = movie_no;
+		String comments_title = comments_title;
+		Date comment = comment_date;
+		
+	
 		List<CommentDto> list = Comment_dao.CommentDto(user_no, movie_no, comments_title, comment_date);
 		
-		// Paging을 만듭니다. ( 이전 1 2 3 4 5 다음 )
-		// 아래 paging의 path는 List마다 다릅니다.
-		// SimpleListCommand  :  simpleListPage.do
-		// BoardListCommand   :  boardListPage.do
-		// 검색결과의 페이징  :  boardListPage.do?query=검색
-		String paging = Paging.getPaging("simpleListPage.do", totalRecord, recordPerPage, page);
-		
+				
 		model.addAttribute("list", list);
-		
-		model.addAttribute("paging", paging);
-		model.addAttribute("totalRecord", totalRecord);
-		model.addAttribute("page", page);
-		model.addAttribute("recordPerPage", recordPerPage);
+		model.addAttribute("user_no", user_no);
+		model.addAttribute("movie_no", movie_no);
+		model.addAttribute("comments_title", comments_title);
+		model.addAttribute("comment_date", comment_date);
 
 	}
 
-}
+
 	
 	
 	/*

@@ -12,6 +12,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		  where user_no = #{user_no}
 	</select>
 	
+	<select id="view" parameterType="int" resultType="com.koreait.movie.dto.CommentDto">
+    	Select * 
+    		from comment 
+    		where user_no = #{user_no}
+	</select>
+	
 	<!-- 최신 NO가 위로 올라오는 순서로 정렬한 테이블 :
 	<select id="comment_list" resultType="com.koreait.movie.dto.CommentDto">
 		SELECT B.*
