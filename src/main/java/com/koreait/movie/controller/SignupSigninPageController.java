@@ -76,7 +76,10 @@ public class SignupSigninPageController {
 	}
 	
 	@RequestMapping(value="signupChoicePage.do")
-	public String signupChoicePage() {
+	public String signup_choice_page(Model model) {
+		
+		choiceMovieDefaultListCommand.execute(sqlSession, model);
+		
 		return "signupSigninPage/signupChoicePage";
 	}
 	
