@@ -18,7 +18,7 @@ public class My_write_viewCommand implements CommonMapCommand {
 		
 		Map<String, Object> map = model.asMap();
 		HttpServletRequest request = (HttpServletRequest)map.get("request");
-		int no = Integer.parseInt(request.getParameter("user_no"));
+		int user_no = Integer.parseInt(request.getParameter("user_no"));
 		My_write_dao my_write_dao = sqlSession.getMapper(My_write_dao.class);
 		CommentDto dto = my_write_dao.my_write(user_no);
 		model.addAttribute("CommentDto", dto);  // view.jsp 에서 열어 볼 수 있게 넣어준다.
