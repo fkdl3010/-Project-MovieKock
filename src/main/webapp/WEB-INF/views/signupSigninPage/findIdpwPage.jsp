@@ -35,13 +35,10 @@
 				<div class="id-section">
 					<div class="id-section-header section-header">아이디 찾기</div>
 					<div class="id-form-control-box section-form">
-						<form action="#" class="id-form">
-							<input type="text" class="input-id inputs"
-								placeholder="이름을 입력해 주세요." /> <input type="text"
-								class="input-id-email inputs" placeholder="이메일을 입력해 주세요." />
-
+						<form action="findId.do" method="post" class="id-form">
+							<input type="text" class="input-id inputs" placeholder="이름을 입력해 주세요." />
+							<input type="text" class="input-id-email inputs" name="findIdEmail" placeholder="이메일을 입력해 주세요." />
 							<button type="button" class="btn btn-default">아이디 찾기</button>
-
 						</form>
 					</div>
 					<div></div>
@@ -50,12 +47,10 @@
 				<div class="pw-section">
 					<div class="pw-section-header section-header">비밀번호 찾기</div>
 					<div class="pw-form-control-box section-form">
-						<form action="#" class="pw-form">
-							<input type="text" class="input-pw-name inputs"
-								placeholder="이름을 입력해 주세요." /> <input type="text"
-								class="input-pw-email inputs" placeholder="이메일을 입력해 주세요." /> <input
-								type="text" class="input-pw-id inputs"
-								placeholder="아이디를 입력해 주세요." />
+						<form action="findPwEmail.do" method="post" class="pw-form">
+							<input class="input-pw-name inputs" placeholder="이름을 입력해 주세요." />
+							<input type="text" class="input-pw-email inputs" placeholder="이메일을 입력해 주세요." />
+							<input type="text" class="input-pw-id inputs" placeholder="아이디를 입력해 주세요." />
 							<button type="button" class="btn btn-default">비밀번호 찾기</button>
 
 						</form>
