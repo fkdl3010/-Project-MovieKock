@@ -14,7 +14,8 @@
 
 	<div class="wrap">
 		<div class="main">
-			<!-- <div class="box1">
+		<!-- 
+			<div class="box1">
 				<div class="box3">
 					<i class="fas fa-user-alt fa-8x" id=user_icon></i>
 				</div>
@@ -26,7 +27,7 @@
 						<table>
 							<thead>
 								<tr>
-									<td>영화제목<a href="my_write_view_page.do?no=${CommentDto.user_no}">${CommentDto.contents_no}</a></td>
+									<td>영화제목</td>
 									<td>제목</td>
 									<td>날짜</td>
 								</tr>
@@ -41,14 +42,31 @@
 									<td>날짜</td>
 								</tr>
 							</thead>
+							<tbody>
+								<c:if test="${empty list}">
+									<tr>
+										<td>없음</td>
+									</tr>
+								</c:if>
+								<c:if test="${not empty list}">
+									<c:forEach var="commentDto" items="${commentDto}">
+										<tr>
+											<td><a href="movie_info_page.do?no=${commentDto.user_no}">${commentDto.movie_no}</a></td>
+											<td><a href="my_write_view_page.do?no=${commentDto.user_no}">${commentDto.contents_title}</a></td>
+											<td>${commentDto.comment_date}</td>
+										</tr>z
+									</c:forEach>
+								</c:if>
+							</tbody>
 						</table>
 					</div>
 					<div class="box6">
 						<h3>내가 쓴 글</h3>
 					</div>
 				</div>
-			</div> -->
-
+			 </div>
+			-->
+			
 			<section>
 				<div class="box_top"></div>
 				<div class="box_bottom"></div>

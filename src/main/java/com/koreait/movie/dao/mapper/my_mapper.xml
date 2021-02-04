@@ -7,5 +7,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.koreait.movie.dao.My_dao">
 	
 	
+	<select id="my_write" parameterType="int" resultType="com.koreait.movie.dto.CommentDto">
+		SELECT movie_no, comments_title, comment_date
+		  FROM comments
+		 WHERE user_no = #{user_no}
+	</select>
+	
+	
+	<select id="movie_info" parameterType="int" resultType="com.koreait.movie.dto.CommentDto">
+	    SELECT movie_no, comments_title, comment_date
+		  FROM comments
+		 WHERE user_no = #{user_no}
+	</select>
 	
 </mapper>
