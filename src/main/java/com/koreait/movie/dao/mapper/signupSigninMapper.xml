@@ -4,7 +4,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
 
-<mapper namespace="com.koreait.movie.dao.Signup_signin_dao">
+<mapper namespace="com.koreait.movie.dao.SignupSigninDao">
 
 	<select id="signIdCheck" parameterType="String" resultType="int">
 		select user_no
@@ -62,6 +62,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<foreach collection="movieList" item="movie_no" open="(" separator="," close=")">
 			#{movie_no}
 		</foreach>
+	</select>
+	
+	<select id="findId" parameterType="com.koreait.movie.dto.UserDto" resultType="com.koreait.movie.dto.UserDto">
+		select user_id
+		  from users
+		 where user_name=#{user_name} and
+		       user_email=#{user_email}
 	</select>
 	
 </mapper>

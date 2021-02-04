@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.koreait.movie.command.signupSignin.SignupSigninChoiceMovieDefaultListCommand;
 import com.koreait.movie.command.signupSignin.SignupSigninEmailCheckCommand;
+import com.koreait.movie.command.signupSignin.SignupSigninFindIdCommand;
 import com.koreait.movie.command.signupSignin.SignupSigninIdCheckCommand;
 import com.koreait.movie.command.signupSignin.SignupSigninInsertUserCommand;
 import com.koreait.movie.command.signupSignin.SignupSigninLoginCommand;
@@ -39,6 +41,7 @@ public class SignupSigninPageController {
 	private SignupSigninLogoutCommand logoutCommand;
 	private SignupSigninChoiceMovieDefaultListCommand choiceMovieDefaultListCommand;
 	private SignupSigninUserSelectMovieListCommand userSelectMovieListCommand;
+	private SignupSigninFindIdCommand findIdCommand;
 	
 	@Autowired
 	public void setBean(SignupSigninIdCheckCommand idcheckCommand,
@@ -48,7 +51,8 @@ public class SignupSigninPageController {
 						SignupSigninLoginCommand loginCommand,
 						SignupSigninLogoutCommand logoutCommand,
 						SignupSigninChoiceMovieDefaultListCommand choiceMovieDefaultListCommand,
-						SignupSigninUserSelectMovieListCommand userSelectMovieListCommand) {
+						SignupSigninUserSelectMovieListCommand userSelectMovieListCommand,
+						SignupSigninFindIdCommand findIdCommand) {
 		this.idcheckCommand = idcheckCommand;
 		this.nickCheckCommand = nickCheckCommand;
 		this.emailCheckCommand = emailCheckCommand;
@@ -57,6 +61,7 @@ public class SignupSigninPageController {
 		this.logoutCommand = logoutCommand;
 		this.choiceMovieDefaultListCommand = choiceMovieDefaultListCommand;
 		this.userSelectMovieListCommand = userSelectMovieListCommand;
+		this.findIdCommand = findIdCommand;
 	}
 	
 	
@@ -166,6 +171,23 @@ public class SignupSigninPageController {
 		model.addAttribute("request", request);
 		userSelectMovieListCommand.execute(sqlSession, model);
 		return null;
+		
+	}
+	
+	/***** 이메일 인증 *****/
+	
+	@Autowired
+	private JavaMailSender mailSender;
+	
+	@RequestMapping(value="findId.do", method=RequestMethod.POST)
+	public String emailAuth(HttpServletRequest request,
+			                Model model) {
+		
+		model.addAttribute("request", request);
+		model.addAttribute("mailSender", mailSender);
+		findIdCommand.execute(sqlSession, model);
+		
+		return "signupSigninPage/findIdResultPage";
 		
 	}
 

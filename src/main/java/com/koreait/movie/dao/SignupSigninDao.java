@@ -22,5 +22,7 @@ public interface SignupSigninDao {
 	public List<MovieDto> signMovieDefaultList();
 	
 	public List<Integer> userSelectMovieList(Map<String, Object> map);
-
+	
+	public UserDto findId(UserDto userDto);
+	
 }

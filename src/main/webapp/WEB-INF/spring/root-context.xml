@@ -60,8 +60,8 @@
 	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
 		<property name="host" value="smtp.gmail.com" />
 		<property name="port" value="587" />
-		<property name="username" value="본인이메일" />
-		<property name="password" value="본인비밀번호" />
+		<property name="username" value="moviekock@gmail.com" />
+		<property name="password" value="1q2w3e4r`" />
 		<property name="javaMailProperties">
 			<props>
 				<prop key="mail.smtp.auth">true</prop>
@@ -79,5 +79,6 @@
 	<bean id="logoutCommand" class="com.koreait.movie.command.signupSignin.SignupSigninLogoutCommand"></bean>
 	<bean id="choiceMovieDefaultListCommand" class="com.koreait.movie.command.signupSignin.SignupSigninChoiceMovieDefaultListCommand"></bean>
 	<bean id="userSelectMovieListCommand" class="com.koreait.movie.command.signupSignin.SignupSigninUserSelectMovieListCommand"></bean>
+	<bean id="findIdCommand" class="com.koreait.movie.command.signupSignin.SignupSigninFindIdCommand"></bean>
 	
 </beans>
