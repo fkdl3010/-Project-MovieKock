@@ -174,11 +174,12 @@ public class SignupSigninPageController {
 		
 	}
 	
-	/***** 이메일 인증 *****/
+	/***** 이메일 *****/
 	
 	@Autowired
 	private JavaMailSender mailSender;
 	
+	/***** 아이디 찾기 *****/
 	@RequestMapping(value="findId.do", method=RequestMethod.POST)
 	public String emailAuth(HttpServletRequest request,
 			                Model model) {
