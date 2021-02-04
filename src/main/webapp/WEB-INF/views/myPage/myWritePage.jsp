@@ -51,8 +51,8 @@
 								<c:if test="${not empty list}">
 									<c:forEach var="commentDto" items="${commentDto}">
 										<tr>
-											<td><a href="movie_info_page.do?no=${commentDto.user_no}">${commentDto.movie_no}</a></td>
-											<td><a href="my_write_view_page.do?no=${commentDto.user_no}">${commentDto.contents_title}</a></td>
+											<td><a href="movieInfoPage.do?no=${commentDto.user_no}">${commentDto.movie_no}</a></td>
+											<td><a href="myWriteViewPage.do?no=${commentDto.user_no}">${commentDto.contents_title}</a></td>
 											<td>${commentDto.comment_date}</td>
 										</tr>z
 									</c:forEach>

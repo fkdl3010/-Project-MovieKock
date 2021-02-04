@@ -30,11 +30,11 @@
 							</tr>
 						</c:if>
 						<c:if test="${not empty list}">
-						<c:forEach var="fqpDto" items="${list}" varStatus="k">
+						<c:forEach var="FAQDto" items="${list}" varStatus="k">
 							<tr>
 								<td>${totalRecord - ((page - 1) * recordPerPage + k.index)}</td>
 								<td>${fnqDto.faq_no}</td>
-								<td><a href="request_view.do?no=${fnqDto.no}&page=${page}">${fnqDto.title}</a></td>
+								<td><a href="requestView.do?no=${fnqDto.no}&page=${page}">${fnqDto.title}</a></td>
 								<td>${fnqDto.user_no}</td>
 								<td>${fnqDto.faq_date;}</td>
 								<td>${fnqDto.답변여부}</td>

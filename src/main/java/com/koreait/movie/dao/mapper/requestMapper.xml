@@ -6,7 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.koreait.movie.dao.Requestdao">
 	
-	<select id="request_view" parameterType="int" resultType="com.koreait.movie.dto.CommentDto">
+	<select id="requestView" parameterType="int" resultType="com.koreait.movie.dto.CommentDto">
 		SELECT faq_no, faq_title, user_no, faq_date
 		  FROM FAQ
 	</select>

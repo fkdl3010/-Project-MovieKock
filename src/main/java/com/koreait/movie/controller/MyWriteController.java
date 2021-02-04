@@ -20,13 +20,13 @@ public class MyWriteController {
 	    return "myPage/myWriteView";   
 	}
 	
-	@RequestMapping(value="movie_info_page.do", method=RequestMethod.GET)
+	@RequestMapping(value="movieInfoPage.do", method=RequestMethod.GET)
 	public String movie_info(HttpServletRequest request, Model model, SqlSession sqlSession) {
 	    model.addAttribute("request", request);
 	    MovieInfoCommand command = new MovieInfoCommand();
 	    command.execute(sqlSession, model);
 	    
-	    return "my_page/movie_info_page";   
+	    return "my_page/movieInfoPage";   
 	}
 	
 }

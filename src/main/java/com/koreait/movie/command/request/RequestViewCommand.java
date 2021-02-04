@@ -5,7 +5,7 @@ import org.springframework.ui.Model;
 
 import com.koreait.movie.common.CommonVoidCommand;
 
-public class RequestviewCommand implements CommonVoidCommand {
+public class RequestViewCommand implements CommonVoidCommand {
 
 	@Override
 	public void execute(SqlSession sqlSession, Model model) {

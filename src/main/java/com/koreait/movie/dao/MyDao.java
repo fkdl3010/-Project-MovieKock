@@ -7,7 +7,7 @@ import com.koreait.movie.dto.CommentDto;
 
 public interface MyDao {
 
-	public Integer user_no(int user_no);
+	public int user_no(int user_no);
 	
 	public Integer movie_no(int movie_no);
 	
@@ -17,7 +17,7 @@ public interface MyDao {
 
 	public List<CommentDto> my_write_page();
 
-	public CommentDto my_write(int user_no);
+	public CommentDto my_write(String user_no);
 	
 	public CommentDto view(int no);
 	
