@@ -5,6 +5,7 @@ const countText = document.querySelector('.progress-count');
 const submitBtn = document.querySelector('.submit-btn');
 
 function handleBar(){
+
   bar.value += 1;
   if(bar.value === 10){
     bar.value = 10;
@@ -31,5 +32,7 @@ function addEvent(){
 function init(){
   addEvent();
 }
+
+
 
 init();

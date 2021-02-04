@@ -1,4 +1,4 @@
-package com.koreait.movie.controller;
+ package com.koreait.movie.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class CommonController {
 
 
-	@RequestMapping(value="")
+	@RequestMapping(value= {"", "index.do"})
 	public String index() {
 		return "index";
 	}

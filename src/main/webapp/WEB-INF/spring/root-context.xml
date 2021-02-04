@@ -71,8 +71,13 @@
 	</bean>
 	
 	<!-- signup_signin -->
-	<bean id="idCheckCommand" class="com.koreait.movie.command.signup_signin.Signup_signin_idCheckCommand"></bean>
-	<bean id="nickCheckCommand" class="com.koreait.movie.command.signup_signin.Signup_signin_nickCheckCommand"></bean>
-	<bean id="emailCheckCommand" class="com.koreait.movie.command.signup_signin.Signup_signin_emailCheckCommand"></bean>
-	<bean id="insertUserCommand" class="com.koreait.movie.command.signup_signin.Signup_signin_insertUserCommand"></bean>
+	<bean id="idCheckCommand" class="com.koreait.movie.command.signupSignin.SignupSigninIdCheckCommand"></bean>
+	<bean id="nickCheckCommand" class="com.koreait.movie.command.signupSignin.SignupSigninNickCheckCommand"></bean>
+	<bean id="emailCheckCommand" class="com.koreait.movie.command.signupSignin.SignupSigninEmailCheckCommand"></bean>
+	<bean id="insertUserCommand" class="com.koreait.movie.command.signupSignin.SignupSigninInsertUserCommand"></bean>
+	<bean id="loginCommand" class="com.koreait.movie.command.signupSignin.SignupSigninLoginCommand"></bean>
+	<bean id="logoutCommand" class="com.koreait.movie.command.signupSignin.SignupSigninLogoutCommand"></bean>
+	<bean id="choiceMovieDefaultListCommand" class="com.koreait.movie.command.signupSignin.SignupSigninChoiceMovieDefaultListCommand"></bean>
+	<bean id="userSelectMovieListCommand" class="com.koreait.movie.command.signupSignin.SignupSigninUserSelectMovieListCommand"></bean>
+	
 </beans>
