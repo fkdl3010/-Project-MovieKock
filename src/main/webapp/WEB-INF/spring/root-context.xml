@@ -78,5 +78,6 @@
 	<bean id="loginCommand" class="com.koreait.movie.command.signup_signin.Signup_signin_loginCommand"></bean>
 	<bean id="choiceMovieDefaultListCommand" class="com.koreait.movie.command.signup_signin.Signup_signin_choiceMovieDefaultListCommand"></bean>
 	<bean id="userSelectMovieListCommand" class="com.koreait.movie.command.signup_signin.Signup_signin_userSelectMovieListCommand"></bean>
+	<bean id="scrollMovieList" class="com.koreait.movie.command.signup_signin.ScrollMovieList"></bean>
 </beans>
 

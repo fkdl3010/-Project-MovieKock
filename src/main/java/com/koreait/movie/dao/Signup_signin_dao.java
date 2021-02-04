@@ -24,4 +24,8 @@ public interface Signup_signin_dao {
 	public List<Integer> userSelectMovieList(Map<String, Object> map);
 
 	public int userInsertGenre(Map<String, Object> map);
+	
+	public int totalMovieRecord();
+	
+	public List<MovieDto> scrollMovieList(Map<String, Object> controllMap);
 }

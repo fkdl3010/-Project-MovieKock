@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.koreait.movie.command.signup_signin.ScrollMovieList;
 import com.koreait.movie.command.signup_signin.Signup_signin_choiceMovieDefaultListCommand;
 import com.koreait.movie.command.signup_signin.Signup_signin_emailCheckCommand;
 import com.koreait.movie.command.signup_signin.Signup_signin_idCheckCommand;
@@ -37,6 +38,7 @@ public class Signup_signin_page_controller {
 	private Signup_signin_loginCommand loginCommand;
 	private Signup_signin_choiceMovieDefaultListCommand choiceMovieDefaultListCommand;
 	private Signup_signin_userSelectMovieListCommand userSelectMovieListCommand;
+	private ScrollMovieList scrollMovieList;
 	
 	@Autowired
 	public void setBean(Signup_signin_idCheckCommand idcheckCommand,
@@ -46,7 +48,8 @@ public class Signup_signin_page_controller {
 
 						Signup_signin_loginCommand loginCommand,
 						Signup_signin_choiceMovieDefaultListCommand choiceMovieDefaultListCommand,
-						Signup_signin_userSelectMovieListCommand userSelectMovieListCommand) {
+						Signup_signin_userSelectMovieListCommand userSelectMovieListCommand,
+						ScrollMovieList scrollMovieList) {
 
 
 		this.idcheckCommand = idcheckCommand;
@@ -56,6 +59,7 @@ public class Signup_signin_page_controller {
 		this.loginCommand = loginCommand;
 		this.choiceMovieDefaultListCommand = choiceMovieDefaultListCommand;
 		this.userSelectMovieListCommand = userSelectMovieListCommand;
+		this.scrollMovieList = scrollMovieList;
 	}
 	
 	
@@ -169,6 +173,18 @@ public class Signup_signin_page_controller {
 		return null;
 		
 	}
-
+	
+	
+	/*** 스크롤 하단 영화 리스트 불러오기 ***/
+	@RequestMapping(value="scrollMovieList/{scrollCount}",
+					method = RequestMethod.GET,
+					produces = "application/json; charset=utf-8")
+	@ResponseBody
+	public Map<String, Object> scrollMovieList(@PathVariable("scrollCount") int scrollCount,Model model){
+		
+		model.addAttribute("scrollCount", scrollCount);
+		
+		return scrollMovieList.execute(sqlSession, model);
+	}
 	
 }

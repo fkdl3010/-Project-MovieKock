@@ -35,12 +35,10 @@ public class Signup_signin_userSelectMovieListCommand implements CommonVoidComma
 		Signup_signin_dao dao = sqlSession.getMapper(Signup_signin_dao.class);
 		
 		List<Integer> genre = dao.userSelectMovieList(resultMap);
-		System.out.println(genre);
 		resultMap.put("genre", genre);
 		resultMap.put("user_no", 1);
 		int insertResult = dao.userInsertGenre(resultMap);
 		
-		System.out.println(insertResult);
 	}
 
 }
