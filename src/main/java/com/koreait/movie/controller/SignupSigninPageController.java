@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.koreait.movie.command.signupSignin.ScrollMovieList;
 import com.koreait.movie.command.signupSignin.SignupSigninChoiceMovieDefaultListCommand;
 import com.koreait.movie.command.signupSignin.SignupSigninEmailCheckCommand;
 import com.koreait.movie.command.signupSignin.SignupSigninIdCheckCommand;
@@ -39,7 +40,7 @@ public class SignupSigninPageController {
 	private SignupSigninLogoutCommand logoutCommand;
 	private SignupSigninChoiceMovieDefaultListCommand choiceMovieDefaultListCommand;
 	private SignupSigninUserSelectMovieListCommand userSelectMovieListCommand;
-	
+	private ScrollMovieList scrollMovieList;
 	@Autowired
 	public void setBean(SignupSigninIdCheckCommand idcheckCommand,
 						SignupSigninNickCheckCommand nickCheckCommand,
@@ -48,7 +49,9 @@ public class SignupSigninPageController {
 						SignupSigninLoginCommand loginCommand,
 						SignupSigninLogoutCommand logoutCommand,
 						SignupSigninChoiceMovieDefaultListCommand choiceMovieDefaultListCommand,
-						SignupSigninUserSelectMovieListCommand userSelectMovieListCommand) {
+						SignupSigninUserSelectMovieListCommand userSelectMovieListCommand,
+						ScrollMovieList scrollMovieList
+						) {
 		this.idcheckCommand = idcheckCommand;
 		this.nickCheckCommand = nickCheckCommand;
 		this.emailCheckCommand = emailCheckCommand;
@@ -57,6 +60,8 @@ public class SignupSigninPageController {
 		this.logoutCommand = logoutCommand;
 		this.choiceMovieDefaultListCommand = choiceMovieDefaultListCommand;
 		this.userSelectMovieListCommand = userSelectMovieListCommand;
+		this.scrollMovieList = scrollMovieList;
+
 	}
 	
 	
@@ -70,8 +75,12 @@ public class SignupSigninPageController {
 		return "signupSigninPage/loginPage";
 	}
 	
+	/*** 회원 가입 시 영화 선택 리스트 페이지 ***/
 	@RequestMapping(value="signupChoicePage.do")
-	public String signupChoicePage() {
+	public String signup_choice_page(Model model) {
+		
+		choiceMovieDefaultListCommand.execute(sqlSession, model);
+		
 		return "signupSigninPage/signupChoicePage";
 	}
 	
@@ -167,6 +176,17 @@ public class SignupSigninPageController {
 		userSelectMovieListCommand.execute(sqlSession, model);
 		return null;
 		
+	}
+	/*** 스크롤 하단 영화 리스트 불러오기 ***/
+	@RequestMapping(value="scrollMovieList/{scrollCount}",
+					method = RequestMethod.GET,
+					produces = "application/json; charset=utf-8")
+	@ResponseBody
+	public Map<String, Object> scrollMovieList(@PathVariable("scrollCount") int scrollCount,Model model){
+		
+		model.addAttribute("scrollCount", scrollCount);
+		
+		return scrollMovieList.execute(sqlSession, model);
 	}
 
 }
