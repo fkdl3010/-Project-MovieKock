@@ -15,12 +15,21 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+<<<<<<< HEAD
+=======
+import com.koreait.movie.command.signup_signin.Signup_signin_choiceMovieDefaultListCommand;
+>>>>>>> 7dd2bc99f60f7d00016abe7f1d46232e4ea21e58
 import com.koreait.movie.command.signup_signin.Signup_signin_emailCheckCommand;
 import com.koreait.movie.command.signup_signin.Signup_signin_idCheckCommand;
 import com.koreait.movie.command.signup_signin.Signup_signin_insertUserCommand;
 import com.koreait.movie.command.signup_signin.Signup_signin_loginCommand;
+<<<<<<< HEAD
 import com.koreait.movie.command.signup_signin.Signup_signin_logoutCommand;
 import com.koreait.movie.command.signup_signin.Signup_signin_nickCheckCommand;
+=======
+import com.koreait.movie.command.signup_signin.Signup_signin_nickCheckCommand;
+import com.koreait.movie.command.signup_signin.Signup_signin_userSelectMovieListCommand;
+>>>>>>> 7dd2bc99f60f7d00016abe7f1d46232e4ea21e58
 
 @Controller
 
@@ -35,21 +44,40 @@ public class Signup_signin_page_controller {
 	private Signup_signin_emailCheckCommand emailCheckCommand;
 	private Signup_signin_insertUserCommand insertUserCommand;
 	private Signup_signin_loginCommand loginCommand;
+<<<<<<< HEAD
 	private Signup_signin_logoutCommand logoutCommand;
+=======
+	private Signup_signin_choiceMovieDefaultListCommand choiceMovieDefaultListCommand;
+	private Signup_signin_userSelectMovieListCommand userSelectMovieListCommand;
+>>>>>>> 7dd2bc99f60f7d00016abe7f1d46232e4ea21e58
 	
 	@Autowired
 	public void setBean(Signup_signin_idCheckCommand idcheckCommand,
 						Signup_signin_nickCheckCommand nickCheckCommand,
 						Signup_signin_emailCheckCommand emailCheckCommand,
 						Signup_signin_insertUserCommand insertUserCommand,
+<<<<<<< HEAD
 						Signup_signin_loginCommand loginCommand,
 						Signup_signin_logoutCommand logoutCommand) {
+=======
+
+						Signup_signin_loginCommand loginCommand,
+						Signup_signin_choiceMovieDefaultListCommand choiceMovieDefaultListCommand,
+						Signup_signin_userSelectMovieListCommand userSelectMovieListCommand) {
+
+
+>>>>>>> 7dd2bc99f60f7d00016abe7f1d46232e4ea21e58
 		this.idcheckCommand = idcheckCommand;
 		this.nickCheckCommand = nickCheckCommand;
 		this.emailCheckCommand = emailCheckCommand;
 		this.insertUserCommand = insertUserCommand;
 		this.loginCommand = loginCommand;
+<<<<<<< HEAD
 		this.logoutCommand = logoutCommand;
+=======
+		this.choiceMovieDefaultListCommand = choiceMovieDefaultListCommand;
+		this.userSelectMovieListCommand = userSelectMovieListCommand;
+>>>>>>> 7dd2bc99f60f7d00016abe7f1d46232e4ea21e58
 	}
 	
 	
@@ -145,6 +173,7 @@ public class Signup_signin_page_controller {
 		
 	}
 	
+<<<<<<< HEAD
 	/*** 로그아웃 ***/
 	@RequestMapping(value="logout.do"
 					  )
@@ -158,5 +187,18 @@ public class Signup_signin_page_controller {
 		return "signup_signin_page/logout_result_page";
 	}
 	
+=======
+	
+	/*** 회원 영화 취향 고른 정보 저장 ***/
+	@RequestMapping(value="userSelectMovieList.do",
+					method=RequestMethod.POST)
+	public String userSelectMovieList(HttpServletRequest request, Model model) {
+		model.addAttribute("request", request);
+		userSelectMovieListCommand.execute(sqlSession, model);
+		return null;
+		
+	}
+
+>>>>>>> 7dd2bc99f60f7d00016abe7f1d46232e4ea21e58
 	
 }

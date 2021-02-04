@@ -55,4 +55,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	</select>
 	
+	<select id="userSelectMovieList" parameterType="Map" resultType="int">
+		select distinct genre_no
+		from movie_genre
+		where movie_no in 
+		<foreach collection="movieList" item="movie_no" open="(" separator="," close=")">
+			#{movie_no}
+		</foreach>
+	</select>
+	
 </mapper>
