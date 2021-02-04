@@ -43,9 +43,11 @@ public class Signup_signin_page_controller {
 						Signup_signin_nickCheckCommand nickCheckCommand,
 						Signup_signin_emailCheckCommand emailCheckCommand,
 						Signup_signin_insertUserCommand insertUserCommand,
+
 						Signup_signin_loginCommand loginCommand,
 						Signup_signin_choiceMovieDefaultListCommand choiceMovieDefaultListCommand,
 						Signup_signin_userSelectMovieListCommand userSelectMovieListCommand) {
+
 
 		this.idcheckCommand = idcheckCommand;
 		this.nickCheckCommand = nickCheckCommand;
