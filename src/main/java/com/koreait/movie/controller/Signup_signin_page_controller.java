@@ -14,16 +14,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.koreait.movie.command.signup_signin.Signup_signin_insertUserCommand;
-
-import com.koreait.movie.command.signup_signin.Signup_signin_loginCommand;
-
 import com.koreait.movie.command.signup_signin.Signup_signin_choiceMovieDefaultListCommand;
-
 import com.koreait.movie.command.signup_signin.Signup_signin_emailCheckCommand;
 import com.koreait.movie.command.signup_signin.Signup_signin_idCheckCommand;
+import com.koreait.movie.command.signup_signin.Signup_signin_insertUserCommand;
+import com.koreait.movie.command.signup_signin.Signup_signin_loginCommand;
 import com.koreait.movie.command.signup_signin.Signup_signin_nickCheckCommand;
-import com.koreait.movie.common.CommonMapCommand;
+import com.koreait.movie.command.signup_signin.Signup_signin_userSelectMovieListCommand;
 
 @Controller
 
@@ -37,31 +34,26 @@ public class Signup_signin_page_controller {
 	private Signup_signin_nickCheckCommand nickCheckCommand;
 	private Signup_signin_emailCheckCommand emailCheckCommand;
 	private Signup_signin_insertUserCommand insertUserCommand;
-
 	private Signup_signin_loginCommand loginCommand;
-
 	private Signup_signin_choiceMovieDefaultListCommand choiceMovieDefaultListCommand;
-
+	private Signup_signin_userSelectMovieListCommand userSelectMovieListCommand;
 	
 	@Autowired
 	public void setBean(Signup_signin_idCheckCommand idcheckCommand,
 						Signup_signin_nickCheckCommand nickCheckCommand,
 						Signup_signin_emailCheckCommand emailCheckCommand,
 						Signup_signin_insertUserCommand insertUserCommand,
-
-						Signup_signin_loginCommand loginCommand) {
-
-						Signup_signin_choiceMovieDefaultListCommand choiceMovieDefaultListCommand) {
+						Signup_signin_loginCommand loginCommand,
+						Signup_signin_choiceMovieDefaultListCommand choiceMovieDefaultListCommand,
+						Signup_signin_userSelectMovieListCommand userSelectMovieListCommand) {
 
 		this.idcheckCommand = idcheckCommand;
 		this.nickCheckCommand = nickCheckCommand;
 		this.emailCheckCommand = emailCheckCommand;
 		this.insertUserCommand = insertUserCommand;
-
 		this.loginCommand = loginCommand;
-
 		this.choiceMovieDefaultListCommand = choiceMovieDefaultListCommand;
-
+		this.userSelectMovieListCommand = userSelectMovieListCommand;
 	}
 	
 	
@@ -162,6 +154,17 @@ public class Signup_signin_page_controller {
 		loginCommand.execute(sqlSession, model);
 		
 		return "signup_signin_page/login_result_page";
+		
+	}
+	
+	
+	/*** 회원 영화 취향 고른 정보 저장 ***/
+	@RequestMapping(value="userSelectMovieList.do",
+					method=RequestMethod.POST)
+	public String userSelectMovieList(HttpServletRequest request, Model model) {
+		model.addAttribute("request", request);
+		userSelectMovieListCommand.execute(sqlSession, model);
+		return null;
 		
 	}
 
