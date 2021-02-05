@@ -13,6 +13,8 @@ public class FAQDto {
 	
 	private int faq_no;
 	private int user_no;
+	private int faq_yn;
+	private int faq_select;
 	private String faq_title;
 	private String faq_content;
 	private String faq_pw;
