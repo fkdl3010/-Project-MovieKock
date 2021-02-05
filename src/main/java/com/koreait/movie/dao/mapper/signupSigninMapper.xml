@@ -91,10 +91,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where movie_no between #{beginRecord} and #{endRecord}
 	</select>
 	
-	<select id="findIdEmail" parameterType="com.koreait.movie.dto.UserDto" resultType="com.koreait.movie.dto.UserDto">
+	<select id="findId" parameterType="com.koreait.movie.dto.UserDto" resultType="com.koreait.movie.dto.UserDto">
 		select *
 		  from users
-		 where user_email=#{user_email}
+		 where user_name=#{user_name} and
+		 	   user_email=#{user_email}
+	</select>
+	
+	<select id="findPw" parameterType="com.koreait.movie.dto.UserDto" resultType="com.koreait.movie.dto.UserDto">
+		select *
+		  from users
+		 where user_name=#{user_name} and
+		 	   user_email=#{user_email} and
+		 	   user_id=#{user_id}
 	</select>
 	
 </mapper>

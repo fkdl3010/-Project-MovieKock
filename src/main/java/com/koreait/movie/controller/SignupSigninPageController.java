@@ -19,6 +19,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.koreait.movie.command.signupSignin.SignupSigninChoiceMovieDefaultListCommand;
 import com.koreait.movie.command.signupSignin.SignupSigninEmailCheckCommand;
 import com.koreait.movie.command.signupSignin.SignupSigninFindIdCommand;
+import com.koreait.movie.command.signupSignin.SignupSigninFindPwCommand;
 import com.koreait.movie.command.signupSignin.SignupSigninIdCheckCommand;
 import com.koreait.movie.command.signupSignin.SignupSigninInsertUserCommand;
 import com.koreait.movie.command.signupSignin.SignupSigninLoginCommand;
@@ -42,6 +43,8 @@ public class SignupSigninPageController {
 	private SignupSigninChoiceMovieDefaultListCommand choiceMovieDefaultListCommand;
 	private SignupSigninUserSelectMovieListCommand userSelectMovieListCommand;
 	private SignupSigninFindIdCommand findIdCommand;
+	private SignupSigninFindPwCommand findPwCommand;
+	private SignupSigninFindPwCommand updatePwCommand;
 	
 	@Autowired
 	public void setBean(SignupSigninIdCheckCommand idcheckCommand,
@@ -52,7 +55,9 @@ public class SignupSigninPageController {
 						SignupSigninLogoutCommand logoutCommand,
 						SignupSigninChoiceMovieDefaultListCommand choiceMovieDefaultListCommand,
 						SignupSigninUserSelectMovieListCommand userSelectMovieListCommand,
-						SignupSigninFindIdCommand findIdCommand) {
+						SignupSigninFindIdCommand findIdCommand,
+						SignupSigninFindPwCommand findPwCommand,
+						SignupSigninFindPwCommand updatePwCommand) {
 		this.idcheckCommand = idcheckCommand;
 		this.nickCheckCommand = nickCheckCommand;
 		this.emailCheckCommand = emailCheckCommand;
@@ -62,6 +67,8 @@ public class SignupSigninPageController {
 		this.choiceMovieDefaultListCommand = choiceMovieDefaultListCommand;
 		this.userSelectMovieListCommand = userSelectMovieListCommand;
 		this.findIdCommand = findIdCommand;
+		this.findPwCommand = findPwCommand;
+		this.updatePwCommand = updatePwCommand;
 	}
 	
 	
@@ -181,14 +188,47 @@ public class SignupSigninPageController {
 	
 	/***** 아이디 찾기 *****/
 	@RequestMapping(value="findId.do", method=RequestMethod.POST)
-	public String findIdEmail(HttpServletRequest request,
+	public String findId(HttpServletRequest request,
 			                Model model) {
 		model.addAttribute("request", request);
 		model.addAttribute("mailSender", mailSender);
 		findIdCommand.execute(sqlSession, model);
 		
-		return "signupSigninPage/findInResultPage";
+		return "signupSigninPage/findIdResultPage";
 		
 	}
+	
+	/***** 비밀번호 찾기 *****/
+	@RequestMapping(value="findPw.do", method=RequestMethod.POST)
+	public String findPwEmail(HttpServletRequest request,
+			Model model) {
+		model.addAttribute("request", request);
+		model.addAttribute("mailSender", mailSender);
+		findPwCommand.execute(sqlSession, model);
+		
+		return "signupSigninPage/findPwResultPage";
+		
+	}
+	
+	/*** 비밀번호 변경 ***/
+	@RequestMapping(value="userSignUp.do",
+					method=RequestMethod.POST)
+	public String updatePw(HttpServletRequest request,
+						RedirectAttributes rttr,
+						Model model) {
+		model.addAttribute("request", request);
+		model.addAttribute("rttr", rttr);
+		
+		updatePwCommand.execute(sqlSession, model);
+		
+		return "redirect:/";
 
+	}
+	
+	/***** 나중에 지울것! *****/
+	@RequestMapping(value="updatePwPage.do")
+	public String updatePwPage()	{
+		return "signupSigninPage/updatePwPage";
+	}
+	
 }

@@ -81,5 +81,7 @@
 	<bean id="userSelectMovieListCommand" class="com.koreait.movie.command.signupSignin.SignupSigninUserSelectMovieListCommand"></bean>
 	<bean id="scrollMovieList" class="com.koreait.movie.command.signupSignin.ScrollMovieList"/>
 	<bean id="findIdCommand" class="com.koreait.movie.command.signupSignin.SignupSigninFindIdCommand"></bean>
+	<bean id="findPwCommand" class="com.koreait.movie.command.signupSignin.SignupSigninFindPwCommand"></bean>
+	<bean id="updatePwCommand" class="com.koreait.movie.command.signupSignin.SignupSigninUpdatePwCommand"></bean>
 	
 </beans>

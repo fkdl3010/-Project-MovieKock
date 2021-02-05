@@ -37,6 +37,7 @@
 	<a href="signupChoicePage.do">회원가입시 영화선택페이지</a><br>
 	<a href="findIdpwPage.do">아이디 비밀번호 찾기</a><br>
 	<a href="privacyAgreementPage.do">개인정보약관동의사이트</a><br><br>
+	<a href="updatePwPage.do">비밀번호변경페이지</a><br><br>
 	
 	-영화 정보보기 페이지-<br>
 	<a href="movieInfoPage.do">영화 INFO 페이지</a><br>

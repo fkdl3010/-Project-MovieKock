@@ -9,17 +9,17 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.ui.Model;
 
 import com.koreait.movie.common.CommonVoidCommand;
 import com.koreait.movie.dao.SignupSigninDao;
 import com.koreait.movie.dto.UserDto;
 
-public class SignupSigninFindIdCommand implements CommonVoidCommand {
+public class SignupSigninFindPwCommand implements CommonVoidCommand {
 
 	@Override
 	public void execute(SqlSession sqlSession, Model model) {
-
 		try {
 			
 			Map<String, Object> map = model.asMap();
@@ -35,11 +35,13 @@ public class SignupSigninFindIdCommand implements CommonVoidCommand {
 			
 			String user_name = request.getParameter("user_name");
 			String user_email = request.getParameter("user_email");
+			String user_id = request.getParameter("user_id");
 			
 			
 			UserDto userDto = new UserDto();
 			userDto.setUser_name(user_name);
 			userDto.setUser_email(user_email);
+			userDto.setUser_id(user_id);
 			
 			SignupSigninDao dao = sqlSession.getMapper(SignupSigninDao.class);
 			
@@ -53,13 +55,16 @@ public class SignupSigninFindIdCommand implements CommonVoidCommand {
 				// MimeMessage 클래스가 이메일의 내용을 작성합니다.
 				MimeMessage message = mailSender.createMimeMessage();
 				message.setHeader("Content-Type", "text/plain; charset=utf-8");
-				message.setFrom(new InternetAddress("moviekock@gmail.com", "무비콕"));  // 보내는 사람
-				InternetAddress to = new InternetAddress(request.getParameter("user_email"));  // 받는 사람
-				InternetAddress[] toList = {to};  // 받는 사람을 배열에 저장해 두면 여러 곳에 한 번에 보낼 수도 있습니다.
-				message.setRecipients(Message.RecipientType.TO, toList);
-				message.setSubject("무비콕 요청하신 아이디 찾기 입니다.");  // 제목
-				message.setText("아이디 : " + findIdEmail.getUser_id());  // 본문  - 아이디는 findIdEmail.getId() 같은 걸로 빼면 되겠습니다.
 				
+				// MimeMessageHelper 클래스를 이용하는 방법도 있습니다.
+				MimeMessageHelper helper = new MimeMessageHelper(message, true, "utf-8"); 
+				helper.setFrom(new InternetAddress("moviekock@gmail.com", "무비콕"));  // 보내는 사람
+				helper.setTo(request.getParameter("user_email"));  // 받는 사람
+				helper.setSubject("무비콕 요청하신 비밀번호 찾기 입니다.");  // 제목
+				
+				long authKey = (long)(Math.random() * 10000000000L) + 1234567890;  // 랜덤하게 마음대로 만듭니다.
+				helper.setText("<html><body><a href='http://localhost:9090" + request.getContextPath() + "/updatePwPage.do'>비밀번호 재설정</a><br/></body></html>", true);
+		
 				mailSender.send(message);  // 메일을 보냅니다.
 			}
 		} catch (Exception e) {
