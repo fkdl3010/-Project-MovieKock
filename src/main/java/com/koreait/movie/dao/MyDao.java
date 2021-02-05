@@ -1,4 +1,6 @@
-package com.koreait.movie.dao;
+package com.koreait.movie.dao;import java.util.Map;
+
+import com.koreait.movie.dto.UserDto;
 
 import java.sql.Date;
 import java.util.List;
@@ -21,4 +23,7 @@ public interface MyDao {
 	
 	public CommentDto view(int no);
 	
+	public int userUpdate(UserDto userDto);
+	
+	public UserDto sessionUser(int userNo);
 }

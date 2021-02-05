@@ -70,7 +70,7 @@
 		</property>
 	</bean>
 	
-	<!-- signup_signin -->
+	<!-- signupSignin -->
 	<bean id="idCheckCommand" class="com.koreait.movie.command.signupSignin.SignupSigninIdCheckCommand"></bean>
 	<bean id="nickCheckCommand" class="com.koreait.movie.command.signupSignin.SignupSigninNickCheckCommand"></bean>
 	<bean id="emailCheckCommand" class="com.koreait.movie.command.signupSignin.SignupSigninEmailCheckCommand"></bean>
@@ -81,4 +81,8 @@
 	<bean id="userSelectMovieListCommand" class="com.koreait.movie.command.signupSignin.SignupSigninUserSelectMovieListCommand"></bean>
 	<bean id="scrollMovieList" class="com.koreait.movie.command.signupSignin.ScrollMovieList"/>
 	<bean id="findIdCommand" class="com.koreait.movie.command.signupSignin.SignupSigninFindIdCommand"></bean>
+	
+	<!-- myPage -->
+	<bean id="myPageCommand" class="com.koreait.movie.command.myPage.MyPageCommand"></bean>
+	<bean id="userUpdateCommand" class="com.koreait.movie.command.myPage.UserUpdateCommand"></bean>
 </beans>
