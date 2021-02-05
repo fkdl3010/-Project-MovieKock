@@ -6,9 +6,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.koreait.movie.dao.Requestdao">
 	
-	<select id="requestView" parameterType="int" resultType="com.koreait.movie.dto.CommentDto">
-		SELECT faq_no, faq_title, user_no, faq_date
-		  FROM FAQ
-	</select>
+	<insert id="requestWrite" parameterType="com.koreait.movie.dto.FAQDto">
+		INSERT INTO
+		FAQ (FAQ_TITLE, FAQ_CONTENT, FAQ_PW)
+		VALUES (FAQ_SEQ.NEXTVAL, #{title}, #{content},)
+	</insert>
+	
+	
+	
 	
 </mapper>

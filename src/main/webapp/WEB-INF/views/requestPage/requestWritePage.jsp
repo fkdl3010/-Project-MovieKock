@@ -13,9 +13,9 @@
         </div>  
         <div class="main_body">
             <div class="box1">
+            <form method="post">
                 <div class="box2">
-                   <form action="#입력정보를보낼경로" method="post">
-				        <select name="select">
+				        <select name="select" id="select">
                             <option value="문의유형" selected>컨텐츠문제</option>
                             <option value="결제오류">결제오류</option>
                             <option value="버그문제">버그문제</option>
@@ -26,19 +26,25 @@
                         <label for="secret" id="secret-btn">나만 보기</label>
                         <input type="checkbox" id="secret" />
                         <input type="password" name="pw" value="pw" id="pw" class="display-none" />
-				   </form>
 				   </div>
                     <div class="box3">
-                        <textarea rows="100" cols="100" class="write" placeholder="문의 내용을 입력하세요."></textarea>                     
+                        <textarea rows="100" cols="100" class="content" id="content" placeholder="문의 내용을 입력하세요."></textarea>                     
                     </div> 
                     <div class="box5">
-                        <input type="button" id="btn" class="btn" value="문의하기" onclick="" />
+                        <input type="button" id="btn" class="btn" value="문의하기" onclick="fn_send(this.form)" />
                     </div>
+				   </form>
                 </div>
             </div>
         </div>
     
     <script src="/movie/assets/script/requestWritePage.js"></script>
+ 
+    
+    
+    
+    
+    
         
 <%@ include file="../template/footer.jsp" %>
 	

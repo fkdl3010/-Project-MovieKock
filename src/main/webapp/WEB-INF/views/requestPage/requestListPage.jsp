@@ -15,7 +15,7 @@
 				<div class="main_bot_inner">
 					<table class="table request_list_table">
 					<thead>
-						<tr class="tr request_list_tr request_list_1st_tr">
+						<tr class="request_list_1st_tr">
 							<td class="td request_list_td">문의 유형</td>
 							<td class="td request_list_td">제목</td>
 							<td class="td request_list_td">작성자</td>
@@ -30,14 +30,30 @@
 							</tr>
 						</c:if>
 						<c:if test="${not empty list}">
-						<c:forEach var="FAQDto" items="${list}" varStatus="k">
+						<c:forEach var="faqDto" items="${list}" varStatus="k">
 							<tr>
 								<td>${totalRecord - ((page - 1) * recordPerPage + k.index)}</td>
-								<td>${fnqDto.faq_no}</td>
-								<td><a href="requestView.do?no=${fnqDto.no}&page=${page}">${fnqDto.title}</a></td>
-								<td>${fnqDto.user_no}</td>
-								<td>${fnqDto.faq_date;}</td>
-								<td>${fnqDto.답변여부}</td>
+								<td>${faqDto.faq_no}</td>
+								<td><a href="requestView.do?no=${faqDto.no}&page=${page}">${faqDto.title}</a></td>
+								<td>${faqDto.user_no}</td>
+								<td>${faqDto.faq_date}</td>
+								<td>${faqDto.faq_yn}</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>2</td>
+								<td>3<a href="requestView.do?no=${faqDto.no}&page=${page}">${faqDto.title}</a></td>
+								<td>4</td>
+								<td>5</td>
+								<td>6</td>
+							</tr>
+							<tr>
+								<td>7</td>
+								<td>8</td>
+								<td>9<a href="requestView.do?no=${faqDto.no}&page=${page}">${faqDto.title}</a></td>
+								<td>10</td>
+								<td>11</td>
+								<td>12</td>
 							</tr>
 						</c:forEach>
 					</c:if>
