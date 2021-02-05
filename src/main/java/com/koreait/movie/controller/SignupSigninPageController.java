@@ -181,14 +181,13 @@ public class SignupSigninPageController {
 	
 	/***** 아이디 찾기 *****/
 	@RequestMapping(value="findId.do", method=RequestMethod.POST)
-	public String emailAuth(HttpServletRequest request,
+	public String findIdEmail(HttpServletRequest request,
 			                Model model) {
-		
 		model.addAttribute("request", request);
 		model.addAttribute("mailSender", mailSender);
 		findIdCommand.execute(sqlSession, model);
 		
-		return "signupSigninPage/findIdResultPage";
+		return "signupSigninPage/findInResultPage";
 		
 	}
 
