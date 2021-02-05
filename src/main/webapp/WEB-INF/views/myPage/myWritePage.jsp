@@ -14,15 +14,19 @@
 
 	<div class="wrap">
 		<div class="main">
-			<!-- <div class="box1">
+			<div class="box1">
 				<div class="box3">
-					<i class="fas fa-user-alt fa-8x" id=user_icon></i>
+					<i class="fas fa-user-circle"></i>
 				</div>
 			</div>
 			<div class="box2">
 				<div class="box4">
+					<h4>내가 쓴 글</h4>
+				</div>
+				<div class="box6">
 					<input type="button" id="btn" class="btn" value="더 보기" onclick="" />
 					<div class="box5">
+
 						<table>
 							<thead>
 								<tr>
@@ -30,29 +34,13 @@
 									<td>제목</td>
 									<td>날짜</td>
 								</tr>
-								<tr>
-									<td>영화제목</td>
-									<td>제목</td>
-									<td>날짜</td>
-								</tr>
-								<tr>
-									<td>영화제목</td>
-									<td>제목</td>
-									<td>날짜</td>
-								</tr>
+
 							</thead>
 						</table>
-					</div>
-					<div class="box6">
-						<h3>내가 쓴 글</h3>
+
 					</div>
 				</div>
-			</div> -->
-
-			<section>
-				<div class="box_top"></div>
-				<div class="box_bottom"></div>
-			</section>
+			</div>
 		</div>
 	</div>
 
