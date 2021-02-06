@@ -21,4 +21,40 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		from users
 		where user_no = #{userNo}
 	</select>
+	
+	<select id="userWriteTotalCount" parameterType="int" resultType="int">
+		select count(*)
+		from comments
+		where user_no = #{userNo}
+	</select>
+	
+	<select id="loginUserCommentList" parameterType="Map" resultType="com.koreait.movie.dto.CommentDto">
+		select b.*
+		  from (select rownum as rn, a.*
+		  		  from (select	*
+		  		   		  from comments
+	  		   		     where user_no = #{userNo}
+		  		   	  order by comment_date DESC) a) b
+		 where b.rn between #{beginRecord} AND #{endRecord}
+	</select>
+	
+	<select id="getMovieTitle" parameterType="int" resultType="String">
+		select movie_title
+		from movie
+		where movie_no = #{movieNo}
+	</select>
+	
+	<update id="updateComment">
+		update comments
+		set comments_title = #{param1},
+			comment_content = #{param2}
+		where comment_no = #{param3}
+	</update>
+	
+	<delete id="deleteComment" parameterType="int">
+		delete
+		from comments
+		where comment_no = #{commentNo}
+	</delete>
+	
 </mapper>
