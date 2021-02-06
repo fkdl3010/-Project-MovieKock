@@ -130,7 +130,7 @@
 	}else{
 	    movieNo = event.target.childNodes[1];
 	}
-	console.log(movieNo);
+	console.log(event);
     const opClass = 'checked';
     
     /* 영화가 선택되어있다면 userSelect 배열에 movie_no값을 추가해주고 프로그레스바를 컨트롤한다
