@@ -56,3 +56,71 @@
         textarea{
         	border-color: white;
         }
+        
+        .tableBox{
+       	    width: 490px;
+		    height: 500px;
+		    /* position: absolute; */
+		    bottom: 90px;
+		    left: 35px;
+		    margin: auto;
+		    margin-top: 250px;
+		    border: 3px solid black;
+        }
+        
+        table {
+		border-collapse: collapse;
+		}
+		td, th {
+			border-top: 1px solid black;
+			border-bottom: 1px solid black;
+			padding: 5px;
+			text-align: center;
+		}
+		th {
+			background: silver;
+		}
+		
+		
+		
+		.paging {
+			display: flex;
+			text-align: center;
+		}
+		.paging div {
+			width: 40px;
+			height: 20px;
+		}
+		.paging .go-page:hover {
+			cursor: pointer;
+		}
+		.paging .now-page a{
+			color: lime;
+		}
+		.paging .disable a{
+			color: silver;
+			text-decoration: none;
+		}
+		
+		.contentTextArea{
+			width: 100%;
+			height: 380px;
+			resize: none;
+		}
+		
+		.footer-btn-box {
+		    width: 300px;
+		    margin-left: 745px;
+		    margin-bottom: 20px;
+		    text-align: right;
+		}
+		
+		.textOutline{
+			border: none;
+			outline: none;
+		}
+		
+		.none{
+			display: none;
+		}
+        

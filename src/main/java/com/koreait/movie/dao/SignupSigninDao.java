@@ -28,4 +28,10 @@ public interface SignupSigninDao {
 	public int totalMovieRecord();
 	
 	public List<MovieDto> scrollMovieList(Map<String, Object> controllMap);
+	
+	public UserDto findId(UserDto userDto);
+	
+	public UserDto findPw(UserDto userDto);
+	
+	public int updatePw(String temporaryPw, String id);
 }

@@ -58,9 +58,6 @@
 		}
 		
 	}
-	
-	console.log("${cookie.id.value}");
-	
 </script>
 
   <!-- modal -->
