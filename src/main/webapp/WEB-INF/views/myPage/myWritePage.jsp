@@ -70,8 +70,8 @@
 	       </div>
 	       <div class="footer-btn-box">
 				<input type="button" value="수정하기" class="btn btn-primary none" id="updateControlBtn" onclick="fn_commentUpdateControl()"/>
-	      		<input type="button" value="수정완료" class="btn btn-primary none" id="updateCancle" />
-				<input type="button" value="삭제하기" class="btn btn-primary none" id="deleteBtn" />
+	      		<input type="button" value="수정완료" class="btn btn-primary none" id="updateComment" onclick="fn_commentUpdate()"/>
+				<input type="button" value="삭제하기" class="btn btn-primary none" id="deleteBtn" onclick="fn_commentDeleteBtn()"/>
        	   </div>
 	       <!-- Footer -->
 	       <div class="modal-footer">
