@@ -86,4 +86,9 @@
 	<bean id="myPageCommand" class="com.koreait.movie.command.myPage.MyPageCommand"></bean>
 	<bean id="userUpdateCommand" class="com.koreait.movie.command.myPage.UserUpdateCommand"></bean>
 
+	<!-- request -->
+	<bean id="requestWriteCommand" class="com.koreait.movie.command.request.RequestWriteCommand"></bean> 
+	<bean id="requestListCommand" class="com.koreait.movie.command.request.RequestListCommand"></bean>
+	<bean id="requestViewCommand" class="com.koreait.movie.command.request.RequestViewCommand"></bean>
+
 </beans>

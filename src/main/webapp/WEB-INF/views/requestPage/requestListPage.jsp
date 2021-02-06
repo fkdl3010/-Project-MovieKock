@@ -32,10 +32,9 @@
 						<c:if test="${not empty list}">
 						<c:forEach var="faqDto" items="${list}" varStatus="k">
 							<tr>
-								<td>${totalRecord - ((page - 1) * recordPerPage + k.index)}</td>
-								<td>${faqDto.faq_no}</td>
-								<td><a href="requestView.do?no=${faqDto.no}&page=${page}">${faqDto.title}</a></td>
-								<td>${faqDto.user_no}</td>
+								<td>${faqDto.faq_select}</td>
+								<td><a href="requestView.do?no=${faqDto.faq_no}&page=${page}">${faqDto.title}</a></td>
+								<td>${faqDto.user_nickname}</td>
 								<td>${faqDto.faq_date}</td>
 								<td>${faqDto.faq_yn}</td>
 							</tr>

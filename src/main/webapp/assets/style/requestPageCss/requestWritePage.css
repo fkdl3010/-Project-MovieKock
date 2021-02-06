@@ -72,7 +72,9 @@
     .content {
         width:95%;
         height: 95%;
-        margin: 15px 0px 0px 25px;
+        position:absolute;
+        top: 0%;
+        left:2.5%;
     }
     
     #pw{
@@ -129,7 +131,7 @@
         height: 44px;
         position: absolute;
         right: 3%;
-        bottom: 15%;
+        bottom: 10%;
         font-size: 16px;
         color: rgb(255, 255, 255);
         text-align: center;
