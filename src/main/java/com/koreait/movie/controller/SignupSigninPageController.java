@@ -25,6 +25,7 @@ import com.koreait.movie.command.signupSignin.SignupSigninInsertUserCommand;
 import com.koreait.movie.command.signupSignin.SignupSigninLoginCommand;
 import com.koreait.movie.command.signupSignin.SignupSigninLogoutCommand;
 import com.koreait.movie.command.signupSignin.SignupSigninNickCheckCommand;
+import com.koreait.movie.command.signupSignin.SignupSigninUpdatePwCommand;
 import com.koreait.movie.command.signupSignin.SignupSigninUserSelectMovieListCommand;
 
 @Controller
@@ -44,7 +45,7 @@ public class SignupSigninPageController {
 	private SignupSigninUserSelectMovieListCommand userSelectMovieListCommand;
 	private SignupSigninFindIdCommand findIdCommand;
 	private SignupSigninFindPwCommand findPwCommand;
-	private SignupSigninFindPwCommand updatePwCommand;
+	private SignupSigninUpdatePwCommand updatePwCommand;
 	
 	@Autowired
 	public void setBean(SignupSigninIdCheckCommand idcheckCommand,
@@ -57,7 +58,7 @@ public class SignupSigninPageController {
 						SignupSigninUserSelectMovieListCommand userSelectMovieListCommand,
 						SignupSigninFindIdCommand findIdCommand,
 						SignupSigninFindPwCommand findPwCommand,
-						SignupSigninFindPwCommand updatePwCommand) {
+						SignupSigninUpdatePwCommand updatePwCommand) {
 		this.idcheckCommand = idcheckCommand;
 		this.nickCheckCommand = nickCheckCommand;
 		this.emailCheckCommand = emailCheckCommand;
@@ -205,30 +206,30 @@ public class SignupSigninPageController {
 		model.addAttribute("request", request);
 		model.addAttribute("mailSender", mailSender);
 		findPwCommand.execute(sqlSession, model);
-		
+		updatePwCommand.execute(sqlSession, model);
 		return "signupSigninPage/findPwResultPage";
 		
 	}
 	
-	/*** 비밀번호 변경 ***/
-	@RequestMapping(value="userSignUp.do",
-					method=RequestMethod.POST)
-	public String updatePw(HttpServletRequest request,
-						RedirectAttributes rttr,
-						Model model) {
-		model.addAttribute("request", request);
-		model.addAttribute("rttr", rttr);
-		
-		updatePwCommand.execute(sqlSession, model);
-		
-		return "redirect:/";
-
-	}
-	
-	/***** 나중에 지울것! *****/
-	@RequestMapping(value="updatePwPage.do")
-	public String updatePwPage()	{
-		return "signupSigninPage/updatePwPage";
-	}
+//	/*** 비밀번호 변경 ***/
+//	@RequestMapping(value="userSignUp.do",
+//					method=RequestMethod.POST)
+//	public String updatePw(HttpServletRequest request,
+//						RedirectAttributes rttr,
+//						Model model) {
+//		model.addAttribute("request", request);
+//		model.addAttribute("rttr", rttr);
+//		
+//		updatePwCommand.execute(sqlSession, model);
+//		
+//		return "signupSigninPage/index";
+//
+//	}
+//	
+//	/***** 나중에 지울것! *****/
+//	@RequestMapping(value="updatePwPage.do")
+//	public String updatePwPage()	{
+//		return "signupSigninPage/updatePwPage";
+//	}
 	
 }

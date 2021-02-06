@@ -47,10 +47,10 @@ public class SignupSigninFindPwCommand implements CommonVoidCommand {
 			
 			// UserDto findIdEmail = dao.findIdEmail(userDto);  // 이름과 아이디가 일치하는 회원이 findIdEmail이라면 findIdEmail이 있는지 없는지 체크하는 부분이 필요하겠죠.
 			
-			UserDto findIdEmail = null;
-			findIdEmail = dao.findId(userDto);
+			UserDto findPwEmail = null;
+			findPwEmail = dao.findPw(userDto);
 			
-			if (findIdEmail != null) {
+			if (findPwEmail != null) {
 				
 				// MimeMessage 클래스가 이메일의 내용을 작성합니다.
 				MimeMessage message = mailSender.createMimeMessage();
@@ -62,9 +62,9 @@ public class SignupSigninFindPwCommand implements CommonVoidCommand {
 				helper.setTo(request.getParameter("user_email"));  // 받는 사람
 				helper.setSubject("무비콕 요청하신 비밀번호 찾기 입니다.");  // 제목
 				
-				long authKey = (long)(Math.random() * 10000000000L) + 1234567890;  // 랜덤하게 마음대로 만듭니다.
-				helper.setText("<html><body><a href='http://localhost:9090" + request.getContextPath() + "/updatePwPage.do'>비밀번호 재설정</a><br/></body></html>", true);
-		
+				long temporaryPw = (long)(Math.random() * 10000000000L) + 1234567890;  // 랜덤하게 마음대로 만듭니다.
+				helper.setText("<html><body><a>임시 비밀번호 : " + temporaryPw + "</a><br/><a href='http://localhost:9090" + request.getContextPath() + "/'>사이트로 이동</a></body></html>", true);
+				model.addAttribute("temporaryPw", temporaryPw);	// ******************이게 과연 컨트롤러로 갈까??? 그럼 갔다 치고 그걸 xml의 sql에 어떻게 소환을 시켜줄까.....
 				mailSender.send(message);  // 메일을 보냅니다.
 			}
 		} catch (Exception e) {

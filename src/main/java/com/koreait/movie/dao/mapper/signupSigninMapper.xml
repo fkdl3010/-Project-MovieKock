@@ -106,4 +106,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		 	   user_id=#{user_id}
 	</select>
 	
+	<update id="updatePw" parameterType="com.koreait.movie.dto.UserDto">
+		update users
+		   set user_pw=temporaryPw
+	</update>
+	
 </mapper>

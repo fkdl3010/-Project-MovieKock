@@ -32,4 +32,6 @@ public interface SignupSigninDao {
 	public UserDto findId(UserDto userDto);
 	
 	public UserDto findPw(UserDto userDto);
+	
+	public UserDto updatePw(UserDto userDto);
 }
