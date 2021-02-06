@@ -6,6 +6,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.koreait.movie.dao.MyDao">
 	
+	<select id="myWrite" parameterType="int" resultType="com.koreait.movie.dto.CommentDto">
+		SELECT movie_no, comments_title, comment_date
+		  FROM comments
+		 WHERE user_no = #{user_no}
+	</select>
+	
+	
+	<select id="movieInfo" parameterType="int" resultType="com.koreait.movie.dto.CommentDto">
+	    SELECT movie_no, comments_title, comment_date
+		  FROM comments
+		 WHERE user_no = #{user_no}
+	</select>
+	
 	<update id="userUpdate" parameterType="com.koreait.movie.dto.UserDto">
 		
 		update users
@@ -21,8 +34,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		from users
 		where user_no = #{userNo}
 	</select>
-	
-	<select id="userWriteTotalCount" parameterType="int" resultType="int">
+
+  <select id="userWriteTotalCount" parameterType="int" resultType="int">
 		select count(*)
 		from comments
 		where user_no = #{userNo}

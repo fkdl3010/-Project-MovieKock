@@ -5,7 +5,6 @@
 <jsp:include page="../template/header.jsp">
 	<jsp:param value="내가 쓴 글 목록" name="title" />
 </jsp:include>
-      <title></title>
 <style>
 	.none{
 		display: none;

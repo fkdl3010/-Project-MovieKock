@@ -4,7 +4,32 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
 
-<mapper namespace="com.koreait.movie.dao.RequestDao">
+<mapper namespace="com.koreait.movie.dao.Requestdao">
+	
+	<insert id="requestWrite" parameterType="com.koreait.movie.dto.FAQDto">
+		INSERT INTO
+			FAQ (FAQ_NO, FAQ_TITLE, FAQ_SELECT, USER_NO, USER_NICKNAME, FAQ_CONTENT, FAQ_PW, FAQ_DATE)
+			VALUES (FAQ_SEQ.NEXTVAL, 
+				#{faq_no}, #{faq_title},#{faq_select},#{user_no},#{user_nickname},#{faq_content},#{faq_pw},SYSDATE
+				)
+	</insert>
+	
+	
+	<select id="contentList" resultType="com.koreait.movie.dto.FAQDto">
+		SELECT B.*
+		  FROM (SELECT ROWNUM AS RN, A.*
+		          FROM (SELECT *
+		                  FROM FAQ
+		              ORDER BY NO DESC) A ) B
+		 WHERE B.RN BETWEEN #{param1} AND #{param2}
+	</select>
+	
+	<select id="totalRecord" resultType="int">
+		SELECT COUNT(*)
+		  FROM FAQ
+	</select>
+	
+	
 	
 	
 	
