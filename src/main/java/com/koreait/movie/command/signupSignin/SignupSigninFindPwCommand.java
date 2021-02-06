@@ -13,6 +13,7 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.ui.Model;
 
 import com.koreait.movie.common.CommonVoidCommand;
+import com.koreait.movie.common.Sha256;
 import com.koreait.movie.dao.SignupSigninDao;
 import com.koreait.movie.dto.UserDto;
 
@@ -31,6 +32,9 @@ public class SignupSigninFindPwCommand implements CommonVoidCommand {
 			// 컨트롤러에서는 model.addAttribute("email", email)을 한 적이 없습니다.
 			// String user_name = (String)map.get("name");  // 들어 있지 않음
 			// String user_email = (String)map.get("email");  // 들어 있지 않음
+			int randomPw = ( (int)(Math.random() * 900000) + 100000);
+			
+			String temporaryPw = Sha256.sha256( String.valueOf( randomPw ) );
 	
 			
 			String user_name = request.getParameter("user_name");
@@ -50,6 +54,8 @@ public class SignupSigninFindPwCommand implements CommonVoidCommand {
 			UserDto findPwEmail = null;
 			findPwEmail = dao.findPw(userDto);
 			
+			dao.updatePw(temporaryPw, user_id);
+			
 			if (findPwEmail != null) {
 				
 				// MimeMessage 클래스가 이메일의 내용을 작성합니다.
@@ -62,9 +68,7 @@ public class SignupSigninFindPwCommand implements CommonVoidCommand {
 				helper.setTo(request.getParameter("user_email"));  // 받는 사람
 				helper.setSubject("무비콕 요청하신 비밀번호 찾기 입니다.");  // 제목
 				
-				long temporaryPw = (long)(Math.random() * 10000000000L) + 1234567890;  // 랜덤하게 마음대로 만듭니다.
-				helper.setText("<html><body><a>임시 비밀번호 : " + temporaryPw + "</a><br/><a href='http://localhost:9090" + request.getContextPath() + "/'>사이트로 이동</a></body></html>", true);
-				model.addAttribute("temporaryPw", temporaryPw);	// ******************이게 과연 컨트롤러로 갈까??? 그럼 갔다 치고 그걸 xml의 sql에 어떻게 소환을 시켜줄까.....
+				helper.setText("<html><body><a>임시 비밀번호 : " + randomPw + "</a><br/><a href='http://localhost:9090" + request.getContextPath() + "/'>사이트로 이동</a></body></html>", true);
 				mailSender.send(message);  // 메일을 보냅니다.
 			}
 		} catch (Exception e) {

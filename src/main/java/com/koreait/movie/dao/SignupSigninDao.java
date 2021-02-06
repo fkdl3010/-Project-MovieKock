@@ -33,5 +33,5 @@ public interface SignupSigninDao {
 	
 	public UserDto findPw(UserDto userDto);
 	
-	public UserDto updatePw(UserDto userDto);
+	public int updatePw(String temporaryPw, String id);
 }
