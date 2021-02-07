@@ -29,15 +29,15 @@ public class RecommandPageController {
 	}
 	
 
-	@RequestMapping(value="recommand_page.do")
+	@RequestMapping(value="recommandPage.do")
 	public String recommand_page() {
-		return "recommand_page/recommand_page";
+		return "recommandPage/recommandPage";
 	}
 	
-	@RequestMapping(value="recommand_random_page.do")
+	@RequestMapping(value="recommandRandomPage.do")
 	public String recommand_randon_page(Model model) {
 		randomMovieCommand.execute(sqlSession, model);
-		return "recommand_page/recommand_random_page";
+		return "recommandPage/recommand_random_page";
 	}
 	
 	@RequestMapping(value="recommandSituPage.do")
@@ -45,11 +45,11 @@ public class RecommandPageController {
 	public String recommandSituPage(HttpServletRequest request, Model model) {
 		model.addAttribute("request", request);
 		situMovieCommand.execute(sqlSession, model);
-		return "recommand_page/recommandSituPage";
+		return "recommandPage/recommandSituPage";
 	}
 	
-	@RequestMapping(value="category_recommand_page.do")
+	@RequestMapping(value="categoryRecommandPage.do")
 	public String category_recommand_page() {
-		return "recommand_page/category_recommand_page";
+		return "recommandPage/categoryRecommandPage";
 	}
 }

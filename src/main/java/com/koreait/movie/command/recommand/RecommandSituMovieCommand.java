@@ -9,14 +9,14 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.ui.Model;
 
 import com.koreait.movie.common.CommonVoidCommand;
-import com.koreait.movie.dao.Recommand_dao;
+import com.koreait.movie.dao.RecommandDao;
 import com.koreait.movie.dto.MovieDto;
 
 public class RecommandSituMovieCommand implements CommonVoidCommand{
 
 	@Override
 	public void execute(SqlSession sqlSession, Model model) {
-		Recommand_dao dao = sqlSession.getMapper(Recommand_dao.class);
+		RecommandDao dao = sqlSession.getMapper(RecommandDao.class);
 
 		
 		Map<String, Object> map = model.asMap();
