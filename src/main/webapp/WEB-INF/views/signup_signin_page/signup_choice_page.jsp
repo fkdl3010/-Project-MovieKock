@@ -35,7 +35,7 @@
 	      	<c:forEach var="movie" items="${movieDefaultList }">
 	      		<div class="list" style="background-image: url('/movie/assets/images/poster/${movie.movie_title}_포스터.jpg'); background-size: 250px 300px;"></div>
 	      	</c:forEach>
-	      	
+	
 	      </c:if>
 	      
     	</div>
