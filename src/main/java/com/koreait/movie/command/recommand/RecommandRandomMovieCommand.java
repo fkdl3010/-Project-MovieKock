@@ -7,7 +7,7 @@ import com.koreait.movie.common.CommonVoidCommand;
 import com.koreait.movie.dao.Recommand_dao;
 
 
-public class Recommand_randomMovieCommand implements CommonVoidCommand {
+public class RecommandRandomMovieCommand implements CommonVoidCommand {
 
 	@Override
 	public void execute(SqlSession sqlSession, Model model) {
