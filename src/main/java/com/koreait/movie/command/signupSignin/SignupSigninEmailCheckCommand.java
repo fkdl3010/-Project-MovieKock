@@ -21,7 +21,6 @@ public class SignupSigninEmailCheckCommand implements CommonMapCommand {
 		SignupSigninDao dao = sqlSession.getMapper(SignupSigninDao.class);
 		
 		Integer result = dao.signEmailCheck(email);
-		System.out.println(result);
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		
 		if(result == null) {

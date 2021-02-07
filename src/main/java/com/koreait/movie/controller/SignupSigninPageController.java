@@ -79,9 +79,11 @@ public class SignupSigninPageController {
 		return "signupSigninPage/loginPage";
 	}
 	
-	@RequestMapping(value="signupChoicePage.do")
-	public String signup_choice_page(Model model) {
+	@RequestMapping(value="signupChoicePage.do",
+					method=RequestMethod.POST)
+	public String signup_choice_page(HttpServletRequest request, Model model) {
 		
+		model.addAttribute("userNo", request.getParameter("no"));
 		choiceMovieDefaultListCommand.execute(sqlSession, model);
 		
 		return "signupSigninPage/signupChoicePage";
@@ -145,13 +147,13 @@ public class SignupSigninPageController {
 		
 		insertUserCommand.execute(sqlSession, model);
 		
-		return "redirect:/";
+		return "redirect:login.do";
 
 	}
 	
 	/*** 로그인 ***/
 	@RequestMapping(value="login.do",
-					  method=RequestMethod.POST)
+					  method={RequestMethod.GET, RequestMethod.POST})
 	public String login(HttpServletRequest request,
 						  HttpServletResponse response,
 						  Model model) {
@@ -177,7 +179,7 @@ public class SignupSigninPageController {
 	public String userSelectMovieList(HttpServletRequest request, Model model) {
 		model.addAttribute("request", request);
 		userSelectMovieListCommand.execute(sqlSession, model);
-		return null;
+		return "redirect:mainPage.do";
 		
 	}
 	
