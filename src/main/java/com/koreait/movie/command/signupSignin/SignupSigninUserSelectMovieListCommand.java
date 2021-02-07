@@ -23,7 +23,7 @@ public class SignupSigninUserSelectMovieListCommand implements CommonVoidCommand
 		HttpServletRequest request = (HttpServletRequest)map.get("request");
 		
 		String movie = request.getParameter("userSelectMovieList");
-		
+		int userNo = Integer.parseInt(request.getParameter("userNo"));
 
 		String[] movieList = movie.split(",");
 		
@@ -36,7 +36,7 @@ public class SignupSigninUserSelectMovieListCommand implements CommonVoidCommand
 		
 		List<Integer> genre = dao.userSelectMovieList(resultMap);
 		resultMap.put("genre", genre);
-		resultMap.put("user_no", 1);
+		resultMap.put("user_no", userNo);
 		int insertResult = dao.userInsertGenre(resultMap);
 		
 	}

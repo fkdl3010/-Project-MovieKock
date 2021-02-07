@@ -37,6 +37,7 @@
           </div>
         </div>
         
+	   <input type="hidden" class="commentNo" id="commentNo" value="0"/>
 
       </div>
 
