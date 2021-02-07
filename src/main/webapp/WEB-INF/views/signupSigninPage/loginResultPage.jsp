@@ -16,17 +16,16 @@
 </html>
 <script>
 
-	if(${loginResult}){
+	if(${signUp}){
 		alert('${loginUser.user_nickname}님 환영합니다.');
-		
-		if(${signUp}){
-			document.querySelector('#signUpAction').submit();
-		}else{
-			location.href='index.do';
-		}
-	} else {
+		document.querySelector('#signUpAction').submit();
+	}else if (${loginResult}) {
+		alert('${loginUser.user_nickname}님 환영합니다.');
+		location.href='index.do';
+	}else{
 		alert('일치하는 회원이 없습니다.');
 		location.href='loginPage.do';
 	}
+	
 	
 </script>

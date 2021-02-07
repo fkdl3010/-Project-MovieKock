@@ -76,6 +76,10 @@ public class SignupSigninLoginCommand implements CommonVoidCommand {
 		
 		if(signUp) {
 			model.addAttribute("signUp", true);
+			
+		}else {
+			model.addAttribute("signUp", false);
+			
 		}
 		
 	}

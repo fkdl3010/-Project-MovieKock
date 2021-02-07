@@ -27,7 +27,6 @@ public class RequestWriteCommand implements CommonVoidCommand {
 		
 		RequestDao requestDao = sqlSession.getMapper(RequestDao.class);
 		
-		int insertResult = requestDao.requestWrite(faq_title, user_nickname, faq_content, faq_pw, faq_no, faq_select, user_no);
 		
 		
 	}
