@@ -1,6 +1,5 @@
 package com.koreait.movie.command.request;
 
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,14 +20,22 @@ public class RequestWriteCommand implements CommonVoidCommand {
 		HttpServletRequest request = (HttpServletRequest)map.get("request");
 		RedirectAttributes rttr = (RedirectAttributes)map.get("rttr");
 		
-		String content = request.getParameter("content");
-		String title = request.getParameter("title");
-		int select = Integer.parseInt("select");
+		String faq_content = request.getParameter("faq_content");
+		String faq_title = request.getParameter("faq_title");
+		String faq_pw = request.getParameter("faq_pw");
+		
+		int faq_select = Integer.parseInt("faq_select");
+		int faq_no = Integer.parseInt("faq_select");
+		int user_no = Integer.parseInt("faq_select");
 		
 		RequestDao requestDao = sqlSession.getMapper(RequestDao.class);
 		
-		int insertResult = requestDao.requestWrite(faq_title, user_nickname, faq_content, faq_pw, faq_no, faq_select, user_no);
+		int requestWriteResult = requestDao.requestWrite(faq_title, faq_content, faq_pw, faq_no, faq_select, user_no);
 		
+		rttr.addAttribute("a", requestWriteResult).addFlashAttribute("requestWriteResult", requestWriteResult);
+		
+		// insert 후에 이동되었음을 JSP에게 알려주겠습니다.
+		rttr.addFlashAttribute("afterrequestWrite", true);
 		
 	}
 
