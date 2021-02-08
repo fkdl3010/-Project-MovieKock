@@ -30,14 +30,14 @@ public class RecommandPageController {
 	
 
 	@RequestMapping(value="recommandPage.do")
-	public String recommand_page() {
+	public String recommandPage() {
 		return "recommandPage/recommandPage";
 	}
 	
 	@RequestMapping(value="recommandRandomPage.do")
-	public String recommand_randon_page(Model model) {
+	public String recommandRandonPage(Model model) {
 		randomMovieCommand.execute(sqlSession, model);
-		return "recommandPage/recommand_random_page";
+		return "recommandPage/recommandRandomPage";
 	}
 	
 	@RequestMapping(value="recommandSituPage.do")
@@ -45,7 +45,7 @@ public class RecommandPageController {
 	public String recommandSituPage(HttpServletRequest request, Model model) {
 		model.addAttribute("request", request);
 		situMovieCommand.execute(sqlSession, model);
-		return "recommandPage/recommandSituPage";
+		return "recommandPage/recommandMovieSituPage";
 	}
 	
 	@RequestMapping(value="categoryRecommandPage.do")
