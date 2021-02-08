@@ -74,7 +74,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			into
 			movie_taste
 			values
-		    (FN_GET_SEQ('MOVIE_TASTE_SEQ'), #{genre_no},4 )
+		    (FN_GET_SEQ('MOVIE_TASTE_SEQ'), #{genre_no}, #{user_no} )
 		</foreach>
 	</insert>
 	
