@@ -26,8 +26,7 @@
 					<div class="swiper-slide">
 						<div class="movie">
 							<div class="rankBadge">${movieDto.movie_no}</div>
-							<img
-								src="/movie/assets/images/poster/${movieDto.movie_title}_포스터.jpg">
+							<img src="/movie/assets/images/poster/${movieDto.movie_title}_포스터.jpg">
 						</div>
 						<div class="info">
 							<div class="text">

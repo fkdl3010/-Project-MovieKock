@@ -3,9 +3,7 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
-
 <mapper namespace="com.koreait.movie.dao.MainDao">
-	
 	
 	<select id="my_write" parameterType="int" resultType="com.koreait.movie.dto.CommentDto">
 		SELECT movie_no, comments_title, comment_date
@@ -13,42 +11,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		 WHERE user_no = #{user_no}
 	</select>
 	
-	
 	<select id="movie_info" parameterType="int" resultType="com.koreait.movie.dto.CommentDto">
 	    SELECT movie_no, comments_title, comment_date
 		  FROM comments
 		 WHERE user_no = #{user_no}
 	</select>
 	
-<!-- <select id="mainList1"
-		resultType="com.koreait.movie.dto.MovieDto">
-		SELECT M.*, S.STAR_SCORE, G_
-		FROM MOVIE M, MOVIE_SCORE S, MOVIE_GENRE G
-		WHERE M.MOVIE_NO = S.MOVIE_NO
-		<![CDATA[WHERE ROWNUM <= 12]]>
-	</select>
-	
-	<select id="mainList2"
-		resultType="com.koreait.movie.dto.MovieDto">
-		SELECT *
-		FROM MOVIE M, MOVIE_SCORE S
-		WHERE M.MOVIE_NO = S.MOVIE_NO
-		AND STAR_SCORE IN(1, 12)
-		ORDER BY STAR_SCORE DESC
-	</select> -->
-
-
 	<select id="mainList1"
 		resultType="com.koreait.movie.dto.MovieDto">
 		SELECT *
 		FROM MOVIE
 		<![CDATA[WHERE ROWNUM <= 12]]>
 	</select>
+
 	<select id="mainList2" resultType="com.koreait.movie.dto.MovieDto">
 		SELECT *
 		FROM MOVIE
 		<![CDATA[WHERE ROWNUM <= 12]]>
 	</select>
+
 	<select id="mainList3" resultType="com.koreait.movie.dto.MovieDto">
 		SELECT *
 		FROM MOVIE
