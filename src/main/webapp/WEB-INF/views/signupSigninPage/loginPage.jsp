@@ -35,7 +35,7 @@
       	</form>
     	</div>
     	<div class="footer">
-      	<a href="/movie/find_idpw_page.do"><span class="footer-link id-pw">아이디 / 비밀번호 찾기</span></a>
+      	<a href="/movie/findIdpwPage.do"><span class="footer-link id-pw">아이디 / 비밀번호 찾기</span></a>
       	<a href="#" data-target="#layerpop" data-toggle="modal"><span class="footer-link signUp">회원가입</span></a>
     	</div>
   </div>
@@ -58,9 +58,6 @@
 		}
 		
 	}
-	
-	console.log("${cookie.id.value}");
-	
 </script>
 
   <!-- modal -->

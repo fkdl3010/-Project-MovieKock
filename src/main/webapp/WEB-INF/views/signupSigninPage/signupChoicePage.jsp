@@ -22,6 +22,7 @@
       <form class="submit-form" method="post">
         <input class="submit-btn"type="button" value="완료" onclick="fn_submit(this.form)" disabled/>
         <input type="hidden" id="hiddenList" value="" name="userSelectMovieList"/>
+        <!-- <input type="hidden" id="userNo" value="" name="userNo"/> -->
       </form>
     </div>
 
@@ -48,10 +49,13 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
   <script>
-
+		
+  		let userNo = ${userNo};
+  		/* document.querySelector('#userNo').value = userNo; */
   
   /* 스크롤 하단 감지 영화 리스트뽑아오기 */
         let scrollCount = 4;
+  		
   $(window).scroll(function() {
         
         let scrolltop = $(document).scrollTop();
@@ -120,7 +124,7 @@
     
   }
   $(document).on("click","div .list",handleBar);
-
+  let count;
   function handleBar(event){
 	
 	const movieBox = event.target;
@@ -130,7 +134,7 @@
 	}else{
 	    movieNo = event.target.childNodes[1];
 	}
-	console.log(movieNo);
+	console.log(event);
     const opClass = 'checked';
     
     /* 영화가 선택되어있다면 userSelect 배열에 movie_no값을 추가해주고 프로그레스바를 컨트롤한다
@@ -138,15 +142,24 @@
     */
 	if(movieChecked(event)){
 		userSelect.push(movieNo.value);
-		console.log(123);
+		if(userSelect.length > 10){
+			/* 영화선택 배열을 하나 지워주고 checked 속성을 false로 되돌림 */
+			userSelect.pop();
+			alert('영화는 10개까지 선택이 가능합니다.');
+			event.target.children[0].setAttribute('checked', 'false');
+			return;
+		}
 		movieBox.classList.add(opClass);
 		bar.value++;
 	}else{
 		userSelect.splice(userSelect.indexOf(movieNo.value),1);
 		movieBox.classList.remove(opClass);
 		bar.value--;
-		console.log(123);
 	}
+    
+	
+    
+    
     
     console.log(userSelect);
 
@@ -157,7 +170,10 @@
     }else{
       submitBtn.disabled = true;
     }
-    let count = bar.value;
+    
+    
+    
+    count = bar.value;
     
     progressCount(count);
     
@@ -182,8 +198,9 @@
   
   /* 값 보내는 fn */
   function fn_submit(f){
+	  alert('회원님이 고르신 영화들로 추천해드릴게요!!');
 	  
-	  f.action = 'userSelectMovieList.do';
+	  f.action = 'userSelectMovieList.do?userNo=' + userNo;
 	  f.submit();
 	  
 	  

@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,11 +19,14 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.koreait.movie.command.signupSignin.ScrollMovieList;
 import com.koreait.movie.command.signupSignin.SignupSigninChoiceMovieDefaultListCommand;
 import com.koreait.movie.command.signupSignin.SignupSigninEmailCheckCommand;
+import com.koreait.movie.command.signupSignin.SignupSigninFindIdCommand;
+import com.koreait.movie.command.signupSignin.SignupSigninFindPwCommand;
 import com.koreait.movie.command.signupSignin.SignupSigninIdCheckCommand;
 import com.koreait.movie.command.signupSignin.SignupSigninInsertUserCommand;
 import com.koreait.movie.command.signupSignin.SignupSigninLoginCommand;
 import com.koreait.movie.command.signupSignin.SignupSigninLogoutCommand;
 import com.koreait.movie.command.signupSignin.SignupSigninNickCheckCommand;
+import com.koreait.movie.command.signupSignin.SignupSigninUpdatePwCommand;
 import com.koreait.movie.command.signupSignin.SignupSigninUserSelectMovieListCommand;
 
 @Controller
@@ -40,7 +44,11 @@ public class SignupSigninPageController {
 	private SignupSigninLogoutCommand logoutCommand;
 	private SignupSigninChoiceMovieDefaultListCommand choiceMovieDefaultListCommand;
 	private SignupSigninUserSelectMovieListCommand userSelectMovieListCommand;
+	private SignupSigninFindIdCommand findIdCommand;
 	private ScrollMovieList scrollMovieList;
+	private SignupSigninFindPwCommand findPwCommand;
+	private SignupSigninUpdatePwCommand updatePwCommand;
+	
 	@Autowired
 	public void setBean(SignupSigninIdCheckCommand idcheckCommand,
 						SignupSigninNickCheckCommand nickCheckCommand,
@@ -50,8 +58,10 @@ public class SignupSigninPageController {
 						SignupSigninLogoutCommand logoutCommand,
 						SignupSigninChoiceMovieDefaultListCommand choiceMovieDefaultListCommand,
 						SignupSigninUserSelectMovieListCommand userSelectMovieListCommand,
-						ScrollMovieList scrollMovieList
-						) {
+						SignupSigninFindIdCommand findIdCommand,
+						ScrollMovieList scrollMovieList,
+						SignupSigninFindPwCommand findPwCommand,
+						SignupSigninUpdatePwCommand updatePwCommand) {
 		this.idcheckCommand = idcheckCommand;
 		this.nickCheckCommand = nickCheckCommand;
 		this.emailCheckCommand = emailCheckCommand;
@@ -60,8 +70,10 @@ public class SignupSigninPageController {
 		this.logoutCommand = logoutCommand;
 		this.choiceMovieDefaultListCommand = choiceMovieDefaultListCommand;
 		this.userSelectMovieListCommand = userSelectMovieListCommand;
+		this.findIdCommand = findIdCommand;
 		this.scrollMovieList = scrollMovieList;
-
+		this.findPwCommand = findPwCommand;
+		this.updatePwCommand = updatePwCommand;
 	}
 	
 	
@@ -75,10 +87,11 @@ public class SignupSigninPageController {
 		return "signupSigninPage/loginPage";
 	}
 	
-	/*** 회원 가입 시 영화 선택 리스트 페이지 ***/
-	@RequestMapping(value="signupChoicePage.do")
-	public String signup_choice_page(Model model) {
+	@RequestMapping(value="signupChoicePage.do",
+					method=RequestMethod.POST)
+	public String signup_choice_page(HttpServletRequest request, Model model) {
 		
+		model.addAttribute("userNo", request.getParameter("no"));
 		choiceMovieDefaultListCommand.execute(sqlSession, model);
 		
 		return "signupSigninPage/signupChoicePage";
@@ -142,13 +155,13 @@ public class SignupSigninPageController {
 		
 		insertUserCommand.execute(sqlSession, model);
 		
-		return "redirect:/";
+		return "redirect:login.do";
 
 	}
 	
 	/*** 로그인 ***/
 	@RequestMapping(value="login.do",
-					  method=RequestMethod.POST)
+					  method={RequestMethod.GET, RequestMethod.POST})
 	public String login(HttpServletRequest request,
 						  HttpServletResponse response,
 						  Model model) {
@@ -174,9 +187,10 @@ public class SignupSigninPageController {
 	public String userSelectMovieList(HttpServletRequest request, Model model) {
 		model.addAttribute("request", request);
 		userSelectMovieListCommand.execute(sqlSession, model);
-		return null;
+		return "redirect:mainPage.do";
 		
 	}
+	
 	/*** 스크롤 하단 영화 리스트 불러오기 ***/
 	@RequestMapping(value="scrollMovieList/{scrollCount}",
 					method = RequestMethod.GET,
@@ -188,5 +202,55 @@ public class SignupSigninPageController {
 		
 		return scrollMovieList.execute(sqlSession, model);
 	}
-
+	
+	/***** 이메일 *****/
+	
+	@Autowired
+	private JavaMailSender mailSender;
+	
+	/***** 아이디 찾기 *****/
+	@RequestMapping(value="findId.do", method=RequestMethod.POST)
+	public String findId(HttpServletRequest request,
+			                Model model) {
+		model.addAttribute("request", request);
+		model.addAttribute("mailSender", mailSender);
+		findIdCommand.execute(sqlSession, model);
+		
+		return "signupSigninPage/findIdResultPage";
+		
+	}
+	
+	/***** 비밀번호 찾기 *****/
+	@RequestMapping(value="findPw.do", method=RequestMethod.POST)
+	public String findPwEmail(HttpServletRequest request,
+			Model model) {
+		model.addAttribute("request", request);
+		model.addAttribute("mailSender", mailSender);
+		findPwCommand.execute(sqlSession, model);
+		updatePwCommand.execute(sqlSession, model);
+		return "signupSigninPage/findPwResultPage";
+		
+	}
+	
+//	/*** 비밀번호 변경 ***/
+//	@RequestMapping(value="userSignUp.do",
+//					method=RequestMethod.POST)
+//	public String updatePw(HttpServletRequest request,
+//						RedirectAttributes rttr,
+//						Model model) {
+//		model.addAttribute("request", request);
+//		model.addAttribute("rttr", rttr);
+//		
+//		updatePwCommand.execute(sqlSession, model);
+//		
+//		return "signupSigninPage/index";
+//
+//	}
+//	
+//	/***** 나중에 지울것! *****/
+//	@RequestMapping(value="updatePwPage.do")
+//	public String updatePwPage()	{
+//		return "signupSigninPage/updatePwPage";
+//	}
+	
 }

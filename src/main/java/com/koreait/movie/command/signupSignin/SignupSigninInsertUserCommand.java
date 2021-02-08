@@ -40,10 +40,10 @@ public class SignupSigninInsertUserCommand implements CommonVoidCommand{
 		userDto.setUser_phone(user_phone);
 		
 		SignupSigninDao dao = sqlSession.getMapper(SignupSigninDao.class);
+		dao.signUserInsert(userDto);
 		
 		
-		
-		rttr.addFlashAttribute("insertResult", dao.signUserInsert(userDto));
+		rttr.addFlashAttribute("userDto", userDto);
 		rttr.addFlashAttribute("afterInsert", true);
 		
 	}
