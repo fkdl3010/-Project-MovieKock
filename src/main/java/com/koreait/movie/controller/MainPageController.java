@@ -7,23 +7,21 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.koreait.movie.command.main.MainCommand;
+import com.koreait.movie.command.main.SearchResultCommand;
 
 @Controller
 public class MainPageController {
 
-	/*
-	 * @RequestMapping(value = "searchResultPage.do") public String
-	 * myWriteViewPage() { return "mainPage/searchResultPage"; }
-	 */
 	@Autowired
 	private SqlSession sqlSession;
 
 	private MainCommand mainCommand;
-	/* private SearchResultCommand searchResultCommand; */
+	private SearchResultCommand searchResultCommand;
 
 	@Autowired
-	public void setBean(MainCommand mainCommand) {
+	public void setBean(MainCommand mainCommand, SearchResultCommand searchResultCommand) {
 		this.mainCommand = mainCommand;
+		this.searchResultCommand = searchResultCommand;
 	}
 
 	@RequestMapping(value = "mainPage.do")
@@ -32,5 +30,20 @@ public class MainPageController {
 
 		return "mainPage/mainPage";
 	}
-
+	@RequestMapping(value = "searchResultPage.do")
+	public String searchResultPage(Model model) {
+		mainCommand.execute(sqlSession, model);
+		
+		return "mainPage/searchResultPage";
+	}
+	/*
+	@RequestMapping(value="searchResultPage.do",
+			method=RequestMethod.GET,
+			produces="application/json; charset=utf-8")
+	@ResponseBody
+	public Map<String, Object> getMovieTitle(Model model, Object search){
+	model.addAttribute("search", search);
+	
+	return searchResultCommand.execute(sqlSession, model);
+	}*/
 }
