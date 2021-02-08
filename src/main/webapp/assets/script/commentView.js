@@ -115,6 +115,7 @@
 				setTimeout(function(){is_progress = false;}, 500);
 			}
 			
+			
 		});
 		
 		// 링크가 걸릴 때 이동할 페이지 번호를 알아내서 다시 목록을 뿌리는 함수들
@@ -130,7 +131,7 @@
 			page = $(this).attr('data-page');
 			commentList();
 		});
-	
+		
 	}  // end commentList()
 	
 	// 서브 함수: 회원 목록을 테이블로 만들어 주는 함수
@@ -246,13 +247,8 @@
 				updateBtn.classList.remove('none');
 				deleteBtn.classList.remove('none');
 				
+				modal.querySelector('#commentNo').setAttribute('value', commentNo);
 				
-				let contentNoHidden = document.createElement('input');
-				contentNoHidden.setAttribute('type', 'hidden');
-				contentNoHidden.setAttribute('id', 'commentNo');
-				contentNoHidden.setAttribute('value', commentNo);
-				
-				modalBox.appendChild(contentNoHidden);
 			}
 		}
 		
@@ -264,8 +260,8 @@
 		let orCommentContents;
 		
 		const modal = document.querySelector('.modal');
-		const updateCancle = modal.querySelector('#updateCancle');
-		const updateBtn = modal.querySelector('#updateControlBtn');
+		const updateCommentBtn = modal.querySelector('#updateComment');
+		const updateControlBtn = modal.querySelector('#updateControlBtn');
 		const deleteBtn = modal.querySelector('#deleteBtn');
 		
 		function fn_commentUpdateControl(){
@@ -274,16 +270,15 @@
 			const commentTitle = modal.querySelector('#contentTitle');
 			const commentContents = modal.querySelector('#commentContents');
 			
-			let updateBtn = modal.querySelector('#updateControlBtn');
 			let footerBtn;
-			if(updateBtn.value == '수정하기'){
+			if(updateControlBtn.value == '수정하기'){
 //				footerBtn = `
 //					<input type="button" value="수정취소" class="btn btn-primary" id="updateCancle" onclick="fn_commentUpdateControl()"/>
 //					<input type="button" value="수정완료" class="btn btn-primary" id="updateControlBtn" onclick="fn_commentUpdate()"/>
 //					<input type="button" value="삭제하기" class="btn btn-primary" id="deleteBtn" onclick="fn_commentDeleteBtn()"/>
 //					`;
-				updateCancle.classList.remove('none');
-				updateBtn.value = '수정완료';
+				updateCommentBtn.classList.remove('none');
+				updateControlBtn.value = '취소하기';
 				
 				commentTitle.classList.remove('textOutline');
 				commentContents.classList.remove('textOutline');
@@ -301,11 +296,11 @@
 //					<input type="button" value="삭제하기" class="btn btn-primary" id="deleteBtn" onclick="fn_commentDeleteBtn()"/>
 //					`;
 				
-				updateCancle.classList.add('none');
-				updateBtn.value = '수정하기';
+				updateCommentBtn.classList.add('none');
+				updateControlBtn.value = '수정하기';
 				
 				commentTitle.value = orCommentTitle;
-				commentContents.innerText = orCommentContents;
+				commentContents.value = orCommentContents;
 				
 				commentTitle.classList.add('textOutline');
 				commentContents.classList.add('textOutline');
@@ -363,6 +358,10 @@
 		
 		/******* 글 삭제 하기 *****/
 		
+		// 닫기 버튼 클릭 시 	commentList() 함수 실행
+		
+		document.querySelector('#close-btn').addEventListener('click',init);
+		
 		function fn_commentDeleteBtn(){
 			if(is_progress == true){
 				return;
@@ -378,8 +377,10 @@
 					success: function(responseObj){
 						
 						if(responseObj.resultDelete > 0){
+							is_progress = false;
 							alert('삭제되었습니다.');
 							document.querySelector('#close-btn').click();
+							
 						}
 						
 						setTimeout(function(){ is_progress = false; }, 500);
@@ -389,17 +390,14 @@
 						setTimeout(function(){ is_progress = false; }, 500);
 					}
 				});
+			}else{
+				setTimeout(function(){ is_progress = false; }, 500);
 			} 
 			
 		}
 		
-		
-		
-	// 닫기 버튼 클릭 시 	commentList() 함수 실행
-	document.querySelector('#close-btn').addEventListener('click',init);
 	
 	function init(){
-		console.log('123');
 		commentList();
 	}
 	
