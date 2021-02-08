@@ -4,6 +4,7 @@
 	<jsp:param value="메인페이지" name="title" />
 </jsp:include>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<<<<<<< HEAD
 <script>
 function fn_goInfo(){
 	
@@ -12,6 +13,10 @@ function fn_goInfo(){
 }
 		
 </script>
+=======
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
+>>>>>>> 9b1050dbb8dc8f4060f0c93814d68279ebbfa84a
 <link rel="stylesheet" href="/movie/assets/style/mainPageCss/mainPage.css" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css%22%3E" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css%22%3E" />
@@ -30,7 +35,7 @@ function fn_goInfo(){
 			<div class="swiper-wrapper">
 				<c:forEach var="movieDto" items="${mainList1}">
 					<div class="swiper-slide">
-						<div>
+						<div class="movie">
 							<div class="rankBadge">${movieDto.movie_no}</div>
 							<img
 								src="/movie/assets/images/poster/${movieDto.movie_title}_포스터.jpg">
@@ -44,6 +49,7 @@ function fn_goInfo(){
 								</p>
 							</div>
 						</div>
+						<input type="hidden" id="movieNo" value="${movieDto.movie_no }"/>
 					</div>
 				</c:forEach>
 			</div>
@@ -53,21 +59,25 @@ function fn_goInfo(){
 	</div>
 	<div class="main">
 		<div class="swiper-container s2">
-			<h3>관객수</h3>
+			<h3>${userNickname } 님의 취향 저격 영화들</h3>
 			<div class="swiper-wrapper">
-				<c:forEach var="movieDto" items="${mainList2}">
+				<c:forEach var="movieDto" items="${mainList2}" varStatus="i">
 					<div class="swiper-slide">
-						<div>
-							<div class="rankBadge">${movieDto.movie_no}</div>
+						<div class="movie">
+							<div class="rankBadge">${i.count}</div>
 							<img src="/movie/assets/images/poster/${movieDto.movie_title}_포스터.jpg">
 						</div>
 						<div class="info">
 							<div class="text">
-								<h4>${movieDto.movie_title}</h4>
-								<p>${movieDto.movie_nation}&nbsp;&nbsp; 평점<br /> 장르
+								<h4>
+										${movieDto.movie_title.replaceAll("_"," ")}
+								</h4>
+								<p>${movieDto.movie_nation}&nbsp;&nbsp; 평점<br /> 장르 ${movieDto.genre_name }
 								</p>
+								
 							</div>
 						</div>
+						<input type="hidden" id="movieNo" value="${movieDto.movie_no }"/>
 					</div>
 				</c:forEach>
 			</div>
@@ -81,7 +91,7 @@ function fn_goInfo(){
 			<div class="swiper-wrapper">
 				<c:forEach var="movieDto" items="${mainList1}">
 					<div class="swiper-slide">
-						<div>
+						<div class="movie">
 							<div class="rankBadge">${movieDto.movie_no}</div>
 							<img src="/movie/assets/images/poster/${movieDto.movie_title}_포스터.jpg">
 						</div>
@@ -92,6 +102,7 @@ function fn_goInfo(){
 								</p>
 							</div>
 						</div>
+						<input type="hidden" id="movieNo" value="${movieDto.movie_no }"/>
 					</div>
 				</c:forEach>
 			</div>
@@ -135,6 +146,17 @@ function fn_goInfo(){
 			prevEl : '.p3',
 		},
 	});
+	
+	$(document).on("click",".wrap .swiper-slide",handleMovie);
+	
+	function handleMovie(event){
+		
+		const movieNo = event.currentTarget.children[2].value;
+		
+		location.href = "index.do?movieNo" + movieNo;
+	}
+	
+	
 </script>
 
 <%@ include file="../template/footer.jsp"%>

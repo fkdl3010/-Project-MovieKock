@@ -1,5 +1,7 @@
 package com.koreait.movie.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,7 +29,9 @@ public class MainPageController {
 	}
 
 	@RequestMapping(value = "mainPage.do")
-	public String mainPage(Model model) {
+	public String mainPage(HttpServletRequest request, Model model) {
+		
+		model.addAttribute("request", request);
 		mainCommand.execute(sqlSession, model);
 
 		return "mainPage/mainPage";
