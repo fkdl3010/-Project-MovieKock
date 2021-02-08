@@ -46,8 +46,8 @@
 				</span>
 			</div>
 			<div class="login-search-box">
-				<form class="search-form" name="search" method="post" action="searchResultPage.do">
-					<input type="text" class="input-search" name="searchKeyword" value="${map.keyword}" placeholder="검색어를 입력해 주세요." />
+				<form class="search-form" name="search" method="get" action="searchResultPage.do">
+					<input type="text" class="input-search" name="searchKeyword" placeholder="검색어를 입력해 주세요." />
 					<span class="btn-a">
 						<button class="search-btn" onclick="fn_search(this.form)">
 							<i class="fas fa-search"></i>
@@ -60,9 +60,9 @@
 		</div>
 	</div>
 	<script>
-		 
-	        function fn_search(f) {     
-			f.action="searchResultPage.do";
+
+		function fn_search(f) {
+			f.action = "searchResultPage.do?search=" + search;
 			f.submit();
 		}
 	</script>

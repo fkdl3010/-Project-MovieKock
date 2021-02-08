@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 public class FAQDto {
 	
 	private int faq_no;
-	private int faq_yn;
+	private int faq_secret;
 	private int faq_select;
 	private int user_no;
 	private String faq_title;
