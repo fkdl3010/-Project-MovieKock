@@ -4,7 +4,14 @@
 	<jsp:param value="메인페이지" name="title" />
 </jsp:include>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<script>
+function fn_goInfo(){
+	
+	var no = $('input:checkbox[id="checkbox_id"]').val();
+		location.href="movieInfoPage.do?no="+no;
+}
+		
+</script>
 <link rel="stylesheet" href="/movie/assets/style/mainPageCss/mainPage.css" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css%22%3E" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css%22%3E" />
@@ -27,6 +34,7 @@
 							<div class="rankBadge">${movieDto.movie_no}</div>
 							<img
 								src="/movie/assets/images/poster/${movieDto.movie_title}_포스터.jpg">
+							<input type="checkbox" id="checkbox_id" class="movie_no" value="${movieDto.movie_no}" onclick="fn_goInfo()"/>
 						</div>
 						<div class="info">
 							<div class="text">
