@@ -19,14 +19,25 @@
 	integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
 	crossorigin="anonymous"></script>
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
 
+/*
+	$(document).ready(function(){
+		
+		$(".rankBadge").on("click",function(){
+				location.href="movieInfoPage.do"
+		});
+	});
+  */
+
+</script>
 <div class="wrap">
 	<div class="main">
 		<div class="swiper-container s1">
 			<h3>박스오피스</h3>
 			<div class="swiper-wrapper">
 				<div class="swiper-slide">
-					<div class="rankBadge">1</div>
+					<div class="rankBadge" onclick="location.href='movieInfoPage.do';" >1</div>
 					<div class="info">
 						<div class="text">
 							<h3>제목</h3>
