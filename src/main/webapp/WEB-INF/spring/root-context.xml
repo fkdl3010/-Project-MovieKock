@@ -70,6 +70,8 @@
 		</property>
 	</bean>
 	
+	
+	
 	<!-- signupSignin -->
 	<bean id="idCheckCommand" class="com.koreait.movie.command.signupSignin.SignupSigninIdCheckCommand"></bean>
 	<bean id="nickCheckCommand" class="com.koreait.movie.command.signupSignin.SignupSigninNickCheckCommand"></bean>
@@ -104,4 +106,5 @@
 	
 	<!--move-  -->
 	<bean id="moveCommand" class="com.koreait.movie.command.move.MoveCommand"></bean>
+	
 </beans>
