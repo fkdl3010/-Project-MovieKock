@@ -1,13 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <jsp:include page="template/header.jsp">
 	<jsp:param value="인덱스" name="title" />
 </jsp:include>
 <script>
-	function fn_logout() {
-		location.href = "logout.do";
+	function fn_logout(){
+		location.href="logout.do";
 	}
+	
 </script>
 
 	<a href="mainPage.do">메인페이지</a><br>
@@ -112,16 +113,19 @@
 	대충 내용<br/>
 
 <script>
-	if ('${afterInsert}') {
-
-		if ('${insertResult}' > 0) {
+	
+	if('${afterInsert}'){
+		
+		if('${insertResult}' > 0){
 			alert('회원가입 성공');
-		} else {
+		}else{
 			alert('회원가입 실패');
-
+			
 		}
 	}
+	
+	
 </script>
-
-
-<%@ include file="template/footer.jsp"%>
+	
+	
+<%@ include file="template/footer.jsp" %>

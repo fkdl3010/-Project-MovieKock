@@ -15,24 +15,8 @@ public class SearchResultCommand implements CommonVoidCommand {
 	public void execute(SqlSession sqlSession, Model model) {
 
 		MainDao dao = sqlSession.getMapper(MainDao.class);
-		MovieDto movieDto = new MovieDto();
 
 		List<MovieDto> resultList = dao.resultList();
 		model.addAttribute("resultList", resultList);
 	}
 }
-/*
- * public class SearchResultCommand implements Command {
- * 
- * @Override public void execute(HttpServletRequest request, HttpServletResponse
- * response) {
- * 
- * String query = "%" + request.getParameter("searchKeyword") + "%";
- * 
- * request.setAttribute("list",
- * MainDao.getInstance().resultList(searchKeyword));
- * 
- * PathNRedirect pathNRedirect = new PathNRedirect();
- * pathNRedirect.setPath("mainPage/searchResultPage.jsp");
- * pathNRedirect.setRedirect(false); return pathNRedirect; }
- */
