@@ -38,41 +38,37 @@ public class RequestPageController {
 	
 	@RequestMapping(value="requestWritePage.do")
 	public String requestWritePage() {
-		
 		return "requestPage/requestWritePage";
 	}
 	
 	// 리스트
 	@RequestMapping(value="requestListPage.do", 
-					method=RequestMethod.GET)
-	public String simpleListPage(HttpServletRequest request,
+					method = {RequestMethod.GET})
+	public String requestListPage(HttpServletRequest request,
 								 Model model) {
 		model.addAttribute("request", request);
-		RequestListCommand command = new RequestListCommand();
-		command.execute(sqlSession, model);
-		
-		return "requestPage/requestListPage";
+		//RequestListCommand command = new RequestListCommand();
+		requestListCommand.execute(sqlSession, model);
+			return "requestPage/requestListPage";
 	}
 	
 	@RequestMapping(value="requestViewPage.do") 
 	public String requestViewPage() {
-		
 		return "requestPage/requestViewPage";
 	}
 
-	// 내가쓴글에서 리스트로 넘어가기
-	@RequestMapping(value="requestWritePage.do",
-					method=RequestMethod.POST)
+	// 문의하기에서 리스트로 넘어가기
+	@RequestMapping(value="requestPage/requestWritePage.do",
+					method = {RequestMethod.GET, RequestMethod.POST})
 	public String requestListPage(HttpServletRequest request,
 								  RequestAttribute rttr,
 								  Model model) {
 		model.addAttribute("request", request);
 		model.addAttribute("rttr", rttr);
 		
-		RequestWriteCommand command = new RequestWriteCommand();
-		command.execute(sqlSession, model);
-		
-		return "redirect:requestPage/requestListPage";
+		//RequestWriteCommand command = new RequestWriteCommand();
+		requestWriteCommand.execute(sqlSession, model);
+			return "requestPage/requestListPage.do";
 	}
 	
 	
