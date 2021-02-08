@@ -15,23 +15,24 @@
             <form action="requestWrite.do" method="post">
             <div class="box1">
                 <div class="box2">
-				        <select name="select" id="select">
-                            <option value="문의유형" selected>컨텐츠문제</option>
-                            <option value="결제오류">결제오류</option>
-                            <option value="버그문제">버그문제</option>
-                            <option value="건의사항">건의사항</option>
-                            <option value="기타문의">기타문의</option>
+				        <select name="faq_select" id="select">
+                            <option value="1" selected>컨텐츠문제</option>
+                            <option value="2">결제오류</option>
+                            <option value="3">버그문제</option>
+                            <option value="4">건의사항</option>
+                            <option value="5">기타문의</option>
 					    </select>
-                  		<input type="text" id="title" class="title" placeholder="제목을 입력하세요. " />
+                  		<input type="text" name="faq_title" id="title" class="title" placeholder="제목을 입력하세요. " />
                         <label for="secret" id="secret-btn">나만 보기</label>
-                        <input type="checkbox" id="secret" />
-                        <input type="password" name="pw" value="pw" id="pw" class="display-none" />
+                        <input type="checkbox" name="faq_secret" value="0" id="secret" />
+                        <input type="password" name="faq_pw" id="pw" class="display-none" />
 				   </div>
                     <div class="box3">
-                        <textarea rows="100" cols="100" class="content" id="content" placeholder="문의 내용을 입력하세요."></textarea>                     
+                        <textarea rows="100" cols="100" name="faq_content" class="content" id="content" placeholder="문의 내용을 입력하세요."></textarea>                     
                     </div> 
                     <div class="box5">
-                        <input type="button" id="btn" class="btn" value="문의하기" onclick="location.href='requestListPage.do'" />
+                        <!-- <input type="button" id="btn" class="btn" value="문의하기" onclick="location.href='requestListPage.do'" /> -->
+                        <button>문의하기</button>
                     </div>
                 </div>
 				</form>
@@ -40,34 +41,28 @@
     
     <script src="/movie/assets/script/requestWritePage.js"></script>
  
- 	<script type="text/javascript">
- 	
- 	var afterrequestWrite = '${afterrequestWrite}';
-	if (afterInsert == 'true') {  // if (afterInsert != '') {
-		var requestWrite = '${requestWriteResult}';
-		if (requestWriteResult > 0 && '${param.a}' > 0) {  //  && '${param.a}' > 0 : addAttribute("a", InsertResult) 테스트용 코드입니다. 
-			alert('삽입되었습니다.');
-		} else {
-			alert('실패하였습니다.');
+ 	<script type="text/javascript"> 	
+	 	var afterrequestWrite = '${afterrequestWrite}';
+		if (afterInsert == 'true') {  // if (afterInsert != '') {
+			var requestWrite = '${requestWriteResult}';
+			if (requestWriteResult > 0 && '${param.a}' > 0) {  //  && '${param.a}' > 0 : addAttribute("a", InsertResult) 테스트용 코드입니다. 
+				alert('삽입되었습니다.');
+			} else {
+				alert('실패하였습니다.');
+			}
 		}
-	}
  	
- 	
- 	function fn_finish(f){
-    
-    	f.action = 'requestListPage.do';
-		f.submit();
+	 	function fn_finish(f){
+	    	f.action = 'requestListPage.do';
+			f.submit();
+		}
+	 
+	    function init(){
+			
+		}
 		
-	}
- 
-    
-    function init(){
-		
-	}
-	
-	init();
+		init();
     </script>
     
-        
 <%@ include file="../template/footer.jsp" %>
 	

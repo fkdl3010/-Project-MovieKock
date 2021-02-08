@@ -110,7 +110,7 @@ CREATE TABLE FAQ
 (
     faq_no         NUMBER            NOT NULL, 
     faq_title      VARCHAR2(50)      NOT NULL, 
-    faq_yn         NUMBER            NOT NULL,
+    faq_secret     NUMBER            NOT NULL,  -- 비밀글(0), 공개글(1)
     faq_select     NUMBER            NOT NULL,
     user_no        NUMBER            NOT NULL, 
     faq_content    VARCHAR2(4000)    NOT NULL, 
