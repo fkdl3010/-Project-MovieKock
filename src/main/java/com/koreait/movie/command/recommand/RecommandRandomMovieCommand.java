@@ -17,6 +17,7 @@ public class RecommandRandomMovieCommand implements CommonVoidCommand {
 		
 		Integer movieCount = dao.movieCount();
 		
+		
 		int no = (int)(Math.random() * movieCount) +1;
 		
 	

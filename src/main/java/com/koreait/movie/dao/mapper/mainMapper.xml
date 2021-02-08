@@ -35,5 +35,30 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM MOVIE
 		<![CDATA[WHERE ROWNUM <= 12]]>
 	</select>
+	
+	<select id="resultList" parameterType="String" resultType="com.koreait.movie.dto.MovieDto">
+		SELECT movie_title, movie_genre, star_score, movie_nation
+		FROM movie m, movie_genre g
+		WHERE m.movie_no = g.movie_no 
+		and (movie_title=#{movie_title} 
+		      or movie_genre=#{movie_genre}
+		      or movie_nation=#{movie_nation})
+		      
+	</select>
+	
+	<select id="userGenreList" parameterType="int" resultType="com.koreait.movie.dto.MovieDto">
+		select e.*
+		from (select rownum as rn, d.*
+		     from (
+		        select c.movie_no, c.movie_title, c.movie_director, c.movie_audience, c.movie_opening_date, c.movie_nation,LISTAGG(f.genre_name, ',') within group (order by f.genre_name) as genre_name
+		        from movie_taste a, movie_genre b, movie c, genre f
+		        where b.genre_no = a.genre_no
+		        and b.movie_no = c.movie_no
+		        and b.genre_no = f.genre_no
+		        and a.user_no = #{userNo}
+		        group by c.movie_no,c.movie_no, c.movie_title, c.movie_director, c.movie_audience, c.movie_opening_date, c.movie_nation
+		        order by DBMS_RANDOM.RANDOM) d) e
+		where e.rn between 1 and 12
+	</select>
 </mapper>
 	
