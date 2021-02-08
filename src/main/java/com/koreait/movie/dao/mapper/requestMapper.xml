@@ -5,28 +5,30 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 <mapper namespace="com.koreait.movie.dao.RequestDao">
-	
+		
+	 <!-- 
 	 <insert id="write" parameterType="com.koreait.movie.dto.FAQDto">
    		 INSERT INTO 
    		 	FAQ (faq_select, faq_title, faq_secret, faq_content, user_no)
    		 VALUES (#faq_selecta}, #{faq_title}, #{faq_secret,} #{faq_content}, #{user_no})
     </insert>
-	
-	<!-- 
-	<insert id="requestWrite1">
+	  -->		
+    
+	<insert id="requestWrite1" parameterType="com.koreait.movie.dto.FAQDto">
 		INSERT INTO
 			FAQ (FAQ_NO, FAQ_SELECT, FAQ_TITLE, FAQ_CONTENT, USER_NO, FAQ_DATE)
-			VALUES (FAQ_SEQ.NEXTVAL, #{faq_select}, #{faq_title}, #{faq_content}, #{user_no}, SYSDATE)
+			VALUES (FAQ_SEQ.NEXTVAL, #{param1}, #{param2}, #{param3}, #{param4}, SYSDATE)
 	</insert>
+
 	
 	
 	
-	<insert id="requestWrite2">
+	<insert id="requestWrite2" parameterType="com.koreait.movie.dto.FAQDto">
 		INSERT INTO
 			FAQ (FAQ_NO, FAQ_SELECT, FAQ_TITLE, FAQ_CONTENT, FAQ_SECRET, FAQ_PW, USER_NO, FAQ_DATE)
-			VALUES (FAQ_SEQ.NEXTVAL, #{faq_select}, #{faq_title}, #{faq_content}, #{faq_secret}, #{faq_pw}, #{user_no},  SYSDATE)
+			VALUES (FAQ_SEQ.NEXTVAL, #{param1}, #{param2}, #{param3}, #{param4}, #{param5}, #{param6},  SYSDATE)
 	</insert>
-	 -->
+	
 	
 	
 	<select id="requestList" resultType="com.koreait.movie.dto.FAQDto">
