@@ -12,7 +12,7 @@
 	        <p>문의 하기</p>
         </div>  
         <div class="main_body">
-            <form action="requestListPage.do" method="post">
+            <form action="requestWrite.do" method="post">
             <div class="box1">
                 <div class="box2">
 				        <select name="select" id="select">
@@ -31,7 +31,7 @@
                         <textarea rows="100" cols="100" class="content" id="content" placeholder="문의 내용을 입력하세요."></textarea>                     
                     </div> 
                     <div class="box5">
-                        <input type="button" id="btn" class="btn" value="문의하기" onclick="fn_finish(this.form)" />
+                        <input type="button" id="btn" class="btn" value="문의하기" onclick="location.href='requestListPage.do'" />
                     </div>
                 </div>
 				</form>
@@ -41,13 +41,25 @@
     <script src="/movie/assets/script/requestWritePage.js"></script>
  
  	<script type="text/javascript">
+ 	
+ 	var afterrequestWrite = '${afterrequestWrite}';
+	if (afterInsert == 'true') {  // if (afterInsert != '') {
+		var requestWrite = '${requestWriteResult}';
+		if (requestWriteResult > 0 && '${param.a}' > 0) {  //  && '${param.a}' > 0 : addAttribute("a", InsertResult) 테스트용 코드입니다. 
+			alert('삽입되었습니다.');
+		} else {
+			alert('실패하였습니다.');
+		}
+	}
+ 	
+ 	
  	function fn_finish(f){
     
     	f.action = 'requestListPage.do';
 		f.submit();
 		
 	}
-    
+ 
     
     function init(){
 		
