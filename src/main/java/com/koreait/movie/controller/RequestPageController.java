@@ -58,17 +58,16 @@ public class RequestPageController {
 	}
 
 	// 문의하기에서 리스트로 넘어가기
-	@RequestMapping(value="requestPage/requestWritePage.do",
-					method = {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value="requestWrite.do", method=RequestMethod.POST)
 	public String requestListPage(HttpServletRequest request,
 								  RequestAttribute rttr,
 								  Model model) {
+		RequestWriteCommand requestWriteCommand = new RequestWriteCommand();
 		model.addAttribute("request", request);
 		model.addAttribute("rttr", rttr);
 		
-		//RequestWriteCommand command = new RequestWriteCommand();
 		requestWriteCommand.execute(sqlSession, model);
-			return "requestPage/requestListPage.do";
+		return "redirect:requestList.do";
 	}
 	
 	
