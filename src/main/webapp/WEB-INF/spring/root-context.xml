@@ -83,4 +83,5 @@
 	
 	<!-- main -->
 	<bean id="mainCommand" class="com.koreait.movie.command.main.MainCommand"/>
+	<bean id="resultCommand" class="com.koreait.movie.command.main.SearchResultCommand"/>
 </beans>

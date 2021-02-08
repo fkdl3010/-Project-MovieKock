@@ -11,15 +11,15 @@ import com.koreait.movie.command.main.MainCommand;
 @Controller
 public class MainPageController {
 
-	@RequestMapping(value = "searchResultPage.do")
-	public String myWriteViewPage() {
-		return "mainPage/searchResultPage";
-	}
-
+	/*
+	 * @RequestMapping(value = "searchResultPage.do") public String
+	 * myWriteViewPage() { return "mainPage/searchResultPage"; }
+	 */
 	@Autowired
 	private SqlSession sqlSession;
 
 	private MainCommand mainCommand;
+	/* private SearchResultCommand searchResultCommand; */
 
 	@Autowired
 	public void setBean(MainCommand mainCommand) {
@@ -32,4 +32,5 @@ public class MainPageController {
 
 		return "mainPage/mainPage";
 	}
+
 }

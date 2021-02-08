@@ -5,21 +5,15 @@
 </jsp:include>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<link rel="stylesheet"
-	href="/movie/assets/style/mainPageCss/mainPage.css" />
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css%22%3E" />
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css%22%3E" />
+<link rel="stylesheet" href="/movie/assets/style/mainPageCss/mainPage.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css%22%3E" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css%22%3E" />
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js%22%3E"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js%22%3E"></script>
 
 <!-- Link Swiper's CSS -->
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"
-	integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-	crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
 <div class="wrap">
@@ -57,14 +51,12 @@
 					<div class="swiper-slide">
 						<div>
 							<div class="rankBadge">${movieDto.movie_no}</div>
-							<img
-								src="/movie/assets/images/poster/${movieDto.movie_title}_포스터.jpg">
+							<img src="/movie/assets/images/poster/${movieDto.movie_title}_포스터.jpg">
 						</div>
 						<div class="info">
 							<div class="text">
 								<h4>${movieDto.movie_title}</h4>
-								<p>${movieDto.movie_nation}&nbsp;&nbsp;
-									평점<br /> 장르
+								<p>${movieDto.movie_nation}&nbsp;&nbsp; 평점<br /> 장르
 								</p>
 							</div>
 						</div>
@@ -83,14 +75,12 @@
 					<div class="swiper-slide">
 						<div>
 							<div class="rankBadge">${movieDto.movie_no}</div>
-							<img
-								src="/movie/assets/images/poster/${movieDto.movie_title}_포스터.jpg">
+							<img src="/movie/assets/images/poster/${movieDto.movie_title}_포스터.jpg">
 						</div>
 						<div class="info">
 							<div class="text">
 								<h4>${movieDto.movie_title}</h4>
-								<p>${movieDto.movie_nation}&nbsp;&nbsp;
-									평점<br /> 장르
+								<p>${movieDto.movie_nation}&nbsp;&nbsp; 평점<br /> 장르
 								</p>
 							</div>
 						</div>
