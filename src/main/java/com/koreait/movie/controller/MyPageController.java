@@ -89,6 +89,7 @@ public class MyPageController {
 		return userUpdateCommand.execute(sqlSession, model);
 	}
 	
+
 	/**** 내가 쓴 글 목록 불러오기*****/
 	@RequestMapping(value="userWriteList.do",
 					method=RequestMethod.POST,
