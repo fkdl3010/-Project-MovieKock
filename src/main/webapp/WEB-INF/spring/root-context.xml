@@ -60,8 +60,8 @@
 	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
 		<property name="host" value="smtp.gmail.com" />
 		<property name="port" value="587" />
-		<property name="username" value="본인이메일" />
-		<property name="password" value="본인비밀번호" />
+		<property name="username" value="moviekock@gmail.com" />
+		<property name="password" value="1q2w3e4r`" />
 		<property name="javaMailProperties">
 			<props>
 				<prop key="mail.smtp.auth">true</prop>
@@ -85,4 +85,25 @@
 	<!-- myPage -->
 	<bean id="myPageCommand" class="com.koreait.movie.command.myPage.MyPageCommand"></bean>
 	<bean id="userUpdateCommand" class="com.koreait.movie.command.myPage.UserUpdateCommand"></bean>
+
+	<!-- request -->
+	<bean id="requestWriteCommand" class="com.koreait.movie.command.request.RequestWriteCommand"></bean> 
+	<bean id="requestListCommand" class="com.koreait.movie.command.request.RequestListCommand"></bean>
+	<bean id="requestViewCommand" class="com.koreait.movie.command.request.RequestViewCommand"></bean>
+
+	<bean id="userWriteListCommand" class="com.koreait.movie.command.myPage.UserWriteListCommand"></bean>
+	<bean id="getMovieTitleCommand" class="com.koreait.movie.command.myPage.GetMovieTitleCommand"></bean>
+	<bean id="commentUpdateCommand" class="com.koreait.movie.command.myPage.CommentUpdateCommand"></bean>
+	<bean id="commentDeleteCommand" class="com.koreait.movie.command.myPage.CommentDeleteCommand"></bean>
+	<bean id="findPwCommand" class="com.koreait.movie.command.signupSignin.SignupSigninFindPwCommand"></bean>
+	<bean id="updatePwCommand" class="com.koreait.movie.command.signupSignin.SignupSigninUpdatePwCommand"></bean>
+	
+	<!--recommand -->
+	<bean id="randomMovieCommand" class="com.koreait.movie.command.recommand.RecommandRandomMovieCommand"></bean>
+	<bean id="situMovieCommand" class="com.koreait.movie.command.recommand.RecommandSituMovieCommand"></bean>
+	
+	
+	<!-- main -->
+	<bean id="mainCommand" class="com.koreait.movie.command.main.MainCommand"/>
+	<bean id="resultCommand" class="com.koreait.movie.command.main.SearchResultCommand"/>
 </beans>

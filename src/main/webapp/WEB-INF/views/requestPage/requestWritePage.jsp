@@ -12,8 +12,8 @@
 	        <p>문의 하기</p>
         </div>  
         <div class="main_body">
+            <form action="requestListPage.do" method="post">
             <div class="box1">
-            <form method="post">
                 <div class="box2">
 				        <select name="select" id="select">
                             <option value="문의유형" selected>컨텐츠문제</option>
@@ -31,19 +31,30 @@
                         <textarea rows="100" cols="100" class="content" id="content" placeholder="문의 내용을 입력하세요."></textarea>                     
                     </div> 
                     <div class="box5">
-                        <input type="button" id="btn" class="btn" value="문의하기" onclick="fn_send(this.form)" />
+                        <input type="button" id="btn" class="btn" value="문의하기" onclick="fn_finish(this.form)" />
                     </div>
-				   </form>
                 </div>
+				</form>
             </div>
         </div>
     
     <script src="/movie/assets/script/requestWritePage.js"></script>
  
+ 	<script type="text/javascript">
+ 	function fn_finish(f){
+    
+    	f.action = 'requestListPage.do';
+		f.submit();
+		
+	}
     
     
-    
-    
+    function init(){
+		
+	}
+	
+	init();
+    </script>
     
         
 <%@ include file="../template/footer.jsp" %>

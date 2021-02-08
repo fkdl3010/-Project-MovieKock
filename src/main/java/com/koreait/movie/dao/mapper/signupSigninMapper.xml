@@ -74,7 +74,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			into
 			movie_taste
 			values
-		    (FN_GET_SEQ('MOVIE_TASTE_SEQ'), #{genre_no},4 )
+		    (FN_GET_SEQ('MOVIE_TASTE_SEQ'), #{genre_no}, #{user_no} )
 		</foreach>
 	</insert>
 	
@@ -92,10 +92,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="findId" parameterType="com.koreait.movie.dto.UserDto" resultType="com.koreait.movie.dto.UserDto">
-		select user_id
+		select *
 		  from users
 		 where user_name=#{user_name} and
-		       user_email=#{user_email}
+		 	   user_email=#{user_email}
 	</select>
+	
+	<select id="findPw" parameterType="com.koreait.movie.dto.UserDto" resultType="com.koreait.movie.dto.UserDto">
+		select *
+		  from users
+		 where user_name=#{user_name} and
+		 	   user_email=#{user_email} and
+		 	   user_id=#{user_id}
+	</select>
+	
+	<update id="updatePw">
+		update users
+		   set user_pw=#{param1}
+		 where user_id=#{param2}
+	</update>
 	
 </mapper>

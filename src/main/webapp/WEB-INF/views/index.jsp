@@ -1,14 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <jsp:include page="template/header.jsp">
 	<jsp:param value="인덱스" name="title" />
 </jsp:include>
 <script>
-	function fn_logout(){
-		location.href="logout.do";
+	function fn_logout() {
+		location.href = "logout.do";
 	}
-	
 </script>
 
 	<a href="mainPage.do">메인페이지</a><br>
@@ -37,6 +36,7 @@
 	<a href="signupChoicePage.do">회원가입시 영화선택페이지</a><br>
 	<a href="findIdpwPage.do">아이디 비밀번호 찾기</a><br>
 	<a href="privacyAgreementPage.do">개인정보약관동의사이트</a><br><br>
+	<a href="updatePwPage.do">비밀번호변경페이지</a><br><br>
 	
 	-영화 정보보기 페이지-<br>
 	<a href="movieInfoPage.do">영화 INFO 페이지</a><br>
@@ -112,19 +112,16 @@
 	대충 내용<br/>
 
 <script>
-	
-	if('${afterInsert}'){
-		
-		if('${insertResult}' > 0){
+	if ('${afterInsert}') {
+
+		if ('${insertResult}' > 0) {
 			alert('회원가입 성공');
-		}else{
+		} else {
 			alert('회원가입 실패');
-			
+
 		}
 	}
-	
-	
 </script>
-	
-	
-<%@ include file="template/footer.jsp" %>
+
+
+<%@ include file="template/footer.jsp"%>
