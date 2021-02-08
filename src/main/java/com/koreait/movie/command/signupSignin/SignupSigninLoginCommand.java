@@ -9,7 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.ui.Model;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.support.RequestContextUtils;
 
 import com.koreait.movie.common.CommonVoidCommand;
 import com.koreait.movie.common.Sha256;
@@ -26,8 +26,25 @@ public class SignupSigninLoginCommand implements CommonVoidCommand {
 		HttpServletRequest request = (HttpServletRequest)map.get("request");
 		HttpServletResponse response = (HttpServletResponse)map.get("response");
 		
-		String user_id = request.getParameter("id");
-		String user_pw = Sha256.sha256(request.getParameter("pw"));
+		// 회원가입 redirect 시 RedirectAttributes에 저장한 값 
+		Map<String, ?> inputFlashMap = RequestContextUtils.getInputFlashMap(request);
+		UserDto signUpDto = null;
+		String user_id;
+		String user_pw;
+		boolean signUp = false;
+        if(null != inputFlashMap) {
+            signUpDto = (UserDto)inputFlashMap.get("userDto");
+        }
+        if(signUpDto != null) {
+        	user_id = signUpDto.getUser_id();
+        	user_pw = signUpDto.getUser_pw();
+        	signUp = true;
+        }else {
+        	user_id = request.getParameter("id");
+        	user_pw = Sha256.sha256(request.getParameter("pw"));
+        }
+        
+        
 		String rememberId = request.getParameter("rememberId");
 		
 		Cookie cookie = null;
@@ -43,6 +60,7 @@ public class SignupSigninLoginCommand implements CommonVoidCommand {
 		userDto.setUser_id(user_id);
 		userDto.setUser_pw(user_pw);
 
+		
 		SignupSigninDao dao = sqlSession.getMapper(SignupSigninDao.class);
 		
 		UserDto loginUser = dao.loginUser(userDto);
@@ -55,6 +73,15 @@ public class SignupSigninLoginCommand implements CommonVoidCommand {
 			model.addAttribute("loginResult", true);
 			session.setAttribute("loginUser", loginUser);
 		}
+		
+		if(signUp) {
+			model.addAttribute("signUp", true);
+			
+		}else {
+			model.addAttribute("signUp", false);
+			
+		}
+		
 	}
 
 }

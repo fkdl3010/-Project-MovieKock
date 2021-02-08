@@ -13,7 +13,7 @@ public class SignupSigninChoiceMovieDefaultListCommand implements CommonVoidComm
 	
 	@Override
 	public void execute(SqlSession sqlSession, Model model) {
-
+		
 		SignupSigninDao dao = sqlSession.getMapper(SignupSigninDao.class);
 		
 		List<MovieDto> movieDefaultList = dao.signMovieDefaultList();

@@ -18,4 +18,6 @@ public class MovieDto {
 	private Date movie_opening_date;
 	private String movie_nation;
 	
+	
+	
 }
