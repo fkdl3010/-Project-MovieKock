@@ -1,6 +1,7 @@
 package com.koreait.movie.dto;
 
 import java.sql.Date;
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,6 +18,7 @@ public class MovieDto {
 	private String movie_audience;
 	private Date movie_opening_date;
 	private String movie_nation;
+	private String genre_name;
 	
 	
 	
