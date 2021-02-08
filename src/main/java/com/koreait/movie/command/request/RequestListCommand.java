@@ -9,7 +9,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.ui.Model;
 
 import com.koreait.movie.common.CommonVoidCommand;
-import com.koreait.movie.common.Paging;
 import com.koreait.movie.dao.RequestDao;
 import com.koreait.movie.dto.FAQDto;
 
@@ -38,7 +37,7 @@ public class RequestListCommand implements CommonVoidCommand {
 		
 		List<FAQDto> list = requestDao.requestList(beginRecord, endRecord);
 		
-		String paging = Paging.getPaging("requestListPage.do", totalRecord, recordPerPage, page);
+		String paging = com.koreait.movie.common.paging.getPaging("requestListPage.do", totalRecord, recordPerPage, page);
 		
 		model.addAttribute("list", list);
 		

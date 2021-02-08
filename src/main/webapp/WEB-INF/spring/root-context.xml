@@ -98,4 +98,14 @@
 	<bean id="findPwCommand" class="com.koreait.movie.command.signupSignin.SignupSigninFindPwCommand"></bean>
 	<bean id="updatePwCommand" class="com.koreait.movie.command.signupSignin.SignupSigninUpdatePwCommand"></bean>
 	
+	<!--recommand -->
+	<bean id="randomMovieCommand" class="com.koreait.movie.command.recommand.RecommandRandomMovieCommand"></bean>
+	<bean id="situMovieCommand" class="com.koreait.movie.command.recommand.RecommandSituMovieCommand"></bean>
+	
+	<!--move -->
+	<bean id="moveCommand" class="com.koreait.movie.command.move.MoveCommand"></bean>
+	
+	<!-- main -->
+	<bean id="mainCommand" class="com.koreait.movie.command.main.MainCommand"></bean>
+	<bean id="resultResultCommand" class="com.koreait.movie.command.main.SearchResultCommand"></bean>
 </beans>
