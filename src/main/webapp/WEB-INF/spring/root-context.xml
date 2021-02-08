@@ -102,4 +102,8 @@
 	<bean id="randomMovieCommand" class="com.koreait.movie.command.recommand.RecommandRandomMovieCommand"></bean>
 	<bean id="situMovieCommand" class="com.koreait.movie.command.recommand.RecommandSituMovieCommand"></bean>
 	
+	
+	<!-- main -->
+	<bean id="mainCommand" class="com.koreait.movie.command.main.MainCommand"/>
+	<bean id="resultCommand" class="com.koreait.movie.command.main.SearchResultCommand"/>
 </beans>
