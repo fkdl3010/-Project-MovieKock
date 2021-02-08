@@ -10,9 +10,12 @@ public interface RequestDao {
 	
 	public List<FAQDto> requestList(int beginRecord, int endRecord);
 	
+	public int requestWrite(FAQDto faqdto);
+	
 	public int totalRecord();
 	
-	public int requestWrite(String faq_title, String faq_content, String faq_pw, int faq_no, int faq_select, int user_no);
+	public int requestWrite1(int faq_select, String faq_title, String faq_content, int user_no);
+	public int requestWrite2(int faq_select, String faq_title, int faq_secret, String faq_pw, String faq_content, int user_no);
 	
 	public FAQDto requestView(int no);
 	
