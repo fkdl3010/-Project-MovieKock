@@ -9,6 +9,8 @@ public interface MainDao {
 	public List<MovieDto> mainList2();
 	public List<MovieDto> mainList3();
 	public List<MovieDto> resultList();
+	
+	public List<MovieDto> userGenreList(int userNo);
 
 	/*public MovieDto search(MovieDto movieDto);*/
 	/*public ArrayList<MovieDto> resultList();*/

@@ -29,11 +29,11 @@ public class RequestWriteCommand implements CommonVoidCommand {
 		int faq_secret = Integer.parseInt(request.getParameter("faq_secret"));
 		String faq_pw = request.getParameter("faq_pw");
 		
-		/*
+		
 		HttpSession session = request.getSession();
 		UserDto userDto = (UserDto)session.getAttribute("loginDto");
-		int user_no = userDto.getUser_no();
-		*/
+		//int user_no = userDto.getUser_no();
+		
 		
 		FAQDto faqdto = new FAQDto();
 	    faqdto.setFaq_select(faq_select);
