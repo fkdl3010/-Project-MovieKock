@@ -1,8 +1,21 @@
+.wrap {
+	display: grid;
+	place-items: center;
+	height: 100%;
+}
+
+.section {
+	box-sizing: border-box;
+	height: 50%;
+}
+
+/* list*/
 .main {
 	position: relative;
 	margin: 1px 50px 1px 120px;
 	width: 1300px;
 }
+
 
 .swiper-wrapper {
 	height: 260px !important;
@@ -17,19 +30,25 @@
 .rankBadge {
 	width: 40px;
 	height: 40px;
-	margin: 0px 152px 216px 0px;
 	line-height: 40px;
 	background-color: rgba(0, 0, 0, 0.77);
 	color: rgb(255, 255, 255);
 	font-weight: 800;
 	text-align: center;
 	border-radius: 4px;
+	position: absolute;
+	z-index: 2;
 }
 
-.swiper-slide {
-	background: lightgray;
+.swiper-slide, img {
 	border-radius: 10px;
 	overflow: hidden;
+}
+
+img {
+	width: 183.333px;
+	height: 100%;
+	position: absolute;
 }
 
 .info {
@@ -40,11 +59,17 @@
 	font-size: 15px;
 }
 
+.swiper-slide:hover img {
+	filter: blur(10px);
+	-webkit-filter: blur(10px);
+	transition: all 4s;
+}
+
 .swiper-slide:hover .info {
 	background: #4b4262;
 	padding-left: 10px;
 	color: white;
-	top: 66%; /* 숫자 높을수록 텍스트는 낮게 올라옴*/
+	top: 65%; /* 숫자 높을수록 텍스트는 낮게 올라옴*/
 	transition: all 2s;
 }
 

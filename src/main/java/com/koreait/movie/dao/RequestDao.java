@@ -12,8 +12,9 @@ public interface RequestDao {
 	
 	public int totalRecord();
 	
-	public int requestWrite(String faq_title, String user_nickname, String faq_content, String faq_pw, int faq_no, int faq_select, int user_no);
+	public int requestWrite(String faq_title, String faq_content, String faq_pw, int faq_no, int faq_select, int user_no);
 	
+	public FAQDto requestView(int no);
 	
 	// 삽입 후 성공/실패 처리
 	
