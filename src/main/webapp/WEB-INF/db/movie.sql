@@ -172,10 +172,10 @@ CREATE TABLE FAQ
     faq_no         NUMBER            NOT NULL,
     faq_select     NUMBER            NOT NULL,
     faq_title      VARCHAR2(50)      NOT NULL, 
-    faq_secret     NUMBER            NOT NULL,
+    faq_secret     NUMBER            NULL,
     user_no        NUMBER            NOT NULL, 
     faq_content    VARCHAR2(4000)    NOT NULL, 
-    faq_pw         VARCHAR2(50)      NOT NULL, 
+    faq_pw         VARCHAR2(50)      NULL, 
     faq_date       DATE              NOT NULL,
     CONSTRAINT FAQ_PK PRIMARY KEY (faq_no)
 )
