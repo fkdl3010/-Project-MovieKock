@@ -17,22 +17,22 @@ public class MoveCommand implements CommonVoidCommand {
 
 	@Override
 	public void execute(SqlSession sqlSession, Model model) {
-		Map<String, Object> map = model.asMap();
+		//Map<String, Object> map = model.asMap();
 		
-		HttpServletRequest request = (HttpServletRequest)map.get("request");
-		HttpServletResponse response = (HttpServletResponse)map.get("response");
+		//HttpServletRequest request = (HttpServletRequest)map.get("request");
+		//HttpServletResponse response = (HttpServletResponse)map.get("response");
 		
-		String choiceMovie = request.getParameter("choiceNo");
+		//String choiceMovie = request.getParameter("choiceNo");
 		
-		int choiceMovieNo = Integer.parseInt(choiceMovie);
+		//int choiceMovieNo = Integer.parseInt(choiceMovie);
 		
-		MoveDao dao = sqlSession.getMapper(MoveDao.class);
+		//MoveDao dao = sqlSession.getMapper(MoveDao.class);
 		
-		int movieNo = dao.movieNo(choiceMovieNo);
+		//int movieNo = dao.movieNo(choiceMovieNo);
 		
-		int clickMovieNO = dao.clickMovieNo(no);
+		//int clickMovieNO = dao.clickMovieNo(no);
 		
-		model.addAttribute("movieNo", movieNo);
+		//model.addAttribute("movieNo", movieNo);
 			
 		
 	}
