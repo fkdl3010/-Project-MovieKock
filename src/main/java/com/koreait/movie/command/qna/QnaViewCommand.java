@@ -1,4 +1,4 @@
-package com.koreait.movie.command.request;
+package com.koreait.movie.command.qna;
 
 import java.util.Map;
 
@@ -8,9 +8,9 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.ui.Model;
 
 import com.koreait.movie.common.CommonVoidCommand;
-import com.koreait.movie.dao.RequestDao;
+import com.koreait.movie.dao.QnaDao;
 
-public class RequestViewCommand implements CommonVoidCommand {
+public class QnaViewCommand implements CommonVoidCommand {
 
 	@Override
 	public void execute(SqlSession sqlSession, Model model) {
@@ -20,9 +20,9 @@ public class RequestViewCommand implements CommonVoidCommand {
 		
 		int no = Integer.parseInt(request.getParameter("user_no"));
 		
-		RequestDao requestDao = sqlSession.getMapper(RequestDao.class);
+		QnaDao qnaDao = sqlSession.getMapper(QnaDao.class);
 		
-		model.addAttribute("requestDto", requestDao.requestView(no));
+		model.addAttribute("qnaDto", qnaDao.qnaView(no));
 		model.addAttribute("page", request.getParameter("page"));
 		
 		

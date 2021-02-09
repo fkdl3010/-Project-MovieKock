@@ -1,4 +1,4 @@
-package com.koreait.movie.command.request;
+package com.koreait.movie.command.qna;
 
 import java.util.List;
 import java.util.Map;
@@ -9,15 +9,15 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.ui.Model;
 
 import com.koreait.movie.common.CommonVoidCommand;
-import com.koreait.movie.dao.RequestDao;
-import com.koreait.movie.dto.FAQDto;
+import com.koreait.movie.dao.QnaDao;
+import com.koreait.movie.dto.QnaDto;
 
-public class RequestListCommand implements CommonVoidCommand {
+public class QnaListCommand implements CommonVoidCommand {
 
 	@Override
 	public void execute(SqlSession sqlSession, Model model) {
 
-		RequestDao requestDao = sqlSession.getMapper(RequestDao.class);
+		QnaDao qnaDao = sqlSession.getMapper(QnaDao.class);
 		
 		Map<String, Object> map = model.asMap();
 		HttpServletRequest request = (HttpServletRequest)map.get("request");
@@ -27,7 +27,7 @@ public class RequestListCommand implements CommonVoidCommand {
 			page = Integer.parseInt(request.getParameter("page"));  
 		}  
 		
-		int totalRecord = requestDao.totalRecord();  
+		int totalRecord = qnaDao.totalRecord();  
 		
 		int recordPerPage = 5;  
 		
@@ -35,9 +35,9 @@ public class RequestListCommand implements CommonVoidCommand {
 		int endRecord = beginRecord + recordPerPage - 1; 
 		endRecord = endRecord < totalRecord ? endRecord : totalRecord;  
 		
-		List<FAQDto> list = requestDao.requestList(beginRecord, endRecord);
+		List<QnaDto> list = qnaDao.qnaList(beginRecord, endRecord);
 		
-		String paging = com.koreait.movie.common.paging.getPaging("requestListPage.do", totalRecord, recordPerPage, page);
+		String paging = com.koreait.movie.common.paging.getPaging("qnaListPage.do", totalRecord, recordPerPage, page);
 		
 		model.addAttribute("list", list);
 		

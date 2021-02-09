@@ -35,7 +35,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		    #{user_email},
 		    #{user_phone},
 		      sysdate,
-		       'none')
+		       'none', 'none')
 	</insert>
 	
 

@@ -22,15 +22,15 @@
 	height: 400px;
 }
 
-.request_list_1st_tr {
+.qna_list_1st_tr {
 	background: #ddd;
 }
 
-.request_list_td_resp {
+.qna_list_td_resp {
 	text-align: left;
 }
 
-.request_list_tr>.td:nth-of-type(2) {
+.qna_list_tr>.td:nth-of-type(2) {
 	border-left: 1px solid #ddd;
 	border-right: 1px solid #ddd;
 }
