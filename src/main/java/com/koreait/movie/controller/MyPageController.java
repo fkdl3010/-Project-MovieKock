@@ -13,11 +13,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.koreait.movie.command.myPage.CommentDeleteCommand;
 import com.koreait.movie.command.myPage.CommentUpdateCommand;
 import com.koreait.movie.command.myPage.GetMovieTitleCommand;
 import com.koreait.movie.command.myPage.MyPageCommand;
+import com.koreait.movie.command.myPage.UserAddCoverCommand;
+import com.koreait.movie.command.myPage.UserAddProfileCommand;
 import com.koreait.movie.command.myPage.UserUpdateCommand;
 import com.koreait.movie.command.myPage.UserWriteListCommand;
 import com.koreait.movie.dto.PageVo;
@@ -36,6 +39,8 @@ public class MyPageController {
 	private GetMovieTitleCommand getMovieTitleCommand;
 	private CommentUpdateCommand commentUpdateCommand;
 	private CommentDeleteCommand commentDeleteCommand;
+	private UserAddProfileCommand userAddProfileCommand;
+	private UserAddCoverCommand userAddCoverCommand;
 	
 	@Autowired
 	public void setBean(
@@ -44,7 +49,9 @@ public class MyPageController {
 				UserWriteListCommand userWriteListCommand,
 				GetMovieTitleCommand getMovieTitleCommand,
 				CommentUpdateCommand commentUpdateCommand,
-				CommentDeleteCommand commentDeleteCommand
+				CommentDeleteCommand commentDeleteCommand,
+				UserAddProfileCommand userAddProfileCommand,
+				UserAddCoverCommand userAddCoverCommand
 			) {
 		this.myPageCommand = myPageCommand;
 		this.userUpdateCommand = userUpdateCommand;
@@ -52,6 +59,8 @@ public class MyPageController {
 		this.getMovieTitleCommand = getMovieTitleCommand;
 		this.commentUpdateCommand = commentUpdateCommand;
 		this.commentDeleteCommand = commentDeleteCommand;
+		this.userAddProfileCommand = userAddProfileCommand;
+		this.userAddCoverCommand = userAddCoverCommand;
 	}
 
 	@RequestMapping(value="myWritePage.do")
@@ -135,6 +144,24 @@ public class MyPageController {
 	model.addAttribute("commentNo", commentNo);
 	
 	return commentDeleteCommand.execute(sqlSession, model);
+	}
+	
+	@RequestMapping(value="userControllProfile.do",
+					method=RequestMethod.POST,
+					produces="application/json; charset=utf-8")
+	@ResponseBody
+	public Map<String, Object> userControllProfile(MultipartHttpServletRequest multipartRequest, Model model){
+		model.addAttribute("multipartRequest", multipartRequest);
+		return userAddProfileCommand.execute(sqlSession, model);
+	}
+	
+	@RequestMapping(value="userControllCover.do",
+			method=RequestMethod.POST,
+			produces="application/json; charset=utf-8")
+	@ResponseBody
+	public Map<String, Object> userControllCover(MultipartHttpServletRequest multipartRequest, Model model){
+		model.addAttribute("multipartRequest", multipartRequest);
+		return userAddCoverCommand.execute(sqlSession, model);
 	}
 
 }

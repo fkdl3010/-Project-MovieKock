@@ -19,4 +19,5 @@ public class UserDto {
 	private String user_phone;
 	private Date user_date;
 	private String user_image_name;
+	private String user_profile_name;
 }
