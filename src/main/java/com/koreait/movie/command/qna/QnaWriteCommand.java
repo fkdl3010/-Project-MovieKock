@@ -23,7 +23,7 @@ public class QnaWriteCommand implements CommonVoidCommand {
 		HttpServletRequest request = (HttpServletRequest)map.get("request");
 		RedirectAttributes rttr = (RedirectAttributes)map.get("rttr");
 		
-		int qna_select = Integer.parseInt(request.getParameter("qna_select"));
+		String qna_select = request.getParameter("qna_select");
 		String qna_title = request.getParameter("qna_title");
 		String qna_content = request.getParameter("qna_content");
 		int qna_secret = 0;

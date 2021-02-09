@@ -18,11 +18,11 @@ public class QnaViewCommand implements CommonVoidCommand {
 		Map<String, Object> map = model.asMap();
 		HttpServletRequest request = (HttpServletRequest)map.get("request");
 		
-		int no = Integer.parseInt(request.getParameter("user_no"));
+		int qna_no = Integer.parseInt(request.getParameter("no"));
 		
 		QnaDao qnaDao = sqlSession.getMapper(QnaDao.class);
 		
-		model.addAttribute("qnaDto", qnaDao.qnaView(no));
+		model.addAttribute("qnaDto", qnaDao.qnaView(qna_no));
 		model.addAttribute("page", request.getParameter("page"));
 		
 		

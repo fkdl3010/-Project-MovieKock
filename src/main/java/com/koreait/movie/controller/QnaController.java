@@ -42,9 +42,9 @@ public class QnaController {
 	}
 	
 	// 리스트
-	@RequestMapping(value="qnaListPage.do", 
+	@RequestMapping(value="qnaListView.do", 
 					method=RequestMethod.GET)
-	public String qnaListPage(HttpServletRequest request,
+	public String qnaListView(HttpServletRequest request,
 							  Model model) {
 		model.addAttribute("request", request);
 		//RequestListCommand command = new RequestListCommand();
@@ -52,22 +52,26 @@ public class QnaController {
 		return "qnaPage/qnaListPage";
 	}
 	
-	@RequestMapping(value="qnaViewPage.do") 
-	public String qnaViewPage() {
+	// 문의글 상세보기
+	@RequestMapping(value="qnaView.do", method=RequestMethod.GET)
+	public String qnaView(HttpServletRequest request,
+            				  Model model) {
+		model.addAttribute("request", request);
+		
+		qnaViewCommand.execute(sqlSession, model);
 		return "qnaPage/qnaViewPage";
 	}
 
 	// 문의하기에서 리스트로 넘어가기
 	@RequestMapping(value="qnaWrite.do", method=RequestMethod.POST)
-	public String qnaListPage(HttpServletRequest request,
+	public String qnaWrite(HttpServletRequest request,
 						      RedirectAttributes rttr,
 						      Model model) {
 		model.addAttribute("request", request);
 		model.addAttribute("rttr", rttr);
 		
-		QnaWriteCommand qnaWriteCommand = new QnaWriteCommand();
 		qnaWriteCommand.execute(sqlSession, model);
-		return "redirect:qnaListPage.do";
+		return "redirect:qnaListView.do";
 	}
 	
 	

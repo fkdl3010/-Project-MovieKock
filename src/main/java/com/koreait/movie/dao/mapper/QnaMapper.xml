@@ -38,8 +38,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="qnaView" parameterType="int" resultType="com.koreait.movie.dto.QnaDto">
 		SELECT *
 		  FROM QNA
-		 WHERE user_NO = #{user_no}
+		 WHERE qna_NO = #{qna_no}
 	</select>
+	
+	
 	
 	
 	

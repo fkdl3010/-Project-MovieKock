@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.ui.Model;
 
 import com.koreait.movie.common.CommonVoidCommand;
+import com.koreait.movie.common.Paging;
 import com.koreait.movie.dao.QnaDao;
 import com.koreait.movie.dto.QnaDto;
 
@@ -37,7 +38,7 @@ public class QnaListCommand implements CommonVoidCommand {
 		
 		List<QnaDto> list = qnaDao.qnaList(beginRecord, endRecord);
 		
-		String paging = com.koreait.movie.common.paging.getPaging("qnaListPage.do", totalRecord, recordPerPage, page);
+		String paging = Paging.getPaging("qnaListView.do", totalRecord, recordPerPage, page);
 		
 		model.addAttribute("list", list);
 		

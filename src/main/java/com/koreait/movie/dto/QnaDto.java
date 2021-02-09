@@ -15,7 +15,7 @@ public class QnaDto {
 	
 	private int qna_no;
 	private int qna_secret;
-	private int qna_select;
+	private String qna_select;
 	private int user_no;
 	private String qna_title;
 	private String qna_content;

@@ -15,14 +15,9 @@
 						<td class="td qna_list_td">답변 여부</td>
 					</tr>
 					<tr class="tr qna_list_tr_resp">
-						<td class="td qna_list_td_resp">Q.gflksgfsdglkshksdjfkehfopkfjsbgfosmofidjfslkjf</td>
-						<td class="td qna_list_td_resp">2021-01-28 15:35</td>
-						<td class="td qna_list_td_resp">답변완료</td>
-					</tr>
-					<tr class="tr qna_list_tr_resp">
-						<td class="td qna_list_td_resp">A. snsdijnsdklfnskjjsdlfmsknsdmskjgisdgsdngsdglsdnfsdfslkdlkgjasdlkjglsk</td>
-						<td class="td qna_list_td_resp">2021-01-29 16:53</td>
-						<td class="td qna_list_td_resp"></td>
+						<td class="td qna_list_td_resp">${qnaDto.qna_content}</td>
+						<td class="td qna_list_td_resp">${qnaDto.qna_date}</td>
+						<td class="td qna_list_td_resp">${qnaDto.qna_yn}</td>
 					</tr>
 				</table>
 			</div>

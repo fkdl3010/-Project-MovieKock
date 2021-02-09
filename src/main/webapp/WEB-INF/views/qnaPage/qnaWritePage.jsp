@@ -16,11 +16,11 @@
             <div class="box1">
                 <div class="box2">
 				        <select name="qna_select" id="select">
-                            <option value="1" selected>컨텐츠문제</option>
-                            <option value="2">결제오류</option>
-                            <option value="3">버그문제</option>
-                            <option value="4">건의사항</option>
-                            <option value="5">기타문의</option>
+                            <option value="컨텐츠문제" selected>컨텐츠문제</option>
+                            <option value="정보요청">정보요청</option>
+                            <option value="버그문제">버그문제</option>
+                            <option value="건의사항">건의사항</option>
+                            <option value="기타문의">기타문의</option>
 					    </select>
                   		<input type="text" name="qna_title" id="title" class="title" placeholder="제목을 입력하세요. " />
                         <label for="secret" id="secret-btn">나만 보기</label>

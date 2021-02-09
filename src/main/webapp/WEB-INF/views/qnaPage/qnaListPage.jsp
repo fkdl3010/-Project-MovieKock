@@ -9,7 +9,7 @@
 		<div class="main">
 			<div class="main_top_font">
 				<p class="qna_list">문의목록</p>
-				<p class="qna_do">문의하기</p>
+				<a href="qnaWritePage.do" class="qna_do">문의하기</a>
 			</div>
 			<div class="main_bot">
 				<div class="main_bot_inner">
@@ -36,7 +36,7 @@
 								<td>${qnaDto.qna_no}</td>
 								<td>${qnaDto.qna_select}</td>
 								<td><a href="qnaView.do?no=${qnaDto.qna_no}&page=${page}">${qnaDto.qna_title}</a></td>
-								<td>${QnaDao.user_nickname}</td>
+								<td>${qnaDto.user_no}</td>
 								<td>${qnaDto.qna_date}</td>
 								<td>답변여부</td>
 							</tr>
