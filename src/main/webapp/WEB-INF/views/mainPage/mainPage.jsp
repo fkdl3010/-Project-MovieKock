@@ -4,6 +4,7 @@
 	<jsp:param value="메인페이지" name="title" />
 </jsp:include>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <link rel="stylesheet" href="/movie/assets/style/mainPageCss/mainPage.css" />
@@ -26,6 +27,9 @@
 					<div class="swiper-slide">
 						<div class="movie">
 							<div class="rankBadge">${movieDto.movie_no}</div>
+							<img
+								src="/movie/assets/images/poster/${movieDto.movie_title}_포스터.jpg">
+							<input type="checkbox" id="checkbox_id" class="movie_no" value="${movieDto.movie_no}" onclick="fn_goInfo()"/>
 							<img src="/movie/assets/images/poster/${movieDto.movie_title}_포스터.jpg">
 						</div>
 						<div class="info">
@@ -143,6 +147,14 @@
 		location.href = "index.do?movieNo" + movieNo;
 	}
 	
+	$(document).on("click",".swiper-slide",movePage);
+	
+	function movePage(event){
+		
+		const movieNo = event.currentTarget.children[2].value;
+		
+		location.href = "movieInfoPage.do?movieNo=" + movieNo;
+	}
 	
 </script>
 

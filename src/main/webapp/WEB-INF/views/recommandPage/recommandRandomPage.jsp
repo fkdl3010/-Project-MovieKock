@@ -10,8 +10,9 @@
 </head>
 <style type="text/css">
 	img{
-		width : 400px;
-		height: 300px;
+		width : 500px;
+		height: 700px;
+		margin : auto;
 	}
 </style>
 <body>
