@@ -42,9 +42,9 @@ public class RequestWriteCommand implements CommonVoidCommand {
 	    faqdto.setFaq_secret(faq_secret);
 	    faqdto.setFaq_pw(faq_pw);
 		
+	    RequestDao requestDao = sqlSession.getMapper(RequestDao.class);
 		int user_no = 1;
 		
-		RequestDao requestDao = sqlSession.getMapper(RequestDao.class);
 		requestDao.requestWrite1(faq_select, faq_title, faq_content, user_no);
 		requestDao.requestWrite2(faq_select, faq_title, faq_secret, faq_pw, faq_content, user_no);
 		
@@ -55,7 +55,7 @@ public class RequestWriteCommand implements CommonVoidCommand {
 			requestWriteResult = requestDao.requestWrite2(faq_select, faq_title, faq_secret, faq_pw, faq_content, user_no);
 		}
 		
-		rttr.addAttribute("a", requestWriteResult).addFlashAttribute("requestWriteResult", requestWriteResult);
+		rttr.addFlashAttribute("requestWriteResult", requestWriteResult);
 		
 		// insert 후에 이동되었음을 JSP에게 알려주겠습니다.
 		rttr.addFlashAttribute("afterrequestWrite", true);
