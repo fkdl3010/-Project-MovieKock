@@ -1,31 +1,38 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <jsp:include page="../template/header.jsp">
 	<jsp:param value="인덱스" name="title" />
 </jsp:include>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
 <link rel="stylesheet" href="/movie/assets/style/movieInfoPageCss/movieInfoPage.css"/>
+
+<c:if test="${empty movieDto }">
+	영화정보 없음!
+</c:if>
+
+<c:if test="${not empty movieDto }">
 	<div class="wrap">
 		<div class="info_main_top">
 			<div class="snap_background_left"></div>
-				<img alt="스냅샷" class="snap" src="/movie/assets/images/snapshot.jpg" />
+				<img alt="스냅샷" class="snap" src="/movie/assets/images/snap/${movieDto.movie_title}_스냅샷.jpg" />
 			<div class="snap_background_right"></div>
 		</div>
 		<div class="main">
 			<div class="info_main_mid">
 		        <div class="info_main_mid_left info_main_mid_box">
-		          <div class="movie_poster">
+		          <div class="movie_poster" style="background-image: url('/movie/assets/images/poster/${movieDto.movie_title}_포스터.jpg')">
 		
 		          </div>
 		        </div>
 		        <div class="info_main_mid_mid info_main_mid_box">
 		          <div class="info_main_mid_mid_title">
-		            극장판 귀멸의 칼날 무한열차편
+		            ${movieDto.movie_title }
 		          </div>
 		          <div class="info_main_mid_mid_contents">
-		            <span class="movie_info_main">2020•애니메이션•일본</span><br>
-		            <span class="movie_info_opendate textdeco">개봉일 : 2021-01-27 누적관객 : 1만명</span><br>
+		            <span class="movie_info_main"> ${movieDto.movie_nation } • ${movieDto.genre_name }</span><br>
+		            <span class="movie_info_opendate textdeco">개봉일 : ${movieDto.movie_opening_date } 누적관객 : ${movieDto.movie_audience }</span><br>
 		            <span class="movie_info_score textdeco">평균 ★ 4.4(1,831명)</span>
 		          </div>
 		        </div>
@@ -53,25 +60,43 @@
 				</div>
 				<div class="info_main_bot_staff">
 					<div class="info_main_bot_staff_font">출연 / 제작</div>
+					
+					<div class="bot_staff_profiles">
+						<div class="bot_staff_profiles_img">
+							<!-- <img alt="사진" src="" /> 나중에 변경해야함 개발편의를 위해 box 로 대체-->
+							<img alt="보노보노" class="staff_profile_img" src="/movie/assets/images/감독_${movieDto.movie_director }.jpg" />
+						</div>
+						<div class="bot_staff_profiles_txt">
+							<div class="bot_staff_progiles_name">
+								${movieDto.movie_director.replaceAll("_", " ") }
+							</div>
+							<div class="bot_staff_progiles_position">
+								감독
+							</div>
+						</div>
+					</div>
+					
 					<!-- 구분선 출연/제작 1 -->
-					<div class="bot_staff_profiles">
-						<div class="bot_staff_profiles_img">
-							<!-- <img alt="사진" src="" /> 나중에 변경해야함 개발편의를 위해 box 로 대체-->
-							<img alt="보노보노" class="staff_profile_img" src="/movie/assets/images/bonobono.jpg" />
-						</div>
-						<div class="bot_staff_profiles_txt">
-							<div class="bot_staff_progiles_name">
-								소토자키 하루오
+					<c:forEach var="actor" items="${actorList }">
+						<div class="bot_staff_profiles">
+							<div class="bot_staff_profiles_img">
+								<!-- <img alt="사진" src="" /> 나중에 변경해야함 개발편의를 위해 box 로 대체-->
+								<img alt="배우" class="staff_profile_img" src="/movie/assets/images/staff_profile/${actor }.jpg" />
 							</div>
-							<div class="bot_staff_progiles_position">
-								감독
+							<div class="bot_staff_profiles_txt">
+								<div class="bot_staff_progiles_name">
+									${actor.replaceAll("_", " ") }
+								</div>
+								<div class="bot_staff_progiles_position">
+									배우
+								</div>
 							</div>
 						</div>
-					</div>
+					</c:forEach>
 					<!-- 구분선 출연/제작 2 -->
-					<div class="bot_staff_profiles">
+					<!-- <div class="bot_staff_profiles">
 						<div class="bot_staff_profiles_img">
-							<!-- <img alt="사진" src="" /> 나중에 변경해야함 개발편의를 위해 box 로 대체-->
+							<img alt="사진" src="" /> 나중에 변경해야함 개발편의를 위해 box 로 대체
 							<img alt="보노보노" class="staff_profile_img" src="/movie/assets/images/bonobono.jpg" />
 						</div>
 						<div class="bot_staff_profiles_txt">
@@ -83,10 +108,10 @@
 							</div>
 						</div>
 					</div>
-					<!-- 구분선 출연/제작 3 -->
+					구분선 출연/제작 3
 					<div class="bot_staff_profiles">
 						<div class="bot_staff_profiles_img">
-							<!-- <img alt="사진" src="" /> 나중에 변경해야함 개발편의를 위해 box 로 대체-->
+							<img alt="사진" src="" /> 나중에 변경해야함 개발편의를 위해 box 로 대체
 							<img alt="보노보노" class="staff_profile_img" src="/movie/assets/images/bonobono.jpg" />
 						</div>
 						<div class="bot_staff_profiles_txt">
@@ -98,10 +123,10 @@
 							</div>
 						</div>
 					</div>
-					<!-- 구분선 출연/제작 4 -->
+					구분선 출연/제작 4
 					<div class="bot_staff_profiles">
 						<div class="bot_staff_profiles_img">
-							<!-- <img alt="사진" src="" /> 나중에 변경해야함 개발편의를 위해 box 로 대체-->
+							<img alt="사진" src="" /> 나중에 변경해야함 개발편의를 위해 box 로 대체
 							<img alt="보노보노" class="staff_profile_img" src="/movie/assets/images/bonobono.jpg" />
 						</div>
 						<div class="bot_staff_profiles_txt">
@@ -113,10 +138,10 @@
 							</div>
 						</div>
 					</div>
-					<!-- 구분선 출연/제작 5 -->
+					구분선 출연/제작 5
 					<div class="bot_staff_profiles">
 						<div class="bot_staff_profiles_img">
-							<!-- <img alt="사진" src="" /> 나중에 변경해야함 개발편의를 위해 box 로 대체-->
+							<img alt="사진" src="" /> 나중에 변경해야함 개발편의를 위해 box 로 대체
 							<img alt="보노보노" class="staff_profile_img" src="/movie/assets/images/bonobono.jpg" />
 						</div>
 						<div class="bot_staff_profiles_txt">
@@ -128,10 +153,10 @@
 							</div>
 						</div>
 					</div>
-					<!-- 구분선 출연/제작 6 -->
+					구분선 출연/제작 6
 					<div class="bot_staff_profiles">
 						<div class="bot_staff_profiles_img">
-							<!-- <img alt="사진" src="" /> 나중에 변경해야함 개발편의를 위해 box 로 대체-->
+							<img alt="사진" src="" /> 나중에 변경해야함 개발편의를 위해 box 로 대체
 							<img alt="보노보노" class="staff_profile_img" src="/movie/assets/images/bonobono.jpg" />
 						</div>
 						<div class="bot_staff_profiles_txt">
@@ -143,10 +168,10 @@
 							</div>
 						</div>
 					</div>
-					<!-- 구분선 출연/제작 7 -->
+					구분선 출연/제작 7
 					<div class="bot_staff_profiles">
 						<div class="bot_staff_profiles_img">
-							<!-- <img alt="사진" src="" /> 나중에 변경해야함 개발편의를 위해 box 로 대체-->
+							<img alt="사진" src="" /> 나중에 변경해야함 개발편의를 위해 box 로 대체
 							<img alt="보노보노" class="staff_profile_img" src="/movie/assets/images/bonobono.jpg" />
 						</div>
 						<div class="bot_staff_profiles_txt">
@@ -158,10 +183,10 @@
 							</div>
 						</div>
 					</div>
-					<!-- 구분선 출연/제작 8 -->
+					구분선 출연/제작 8
 					<div class="bot_staff_profiles">
 						<div class="bot_staff_profiles_img">
-							<!-- <img alt="사진" src="" /> 나중에 변경해야함 개발편의를 위해 box 로 대체-->
+							<img alt="사진" src="" /> 나중에 변경해야함 개발편의를 위해 box 로 대체
 							<img alt="보노보노" class="staff_profile_img" src="/movie/assets/images/bonobono.jpg" />
 						</div>
 						<div class="bot_staff_profiles_txt">
@@ -172,7 +197,7 @@
 								감독
 							</div>
 						</div>
-					</div>
+					</div> -->
 					<!-- 구분선 -->
 				</div>
 				<div class="info_main_bot_comment">
@@ -247,7 +272,17 @@ dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddsssssssssssss
 					<input type="button" value="더보기" onclick="" />
 				</div>
 				<div class="info_main_bot_movies">
-					<div class="main_bot_movies_poster">
+					
+					<c:forEach var="relationMovie" items="${relationMovieList }">
+						<div class="main_bot_movies_poster" style="background-image: url('/movie/assets/images/poster/${relationMovie.movie_title}_포스터.jpg')">
+							<div class="main_bot_poster_info">
+								<div>제목</div>
+								<span>장르 ${relationMovie.genre_name }&nbsp; 평점</span>
+							</div>
+						</div>
+					</c:forEach>
+					
+					<!-- <div class="main_bot_movies_poster">
 						<div class="main_bot_poster_info">
 							<div>제목</div>
 							<span>내용 &nbsp; 배우 &nbsp; 평점</span>
@@ -318,11 +353,13 @@ dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddsssssssssssss
 							<div>제목</div>
 							<span>내용 &nbsp; 배우 &nbsp; 평점</span>
 						</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>
 	</div>
+</c:if>
+	
 	
 	
 <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
