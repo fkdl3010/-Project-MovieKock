@@ -88,6 +88,12 @@
 	<bean id="myPageCommand" class="com.koreait.movie.command.myPage.MyPageCommand"></bean>
 	<bean id="userUpdateCommand" class="com.koreait.movie.command.myPage.UserUpdateCommand"></bean>
 	<bean id="userAddProfileCommand" class="com.koreait.movie.command.myPage.UserAddProfileCommand"></bean>
+
+	<!-- request -->
+	<bean id="qnaWriteCommand" class="com.koreait.movie.command.qna.QnaWriteCommand"></bean> 
+	<bean id="qnaListCommand" class="com.koreait.movie.command.qna.QnaListCommand"></bean>
+	<bean id="qnaViewCommand" class="com.koreait.movie.command.qna.QnaViewCommand"></bean>
+
 	<bean id="userWriteListCommand" class="com.koreait.movie.command.myPage.UserWriteListCommand"></bean>
 	<bean id="getMovieTitleCommand" class="com.koreait.movie.command.myPage.GetMovieTitleCommand"></bean>
 	<bean id="commentUpdateCommand" class="com.koreait.movie.command.myPage.CommentUpdateCommand"></bean>
@@ -96,10 +102,10 @@
 	<bean id="updatePwCommand" class="com.koreait.movie.command.signupSignin.SignupSigninUpdatePwCommand"></bean>
 	<bean id="userAddCoverCommand" class="com.koreait.movie.command.myPage.UserAddCoverCommand"></bean>
 	
-	<!-- request -->
-	<bean id="requestWriteCommand" class="com.koreait.movie.command.request.RequestWriteCommand"></bean> 
-	<bean id="requestListCommand" class="com.koreait.movie.command.request.RequestListCommand"></bean>
-	<bean id="requestViewCommand" class="com.koreait.movie.command.request.RequestViewCommand"></bean>
+	<!-- qna -->
+	<bean id="qnaWriteCommand" class="com.koreait.movie.command.qna.QnaWriteCommand"></bean> 
+	<bean id="qnaListCommand" class="com.koreait.movie.command.qna.QnaListCommand"></bean>
+	<bean id="qnaViewCommand" class="com.koreait.movie.command.qna.QnaViewCommand"></bean>
 	<!--recommand -->
 	<bean id="randomMovieCommand" class="com.koreait.movie.command.recommand.RecommandRandomMovieCommand"></bean>
 	<bean id="situMovieCommand" class="com.koreait.movie.command.recommand.RecommandSituMovieCommand"></bean>

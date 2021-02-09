@@ -11,15 +11,16 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Builder
-public class FAQDto {
+public class QnaDto {
 	
-	private int faq_no;
-	private int faq_secret;
-	private int faq_select;
+	private int qna_no;
+	private int qna_secret;
+	private int qna_select;
 	private int user_no;
-	private String faq_title;
-	private String faq_content;
-	private String faq_pw;
-	private Date faq_date;
+	private String qna_title;
+	private String qna_content;
+	private String qna_pw;
+	private Date qna_date;
+	private int qna_yn;
 	
 }
