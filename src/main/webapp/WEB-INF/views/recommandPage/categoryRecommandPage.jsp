@@ -4,14 +4,15 @@
 	<jsp:param value="2번째 페이지" name="title" />
 </jsp:include>
 <script>
-function fn_goInfo(){
+$(document).on("click",".list",movePage);
+
+function movePage(event){
 	
-	var no = $('input:checkbox[id="checkbox_id"]').val();
-		location.href="movieInfoPage.do?no="+no;
+	
+	const movieDto= '${movieDto}';
+	
+	location.href = "movieInfoPage.do?movieNo" + movieNo +"&movieDto"+movieDto;
 }
-		
-console.log('${movieNo}');
-console.log('${movieParam}');
 
 </script>
 
@@ -55,12 +56,8 @@ console.log('${movieParam}');
     </div>
   
     <div class="main-movieList">
-      <div  class="list">
-     	 <input type="checkbox" name="choiceNo" class="movie_no" value="70"  onclick="location.href='movieInfoPage.do?no=${movieNo}';" />
-      </div>
-      <div class="list">
-      	<input type="checkbox" id="checkbox_id" class="movie_no" value="${movie_no}" onclick="fn_goInfo()"/>
-      </div>
+      <div class="list"></div>
+      <div class="list"></div>
       <div class="list"></div>
       <div class="list"></div>
       <div class="list"></div>

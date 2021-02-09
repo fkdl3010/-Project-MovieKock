@@ -4,19 +4,9 @@
 	<jsp:param value="메인페이지" name="title" />
 </jsp:include>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<<<<<<< HEAD
-<script>
-function fn_goInfo(){
-	
-	var no = $('input:checkbox[id="checkbox_id"]').val();
-		location.href="movieInfoPage.do?no="+no;
-}
-		
-</script>
-=======
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
->>>>>>> 9b1050dbb8dc8f4060f0c93814d68279ebbfa84a
 <link rel="stylesheet" href="/movie/assets/style/mainPageCss/mainPage.css" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css%22%3E" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css%22%3E" />
@@ -157,6 +147,14 @@ function fn_goInfo(){
 		location.href = "index.do?movieNo" + movieNo;
 	}
 	
+	$(document).on("click",".swiper-slide",movePage);
+	
+	function movePage(event){
+		
+		const movieNo = event.currentTarget.children[2].value;
+		
+		location.href = "movieInfoPage.do?movieNo=" + movieNo;
+	}
 	
 </script>
 
