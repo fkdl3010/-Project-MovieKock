@@ -87,19 +87,19 @@
 	<!-- myPage -->
 	<bean id="myPageCommand" class="com.koreait.movie.command.myPage.MyPageCommand"></bean>
 	<bean id="userUpdateCommand" class="com.koreait.movie.command.myPage.UserUpdateCommand"></bean>
-
-	<!-- request -->
-	<bean id="requestWriteCommand" class="com.koreait.movie.command.request.RequestWriteCommand"></bean> 
-	<bean id="requestListCommand" class="com.koreait.movie.command.request.RequestListCommand"></bean>
-	<bean id="requestViewCommand" class="com.koreait.movie.command.request.RequestViewCommand"></bean>
-
+	<bean id="userAddProfileCommand" class="com.koreait.movie.command.myPage.UserAddProfileCommand"></bean>
 	<bean id="userWriteListCommand" class="com.koreait.movie.command.myPage.UserWriteListCommand"></bean>
 	<bean id="getMovieTitleCommand" class="com.koreait.movie.command.myPage.GetMovieTitleCommand"></bean>
 	<bean id="commentUpdateCommand" class="com.koreait.movie.command.myPage.CommentUpdateCommand"></bean>
 	<bean id="commentDeleteCommand" class="com.koreait.movie.command.myPage.CommentDeleteCommand"></bean>
 	<bean id="findPwCommand" class="com.koreait.movie.command.signupSignin.SignupSigninFindPwCommand"></bean>
 	<bean id="updatePwCommand" class="com.koreait.movie.command.signupSignin.SignupSigninUpdatePwCommand"></bean>
+	<bean id="userAddCoverCommand" class="com.koreait.movie.command.myPage.UserAddCoverCommand"></bean>
 	
+	<!-- request -->
+	<bean id="requestWriteCommand" class="com.koreait.movie.command.request.RequestWriteCommand"></bean> 
+	<bean id="requestListCommand" class="com.koreait.movie.command.request.RequestListCommand"></bean>
+	<bean id="requestViewCommand" class="com.koreait.movie.command.request.RequestViewCommand"></bean>
 	<!--recommand -->
 	<bean id="randomMovieCommand" class="com.koreait.movie.command.recommand.RecommandRandomMovieCommand"></bean>
 	<bean id="situMovieCommand" class="com.koreait.movie.command.recommand.RecommandSituMovieCommand"></bean>
@@ -110,4 +110,7 @@
 	<!-- main -->
 	<bean id="mainCommand" class="com.koreait.movie.command.main.MainCommand"></bean>
 	<bean id="resultResultCommand" class="com.koreait.movie.command.main.SearchResultCommand"></bean>
+	
+	
+	
 </beans>

@@ -70,4 +70,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where comment_no = #{commentNo}
 	</delete>
 	
+	<update id="userAddProfile">
+		update users
+		set user_profile_name = #{param1}
+		where user_no = #{param2}
+	
+	</update>
+	
+	<update id="userAddCover">
+		update users
+		set user_image_name = #{param1}
+		where user_no = #{param2}
+	
+	</update>
+	
 </mapper>
