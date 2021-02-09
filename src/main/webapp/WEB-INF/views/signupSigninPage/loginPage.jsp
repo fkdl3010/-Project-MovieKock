@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="/movie/assets/style/singupSigninPageCss/loginPage.css"/>
 </head>
 
-<body>
+<body onkeydown="onEnterLogin()" >
   <div class="main-wrapper">
   	
     <div class="logo">
@@ -41,6 +41,15 @@
   </div>
 
 <script type="text/javascript">
+
+	window.onload = function(){
+		if("${cookie.id.value}" != ""){
+			document.querySelector('#id').value ="${cookie.id.value}";
+			document.querySelector('#rememberId').checked = true;
+		}
+		
+	}
+	
 	function fn_login(f){
 		if(f.id.value == '' || f.pw.value == ''){
 			alert('아이디와 비밀번호를 모두 입력하세요');
@@ -50,14 +59,7 @@
 			f.submit();
 		}
 	}
-	
-	window.onload = function(){
-		if("${cookie.id.value}" != ""){
-			document.querySelector('#id').value ="${cookie.id.value}";
-			document.querySelector('#rememberId').checked = true;
-		}
-		
-	}
+			
 </script>
 
   <!-- modal -->

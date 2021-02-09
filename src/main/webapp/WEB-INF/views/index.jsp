@@ -113,7 +113,7 @@
 	대충 내용<br/>
 
 <script>
-	
+
 	if('${afterInsert}'){
 		
 		if('${insertResult}' > 0){
@@ -123,7 +123,6 @@
 			
 		}
 	}
-	
 	
 </script>
 	

@@ -57,6 +57,38 @@ html {
 	position: relative;
 }
 
+<!-- 아코디언 -->
+
+.btn_toggle{
+	padding:0;
+	border: none;
+	outline:0;
+	float: right;
+}
+
+.accordion_area .btn_toggle{
+	display: block;
+	right: 50px;
+	box-sizing:border-box;
+}
+.accordion_area .btn_toggle::after{
+	display:inline;
+}
+.accordion_area .content_area{
+	display:none;
+	padding:10px;
+	background:#f4f4ff;
+}
+.accordion_area .content_area::after{
+	display:inlnie;
+}
+.accordion_area .content_area.act{
+	display:block
+}
+
+<!-- 아코디언 끝 -->
+
+
 .user-btn {
 	margin-right: 20px;
 	top: 10px;
