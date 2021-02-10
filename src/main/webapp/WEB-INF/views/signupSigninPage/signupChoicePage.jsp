@@ -20,7 +20,7 @@
     </div>
     <div class="submit-box">
       <form class="submit-form" method="post">
-        <input class="submit-btn"type="button" value="완료" onclick="fn_submit(this.form)" disabled/>
+        <input class="submit-btn btn btn-info"type="button" value="완료" onclick="fn_submit(this.form)" disabled/>
         <input type="hidden" id="hiddenList" value="" name="userSelectMovieList"/>
         <!-- <input type="hidden" id="userNo" value="" name="userNo"/> -->
       </form>

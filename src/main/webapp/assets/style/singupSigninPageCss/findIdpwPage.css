@@ -73,9 +73,30 @@ input:focus {
 	border: 2px solid orange;
 }
 
-.btn btn-default {
+.btn btn-info {
 	position: absolute;
 	padding: 10px;
 	right: 120px;
 	bottom: 60px;
+}
+
+<!-- 부트스트랩 btn 커스터마이징 -->
+.btn-info {
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+    color: #eee;
+}
+.btn-info:hover,
+.btn-info:focus {
+    border-color: #128496;
+    background-color: #128496;
+    color: #ccc;
+}
+.btn-info:active,
+.btn-info:visited,
+.btn-info:active:focus,
+.btn-info:active:hover {
+    border-color: #128496;
+    background-color: #128496;
+    color: #ccc;
 }

@@ -1,5 +1,5 @@
 @charset "UTF-8";
-
+	
 	.signupPage_top_logo {
 		text-align: center;
 	}
@@ -13,14 +13,13 @@
 	}	
 	
 	.wrap {
-		display: inline-block;
 		width: 100%;
 		text-align: center;
 	}
 	
 	#main-wrap{
 		margin : auto;
-		width : 36rem;
+		width : 600px;
 		border : 2px solid gray;
 		padding : 20px;
 	
@@ -53,10 +52,26 @@
 		padding: 0px 0px 0px 10px;
 	}
 	
-	.inp_btn {
-		width: 70px;
-		height: 40px;
-	}
+<!-- 부트스트랩 btn 커스터마이징 -->
+.btn-info {
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+    color: #eee;
+}
+.btn-info:hover,
+.btn-info:focus {
+    border-color: #128496;
+    background-color: #128496;
+    color: #ccc;
+}
+.btn-info:active,
+.btn-info:visited,
+.btn-info:active:focus,
+.btn-info:active:hover {
+    border-color: #128496;
+    background-color: #128496;
+    color: #ccc;
+}
 
 	.inp_btn_bot {
 		margin-top: 30px;

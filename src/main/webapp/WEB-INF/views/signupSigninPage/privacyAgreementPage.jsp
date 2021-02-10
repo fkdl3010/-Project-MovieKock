@@ -35,8 +35,8 @@
 						</div>
 					</div>
 					<div class="pa_btns">
-						<input type="button" value="미동의" id="no-agree" class="pa_btn_no" onclick="fn_agreement_no(this.form)" />
-						<button class="pa_btn_yes">동의</button>
+						<input type="button" value="미동의" id="no-agree" class="pa_btn_no btn btn-info" onclick="fn_agreement_no(this.form)" />
+						<button class="pa_btn_yes btn btn-info">동의</button>
 					</div>
 				</form>
 			</div>

@@ -7,11 +7,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
-<link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
-	crossorigin="anonymous" />
+<link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
 <link rel="stylesheet" href="/movie/assets/style/singupSigninPageCss/signupPage.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<!-- 버튼 부트스트랩 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"> -->
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" ></script>
+
 <link rel="stylesheet" href="/movie/assets/style/singupSigninPageCss/findIdpwPage.css"	/>
 </head>
 <body>
@@ -28,7 +33,7 @@
 						<label for="id">아이디</label><br />
 					</div>
 					<input type="text" name="id" id="id" class="inp_txt" placeholder="아이디를 입력해주세요." onkeyup="idRegCheck()" /> 
-					<input type="button" id="idCheckbtn" class="inp_btn" value="중복확인" onclick="fn_idCheck(this.form)" /><br /> 
+					<input type="button" id="idCheckbtn" class="inp_btn btn btn-info" value="중복확인" onclick="fn_idCheck(this.form)" /><br /> 
 					<span class="normal" id="idRegBox"></span>
 
 					<div class="label_text">
@@ -48,7 +53,7 @@
 						<label for="nickname">닉네임</label>
 					</div>
 					<input type="text" name="nickName" id="nickname" class="inp_txt" placeholder="닉네임을 확인해주세요." onkeyup="nickCheck()" /> 
-					<input type="button" id="nickNameCheckbtn" class="inp_btn" value="중복확인" onclick="fn_nickCheck(this.form)" />
+					<input type="button" id="nickNameCheckbtn" class="inp_btn btn btn-info" value="중복확인" onclick="fn_nickCheck(this.form)" />
 
 					<div class="label_text">
 						<label for="name">이름</label>
@@ -59,7 +64,7 @@
 						<label for="email">이메일</label>
 					</div>
 					<input type="text" name="email" id="email" class="inp_txt" placeholder="이메일을 입력해주세요." onkeyup="emailRegCheck()" /> 
-					<input type="button" id="emailCheckbtn" class="inp_btn" value="중복확인" onclick="fn_emailCheck(this.form)" /><br/>
+					<input type="button" id="emailCheckbtn" class="inp_btn btn btn-info" value="중복확인" onclick="fn_emailCheck(this.form)" /><br/>
 					<span class="normal" id="emailRegBox"> </span>
 					<div class="label_text">
 						<label for="phone">휴대전화</label>
@@ -67,8 +72,8 @@
 					<input type="text" name="phone" id="phone" class="inp_txt" placeholder="핸드폰 번호를 입력해주세요." />
 				</div>
 				<div class="bot_btn">
-					<input type="button" class="inp_btn_bot" value="취소하기" onclick="fn_cancle(this.form)" /> 
-					<input type="button" class="inp_btn_bot" onclick="fn_finish(this.form)" value="가입완료" />
+					<input type="button" class="inp_btn_bot btn btn-info" value="취소하기" onclick="fn_cancle(this.form)" /> 
+					<input type="button" class="inp_btn_bot btn btn-info" onclick="fn_finish(this.form)" value="가입완료" />
 				</div>
 			</form>
 		</div>

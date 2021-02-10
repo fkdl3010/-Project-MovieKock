@@ -31,7 +31,7 @@
         	<input type="password" class="login-input" id="pw" name="pw" placeholder="비밀번호" />
         	<input type="checkbox" name="rememberId" id="rememberId"/>
         	<label for="rememberId">아이디 저장</label>
-        	<input type="button" value="로그인" class="login-btn" onclick="fn_login(this.form)" />
+        	<input type="button" value="로그인" class="login-btn btn btn-info" onclick="fn_login(this.form)" />
       	</form>
     	</div>
     	<div class="footer">
@@ -69,7 +69,7 @@
         <!-- header -->
         <div class="modal-header">
           <!-- 닫기(x) 버튼 -->
-          <button type="button" class="close" data-dismiss="modal">×</button>
+          <button type="button" class="close btn btn-info" data-dismiss="modal">×</button>
           <!-- header title -->
           <h4 class="modal-title">개인 정보 수집 · 이용에 대한 동의</h4>
         </div>
@@ -79,7 +79,7 @@
         </div>
         <!-- Footer -->
         <div class="modal-footer">
-          <button type="button" id="close-btn" class="btn btn-default" data-dismiss="modal">닫기</button>
+          <button type="button" id="close-btn" class="btn btn-info" data-dismiss="modal">닫기</button>
         </div>
       </div>
     </div>

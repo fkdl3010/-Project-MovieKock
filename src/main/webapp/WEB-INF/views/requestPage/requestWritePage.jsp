@@ -32,7 +32,7 @@
                     </div> 
                     <div class="box5">
                         <!-- <input type="button" id="btn" class="btn" value="문의하기" onclick="location.href='requestListPage.do'" /> -->
-                        <button>문의하기</button>
+                        <button class="btn btn-info">문의하기</button>
                     </div>
                 </div>
 				</form>

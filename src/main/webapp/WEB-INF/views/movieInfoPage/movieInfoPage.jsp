@@ -33,7 +33,7 @@
 		          <div class="my-rating-contents">평가하기</div>
 				  <div id="star-rating"></div>
 		          <form class="info_main_mid_right">
-		            <button class="form-btn">+보고싶어요</button>
+		            <button class="form-btn btn btn-info">+보고싶어요</button>
 		          </form>
 		        </div>
 			</div>
@@ -244,7 +244,7 @@ dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddsssssssssssss
 							</div>
 						</div>
 					</div>
-					<input type="button" value="더보기" onclick="" />
+					<input class="btn btn-info" type="button" value="더보기" onclick="" />
 				</div>
 				<div class="info_main_bot_movies">
 					<div class="main_bot_movies_poster">
