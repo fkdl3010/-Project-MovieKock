@@ -23,4 +23,6 @@ public class QnaDto {
 	private Date qna_date;
 	private int qna_yn;
 	
+	private String user_nickname;
+	
 }

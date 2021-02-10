@@ -4,7 +4,7 @@
 <jsp:include page="../template/header.jsp">
 	<jsp:param value="문의하기" name="title" />
 </jsp:include>
-<link rel="stylesheet" href="/movie/assets/style/qna_page_css/qna_list_page.css"/>
+<link rel="stylesheet" href="/movie/assets/style/qnaPagecss/qnaListpage.css"/>
 	<div class="wrap">
 		<div class="main">
 			<div class="main_top_font">
@@ -35,8 +35,8 @@
 							<tr>
 								<td>${qnaDto.qna_no}</td>
 								<td>${qnaDto.qna_select}</td>
-								<td><a href="qnaView.do?no=${qnaDto.qna_no}&page=${page}">${qnaDto.qna_title}</a></td>
-								<td>${qnaDto.user_no}</td>
+								<td><a href="qnaView.do?qna_no=${qnaDto.qna_no}&page=${page}">${qnaDto.qna_title}</a></td>
+								<td>${qnaDto.user_nickname}</td>
 								<td>${qnaDto.qna_date}</td>
 								<td>답변여부</td>
 							</tr>

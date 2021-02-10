@@ -17,9 +17,9 @@ public interface QnaDao {
 	
 	public QnaDto qnaView(int qna_no);
 	
+	public int qnaDelete(int qna_no);
 	
 
-	
 	// 상세보기
 	public int qnaView(String qna_content, Date date, int yn);
 	

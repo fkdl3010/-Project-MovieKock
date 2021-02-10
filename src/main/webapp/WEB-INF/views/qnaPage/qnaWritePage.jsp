@@ -32,7 +32,7 @@
                     </div> 
                     <div class="box5">
                         <!-- <input type="button" id="btn" class="btn" value="문의하기" onclick="location.href='requestListPage.do'" /> -->
-                        <button>문의하기</button>
+                        <button class="btn">문의하기</button>
                     </div>
                 </div>
 				</form>
@@ -41,28 +41,7 @@
     
     <script src="/movie/assets/script/qnaWritePage.js"></script>
  
- 	<script type="text/javascript"> 	
-	 	var afterqnaWrite = '${afterqnaWrite}';
-		if (afterInsert == 'true') {  // if (afterInsert != '') {
-			var qnaWrite = '${qnaWriteResult}';
-			if (qnaWriteResult > 0 && '${param.a}' > 0) {  
-				alert('삽입되었습니다.');
-			} else {
-				alert('실패하였습니다.');
-			}
-		}
  	
-	 	function fn_finish(f){
-	    	f.action = 'qnaListPage.do';
-			f.submit();
-		}
-	 
-	    function init(){
-			
-		}
-		
-		init();
-    </script>
     
 <%@ include file="../template/footer.jsp" %>
 	

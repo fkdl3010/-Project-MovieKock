@@ -101,6 +101,7 @@
 	<bean id="qnaWriteCommand" class="com.koreait.movie.command.qna.QnaWriteCommand"></bean> 
 	<bean id="qnaListCommand" class="com.koreait.movie.command.qna.QnaListCommand"></bean>
 	<bean id="qnaViewCommand" class="com.koreait.movie.command.qna.QnaViewCommand"></bean>
+	<bean id="qnaDeleteCommand" class="com.koreait.movie.command.qna.QnaDeleteCommand"></bean>
 	
 	<!--recommand -->
 	<bean id="randomMovieCommand" class="com.koreait.movie.command.recommand.RecommandRandomMovieCommand"></bean>

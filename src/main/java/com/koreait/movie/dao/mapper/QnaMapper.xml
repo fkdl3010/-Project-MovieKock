@@ -23,9 +23,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="qnaList" resultType="com.koreait.movie.dto.QnaDto">
 		SELECT B.*
 		  FROM (SELECT ROWNUM AS RN, A.*
-		          FROM (SELECT *
-		                  FROM QNA
-		              ORDER BY USER_NO DESC) A ) B
+		          FROM (SELECT Q.*, U.USER_NICKNAME
+		                  FROM QNA Q, USERS U
+		                 WHERE Q.USER_NO = U.USER_NO
+		              ORDER BY QNA_NO DESC) A) B
 		 WHERE B.RN BETWEEN #{param1} AND #{param2}
 	</select>
 	
@@ -38,9 +39,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="qnaView" parameterType="int" resultType="com.koreait.movie.dto.QnaDto">
 		SELECT *
 		  FROM QNA
-		 WHERE qna_NO = #{qna_no}
+		 WHERE QNA_NO = #{qna_no}
 	</select>
 	
+	<delete id="qnaDelete" parameterType="int">
+		DELETE
+		  FROM QNA
+		 WHERE QNA_NO = #{qna_no}
+	</delete>
 	
 	
 	
