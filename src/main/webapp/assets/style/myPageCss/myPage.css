@@ -1,5 +1,8 @@
 @charset "EUC-KR";
 
+body {
+	background: #141414;
+}
         .big-box{
             border: 4px solid black;
             border-radius: 30px;

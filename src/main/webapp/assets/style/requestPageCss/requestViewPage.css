@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+body {
+	background: #141414;
+}
+
 .wrap {
 	display: grid;
 	place-items: center;

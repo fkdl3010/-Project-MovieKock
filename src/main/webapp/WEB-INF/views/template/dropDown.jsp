@@ -37,11 +37,22 @@
     margin: 2px 0px 0px 0px;
     width: 100px;
 }
+
+.button{
+	padding: 0px;
+	margin: 0px;
+	border: none;
+}
+
+.fas {
+	color: #f01765;
+	background: #141414;
+}
 </style>
 <body>
 	<div class="ddBody">
 	    <div class="dropdown">
-	        <button onclick="dp_menu()" class="button btn btn-info"><i class="fas fa-user-circle fa-3x"></i></button>
+	        <button onclick="dp_menu()" class="button"><i class="fas fa-user-circle fa-3x"></i></button>
 	        <div style="display: none;" id="drop-content" class="dropDown-menu dropdown-menu-right" >
 	            <a href="myPage.do">마이페이지</a>
 	            <a href="logout.do">로그아웃</a>

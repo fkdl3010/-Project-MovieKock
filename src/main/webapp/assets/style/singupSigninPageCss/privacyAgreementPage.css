@@ -1,4 +1,8 @@
 @charset "UTF-8";
+
+body {
+	background: #141414;
+}
 	.signupPage_top_logo {
 		text-align: center;
 	}

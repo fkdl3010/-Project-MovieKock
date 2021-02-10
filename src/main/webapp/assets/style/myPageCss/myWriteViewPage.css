@@ -1,5 +1,8 @@
 @charset "UTF-8";
 
+body {
+	background: #141414;
+}
 .main-wrapper-my-write{
   display: flex;
   margin:auto;
