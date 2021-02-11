@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class UserDto {
+	
 	private int user_no;
 	private String user_id;
 	private String user_pw;
@@ -20,4 +21,5 @@ public class UserDto {
 	private Date user_date;
 	private String user_image_name;
 	private String user_profile_name;
+	
 }

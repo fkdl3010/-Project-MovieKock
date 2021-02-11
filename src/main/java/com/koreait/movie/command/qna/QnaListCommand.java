@@ -30,7 +30,7 @@ public class QnaListCommand implements CommonVoidCommand {
 		
 		int totalRecord = qnaDao.totalRecord();  
 		
-		int recordPerPage = 5;  
+		int recordPerPage = 10;  
 		
 		int beginRecord = (page - 1) * recordPerPage + 1;  
 		int endRecord = beginRecord + recordPerPage - 1; 
@@ -38,7 +38,7 @@ public class QnaListCommand implements CommonVoidCommand {
 		
 		List<QnaDto> list = qnaDao.qnaList(beginRecord, endRecord);
 		
-		String paging = Paging.getPaging("qnaListView.do", totalRecord, recordPerPage, page);
+		String paging = Paging.getPaging("qnaListPage.do", totalRecord, recordPerPage, page);
 		
 		model.addAttribute("list", list);
 		

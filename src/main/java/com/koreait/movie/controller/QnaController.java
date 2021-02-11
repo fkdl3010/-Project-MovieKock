@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.koreait.movie.command.qna.QnaDeleteCommand;
 import com.koreait.movie.command.qna.QnaListCommand;
 import com.koreait.movie.command.qna.QnaViewCommand;
 import com.koreait.movie.command.qna.QnaWriteCommand;
@@ -25,14 +26,17 @@ public class QnaController {
 	private QnaWriteCommand qnaWriteCommand;
 	private QnaListCommand qnaListCommand;
 	private QnaViewCommand qnaViewCommand;
+	private QnaDeleteCommand qnaDeleteCommand;
 	
 	@Autowired
 	public void setBean(QnaWriteCommand qnaWriteCommand,
 						QnaListCommand qnaListCommand,
-						QnaViewCommand qnaViewCommand) {
+						QnaViewCommand qnaViewCommand,
+						QnaDeleteCommand qnaDeleteCommand) {
 		this.qnaWriteCommand = qnaWriteCommand;
 		this.qnaListCommand = qnaListCommand;
 		this.qnaViewCommand = qnaViewCommand;
+		this.qnaDeleteCommand = qnaDeleteCommand;
 		
 	}
 	
@@ -69,11 +73,20 @@ public class QnaController {
 						      Model model) {
 		model.addAttribute("request", request);
 		model.addAttribute("rttr", rttr);
-		
 		qnaWriteCommand.execute(sqlSession, model);
 		return "redirect:qnaListView.do";
 	}
 	
+	// 문의 삭제
+	@RequestMapping(value="qnaDelete.do", method=RequestMethod.POST)
+	public String qnaDelete(HttpServletRequest request,
+							RedirectAttributes rttr,
+					        Model model) {
+		model.addAttribute("request", request);
+		model.addAttribute("rttr", rttr);
+		qnaDeleteCommand.execute(sqlSession, model);
+		return "redirect:qnaListView.do";
+	}
 	
 	
 	
