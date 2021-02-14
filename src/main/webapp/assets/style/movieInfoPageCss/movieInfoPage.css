@@ -1,5 +1,25 @@
 @charset "UTF-8";
 
+.txt {
+	color: #ddd;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.inp_btn {
+	background: #ec7114;
+	color: #ddd;
+	border: none;
+	outline: none;
+	border-radius: 15px;
+	font-weight: bold;
+}
+
+.commet_view_btn {
+	width: 70px;
+	height: 30px;
+}
+
 body {
 	background: #141414;
 }
@@ -13,20 +33,20 @@ body {
 		width: 850px;
 		margin: auto;
 		display: block;
-		background: white;
+		background: #3b3b3b;
 	}
 	
 /***** 스냅샷 *****/
 .snap_background_left{
 	width: 25%;
 	height: 350px;
-	background: linear-gradient(-90deg, black, gray);
+	background: linear-gradient(-90deg, #141414, #141414, gray);
 	display: block;
 }
 .snap_background_right{
 	width: 25%;
 	height: 350px;
-	background: linear-gradient(90deg, black, gray);
+	background: linear-gradient(90deg, #141414, #141414, gray);
 	display: block;
 
 }
@@ -80,9 +100,9 @@ body {
 	margin-top: 20px;
 	height: 100px;
 }
-.textdeco{
-	border-bottom: 1px solid rgba(0, 0, 0, 0.562);
-}
+/* .textdeco{ */
+/* 	border-bottom: 1px solid rgba(0, 0, 0, 0.562); */
+/* } */
 .movie_info_opendate{
 	display: inline-block;
 	margin: 7px 0px;
@@ -256,12 +276,13 @@ body {
 }
 
 .main_bot_movies_poster:hover .main_bot_poster_info {
-	background: #4b4262;
+	background: #3e3b3b;
 	padding-left: 10px;
 	color: white;
 	transition: all 2s;
 	border-radius: 15px;
 	top: 77%;
+	opacity: 0.8;
 }
 
 
@@ -281,29 +302,6 @@ body {
 .my-rating-contents{
   margin-top: 90px;
 }	
-	
-<!-- 부트스트랩 btn 커스터마이징 -->
-.btn-info {
-    background-color: #17a2b8;
-    border-color: #17a2b8;
-    color: #eee;
-}
-.btn-info:hover,
-.btn-info:focus {
-    border-color: #128496;
-    background-color: #128496;
-    color: #ccc;
-}
-.btn-info:active,
-.btn-info:visited,
-.btn-info:active:focus,
-.btn-info:active:hover {
-    border-color: #128496;
-    background-color: #128496;
-    color: #ccc;
-}
-	
-	
 	
 	
 	

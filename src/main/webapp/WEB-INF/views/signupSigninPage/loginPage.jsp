@@ -22,21 +22,21 @@
     </div>
   
     	<div class="header">
-      	<div class="heading">로그인</div>
-      	<div class="heading-contents">무비콕에 오신 걸 환영합니다.</div>
+      	<div class="heading txt">로그인</div>
+      	<div class="heading-contents txt">무비콕에 오신 걸 환영합니다.</div>
     	</div>
     	<div class="control-form">
      	 <form class="login-form" id="loginForm" name="loginForm" method="post">
-        	<input type="text" class="login-input" id="id" name="id" placeholder="아이디" />
-        	<input type="password" class="login-input" id="pw" name="pw" placeholder="비밀번호" />
+        	<input type="text" class="login-input txt" id="id" name="id" placeholder="아이디" />
+        	<input type="password" class="login-input txt" id="pw" name="pw" placeholder="비밀번호" />
         	<input type="checkbox" name="rememberId" id="rememberId"/>
-        	<label for="rememberId">아이디 저장</label>
-        	<input type="button" value="로그인" class="login-btn btn btn-info" onclick="fn_login(this.form)" />
+        	<label for="rememberId" class="txt">아이디 저장</label>
+        	<input type="button" value="로그인" class="login-btn" onclick="fn_login(this.form)" />
       	</form>
     	</div>
     	<div class="footer">
-      	<a href="/movie/findIdpwPage.do"><span class="footer-link id-pw">아이디 / 비밀번호 찾기</span></a>
-      	<a href="#" data-target="#layerpop" data-toggle="modal"><span class="footer-link signUp">회원가입</span></a>
+      	<a href="/movie/findIdpwPage.do"><span class="footer-link id-pw txt">아이디 / 비밀번호 찾기</span></a>
+      	<a href="#" data-target="#layerpop" data-toggle="modal"><span class="footer-link signUp txt">회원가입</span></a>
     	</div>
   </div>
 
@@ -79,7 +79,7 @@
         </div>
         <!-- Footer -->
         <div class="modal-footer">
-          <button type="button" id="close-btn" class="btn btn-info" data-dismiss="modal">닫기</button>
+          <input type="button" id="close-btn" class="modal-close" data-dismiss="modal" value="닫기" />
         </div>
       </div>
     </div>

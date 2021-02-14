@@ -37,12 +37,14 @@
 					<img src="/movie/assets/images/top_logo.jpg" style="width: 100px">
 				</span>
 				<div class="main-header-link-box">
-					<span class="recommend-link"> <a href="#"
-						class="recommend-link-a txt"> 추천 받기 </a>
-					</span> <span class="category-link"> <a href="request_list_page.do"
-						class="category-link-a txt"> 장르별 </a>
-					</span> <span class="faq-link"> <a href="request_list_page.do"
-						class="faq-link-a txt"> 문의 하기 </a>
+					<span class="recommend-link">
+						<a href="#" class="recommend-link-a txt"> 추천 받기 </a>
+					</span>
+					<span class="category-link">
+						<a href="request_list_page.do" class="category-link-a txt"> 장르별 </a>
+					</span>
+					<span class="faq-link">
+						<a href="request_list_page.do" class="faq-link-a txt"> 문의 하기 </a>
 					</span>
 				</div>
 				<div class="login-search-box">

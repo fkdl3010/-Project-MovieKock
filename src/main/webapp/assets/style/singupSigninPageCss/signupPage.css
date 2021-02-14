@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+.txt{
+	color: #ddd;
+}
+
 body {
 	background: #141414;
 }
@@ -56,31 +60,19 @@ body {
 		padding: 0px 0px 0px 10px;
 	}
 	
-<!-- 부트스트랩 btn 커스터마이징 -->
-.btn-info {
-    background-color: #17a2b8;
-    border-color: #17a2b8;
-    color: #eee;
-}
-.btn-info:hover,
-.btn-info:focus {
-    border-color: #128496;
-    background-color: #128496;
-    color: #ccc;
-}
-.btn-info:active,
-.btn-info:visited,
-.btn-info:active:focus,
-.btn-info:active:hover {
-    border-color: #128496;
-    background-color: #128496;
-    color: #ccc;
-}
 
+	.inp_btn,
+	.inp_btn_bot {
+		width: 120px;
+		height: 40px;
+		font-weight: bold;
+		background: #ec7114;
+		border: none;
+		border-radius: 15px;
+	}
+	
 	.inp_btn_bot {
 		margin-top: 30px;
-		width: 150px;
-		height: 60px;
 	}
 	
 	.normal{

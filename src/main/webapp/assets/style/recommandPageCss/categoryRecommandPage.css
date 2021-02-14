@@ -18,9 +18,9 @@ html {
 }
 
 .main-wrapper{
-  width: 80%;
-  height: 40%;
-  margin: auto;
+	width: 80%;
+	height: 40%;
+	margin: 100px auto;
   
 }
 .main-movieList{

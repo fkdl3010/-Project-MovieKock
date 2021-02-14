@@ -8,6 +8,11 @@
 
 <style type="text/css">
 	
+	.modal_open_btn{
+		width: 130px;
+		height: 30px;
+	}
+	
 	.modal-dialog {
 		width: 600px;
 		height: 150px;
@@ -51,10 +56,15 @@
 		margin: auto;
 	}
 	
+	.in_modal_btn {
+		width: 50px;
+		height: 30px;
+		color: white;
+	}
 </style>
 </head>
 <body>
-	<button class="btn btn-info" data-target="#layerpop" data-toggle="modal">+ 코멘트 작성하기</button><br/>
+	<button class="inp_btn modal_open_btn" data-target="#layerpop" data-toggle="modal">+ 코멘트 작성하기</button><br/>
 	<div class="modal fade" id="layerpop" >
 	  <div class="modal-dialog">
 	    <div class="modal-content">
@@ -72,7 +82,7 @@
 	      </div>
 	      <!-- Footer -->
 	      <div class="modal-footer">
-	        <button class="btn btn btn-info" data-dismiss="modal">완료</button>
+	        <button class="inp_btn in_modal_btn" data-dismiss="modal">완료</button>
 	      </div>
 	    </div>
 	  </div>

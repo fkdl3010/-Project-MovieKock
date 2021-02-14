@@ -26,7 +26,6 @@ body {
 	}
 	
 	.pa_mid{
-		background: #eee;
 		border-radius: 10px;
 		display: inline-block;
 	}
@@ -43,7 +42,6 @@ body {
 	
 	.table {
 		border-radius: 10px;
-		background: #eee;
 		display: inline-block;
 		font-size: 80%;
 	}
@@ -69,36 +67,20 @@ body {
 		font-weight: bold;
 	}
 	
+	.pa_btn_no, .pa_btn_yes:hover {
+	
+	}
 	.pa_btn_no {
 		border: none;
 		border-radius: 20px;
-		background: #ccc;
+		background: #fff;
+		color: black;
+		font-weight: bold;
 	}
 	
 	.pa_btn_yes {
 		border: none;
 		border-radius: 20px;
-		color: white;
-		background: #abc;
+		background-color: #ec7114;
+		font-weight: bold;
 	}
-	
-	<!-- 부트스트랩 btn 커스터마이징 -->
-.btn-info {
-    background-color: #17a2b8;
-    border-color: #17a2b8;
-    color: #eee;
-}
-.btn-info:hover,
-.btn-info:focus {
-    border-color: #128496;
-    background-color: #128496;
-    color: #ccc;
-}
-.btn-info:active,
-.btn-info:visited,
-.btn-info:active:focus,
-.btn-info:active:hover {
-    border-color: #128496;
-    background-color: #128496;
-    color: #ccc;
-}

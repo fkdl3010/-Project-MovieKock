@@ -36,7 +36,7 @@ body {
 
 .id-pw-form-box {
 	display: flex;
-	border: 1px solid black;
+	border: 1px solid #aaa;
 	width: 100%;
 	height: 74%;
 }
@@ -48,7 +48,7 @@ body {
 }
 
 .pw-section {
-	border-left: 1px solid black;
+	border-left: 1px solid #aaa;
 }
 
 .section-header {
@@ -67,6 +67,8 @@ body {
 
 input {
 	font-weight: bold;
+	border: none;
+	outline: none;
 }
 
 input:focus {
@@ -81,23 +83,13 @@ input:focus {
 	bottom: 60px;
 }
 
-<!-- 부트스트랩 btn 커스터마이징 -->
-.btn-info {
-    background-color: #17a2b8;
-    border-color: #17a2b8;
-    color: #eee;
+.txt{
+	color: #ddd;
 }
-.btn-info:hover,
-.btn-info:focus {
-    border-color: #128496;
-    background-color: #128496;
-    color: #ccc;
-}
-.btn-info:active,
-.btn-info:visited,
-.btn-info:active:focus,
-.btn-info:active:hover {
-    border-color: #128496;
-    background-color: #128496;
-    color: #ccc;
+
+.inp_btn{
+	width: 120px;
+	height: 40px;
+	border-radius: 15px;
+	background-color: #ec7114;
 }

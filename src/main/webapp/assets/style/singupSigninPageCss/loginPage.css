@@ -9,6 +9,15 @@ html, body {
 	min-height: 100vh;
 }
 
+.fas {
+	color: #ec7114;
+}
+
+.txt {
+	color: #ddd;
+	font-weight: bold;
+}
+
 .main-wrapper input {
 	display: block;
 }
@@ -60,12 +69,33 @@ a {
 	padding: 3% 0;
 	margin: 1rem 0;
 	border-radius: 10px;
-	border: 1px solid lightgray;
+	background-color: #ec7114;
+	color: #ddd;
+	font-size: 20px;
+	font-weight: bold;
+	border: none;
+}
+
+.login-btn:hover,
+.login-btn:active,
+.login-btn:focus {
+	background-color: #ca6011;
+	border: none;
+	outline: none;
 }
 
 .login-input {
 	width: 100%;
 	padding: 3% 3%;
+	margin: 1rem 0;
+	border-radius: 10px;
+	outline: none;
+	color: black;
+}
+
+.login-input:focus {
+	outline: #ec7114;
+/* 	outline-color: #ec7114; */
 }
 
 .header {
@@ -94,12 +124,6 @@ a {
 	padding-bottom: 17px;
 }
 
-.login-input {
-	margin: 1rem 0;
-	border-radius: 10px;
-	border: 1px solid lightgray;
-}
-
 .modal-dialog {
 	width: 800px;
 	height: 460px;
@@ -109,23 +133,21 @@ a {
 	height: 100%;
 }
 
-<!-- 부트스트랩 btn 커스터마이징 -->
-.btn-info {
-    background-color: #17a2b8;
-    border-color: #17a2b8;
-    color: #eee;
+.modal-title {
+	font-weight: bold;
 }
-.btn-info:hover,
-.btn-info:focus {
-    border-color: #128496;
-    background-color: #128496;
-    color: #ccc;
+
+.modal-footer{
+	padding: 0px 15px;
 }
-.btn-info:active,
-.btn-info:visited,
-.btn-info:active:focus,
-.btn-info:active:hover {
-    border-color: #128496;
-    background-color: #128496;
-    color: #ccc;
+
+.modal-close {
+	width: 80px;
+	height: 40px;
+	border-radius: 15px;
+	background-color: #ec7114;
+	margin-top: 25px;
+	outline: none;
+	font-weight: bold;
+	border: none;
 }
