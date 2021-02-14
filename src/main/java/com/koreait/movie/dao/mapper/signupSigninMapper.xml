@@ -37,6 +37,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		      sysdate,
 		       'none',
 		       'none')
+
 	</insert>
 	
 
@@ -112,5 +113,4 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		   set user_pw=#{param1}
 		 where user_id=#{param2}
 	</update>
-	
-</mapper>
+	</mapper>

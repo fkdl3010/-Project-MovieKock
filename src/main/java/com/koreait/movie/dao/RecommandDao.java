@@ -13,4 +13,8 @@ public interface RecommandDao {
 	public String movieSitu(int no);
 	
 	public List<MovieDto> movieList(int no);
+	
+	public List<MovieDto> movieListGenre(int no);
+	
+	public List<MovieDto> movieListGenreAll();
 }
