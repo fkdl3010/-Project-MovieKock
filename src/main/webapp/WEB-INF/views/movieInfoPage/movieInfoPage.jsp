@@ -31,7 +31,7 @@
 		            ${movieDto.movie_title }
 		          </div>
 		          <div class="info_main_mid_mid_contents">
-		            <span class="movie_info_main"> ${movieDto.movie_nation } • ${movieDto.genre_name }</span><br>
+		            <span class="movie_info_main"> ${movieDto.genre_name } • ${movieDto.movie_nation } </span><br>
 		            <span class="movie_info_opendate textdeco">개봉일 : ${movieDto.movie_opening_date } 누적관객 : ${movieDto.movie_audience }</span><br>
 		            <span class="movie_info_score textdeco">평균 ★ 4.4(1,831명)</span>
 		          </div>
@@ -39,9 +39,11 @@
 		        <div class="info_main_mid_right info_main_mid_box">
 		          <div class="my-rating-contents">평가하기</div>
 				  <div id="star-rating"></div>
-		          <form class="info_main_mid_right">
-		            <button class="form-btn">+보고싶어요</button>
-		          </form>
+		            <button class="btn btn-default" id="wish">+보고싶어요</button>
+		            <!-- modal comment -->
+					<div class="comment_top_right">
+						<%@ include file="../template/modalComment.jsp" %>
+					</div>
 		        </div>
 			</div>
 			<div class="info_main_bot">
@@ -93,111 +95,7 @@
 							</div>
 						</div>
 					</c:forEach>
-					<!-- 구분선 출연/제작 2 -->
-					<!-- <div class="bot_staff_profiles">
-						<div class="bot_staff_profiles_img">
-							<img alt="사진" src="" /> 나중에 변경해야함 개발편의를 위해 box 로 대체
-							<img alt="보노보노" class="staff_profile_img" src="/movie/assets/images/bonobono.jpg" />
-						</div>
-						<div class="bot_staff_profiles_txt">
-							<div class="bot_staff_progiles_name">
-								소토자키 하루오
-							</div>
-							<div class="bot_staff_progiles_position">
-								감독
-							</div>
-						</div>
-					</div>
-					구분선 출연/제작 3
-					<div class="bot_staff_profiles">
-						<div class="bot_staff_profiles_img">
-							<img alt="사진" src="" /> 나중에 변경해야함 개발편의를 위해 box 로 대체
-							<img alt="보노보노" class="staff_profile_img" src="/movie/assets/images/bonobono.jpg" />
-						</div>
-						<div class="bot_staff_profiles_txt">
-							<div class="bot_staff_progiles_name">
-								소토자키 하루오
-							</div>
-							<div class="bot_staff_progiles_position">
-								감독
-							</div>
-						</div>
-					</div>
-					구분선 출연/제작 4
-					<div class="bot_staff_profiles">
-						<div class="bot_staff_profiles_img">
-							<img alt="사진" src="" /> 나중에 변경해야함 개발편의를 위해 box 로 대체
-							<img alt="보노보노" class="staff_profile_img" src="/movie/assets/images/bonobono.jpg" />
-						</div>
-						<div class="bot_staff_profiles_txt">
-							<div class="bot_staff_progiles_name">
-								소토자키 하루오
-							</div>
-							<div class="bot_staff_progiles_position">
-								감독
-							</div>
-						</div>
-					</div>
-					구분선 출연/제작 5
-					<div class="bot_staff_profiles">
-						<div class="bot_staff_profiles_img">
-							<img alt="사진" src="" /> 나중에 변경해야함 개발편의를 위해 box 로 대체
-							<img alt="보노보노" class="staff_profile_img" src="/movie/assets/images/bonobono.jpg" />
-						</div>
-						<div class="bot_staff_profiles_txt">
-							<div class="bot_staff_progiles_name">
-								소토자키 하루오
-							</div>
-							<div class="bot_staff_progiles_position">
-								감독
-							</div>
-						</div>
-					</div>
-					구분선 출연/제작 6
-					<div class="bot_staff_profiles">
-						<div class="bot_staff_profiles_img">
-							<img alt="사진" src="" /> 나중에 변경해야함 개발편의를 위해 box 로 대체
-							<img alt="보노보노" class="staff_profile_img" src="/movie/assets/images/bonobono.jpg" />
-						</div>
-						<div class="bot_staff_profiles_txt">
-							<div class="bot_staff_progiles_name">
-								소토자키 하루오
-							</div>
-							<div class="bot_staff_progiles_position">
-								감독
-							</div>
-						</div>
-					</div>
-					구분선 출연/제작 7
-					<div class="bot_staff_profiles">
-						<div class="bot_staff_profiles_img">
-							<img alt="사진" src="" /> 나중에 변경해야함 개발편의를 위해 box 로 대체
-							<img alt="보노보노" class="staff_profile_img" src="/movie/assets/images/bonobono.jpg" />
-						</div>
-						<div class="bot_staff_profiles_txt">
-							<div class="bot_staff_progiles_name">
-								소토자키 하루오
-							</div>
-							<div class="bot_staff_progiles_position">
-								감독
-							</div>
-						</div>
-					</div>
-					구분선 출연/제작 8
-					<div class="bot_staff_profiles">
-						<div class="bot_staff_profiles_img">
-							<img alt="사진" src="" /> 나중에 변경해야함 개발편의를 위해 box 로 대체
-							<img alt="보노보노" class="staff_profile_img" src="/movie/assets/images/bonobono.jpg" />
-						</div>
-						<div class="bot_staff_profiles_txt">
-							<div class="bot_staff_progiles_name">
-								소토자키 하루오
-							</div>
-							<div class="bot_staff_progiles_position">
-								감독
-							</div>
-						</div>
-					</div> -->
+					
 					<!-- 구분선 -->
 				</div>
 				<div class="info_main_bot_comment">
@@ -205,10 +103,7 @@
 						<div class="comment_top_left">
 							코멘트 200+
 						</div>
-						<!-- modal comment -->
-						<div class="comment_top_right">
-							<%@ include file="../template/modalComment.jsp" %>
-						</div>
+						
 					</div>
 					<div class="info_main_bot_comment_bot">
 						<div class="comment_bot_1th">
@@ -282,78 +177,6 @@ dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddsssssssssssss
 						</div>
 					</c:forEach>
 					
-					<!-- <div class="main_bot_movies_poster">
-						<div class="main_bot_poster_info">
-							<div>제목</div>
-							<span>내용 &nbsp; 배우 &nbsp; 평점</span>
-						</div>
-					</div>
-					<div class="main_bot_movies_poster">
-						<div class="main_bot_poster_info">
-							<div>제목</div>
-							<span>내용 &nbsp; 배우 &nbsp; 평점</span>
-						</div>
-					</div>
-					<div class="main_bot_movies_poster">
-						<div class="main_bot_poster_info">
-							<div>제목</div>
-							<span>내용 &nbsp; 배우 &nbsp; 평점</span>
-						</div>
-					</div>
-					<div class="main_bot_movies_poster">
-						<div class="main_bot_poster_info">
-							<div>제목</div>
-							<span>내용 &nbsp; 배우 &nbsp; 평점</span>
-						</div>
-					</div>
-					<div class="main_bot_movies_poster">
-						<div class="main_bot_poster_info">
-							<div>제목</div>
-							<span>내용 &nbsp; 배우 &nbsp; 평점</span>
-						</div>
-					</div>
-					<div class="main_bot_movies_poster">
-						<div class="main_bot_poster_info">
-							<div>제목</div>
-							<span>내용 &nbsp; 배우 &nbsp; 평점</span>
-						</div>
-					</div>
-					<div class="main_bot_movies_poster">
-						<div class="main_bot_poster_info">
-							<div>제목</div>
-							<span>내용 &nbsp; 배우 &nbsp; 평점</span>
-						</div>
-					</div>
-					<div class="main_bot_movies_poster">
-						<div class="main_bot_poster_info">
-							<div>제목</div>
-							<span>내용 &nbsp; 배우 &nbsp; 평점</span>
-						</div>
-					</div>
-					<div class="main_bot_movies_poster">
-						<div class="main_bot_poster_info">
-							<div>제목</div>
-							<span>내용 &nbsp; 배우 &nbsp; 평점</span>
-						</div>
-					</div>
-					<div class="main_bot_movies_poster">
-						<div class="main_bot_poster_info">
-							<div>제목</div>
-							<span>내용 &nbsp; 배우 &nbsp; 평점</span>
-						</div>
-					</div>
-					<div class="main_bot_movies_poster">
-						<div class="main_bot_poster_info">
-							<div>제목</div>
-							<span>내용 &nbsp; 배우 &nbsp; 평점</span>
-						</div>
-					</div>
-					<div class="main_bot_movies_poster">
-						<div class="main_bot_poster_info">
-							<div>제목</div>
-							<span>내용 &nbsp; 배우 &nbsp; 평점</span>
-						</div>
-					</div> -->
 				</div>
 			</div>
 		</div>
@@ -364,12 +187,173 @@ dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddsssssssssssss
 	
 <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
 <script>
+
+	const movieNo = ${movieDto.movie_no};
+	const ratingContentsBox = document.querySelector('.my-rating-contents');
+	const movieStarObjList = localStorage.getItem("movieStarObjList");
+	let movieStar_List = [];
+	const loginUser = '${loginUser.user_no}';
+
+	/* 별점 초기 값 */
+	$('document').ready(function(){
+		
+	});
+	$("#star-rating").on("rateyo.init", function (e, data) {
+		 
+		if(loginUser == null || loginUser == ''){
+			
+			if(movieStarObjList != null){
+				 movieStar_List = JSON.parse(movieStarObjList);
+				 let movieStarObj = movieStar_List.find(function(element){
+					 	
+					return element.movieNo == movieNo;
+				 });
+				 
+				 if(movieStarObj){
+					 
+					 let targetRating = movieStarObj.rating;
+					 
+					 $("#star-rating").rateYo("option", "rating", targetRating);
+					 ratingContentsText(e, targetRating);
+				 }else{
+					 return;
+				 }
+				 
+			}else{
+				return;
+			}
+			
+		}else{
+			
+			// 로그인 유저가 있을 경우 가져옴
+			$.ajax({
+				url: 'initStarScore/' + loginUser + '/' + movieNo,
+				type: 'get',
+				contentType: 'application/json; charset=utf-8',
+				dataType: 'json',
+				async:false,
+				success: function(responseObj){
+					
+					if(responseObj.result){
+						
+						 let targetRating = responseObj.movieScore;
+						 $("#star-rating").rateYo("option", "rating", targetRating);
+						 ratingContentsText(e, targetRating);
+					}else{
+						return;
+					}
+				},
+				error: function(){
+					alert('유저초기별점에러');
+				}
+				
+			});
+			
+		}
+		
+       });
  
 	$("#star-rating").rateYo({
 		rating: 1.5,
 		halfStar: true,
 		starWidth: "45px"
+		
 	});
+	
+	/* 별점 바뀔때마다 실행 */
+	 $("#star-rating").rateYo().on("rateyo.set", function (e, data) {
+
+		 let rating = data.rating;
+		 ratingContentsText(e, rating);
+		 
+		 $.ajax({
+			 url: 'setStar/'+ movieNo + '/' + rating,
+			 type: 'post',
+			 contentType: 'application/json; charset=utf-8',
+			 dataType: 'json',
+			 success: function(responseObj){
+				 console.log(responseObj.setUserScore);
+				 
+				 let movieStarObj = {
+						 "movieNo": movieNo,
+						 "rating": rating
+				 }
+				 
+				 // 로그인 안한상태라면
+				 if(!responseObj.setUserScore){
+					 
+					 if(movieStarObjList == null){
+						 movieStar_List.push(movieStarObj);
+						 console.log(movieStarObj);
+						 localStorage.setItem("movieStarObjList" , JSON.stringify(movieStar_List) );
+				 
+					 }else{
+						 movieStar_List = JSON.parse(movieStarObjList);
+						 console.log(movieStar_List);
+						 let idx = movieStar_List.findIndex(function(e){
+							 			return e.movieNo === movieNo;
+						 });
+						 if(idx == -1){
+							 
+							 movieStar_List.push(movieStarObj);
+							 localStorage.setItem("movieStarObjList" , JSON.stringify(movieStar_List) );
+						 }else{
+							 
+						 	movieStar_List.splice(idx, 1);
+						 	movieStar_List.push(movieStarObj);
+							localStorage.setItem("movieStarObjList" , JSON.stringify(movieStar_List) );
+	
+						 }
+						 
+						 
+					 }
+				 }else{
+					 console.log('성공');
+				 }
+			 },
+			 error: function(){
+				 alert('error');
+			 }
+			 
+			 
+		 });
+         
+         
+     });
+	
+	 // 평가후 점수별로 코멘트
+	 function ratingContentsText(e, getRating){
+		 
+		 /* alert("The rating is set to " + data.rating + "!"); */
+         let rating = getRating;
+         
+         switch(true){
+         	
+         case rating >= 4 : ratingContentsBox.innerText = '재밌어요'; break;
+         case rating >= 2.5 : ratingContentsBox.innerText = '볼만해요'; break;
+         case rating >= 0 : ratingContentsBox.innerText = '별로에요'; break;
+         						
+         }
+	 }
+	 
+	 // 세션에 존재하는 값 체크
+	
+	 
+	 
+	 
+	 
+	 
+	 // 모달 컨트롤
+	 $('#modalBox').on('click',handleModal);
+	 
+	 function handleModal(){
+		 if(loginUser == ''){
+			 alert('로그인 후 이용해 주세요!');
+			 location.href="loginPage.do";
+		 }
+	 }
+			 
+	
 		
 	</script>	
 	

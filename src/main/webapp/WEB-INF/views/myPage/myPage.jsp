@@ -326,7 +326,6 @@
 	    let fileSize = event.target.files[0].size;
 	    let maxSize = 10 * 1024 * 1024;//10MB
 	    
-	    console.log(fileSize);
 	    
 	    if(fileSize < maxSize){
 	    	
@@ -340,7 +339,6 @@
 		        success : function(responseObj) {
 		            if(responseObj.result){
 		            	let filename = decodeURI(responseObj.filename);
-		                console.log(filename);
 		                coverBox.style.backgroundImage = 'url(/movie/assets/images/userProfile/'+decodeURI(responseObj.filename) +')';
 		        		document.querySelector('.profileAddLabel').innerText = '';
 		            }else{
@@ -362,7 +360,6 @@
 	if('${loginUser.user_profile_name}' != 'none'){
 		document.querySelector('.profileAddLabel').innerText = '';
 		let filename = decodeURIComponent('${loginUser.user_profile_name}');
-		console.log(filename);
 		document.querySelector('.profileBox').style.backgroundImage = 'url(/movie/assets/images/userProfile/' + filename+ ')';
 	}
 	
@@ -376,8 +373,11 @@
 	    let filesTempArr = [];
 		
 		let files = event.target.files;
+		console.log(files);
 	    let filesArr = Array.prototype.slice.call(files);
+		console.log(filesArr);
 	    let filesArrLen = filesArr.length;
+		console.log(filesArrLen);
 	    filesTempArr.push(filesArr[0]);
 	    
 	    formData.append("userCover", filesTempArr[0]);
@@ -386,7 +386,6 @@
 	    let fileSize = event.target.files[0].size;
 	    let maxSize = 10 * 1024 * 1024;//10MB
 	    
-	    console.log(fileSize);
 	    
 	    if(fileSize < maxSize){
 	    	
@@ -400,7 +399,6 @@
 		        success : function(responseObj) {
 		            if(responseObj.result){
 		            	let filename = decodeURIComponent(responseObj.filename);
-		                console.log(responseObj.filename);
 		                coverBox.style.backgroundImage = 'url(/movie/assets/images/userCover/'+filename +')';
 		        		document.querySelector('.coverAddLabel').innerText = '';
 		            }else{
@@ -422,7 +420,6 @@
 	if('${loginUser.user_image_name}' != 'none'){
 		document.querySelector('.coverAddLabel').innerText = '';
 		let filename = decodeURIComponent('${loginUser.user_image_name}');
-		console.log(filename);
 		document.querySelector('.coverBox').style.backgroundImage = 'url(/movie/assets/images/userCover/' + filename+ ')';
 	}
 	

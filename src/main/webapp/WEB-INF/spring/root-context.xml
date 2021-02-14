@@ -113,6 +113,6 @@
 	
 	<!-- movieInfo -->
 	<bean id="movieInfoViewCommand" class="com.koreait.movie.command.movieInfo.MovieInfoViewCommand"></bean>
-	
-	
+	<bean id="starSetCommand" class="com.koreait.movie.command.movieInfo.StarSetCommand"></bean>
+	<bean id="initStarScoreCommand" class="com.koreait.movie.command.movieInfo.InitStarScoreCommand"></bean>
 </beans>

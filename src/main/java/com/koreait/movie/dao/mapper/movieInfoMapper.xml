@@ -61,5 +61,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		order by DBMS_RANDOM.RANDOM
 	
 	</select>
+	
+	<insert id="setStarScore">
+		insert into movie_score
+		values(movie_score_seq.nextval, #{param3}, #{param2}, #{param1})
+	</insert>
+	
+	<update id="updateStarScore">
+		update movie_score
+		set star_score = #{param1}
+		where movie_score_no = #{param2}
+	</update>
+	
+	<select id="seachUserStarScore" resultType="com.koreait.movie.dto.MovieScoreDto">
+		select movie_score_no,star_score
+		from movie_score
+		where user_no = #{param1}
+		and movie_no = #{param2}
+	</select>
 </mapper>
 

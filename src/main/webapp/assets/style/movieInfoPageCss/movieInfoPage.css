@@ -280,9 +280,23 @@
 .my-rating-contents{
   margin-top: 90px;
 }	
+
+button.btn.btn-default {
+    width: 230px;
+    height: 55px;
+}
+
+.info_main_mid_right #modalBox{
+	display: none;
+}
+
+#wish:hover ~ .comment_top_right #modalBox{
+	display: block;
+}
 	
-	
-	
+#modalBox:hover{
+	display: block;
+}
 	
 	
 	
