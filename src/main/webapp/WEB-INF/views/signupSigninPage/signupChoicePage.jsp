@@ -14,9 +14,9 @@
   <div class="main-choice">
 
     <div class="progress-box">
-      <h3 class="progress-text">10개 이상의 영화를 선택해 주새요.</h3>
+      <h3 class="progress-text txt">10개 이상의 영화를 선택해 주새요.</h3>
       <progress id="progress-bar" value="0" max="10"></progress>
-      <h3 class="progress-count">0/10</h3>
+      <h3 class="progress-count txt">0/10</h3>
     </div>
     <div class="submit-box">
       <form class="submit-form" method="post">

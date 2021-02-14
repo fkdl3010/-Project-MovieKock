@@ -10,7 +10,11 @@
 	}
 	
 </script>
-
+<style>
+	body{
+		margin-top: 120px;
+	}
+</style>
 	<a href="mainPage.do">메인페이지</a><br>
 	<a href="searchResultPage.do">검색</a>
 	<br><br>
@@ -28,7 +32,7 @@
 
 	-회원가입-<br>
 	<c:if test="${ not empty loginUser }">
-		<input type="button" value="로그아웃" onclick="fn_logout()" method="post" />
+		<input type="button" value="로그아웃" class="btn btn-info" onclick="fn_logout()" method="post" />
 	</c:if>
 	<c:if test="${ empty loginUser }">
 		<a href="loginPage.do">로그인 페이지로 이동</a><br>
@@ -66,7 +70,7 @@
         <!-- header -->
         <div class="modal-header">
           <!-- 닫기(x) 버튼 -->
-          <button type="button" class="close" data-dismiss="modal">×</button>
+          <button type="button" class="close btn btn-info" data-dismiss="modal">×</button>
           <!-- header title -->
           <h4 class="modal-title">영화 이름</h4>
         </div>
@@ -78,7 +82,7 @@
         </div>
         <!-- Footer -->
         <div class="modal-footer">
-          <button type="button" id="close-btn" class="btn btn-default" data-dismiss="modal">닫기</button>
+          <button type="button" id="close-btn" class="btn btn-info data-dismiss="modal">닫기</button>
         </div>
       </div>
     </div>
@@ -113,7 +117,7 @@
 	대충 내용<br/>
 
 <script>
-	
+
 	if('${afterInsert}'){
 		
 		if('${insertResult}' > 0){
@@ -123,7 +127,6 @@
 			
 		}
 	}
-	
 	
 </script>
 	

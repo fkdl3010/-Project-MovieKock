@@ -1,5 +1,13 @@
 @charset "UTF-8";
 
+.txt{
+	color: #ddd;
+}
+
+body {
+	background: #141414;
+}
+	
 	.signupPage_top_logo {
 		text-align: center;
 	}
@@ -13,14 +21,13 @@
 	}	
 	
 	.wrap {
-		display: inline-block;
 		width: 100%;
 		text-align: center;
 	}
 	
 	#main-wrap{
 		margin : auto;
-		width : 36rem;
+		width : 600px;
 		border : 2px solid gray;
 		padding : 20px;
 	
@@ -53,15 +60,19 @@
 		padding: 0px 0px 0px 10px;
 	}
 	
-	.inp_btn {
-		width: 70px;
-		height: 40px;
-	}
 
+	.inp_btn,
+	.inp_btn_bot {
+		width: 120px;
+		height: 40px;
+		font-weight: bold;
+		background: #ec7114;
+		border: none;
+		border-radius: 15px;
+	}
+	
 	.inp_btn_bot {
 		margin-top: 30px;
-		width: 150px;
-		height: 60px;
 	}
 	
 	.normal{
