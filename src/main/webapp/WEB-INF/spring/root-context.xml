@@ -101,9 +101,8 @@
 	<!--recommand -->
 	<bean id="randomMovieCommand" class="com.koreait.movie.command.recommand.RecommandRandomMovieCommand"></bean>
 	<bean id="situMovieCommand" class="com.koreait.movie.command.recommand.RecommandSituMovieCommand"></bean>
-	
-	<!--move -->
-	<bean id="moveCommand" class="com.koreait.movie.command.move.MoveCommand"></bean>
+	<bean id="categoryCommand" class="com.koreait.movie.command.recommand.RecommandCategoryCommand"></bean>
+	<bean id="genreCheckCommand" class="com.koreait.movie.command.recommand.RecommandGenreCheckCommand"></bean>
 	
 	<!-- main -->
 	<bean id="mainCommand" class="com.koreait.movie.command.main.MainCommand"></bean>
