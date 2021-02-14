@@ -98,6 +98,7 @@
 	width: 190px;
 	height: 220px;
 	margin: auto;
+    background-size: 190px 220px;
 }
 
 /***** 정보 *****/
@@ -241,6 +242,7 @@
 	display: -webkit-flex;
 	display: flex;
 	margin-bottom: 20px;
+	background-size: 220px 250px;
 }
 
 .main_bot_poster_info {
@@ -278,9 +280,23 @@
 .my-rating-contents{
   margin-top: 90px;
 }	
+
+button.btn.btn-default {
+    width: 230px;
+    height: 55px;
+}
+
+.info_main_mid_right #modalBox{
+	display: none;
+}
+
+#wish:hover ~ .comment_top_right #modalBox{
+	display: block;
+}
 	
-	
-	
+#modalBox:hover{
+	display: block;
+}
 	
 	
 	

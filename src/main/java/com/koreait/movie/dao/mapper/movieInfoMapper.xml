@@ -26,5 +26,58 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  			and a.movie_no = c.movie_no
 	</select>
 	
+	<select id="getMovie" parameterType="int" resultType="com.koreait.movie.dto.MovieDto">
+		select a.movie_no, a.movie_title, a.movie_director, a.movie_audience, a.movie_opening_date, a.movie_nation, LISTAGG(c.genre_name, ',') within group (order by c.genre_name) as genre_name
+		from movie a, movie_genre b, genre c 
+		where a.movie_no = b.movie_no
+		and b.genre_no = c.genre_no
+		and a.movie_no = #{movieNo}
+		group by a.movie_no, a.movie_title, a.movie_director, a.movie_audience, a.movie_opening_date, a.movie_nation
+	</select>
+	
+	<select id="getMovieActor" parameterType="int" resultType="String">
+		select actor_name
+		from movie_actor a, actor b
+		where a.actor_no = b.actor_no
+		and a.movie_no = #{movieNo}
+		
+	</select>
+	
+	<select id="getRelationMovieList" parameterType="int" resultType="com.koreait.movie.dto.MovieDto">
+		select a.movie_no, a.movie_title, a.movie_director, a.movie_audience, a.movie_opening_date, a.movie_nation, genre_name
+		from movie a, movie_genre b, (select
+		                                    movie_no,
+		                                    LISTAGG(genre.genre_name, ',') within group (order by genre.genre_name) as genre_name
+		                                from movie_genre , genre
+		                               where movie_genre.genre_no = genre.genre_no
+		                            group by movie_no) genre
+		where a.movie_no = b.movie_no
+		and a.movie_no = genre.movie_no
+		and b.genre_no in (
+		                    select genre_no
+		                    from movie_genre
+		                    where movie_no = #{movieNo})
+		and b.movie_no not in(#{movieNo})
+		order by DBMS_RANDOM.RANDOM
+	
+	</select>
+	
+	<insert id="setStarScore">
+		insert into movie_score
+		values(movie_score_seq.nextval, #{param3}, #{param2}, #{param1})
+	</insert>
+	
+	<update id="updateStarScore">
+		update movie_score
+		set star_score = #{param1}
+		where movie_score_no = #{param2}
+	</update>
+	
+	<select id="seachUserStarScore" resultType="com.koreait.movie.dto.MovieScoreDto">
+		select movie_score_no,star_score
+		from movie_score
+		where user_no = #{param1}
+		and movie_no = #{param2}
+	</select>
 </mapper>
 

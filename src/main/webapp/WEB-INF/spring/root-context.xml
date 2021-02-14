@@ -114,6 +114,8 @@
 	<bean id="mainCommand" class="com.koreait.movie.command.main.MainCommand"></bean>
 	<bean id="resultResultCommand" class="com.koreait.movie.command.main.SearchResultCommand"></bean>
 	
-	
-	
+	<!-- movieInfo -->
+	<bean id="movieInfoViewCommand" class="com.koreait.movie.command.movieInfo.MovieInfoViewCommand"></bean>
+	<bean id="starSetCommand" class="com.koreait.movie.command.movieInfo.StarSetCommand"></bean>
+	<bean id="initStarScoreCommand" class="com.koreait.movie.command.movieInfo.InitStarScoreCommand"></bean>
 </beans>
