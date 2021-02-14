@@ -16,7 +16,7 @@
 	padding-left: 10px;
 }
 
-.request_list {
+.qna_list {
 	margin-right: 20px;
 }
 
@@ -30,6 +30,6 @@
 	text-align: center;
 }
 
-.request_list_1st_tr {
+.qna_list_1st_tr {
 	background: #ddd;
 }
