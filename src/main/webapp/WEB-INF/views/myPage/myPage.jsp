@@ -15,17 +15,20 @@
 
 <link rel="stylesheet" href="/movie/assets/style/myPage.css"/>
         <div class="big-box">
-                <i id="profile" class="fas fa-user-circle"></i>
+        	<div class="coverBox">
                 <!-- 초기 값은 커버사진 추가하기 버튼 -->
-                <c:choose>
-                	<c:when test="${loginUser.user_image_name == 'none' }">
-                		<input type="button" value="커버사진 추가하기"/>
-                	</c:when>
-                	<c:otherwise>
-                		<input type="button" value="커버사진 변경하기"/>
-                	
-                	</c:otherwise>
-                </c:choose>
+                <form id="userControllCover"  method="post" enctype="multipart/form-data">
+               		<input type="file"  id="addCoverBtn" value="커버사진 추가하기" Accept="image/*"/>
+          			<label for="addCoverBtn" class="coverAddLabel">커버 추가하기</label>
+                </form>
+            </div>
+            <div class="profileBox">
+                <form  id="userControllProfile" method="post" enctype="multipart/form-data">
+             		<input type="file"  id="addProfileBtn" value="프로필 추가하기" Accept="image/*"/>
+             		<label for="addProfileBtn" class="profileAddLabel">프로필 추가하기</label>
+                </form>
+            </div>
+               
               <div class="small-box" id="card-box1">
               	<c:if test="${empty loginUser }">
               		없음
@@ -33,16 +36,16 @@
               	
               	<c:if test="${not empty loginUser }">
               		닉네임: <input type="text" id="nickName" value="${loginUser.user_nickname }" readonly onkeyup="nickCheck()"/>
-              				<input type="button" id="nickNameCheckbtn" class="none" value="중복체크" onclick="fn_nickCheck()"/><br>
+              				<input type="button" id="nickNameCheckbtn" class="btn btn-info none" value="중복체크" onclick="fn_nickCheck()"/><br>
               		이름: <input type="text" id="name" value="${loginUser.user_name }" readonly/><br>
               		이메일: <input type="text" id="email" value="${loginUser.user_email }" readonly onkeyup="emailCheck()"/>
-              				<input type="button" id="emailCheckbtn" class="none" value="중복체크" onclick="fn_emailCheck()"/><br>
+              				<input type="button" id="emailCheckbtn" class="btn btn-info none" value="중복체크" onclick="fn_emailCheck()"/><br>
               		휴대폰 번호: <input type="text" id="phone" value="${loginUser.user_phone }" readonly/><br>
               		가입일: <input type="text" id="date" value="${loginUser.user_date }" readonly/><br>
               	</c:if>
                 
-                <input type="button" id="update" class="none" value="수정하기" onclick="fn_userUpdate()">
-                <input type="button" id="alter" value="수정" onclick="fn_userAlter()">
+                <input type="button" id="update" class="btn btn-info none" value="수정하기" onclick="fn_userUpdate()">
+                <input type="button" id="alter" class="btn btn-info" value="수정" onclick="fn_userAlter()">
               </div>
               <div class="small-box"  id="card-box2"></div>
               <div class="small-box"  id="card-box3"></div>
@@ -298,6 +301,125 @@
 			});
 		}
 		
+	}
+	
+	/* 프로필 */
+	$('#addProfileBtn').on('change',handleProfileAdd);
+	
+	function handleProfileAdd(event){
+		console.log(123);
+		let coverBox = document.querySelector('.profileBox');
+		
+		let formData = new FormData(document.querySelector('#userControllProfile'));
+
+	    let filesTempArr = [];
+		
+		let files = event.target.files;
+	    let filesArr = Array.prototype.slice.call(files);
+	    let filesArrLen = filesArr.length;
+	    filesTempArr.push(filesArr[0]);
+	    
+	    formData.append("userProfile", filesTempArr[0]);
+	    formData.append("addProfile", 'true');
+	    
+	    let fileSize = event.target.files[0].size;
+	    let maxSize = 10 * 1024 * 1024;//10MB
+	    
+	    
+	    if(fileSize < maxSize){
+	    	
+		    $.ajax({
+		    	url: 'userControllProfile.do',
+		    	type: 'post',
+		    	data: formData,
+		    	processData: false,
+		        contentType: false,
+		        dataType: 'json',
+		        success : function(responseObj) {
+		            if(responseObj.result){
+		            	let filename = decodeURI(responseObj.filename);
+		                coverBox.style.backgroundImage = 'url(/movie/assets/images/userProfile/'+decodeURI(responseObj.filename) +')';
+		        		document.querySelector('.profileAddLabel').innerText = '';
+		            }else{
+		                alert('123');
+		            }
+		        },
+		        error : function(err) {
+		            alert(err.status);
+		        }
+	
+	
+		    });
+	    }else{
+	    	alert('첨부 파일 사이즈 10MB 이내로 등록 가능합니다.');
+	    }
+
+	}
+	
+	if('${loginUser.user_profile_name}' != 'none'){
+		document.querySelector('.profileAddLabel').innerText = '';
+		let filename = decodeURIComponent('${loginUser.user_profile_name}');
+		document.querySelector('.profileBox').style.backgroundImage = 'url(/movie/assets/images/userProfile/' + filename+ ')';
+	}
+	
+	/* 커버 */
+		$('#addCoverBtn').on('change',handleCoverAdd);
+	function handleCoverAdd(event){
+		let coverBox = document.querySelector('.coverBox');
+		
+		let formData = new FormData(document.querySelector('#userControllCover'));
+
+	    let filesTempArr = [];
+		
+		let files = event.target.files;
+		console.log(files);
+	    let filesArr = Array.prototype.slice.call(files);
+		console.log(filesArr);
+	    let filesArrLen = filesArr.length;
+		console.log(filesArrLen);
+	    filesTempArr.push(filesArr[0]);
+	    
+	    formData.append("userCover", filesTempArr[0]);
+	    formData.append("addCover", 'true');
+	    
+	    let fileSize = event.target.files[0].size;
+	    let maxSize = 10 * 1024 * 1024;//10MB
+	    
+	    
+	    if(fileSize < maxSize){
+	    	
+		    $.ajax({
+		    	url: 'userControllCover.do',
+		    	type: 'post',
+		    	data: formData,
+		    	processData: false,
+		        contentType: false,
+		        dataType: 'json',
+		        success : function(responseObj) {
+		            if(responseObj.result){
+		            	let filename = decodeURIComponent(responseObj.filename);
+		                coverBox.style.backgroundImage = 'url(/movie/assets/images/userCover/'+filename +')';
+		        		document.querySelector('.coverAddLabel').innerText = '';
+		            }else{
+		                alert('123');
+		            }
+		        },
+		        error : function(err) {
+		            alert(err.status);
+		        }
+	
+	
+		    });
+	    }else{
+	    	alert('첨부 파일 사이즈 10MB 이내로 등록 가능합니다.');
+	    }
+
+	}
+	
+	if('${loginUser.user_image_name}' != 'none'){
+		document.querySelector('.coverAddLabel').innerText = '';
+		let filename = decodeURIComponent('${loginUser.user_image_name}');
+		document.querySelector('.coverBox').style.backgroundImage = 'url(/movie/assets/images/userCover/' + filename+ ')';
 	}
 	
 

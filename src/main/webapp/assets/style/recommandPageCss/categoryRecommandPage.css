@@ -1,4 +1,8 @@
 @charset "UTF-8";
+
+body {
+	background: #141414;
+}
 html {
   box-sizing: border-box;
 }
@@ -21,9 +25,9 @@ img {
 }
 
 .main-wrapper{
-  width: 80%;
-  height: 40%;
-  margin: auto;
+	width: 80%;
+	height: 40%;
+	margin: 100px auto;
   
 }
 
