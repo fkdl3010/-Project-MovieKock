@@ -30,7 +30,7 @@
       <form name="form" class="form-inline">
 		  <div class="form-group">
 		  	<select id="genre" name="genre" class="left form-control" onChange='formChange()'>
-		  	  <option value="">모든장르</option>
+		  	  <option value="0">모든장르</option>
 	          <option value="1">코미디</option>
 	          <option value="2">드라마</option>
 	          <option value="3">액션</option>
@@ -50,11 +50,11 @@
     </div>
   
     <div class="main-movieList">
-   <!-- <c:if test="${empty movieList}">
+ <!--  <c:if test="${empty movieList}">
      	조건에 맞는 영화가 없습니다.
 	  </c:if>
-	  <c:if test="${not empty movieList }">
-	      	<c:forEach var="movie" items="${movieList }">
+	  <c:if test="$('#genre').val()==0 "> -->
+	      	<c:forEach var="movie" items="${movieGenreAllList}">
 	      		<div class="list" style="background-image: url('/movie/assets/images/poster/${movie.movie_title}_포스터.jpg'); background-size: 250px 300px;">
 	      			<input type="checkbox" name="movie_no" class="movie_no" value="${movie.movie_no }" style="display: none;"/>
 	      		</div>
@@ -66,14 +66,12 @@
 							</div>
 				</div>
 	      	</c:forEach>
-	      </c:if> -->  
+ <!-- 	      </c:if>   -->
     </div>
 <script>
-console.log('${genre_no}');
-console.log('${genreno}');
-console.log('${movieList}');
-console.log('${genreMap.movieList}');
-console.log('${genreMap}');
+
+console.log('${movieGenreAllList}');
+
 $(document).on("click",".list",movePage);
 
 function movePage(event){

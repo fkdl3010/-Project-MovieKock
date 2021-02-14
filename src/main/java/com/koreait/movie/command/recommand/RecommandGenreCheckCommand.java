@@ -37,6 +37,7 @@ public class RecommandGenreCheckCommand implements CommonMapCommand {
 		
 		Map<String, Object> genreMap = new HashMap<String, Object>();
 		
+		genreMap.put("movieGenreAllList",movieGenreAllList);
 		
 		if(genre_no==0) {
 			genreMap.put("movieGenreList",movieGenreAllList);

@@ -26,14 +26,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="movieListGenre" parameterType="int" resultType="com.koreait.movie.dto.MovieDto">
-	select a.* 
+	select distinct a.* 
 	from movie a,movie_genre b
 	where a.movie_no = b.movie_no
 	and b.genre_no=#{genre_no}
 	</select>
 	
 	<select id="movieListGenreAll" resultType="com.koreait.movie.dto.MovieDto">
-    	select  a.*
+    	select distinct a.*
 	from movie a,movie_genre b
 	where a.movie_no = b.movie_no
 	</select>
