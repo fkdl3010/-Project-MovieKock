@@ -41,7 +41,7 @@
 					class="recommend-link-a"> 추천 받기 </a>
 				</span> <span class="category-link"> <a href="request_list_page.do"
 					class="category-link-a"> 장르별 </a>
-				</span> <span class="faq-link"> <a href="request_list_page.do"
+				</span> <span class="faq-link"> <a href="qnaWritePage.do"
 					class="faq-link-a"> 문의 하기 </a>
 				</span>
 			</div>

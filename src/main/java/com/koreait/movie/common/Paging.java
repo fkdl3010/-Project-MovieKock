@@ -1,6 +1,6 @@
 package com.koreait.movie.common;
 
-public class paging {
+public class Paging {
 
 	// 매개변수들은 ListCommand에게서 받아오는 데이터
 		// 1. String path;			// 어떤 게시판에서 사용할 페이징인가? 예) /MyHome/bbsListPage.bbs 또는 /MyHome/boardListPage.board 등 

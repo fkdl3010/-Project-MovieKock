@@ -22,7 +22,7 @@ let btn = document.querySelector('#secret');
 			alert('제목과 내용을 확인후 다시 입력해주세요');
 			return;
 		} else {
-			f.action="requestListPage.do";
+			f.action="qnaListPage.do";
 				f.submit();
 			}
 		}
