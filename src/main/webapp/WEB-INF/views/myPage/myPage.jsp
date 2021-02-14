@@ -29,7 +29,6 @@
                 </form>
             </div>
                
-                
               <div class="small-box" id="card-box1">
               	<c:if test="${empty loginUser }">
               		없음
@@ -37,16 +36,16 @@
               	
               	<c:if test="${not empty loginUser }">
               		닉네임: <input type="text" id="nickName" value="${loginUser.user_nickname }" readonly onkeyup="nickCheck()"/>
-              				<input type="button" id="nickNameCheckbtn" class="none" value="중복체크" onclick="fn_nickCheck()"/><br>
+              				<input type="button" id="nickNameCheckbtn" class="btn btn-info none" value="중복체크" onclick="fn_nickCheck()"/><br>
               		이름: <input type="text" id="name" value="${loginUser.user_name }" readonly/><br>
               		이메일: <input type="text" id="email" value="${loginUser.user_email }" readonly onkeyup="emailCheck()"/>
-              				<input type="button" id="emailCheckbtn" class="none" value="중복체크" onclick="fn_emailCheck()"/><br>
+              				<input type="button" id="emailCheckbtn" class="btn btn-info none" value="중복체크" onclick="fn_emailCheck()"/><br>
               		휴대폰 번호: <input type="text" id="phone" value="${loginUser.user_phone }" readonly/><br>
               		가입일: <input type="text" id="date" value="${loginUser.user_date }" readonly/><br>
               	</c:if>
                 
-                <input type="button" id="update" class="none" value="수정하기" onclick="fn_userUpdate()">
-                <input type="button" id="alter" value="수정" onclick="fn_userAlter()">
+                <input type="button" id="update" class="btn btn-info none" value="수정하기" onclick="fn_userUpdate()">
+                <input type="button" id="alter" class="btn btn-info" value="수정" onclick="fn_userAlter()">
               </div>
               <div class="small-box"  id="card-box2"></div>
               <div class="small-box"  id="card-box3"></div>

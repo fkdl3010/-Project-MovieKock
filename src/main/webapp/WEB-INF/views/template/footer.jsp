@@ -7,9 +7,9 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
 
 <div class="footer">
-	<div class="partners">
-		<div class="footerLogo"> <a href="#"><i
-				class="fas fa-video fa-5x"></i></a>
+	<div class="footer_wrap">
+		<div class="footerLogo">
+			<a href="#"><img class="logo" src="/movie/assets/images/logo.jpg" /></a>
 		</div>
 		<div class="textBox">
 			<div class="title">About Us</div>

@@ -1,12 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
 <style type="text/css">
+	
+	.modal_open_btn{
+		width: 130px;
+		height: 30px;
+	}
 	
 	.modal-dialog {
 		width: 600px;
@@ -53,6 +58,11 @@
 		margin: auto;
 	}
 	
+	.in_modal_btn {
+		width: 50px;
+		height: 30px;
+		color: white;
+	}
 </style>
 </head>
 <body>
@@ -63,7 +73,7 @@
 	      <!-- header -->
 	      <div class="modal-header">
 	        <!-- 닫기(x) 버튼 -->
-	        <button type="button" class="close" data-dismiss="modal">×</button>
+	        <button type="button" class="close btn btn-info" data-dismiss="modal">×</button>
 	        <!-- header title -->
 	        <h4 class="modal-title">영화 이름</h4>
 	      </div>
@@ -77,7 +87,7 @@
 	      </div>
 	      <!-- Footer -->
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-default" data-dismiss="modal">완료</button>
+	        <button class="inp_btn in_modal_btn" data-dismiss="modal">완료</button>
 	      </div>
 	    </div>
 	  </div>

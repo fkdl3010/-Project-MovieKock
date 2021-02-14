@@ -37,7 +37,7 @@
 		          </div>
 		        </div>
 		        <div class="info_main_mid_right info_main_mid_box">
-		          <div class="my-rating-contents">평가하기</div>
+		          <div class="my-rating-contents txt">평가하기</div>
 				  <div id="star-rating"></div>
 		            <button class="btn btn-default" id="wish">+보고싶어요</button>
 		            <!-- modal comment -->
@@ -49,15 +49,15 @@
 			<div class="info_main_bot">
 				<div class="info_main_bot_basic_info">
 					<div class="main_bot_top">
-						<a class="main_bot_top_font">기본정보</a>
+						<a class="main_bot_top_font txt">기본정보</a>
 					</div>
 					<br/>
 					<div class="main_bot_bot">
-						<a class="main_bot_bot_font">
+						<span class="main_bot_bot_font txt">
 							혈귀로 변해버린 여동생 ‘네즈코’를 인간으로 되돌릴 단서를 찾아 비밀조직 귀살대에 들어간 ‘탄지로.’ ‘젠이츠’, ‘이노스케’와 새로운 임무 수행을 위해 무한열차에 탑승 후 귀살대 최강 검사 염주 ‘렌고쿠’와 합류한다. 
 
 달리는 무한열차에서 승객들이 하나 둘 흔적 없이 사라지자 숨어있는 식인 혈귀의 존재를 직감하는 ‘렌고쿠’. 귀살대 ‘탄지로’ 일행과 최강 검사 염주 ‘렌고쿠’는 어둠 속을 달리는 무한열차에서 모두의 목숨을 구하기 위해 예측불가능한 능력을 가진 혈귀와 목숨을 건 혈전을 시작하는데…
-						</a>
+						</span>
 					</div>
 				</div>
 				<div class="info_main_bot_staff">
@@ -72,7 +72,7 @@
 							<div class="bot_staff_progiles_name">
 								${movieDto.movie_director.replaceAll("_", " ") }
 							</div>
-							<div class="bot_staff_progiles_position">
+							<div class="bot_staff_progiles_position txt">
 								감독
 							</div>
 						</div>
@@ -100,7 +100,7 @@
 				</div>
 				<div class="info_main_bot_comment">
 					<div class="info_main_bot_comment_top">
-						<div class="comment_top_left">
+						<div class="comment_top_left txt">
 							코멘트 200+
 						</div>
 						
@@ -109,7 +109,7 @@
 						<div class="comment_bot_1th">
 							<div class="comment_main_top">
 								<a href="">
-									<i class="fas fa-user-circle fa-2x">정현</i>
+									<i class="fas fa-user-circle fa-2x txt">정현</i>
 								</a>
 								<!--**************************** 별점 기능 필수 ******************************* -->
 								★5.0
@@ -164,7 +164,7 @@ dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddsssssssssssss
 							</div>
 						</div>
 					</div>
-					<input type="button" value="더보기" onclick="" />
+					<input class="inp_btn commet_view_btn" type="button" value="더보기" onclick="" />
 				</div>
 				<div class="info_main_bot_movies">
 					

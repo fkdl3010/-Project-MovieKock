@@ -15,8 +15,8 @@
 			<div class="main">
 				<form action="signupPage.do" method="get">
 					<div class="pa_mid">
-						<a class="pa_mid_font">무비콕은 본인인증, 콘텐츠 제공 을 위해 아래와 같이 개인정보를 수집 · 이용 하고자 합니다.<br/>
-						내용을 자세히 읽으신 후 동의 여부를 결정하여 주시기 바랍니다.</a>
+						<span class="pa_mid_font">무비콕은 본인인증, 콘텐츠 제공 을 위해 아래와 같이 개인정보를 수집 · 이용 하고자 합니다.<br/>
+						내용을 자세히 읽으신 후 동의 여부를 결정하여 주시기 바랍니다.</span>
 					</div>
 					<div class="pa_bot">
 						<div class="table">
