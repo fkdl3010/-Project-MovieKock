@@ -24,5 +24,6 @@ public class QnaDto {
 	private int qna_yn;
 	
 	private String user_nickname;
+	private String admin_id;
 	
 }
