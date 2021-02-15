@@ -10,41 +10,25 @@
 
 <div class="wrap">
 	<div class="main">
-		<c:forEach var="movieDto" items="${resultList}">
-			<p class="title">${search}에대한검색내용입니다.</p>
-			<div class="main-movieList">
-				<div class="list">
-					<img src="/movie/assets/images/poster/${movieDto.movie_title}_포스터.jpg" />
-				</div>
-			</div>
-			<div class="info">
-				<div class="text">
-					<div class="content">
-						<h4>${movieDto.movie_title}</h4>
-						장르<br /> 평점<br /> ${movieDto.movie_nation}<br />
-						${movieDto.movie_director}<br /> ${movieDto.movie_audience}<br />
-					</div>
-				</div>
-			</div>
-		</c:forEach>
-	</div>
-</div>
-<%-- 
-
-		<c:if test="${empty list}">
+		<c:if test="${empty resultList}">
 				검색된 영화가 없습니다.
 			</c:if>
-		<c:if test="${not empty list}">
-			<c:forEach var="movieDto" items="${search}">
-				<div class="content">
-					<h4>${movieDto.movie_title}</h4>
-					${empDto.movie_director}
-					${empDto.movie_audience}
-					${empDto.movie_opening_date}
-					${empDto.movie_nation}
-					${empDto.movie_genre}
-					${empDto.star_score}
-				
-			</c:forEach>
-		</c:if> --%>
+		<c:if test="${not empty resultList}">
+			<p class="title">'${search}'에 대한 검색내용입니다.</p>
+			<div class="container">
+				<c:forEach var="movieDto" items="${resultList}">
+					<div class="mainMovieList" onclick="">
+						<div class="list">
+							<img src="/movie/assets/images/poster/${movieDto.movie_title}_포스터.jpg" />
+						</div>
+						<div class="info">
+							<h4>${movieDto.movie_title.replace('_',' ')}</h4>
+						</div>
+					</div>
+				</c:forEach>
+			</div>
+		</c:if>
+	</div>
+</div>
+
 <%@ include file="../template/footer.jsp"%>
