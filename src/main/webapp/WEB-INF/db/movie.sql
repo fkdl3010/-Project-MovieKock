@@ -1,14 +1,14 @@
-﻿-- 테이블 순서는 관계를 고려하여 한 번에 실행해도 에러가 발생하지 않게 정렬되었습니다.
+-- 테이블 순서는 관계를 고려하여 한 번에 실행해도 에러가 발생하지 않게 정렬되었습니다.
 
 -- movie Table Create SQL
 CREATE TABLE movie
 (
     movie_no              NUMBER          NOT NULL, 
-    movie_title           VARCHAR2(20)    NULL, 
-    movie_director        VARCHAR2(20)    NULL, 
+    movie_title           VARCHAR2(35)    NOT NULL, 
+    movie_director        VARCHAR2(30)    NOT NULL, 
     movie_audience        VARCHAR2(50)    NULL, 
-    movie_opening_date    DATE            NULL, 
-    movie_nation          VARCHAR2(40)    NULL, 
+    movie_opening_date    DATE            NOT NULL, 
+    movie_nation          VARCHAR2(40)    NOT NULL, 
     CONSTRAINT MOVIE_PK PRIMARY KEY (movie_no)
 )
 /
@@ -18,14 +18,6 @@ START WITH 1
 INCREMENT BY 1;
 /
 
-CREATE OR REPLACE TRIGGER movie_AI_TRG
-BEFORE INSERT ON movie 
-REFERENCING NEW AS NEW FOR EACH ROW 
-BEGIN 
-    SELECT movie_SEQ.NEXTVAL
-    INTO :NEW.movie_no
-    FROM DUAL;
-END;
 /
 
 --DROP TRIGGER movie_AI_TRG;
@@ -38,15 +30,16 @@ END;
 -- movie Table Create SQL
 CREATE TABLE Users
 (
-    user_no            NUMBER           NOT NULL, 
-    user_id            VARCHAR2(50)     NULL, 
-    user_pw            VARCHAR2(50)     NULL, 
-    user_nickname      VARCHAR2(50)     NULL, 
-    user_name          VARCHAR2(50)     NULL, 
-    user_email         VARCHAR2(200)    NULL, 
-    user_phone         VARCHAR2(30)     NULL, 
-    user_date          DATE             NULL, 
-    user_image_name    VARCHAR2(60)     NULL, 
+    user_no              NUMBER           NOT NULL, 
+    user_id              VARCHAR2(50)     NOT NULL, 
+    user_pw              VARCHAR2(64)     NOT NULL, 
+    user_nickname        VARCHAR2(50)     NOT NULL, 
+    user_name            VARCHAR2(50)     NOT NULL, 
+    user_email           VARCHAR2(200)    NULL, 
+    user_phone           VARCHAR2(30)     NOT NULL, 
+    user_date            DATE             NULL, 
+    user_image_name      VARCHAR2(300)    NOT NULL, 
+    user_profile_name    VARCHAR2(300     NOT NULL, 
     CONSTRAINT USERS_PK PRIMARY KEY (user_no)
 )
 /
@@ -56,14 +49,7 @@ START WITH 1
 INCREMENT BY 1;
 /
 
-CREATE OR REPLACE TRIGGER Users_AI_TRG
-BEFORE INSERT ON Users 
-REFERENCING NEW AS NEW FOR EACH ROW 
-BEGIN 
-    SELECT Users_SEQ.NEXTVAL
-    INTO :NEW.user_no
-    FROM DUAL;
-END;
+
 /
 
 --DROP TRIGGER Users_AI_TRG;
@@ -77,7 +63,7 @@ END;
 CREATE TABLE genre
 (
     genre_no      NUMBER           NOT NULL, 
-    genre_name    VARCHAR2(100)    NULL, 
+    genre_name    VARCHAR2(100)    NOT NULL, 
     CONSTRAINT GENRE_PK PRIMARY KEY (genre_no)
 )
 /
@@ -87,14 +73,7 @@ START WITH 1
 INCREMENT BY 1;
 /
 
-CREATE OR REPLACE TRIGGER genre_AI_TRG
-BEFORE INSERT ON genre 
-REFERENCING NEW AS NEW FOR EACH ROW 
-BEGIN 
-    SELECT genre_SEQ.NEXTVAL
-    INTO :NEW.genre_no
-    FROM DUAL;
-END;
+
 /
 
 --DROP TRIGGER genre_AI_TRG;
@@ -108,7 +87,7 @@ END;
 CREATE TABLE actor
 (
     actor_no      NUMBER          NOT NULL, 
-    actor_name    VARCHAR2(50)    NULL, 
+    actor_name    VARCHAR2(50)    NOT NULL, 
     CONSTRAINT ACTOR_PK PRIMARY KEY (actor_no)
 )
 /
@@ -118,14 +97,7 @@ START WITH 1
 INCREMENT BY 1;
 /
 
-CREATE OR REPLACE TRIGGER actor_AI_TRG
-BEFORE INSERT ON actor 
-REFERENCING NEW AS NEW FOR EACH ROW 
-BEGIN 
-    SELECT actor_SEQ.NEXTVAL
-    INTO :NEW.actor_no
-    FROM DUAL;
-END;
+
 /
 
 --DROP TRIGGER actor_AI_TRG;
@@ -136,75 +108,61 @@ END;
 
 
 -- movie Table Create SQL
-CREATE TABLE color
+CREATE TABLE feel
 (
     feel_no      NUMBER          NOT NULL, 
-    feel_name    VARCHAR2(20)    NULL, 
-    CONSTRAINT COLOR_PK PRIMARY KEY (feel_no)
+    feel_name    VARCHAR2(20)    NOT NULL, 
+    CONSTRAINT FEEL_PK PRIMARY KEY (feel_no)
 )
 /
 
-CREATE SEQUENCE color_SEQ
+CREATE SEQUENCE feel_SEQ
 START WITH 1
 INCREMENT BY 1;
 /
 
-CREATE OR REPLACE TRIGGER color_AI_TRG
-BEFORE INSERT ON color 
-REFERENCING NEW AS NEW FOR EACH ROW 
-BEGIN 
-    SELECT color_SEQ.NEXTVAL
-    INTO :NEW.feel_no
-    FROM DUAL;
-END;
 /
 
---DROP TRIGGER color_AI_TRG;
+--DROP TRIGGER feel_AI_TRG;
 /
 
---DROP SEQUENCE color_SEQ;
+--DROP SEQUENCE feel_SEQ;
 /
 
 
 -- movie Table Create SQL
-CREATE TABLE FAQ
+CREATE TABLE QNA
 (
-    faq_no         NUMBER            NOT NULL,
-    faq_select     NUMBER            NOT NULL,
-    faq_title      VARCHAR2(50)      NOT NULL, 
-    faq_secret     NUMBER            NULL,
-    faq_yn		   NUMBER			 NOT NULL,
+    qna_no         NUMBER            NOT NULL, 
+    qna_select     NUMBER            NOT NULL, 
+    qna_title      VARCHAR2(50)      NOT NULL, 
+    qna_secrect    NUMBER            NOT NULL, 
     user_no        NUMBER            NOT NULL, 
-    faq_content    VARCHAR2(4000)    NOT NULL, 
-    faq_pw         VARCHAR2(50)      NULL, 
-    faq_date       DATE              NOT NULL,
-    CONSTRAINT FAQ_PK PRIMARY KEY (faq_no)
+    qna_content    VARCHAR2(4000)    NOT NULL, 
+    qna_pw         VARCHAR2(50)      NOT NULL, 
+    qna_date       DATE              NOT NULL, 
+    qna_yn         NUMBER            NOT NULL, 
+    admin_id	   VARCHAR2(10)		 NOT NULL,
+    CONSTRAINT QNA_PK PRIMARY KEY (qna_no)
 )
 /
 
-CREATE SEQUENCE FAQ_SEQ
+CREATE SEQUENCE QNA_SEQ
 START WITH 1
 INCREMENT BY 1;
 /
 
-CREATE OR REPLACE TRIGGER FAQ_AI_TRG
-BEFORE INSERT ON FAQ 
-REFERENCING NEW AS NEW FOR EACH ROW 
-BEGIN 
-    SELECT FAQ_SEQ.NEXTVAL
-    INTO :NEW.faq_no
-    FROM DUAL;
-END;
+
 /
 
---DROP TRIGGER FAQ_AI_TRG;
+--DROP TRIGGER QNA_AI_TRG;
 /
 
---DROP SEQUENCE FAQ_SEQ;
+--DROP SEQUENCE QNA_SEQ;
 /
 
-ALTER TABLE FAQ
-    ADD CONSTRAINT FK_FAQ_user_no_Users_user_no FOREIGN KEY (user_no)
+ALTER TABLE QNA
+    ADD CONSTRAINT FK_QNA_user_no_Users_user_no FOREIGN KEY (user_no)
         REFERENCES Users (user_no)
 /
 
@@ -213,8 +171,8 @@ ALTER TABLE FAQ
 CREATE TABLE movie_genre
 (
     movie_genre_no    NUMBER    NOT NULL, 
-    genre_no          NUMBER    NULL, 
-    movie_no          NUMBER    NULL, 
+    genre_no          NUMBER    NOT NULL, 
+    movie_no          NUMBER    NOT NULL, 
     CONSTRAINT MOVIE_GENRE_PK PRIMARY KEY (movie_genre_no)
 )
 /
@@ -224,14 +182,7 @@ START WITH 1
 INCREMENT BY 1;
 /
 
-CREATE OR REPLACE TRIGGER movie_genre_AI_TRG
-BEFORE INSERT ON movie_genre 
-REFERENCING NEW AS NEW FOR EACH ROW 
-BEGIN 
-    SELECT movie_genre_SEQ.NEXTVAL
-    INTO :NEW.movie_genre_no
-    FROM DUAL;
-END;
+
 /
 
 --DROP TRIGGER movie_genre_AI_TRG;
@@ -255,8 +206,8 @@ ALTER TABLE movie_genre
 CREATE TABLE movie_actor
 (
     movie_actor_no    NUMBER    NOT NULL, 
-    actor_no          NUMBER    NULL, 
-    movie_no          NUMBER    NULL, 
+    actor_no          NUMBER    NOT NULL, 
+    movie_no          NUMBER    NOT NULL, 
     CONSTRAINT MOVIE_ACTOR_PK PRIMARY KEY (movie_actor_no)
 )
 /
@@ -266,14 +217,7 @@ START WITH 1
 INCREMENT BY 1;
 /
 
-CREATE OR REPLACE TRIGGER movie_actor_AI_TRG
-BEFORE INSERT ON movie_actor 
-REFERENCING NEW AS NEW FOR EACH ROW 
-BEGIN 
-    SELECT movie_actor_SEQ.NEXTVAL
-    INTO :NEW.movie_actor_no
-    FROM DUAL;
-END;
+
 /
 
 --DROP TRIGGER movie_actor_AI_TRG;
@@ -297,8 +241,8 @@ ALTER TABLE movie_actor
 CREATE TABLE movie_feel
 (
     movie_feel_no    NUMBER    NOT NULL, 
-    feel_no          NUMBER    NULL, 
-    movie_no         NUMBER    NULL, 
+    feel_no          NUMBER    NOT NULL, 
+    movie_no         NUMBER    NOT NULL, 
     CONSTRAINT MOVIE_FEEL_PK PRIMARY KEY (movie_feel_no)
 )
 /
@@ -308,14 +252,7 @@ START WITH 1
 INCREMENT BY 1;
 /
 
-CREATE OR REPLACE TRIGGER movie_feel_AI_TRG
-BEFORE INSERT ON movie_feel 
-REFERENCING NEW AS NEW FOR EACH ROW 
-BEGIN 
-    SELECT movie_feel_SEQ.NEXTVAL
-    INTO :NEW.movie_feel_no
-    FROM DUAL;
-END;
+
 /
 
 --DROP TRIGGER movie_feel_AI_TRG;
@@ -330,8 +267,8 @@ ALTER TABLE movie_feel
 /
 
 ALTER TABLE movie_feel
-    ADD CONSTRAINT FK_movie_feel_feel_no_color_fe FOREIGN KEY (feel_no)
-        REFERENCES color (feel_no)
+    ADD CONSTRAINT FK_movie_feel_feel_no_feel_fee FOREIGN KEY (feel_no)
+        REFERENCES feel (feel_no)
 /
 
 
@@ -339,8 +276,8 @@ ALTER TABLE movie_feel
 CREATE TABLE wishList
 (
     wishList_no    NUMBER    NOT NULL, 
-    user_no        NUMBER    NULL, 
-    movie_no       NUMBER    NULL, 
+    user_no        NUMBER    NOT NULL, 
+    movie_no       NUMBER    NOT NULL, 
     CONSTRAINT WISHLIST_PK PRIMARY KEY (wishList_no)
 )
 /
@@ -350,14 +287,7 @@ START WITH 1
 INCREMENT BY 1;
 /
 
-CREATE OR REPLACE TRIGGER wishList_AI_TRG
-BEFORE INSERT ON wishList 
-REFERENCING NEW AS NEW FOR EACH ROW 
-BEGIN 
-    SELECT wishList_SEQ.NEXTVAL
-    INTO :NEW.wishList_no
-    FROM DUAL;
-END;
+
 /
 
 --DROP TRIGGER wishList_AI_TRG;
@@ -382,8 +312,8 @@ CREATE TABLE movie_score
 (
     movie_score_no    INT       NOT NULL, 
     star_score        NUMBER    NULL, 
-    movie_no          NUMBER    NULL, 
-    user_no           NUMBER    NULL, 
+    movie_no          NUMBER    NOT NULL, 
+    user_no           NUMBER    NOT NULL, 
     CONSTRAINT MOVIE_SCORE_PK PRIMARY KEY (movie_score_no)
 )
 /
@@ -393,14 +323,7 @@ START WITH 1
 INCREMENT BY 1;
 /
 
-CREATE OR REPLACE TRIGGER movie_score_AI_TRG
-BEFORE INSERT ON movie_score 
-REFERENCING NEW AS NEW FOR EACH ROW 
-BEGIN 
-    SELECT movie_score_SEQ.NEXTVAL
-    INTO :NEW.movie_score_no
-    FROM DUAL;
-END;
+
 /
 
 --DROP TRIGGER movie_score_AI_TRG;
@@ -424,7 +347,7 @@ ALTER TABLE movie_score
 CREATE TABLE main_view
 (
     main_view_no    NUMBER    NOT NULL, 
-    movie_no        NUMBER    NULL, 
+    movie_no        NUMBER    NOT NULL, 
     CONSTRAINT MAIN_VIEW_PK PRIMARY KEY (main_view_no)
 )
 /
@@ -434,14 +357,7 @@ START WITH 1
 INCREMENT BY 1;
 /
 
-CREATE OR REPLACE TRIGGER main_view_AI_TRG
-BEFORE INSERT ON main_view 
-REFERENCING NEW AS NEW FOR EACH ROW 
-BEGIN 
-    SELECT main_view_SEQ.NEXTVAL
-    INTO :NEW.main_view_no
-    FROM DUAL;
-END;
+
 /
 
 --DROP TRIGGER main_view_AI_TRG;
@@ -461,85 +377,72 @@ ALTER TABLE main_view
 
 
 -- movie Table Create SQL
-CREATE TABLE comment
+CREATE TABLE comments
 (
     comment_no         NUMBER            NOT NULL, 
-    comment_content    VARCHAR2(4000)    NULL, 
-    comment_date       DATE              NULL, 
-    user_no            NUMBER            NULL, 
-    movie_no           NUMBER            NULL, 
+    comment_content    VARCHAR2(4000)    NOT NULL, 
+    comment_date       DATE              NOT NULL, 
+    user_no            NUMBER            NOT NULL, 
+    movie_no           NUMBER            NOT NULL, 
     comment_like       NUMBER            NULL, 
-    CONSTRAINT COMMENT_PK PRIMARY KEY (comment_no)
+    comments_title     VARCHAR2(50)      NOT NULL, 
+    CONSTRAINT COMMENTS_PK PRIMARY KEY (comment_no)
 )
 /
 
-CREATE SEQUENCE comment_SEQ
+CREATE SEQUENCE comments_SEQ
 START WITH 1
 INCREMENT BY 1;
 /
 
-CREATE OR REPLACE TRIGGER comment_AI_TRG
-BEFORE INSERT ON comment 
-REFERENCING NEW AS NEW FOR EACH ROW 
-BEGIN 
-    SELECT comment_SEQ.NEXTVAL
-    INTO :NEW.comment_no
-    FROM DUAL;
-END;
+
 /
 
---DROP TRIGGER comment_AI_TRG;
+--DROP TRIGGER comments_AI_TRG;
 /
 
---DROP SEQUENCE comment_SEQ;
+--DROP SEQUENCE comments_SEQ;
 /
 
-ALTER TABLE comment
-    ADD CONSTRAINT FK_comment_user_no_Users_user_ FOREIGN KEY (user_no)
-        REFERENCES Users (user_id)
-/
-
-ALTER TABLE comment
-    ADD CONSTRAINT FK_comment_movie_no_movie_movi FOREIGN KEY (movie_no)
+ALTER TABLE comments
+    ADD CONSTRAINT FK_comments_movie_no_movie_mov FOREIGN KEY (movie_no)
         REFERENCES movie (movie_no)
+/
+
+ALTER TABLE comments
+    ADD CONSTRAINT FK_comments_user_no_Users_user FOREIGN KEY (user_no)
+        REFERENCES Users (user_no)
 /
 
 
 -- movie Table Create SQL
-CREATE TABLE faq_comment
+CREATE TABLE qna_comments
 (
-    faq_comment_no         NUMBER            NOT NULL, 
-    faq_no                 NUMBER            NULL, 
-    faq_comment_content    VARCHAR2(4000)    NULL, 
-    faq_comment_date       DATE              NULL, 
-    CONSTRAINT FAQ_COMMENT_PK PRIMARY KEY (faq_comment_no)
+    qna__comment_no         NUMBER            NOT NULL, 
+    qna__no                 NUMBER            NOT NULL, 
+    qna__comment_content    VARCHAR2(4000)    NOT NULL, 
+    qna__comment_date       DATE              NOT NULL, 
+    CONSTRAINT QNA_COMMENTS_PK PRIMARY KEY (qna__comment_no)
 )
 /
 
-CREATE SEQUENCE faq_comment_SEQ
+CREATE SEQUENCE qna_comments_SEQ
 START WITH 1
 INCREMENT BY 1;
 /
 
-CREATE OR REPLACE TRIGGER faq_comment_AI_TRG
-BEFORE INSERT ON faq_comment 
-REFERENCING NEW AS NEW FOR EACH ROW 
-BEGIN 
-    SELECT faq_comment_SEQ.NEXTVAL
-    INTO :NEW.faq_comment_no
-    FROM DUAL;
-END;
+
 /
 
---DROP TRIGGER faq_comment_AI_TRG;
+--DROP TRIGGER qna_comments_AI_TRG;
 /
 
---DROP SEQUENCE faq_comment_SEQ;
+--DROP SEQUENCE qna_comments_SEQ;
 /
 
-ALTER TABLE faq_comment
-    ADD CONSTRAINT FK_faq_comment_faq_no_FAQ_faq_ FOREIGN KEY (faq_no)
-        REFERENCES FAQ (faq_no)
+ALTER TABLE qna_comments
+    ADD CONSTRAINT FK_qna_comments_qna__no_QNA_qn FOREIGN KEY (qna__no)
+        REFERENCES QNA (qna_no)
 /
 
 
@@ -558,14 +461,7 @@ START WITH 1
 INCREMENT BY 1;
 /
 
-CREATE OR REPLACE TRIGGER movie_taste_AI_TRG
-BEFORE INSERT ON movie_taste 
-REFERENCING NEW AS NEW FOR EACH ROW 
-BEGIN 
-    SELECT movie_taste_SEQ.NEXTVAL
-    INTO :NEW.movie_taste_no
-    FROM DUAL;
-END;
+
 /
 
 --DROP TRIGGER movie_taste_AI_TRG;
@@ -580,8 +476,6 @@ ALTER TABLE movie_taste
 /
 
 ALTER TABLE movie_taste
-    ADD CONSTRAINT FK_movie_taste_genre_no_movie_ FOREIGN KEY (genre_no)
-        REFERENCES movie (movie_no)
+    ADD CONSTRAINT FK_movie_taste_genre_no_genre_ FOREIGN KEY (genre_no)
+        REFERENCES genre (genre_no)
 /
-
-

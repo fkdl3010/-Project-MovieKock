@@ -7,11 +7,6 @@
 	<jsp:param value="인덱스" name="title" />
 </jsp:include>
       <title></title>
-<style>
-	.none{
-		display: none;
-	}
-</style>      
 
 <link rel="stylesheet" href="/movie/assets/style/myPage.css"/>
         <div class="big-box">
@@ -44,8 +39,8 @@
               		가입일: <input type="text" id="date" value="${loginUser.user_date }" readonly/><br>
               	</c:if>
                 
-                <input type="button" id="update" class="btn btn-info none" value="수정하기" onclick="fn_userUpdate()">
-                <input type="button" id="alter" class="btn btn-info" value="수정" onclick="fn_userAlter()">
+                <input type="button" id="update" class="inp_btn update_btn none" value="수정하기" onclick="fn_userUpdate()">
+                <input type="button" id="alter" class="inp_btn alter_btn" value="수정" onclick="fn_userAlter()">
               </div>
               <div class="small-box"  id="card-box2"></div>
               <div class="small-box"  id="card-box3"></div>
@@ -54,7 +49,7 @@
 <script type="text/javascript">
 	
 	/* 유저정보 */
-	let userNo = ${loginUser.user_no};
+	let userNo = ${loginUser.user_no}2;
 	
 	let nickName;
 	let name;

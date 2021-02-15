@@ -142,6 +142,7 @@ CREATE TABLE QNA
     qna_pw         VARCHAR2(50)      NOT NULL, 
     qna_date       DATE              NOT NULL, 
     qna_yn         NUMBER            NOT NULL, 
+    admin_id	   VARCHAR2(10)		 NOT NULL,
     CONSTRAINT QNA_PK PRIMARY KEY (qna_no)
 )
 /
