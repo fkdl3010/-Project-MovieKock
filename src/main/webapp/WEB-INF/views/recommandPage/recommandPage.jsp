@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <jsp:include page="../template/header.jsp">
+ 	<jsp:param value="랜덤 추천" name="title" />
+</jsp:include>
+
 <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
 
 <link rel="stylesheet" href="/movie/assets/style/recommandPageCss/recommandPage.css" />
@@ -60,25 +60,57 @@ function goTagsSearch(){
 	
 }
 
+function movieResult(url){
+	var ajaxOption = {
+			url : url,
+			async : true,
+			type : "POST",
+			dataType : "html",
+			cache : false
+	};
+	
+	$.ajax(ajaxOption).done(function(data){
+		$('#movie-box').children().remove();
+		$('#movie-box').html(data);
+	});
+}
 
+
+function showImage(){
+	var imgNum= Math.round(Math.ramdom()*3);
+	var objImg = document.getElementById("introImg");
+	
+	var imgArray=new Array(); 
+	imgArray[0]="assets/images/emoticon/angry.png"; 
+	imgArray[1]="assets/images/emoticon/cold.png"; 
+	imgArray[2]="assets/images/emoticon/crying.png"; 
+	imgArray[3]="assets/images/emoticon/disappointment.png";
+
+
+	objImg.src = imgArray[imgNum];
+	setTimeout(showImage,5000);
+
+	
+}
 </script>
-<body>
+
  <div id="wrap">
        	<div id="main">
      	<div id="header">
-	   		<div id="heading">추천 영화</div>
+	   		<div id="heading"></div>
         	<div class="topmenu">
         		<button type="button" class="menu-botton" id="b1" onclick="randombtn()">랜덤 추천</button>
         		<button class="menu-botton" class="menu-botton" id="b2" onclick="feelbtn()">기분별 추천</button>
         		<button class="menu-botton" class="menu-botton" id="b3" onclick="situbtn()">상황별 추천</button>
         	</div>
         </div>
-        <form action="">
-         <div id="random-frame" class="display">
-        		<div id="movie-box">
-            		<img src="" alt="movie-poster"/>
+        <form >
+         <div id="random-frame" class="display" onload="showImage()">
+         
+        		<div id="movie-box" >
+            		<img id="introImg" />
         		</div>
-        		<input id="rdbtn" type="button" value="추천 받기" onclick="fn_random()"/>
+        		<input id="rdbtn" type="button" value="추천 받기" onclick="movieResult('recommandRandomPage.do')"/>
       	   </div>
        </form>
       	  
@@ -153,5 +185,5 @@ function goTagsSearch(){
  	</form>
     </div>
   </div>
-</body>
-</html>
+
+<%@ include file="../template/footer.jsp" %>

@@ -6,9 +6,14 @@ body {
      #wrap{
             width: 1300px;
             height: 1000px;
-            margin: auto;     
+            margin: auto;   
+             
         }
  
+ body{
+ 
+ background:#ddd; 
+ }
         #main{
         	width : 1300px;
         	height: 900px;
@@ -54,7 +59,7 @@ body {
 			margin : auto;
 			position : relative;
 			top : 10px;
-			border : 2px solid black;
+			
 		}
         
         #emoticon-frame{
@@ -95,8 +100,10 @@ body {
        		font-size: 20px;
        		font-weight: bold;
        		position : absolute;
-       		left : 550px;
-       		bottom : 40px;
+       		left : 175px;
+       		bottom : -200px;
+       		
+       
        
        }
   
