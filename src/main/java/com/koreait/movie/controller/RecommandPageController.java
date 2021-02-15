@@ -1,15 +1,21 @@
 package com.koreait.movie.controller;
 
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.koreait.movie.command.recommand.RecommandSituMovieCommand;
+import com.koreait.movie.command.recommand.RecommandCategoryCommand;
+import com.koreait.movie.command.recommand.RecommandGenreCheckCommand;
 import com.koreait.movie.command.recommand.RecommandRandomMovieCommand;
 
 @Controller
@@ -21,11 +27,18 @@ public class RecommandPageController {
 	
 	private RecommandRandomMovieCommand randomMovieCommand;
 	private RecommandSituMovieCommand situMovieCommand;
+	private RecommandCategoryCommand categoryCommand;
+	private RecommandGenreCheckCommand genreCheckCommand;
 	
 	@Autowired
-	public void setBean(RecommandRandomMovieCommand randomMovieCommand, RecommandSituMovieCommand situMovieCommand) {
+	public void setBean(RecommandRandomMovieCommand randomMovieCommand, 
+						RecommandSituMovieCommand situMovieCommand,
+						RecommandCategoryCommand categoryComman,
+						RecommandGenreCheckCommand genreCheckCommand) {
 		this.randomMovieCommand = randomMovieCommand;
 		this.situMovieCommand = situMovieCommand;
+		this.categoryCommand = categoryCommand;
+		this.genreCheckCommand = genreCheckCommand;
 	}
 	
 
@@ -49,7 +62,20 @@ public class RecommandPageController {
 	}
 	
 	@RequestMapping(value="categoryRecommandPage.do")
-	public String category_recommand_page() {
+	public String categoryRecommandPage(HttpServletRequest request,Model model) {
+		model.addAttribute("request", request);
 		return "recommandPage/categoryRecommandPage";
+	}
+	
+	
+	@RequestMapping(value="RecomandGenrePage/{genreNo}",
+			method=RequestMethod.GET,
+			produces="application/json; charset=utf-8")
+	@ResponseBody
+	public Map<String, Object> categoryRecommandPageGenre(@PathVariable("genreNo") int genreNo,
+			Model model){
+		model.addAttribute("genreNo", genreNo);
+		
+		return genreCheckCommand.execute(sqlSession, model);
 	}
 }

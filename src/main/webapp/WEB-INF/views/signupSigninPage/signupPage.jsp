@@ -7,12 +7,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
-<link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
-	crossorigin="anonymous" />
+<!-- <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" /> -->
 <link rel="stylesheet" href="/movie/assets/style/singupSigninPageCss/signupPage.css" />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="/movie/assets/style/singupSigninPageCss/findIdpwPage.css"	/>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> -->
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script> -->
+<!-- 버튼 부트스트랩 -->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> -->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">1 -->
+<!-- <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script> -->
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" ></script> -->
+
 </head>
 <body>
 	<div class="wrap">
@@ -22,21 +26,21 @@
 		</div>
 		<div id="main-wrap">
 			<form method="post">
-				<div class="top_text">무비콕 정보를 입력해주세요</div>
+				<div class="top_text txt">무비콕 정보를 입력해주세요</div>
 				<div class="main">
-					<div class="label_text">
+					<div class="label_text txt">
 						<label for="id">아이디</label><br />
 					</div>
 					<input type="text" name="id" id="id" class="inp_txt" placeholder="아이디를 입력해주세요." onkeyup="idRegCheck()" /> 
 					<input type="button" id="idCheckbtn" class="inp_btn" value="중복확인" onclick="fn_idCheck(this.form)" /><br /> 
 					<span class="normal" id="idRegBox"></span>
 
-					<div class="label_text">
+					<div class="label_text txt">
 						<label for="pw">비밀번호</label><br /> 
 					</div>
 					<input type="password" name="pw" id="pw" class="inp_txt" placeholder="비밀번호를 입력해주세요." onkeyup="pwRegCheck()" /><br/>
 					<span class="normal" id="pwRegBox"></span>
-					<div class="label_text">
+					<div class="label_text txt">
 						<label for="pw2">비밀번호 확인</label>
 					</div>
 					<span id="pwCheck"></span>
@@ -44,24 +48,24 @@
 					<span id="pwCheck2"></span>
 					<div id="pwConfirm" class="normal" style="display: none;">비밀번호가 일치하지 않습니다.</div>
 
-					<div class="label_text">
+					<div class="label_text txt">
 						<label for="nickname">닉네임</label>
 					</div>
 					<input type="text" name="nickName" id="nickname" class="inp_txt" placeholder="닉네임을 확인해주세요." onkeyup="nickCheck()" /> 
 					<input type="button" id="nickNameCheckbtn" class="inp_btn" value="중복확인" onclick="fn_nickCheck(this.form)" />
 
-					<div class="label_text">
+					<div class="label_text txt">
 						<label for="name">이름</label>
 					</div>
 					<input type="text" name="name" id="name" class="inp_txt" placeholder="이름을 입력해주세요." />
 
-					<div class="label_text">
+					<div class="label_text txt">
 						<label for="email">이메일</label>
 					</div>
 					<input type="text" name="email" id="email" class="inp_txt" placeholder="이메일을 입력해주세요." onkeyup="emailRegCheck()" /> 
 					<input type="button" id="emailCheckbtn" class="inp_btn" value="중복확인" onclick="fn_emailCheck(this.form)" /><br/>
 					<span class="normal" id="emailRegBox"> </span>
-					<div class="label_text">
+					<div class="label_text txt">
 						<label for="phone">휴대전화</label>
 					</div>
 					<input type="text" name="phone" id="phone" class="inp_txt" placeholder="핸드폰 번호를 입력해주세요." />

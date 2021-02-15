@@ -1,3 +1,7 @@
+@charset "UTF-8";
+body {
+	background: #141414;
+}
 html {
   box-sizing: border-box;
 }
@@ -77,4 +81,30 @@ progress::-webkit-progress-value {
 
 .checked{
 	opacity: 0.3;
+}
+
+.submit-btn {
+	width: 100px;
+	height: 40px;
+	background: #ec7114;
+	color: #ddd;
+	border: none;
+	outline: none;
+	border-radius: 15px;
+	font-weight: bold;
+}
+
+.submit-btn:hover {
+	background: #d26311;
+	color: #ddd;
+	border: none;
+	outline: none;
+	border-radius: 15px;
+	font-weight: bold;
+}
+
+.txt {
+	color: #ddd;
+	font-weight: bold;
+	text-decoration: none;
 }

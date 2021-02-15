@@ -19,6 +19,4 @@ public class MovieDto {
 	private String movie_nation;
 	private String genre_name;
 	
-	
-	
 }

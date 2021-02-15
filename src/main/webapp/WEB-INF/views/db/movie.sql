@@ -15,39 +15,49 @@ CREATE TABLE movie
 
 CREATE SEQUENCE movie_SEQ
 START WITH 1
-INCREMENT BY 1
-NOCYCLE
-NOCACHE;
+INCREMENT BY 1;
 /
 
 /
+
+--DROP TRIGGER movie_AI_TRG;
+/
+
 --DROP SEQUENCE movie_SEQ;
 /
+
 
 -- movie Table Create SQL
 CREATE TABLE Users
 (
-    user_no            NUMBER           NOT NULL, 
-    user_id            VARCHAR2(50)     NOT NULL, 
-    user_pw            VARCHAR2(64)     NOT NULL, 
-    user_nickname      VARCHAR2(50)     NOT NULL, 
-    user_name          VARCHAR2(50)     NOT NULL, 
-    user_email         VARCHAR2(200)    NULL, 
-    user_phone         VARCHAR2(30)     NOT NULL, 
-    user_date          DATE             NULL, 
-    user_image_name    VARCHAR2(60)     NOT NULL, 
+    user_no              NUMBER           NOT NULL, 
+    user_id              VARCHAR2(50)     NOT NULL, 
+    user_pw              VARCHAR2(64)     NOT NULL, 
+    user_nickname        VARCHAR2(50)     NOT NULL, 
+    user_name            VARCHAR2(50)     NOT NULL, 
+    user_email           VARCHAR2(200)    NULL, 
+    user_phone           VARCHAR2(30)     NOT NULL, 
+    user_date            DATE             NULL, 
+    user_image_name      VARCHAR2(300)    NOT NULL, 
+    user_profile_name    VARCHAR2(300     NOT NULL, 
     CONSTRAINT USERS_PK PRIMARY KEY (user_no)
 )
 /
 
 CREATE SEQUENCE Users_SEQ
 START WITH 1
-INCREMENT BY 1
-NOCYCLE
-NOCACHE;
+INCREMENT BY 1;
 /
+
+
+/
+
+--DROP TRIGGER Users_AI_TRG;
+/
+
 --DROP SEQUENCE Users_SEQ;
 /
+
 
 -- movie Table Create SQL
 CREATE TABLE genre
@@ -60,12 +70,18 @@ CREATE TABLE genre
 
 CREATE SEQUENCE genre_SEQ
 START WITH 1
-INCREMENT BY 1
-NOCYCLE
-NOCACHE;
+INCREMENT BY 1;
 /
+
+
+/
+
+--DROP TRIGGER genre_AI_TRG;
+/
+
 --DROP SEQUENCE genre_SEQ;
 /
+
 
 -- movie Table Create SQL
 CREATE TABLE actor
@@ -78,13 +94,18 @@ CREATE TABLE actor
 
 CREATE SEQUENCE actor_SEQ
 START WITH 1
-INCREMENT BY 1
-NOCYCLE
-NOCACHE;
+INCREMENT BY 1;
+/
+
+
+/
+
+--DROP TRIGGER actor_AI_TRG;
 /
 
 --DROP SEQUENCE actor_SEQ;
 /
+
 
 -- movie Table Create SQL
 CREATE TABLE feel
@@ -97,41 +118,51 @@ CREATE TABLE feel
 
 CREATE SEQUENCE feel_SEQ
 START WITH 1
-INCREMENT BY 1
-NOCYCLE
-NOCACHE;
+INCREMENT BY 1;
 /
+
+/
+
+--DROP TRIGGER feel_AI_TRG;
+/
+
 --DROP SEQUENCE feel_SEQ;
 /
 
 
 -- movie Table Create SQL
-CREATE TABLE FAQ
+CREATE TABLE QNA
 (
-    faq_no         NUMBER            NOT NULL, 
-    faq_title      VARCHAR2(50)      NOT NULL, 
-    faq_secret     NUMBER            NOT NULL,  -- 비밀글(0), 공개글(1)
-    faq_select     NUMBER            NOT NULL,
+    qna_no         NUMBER            NOT NULL, 
+    qna_select     NUMBER            NOT NULL, 
+    qna_title      VARCHAR2(50)      NOT NULL, 
+    qna_secrect    NUMBER            NOT NULL, 
     user_no        NUMBER            NOT NULL, 
-    faq_content    VARCHAR2(4000)    NOT NULL, 
-    faq_pw         VARCHAR2(50)      NULL, 
-    faq_date       DATE              NOT NULL, 
-    CONSTRAINT FAQ_PK PRIMARY KEY (faq_no)
+    qna_content    VARCHAR2(4000)    NOT NULL, 
+    qna_pw         VARCHAR2(50)      NOT NULL, 
+    qna_date       DATE              NOT NULL, 
+    qna_yn         NUMBER            NOT NULL, 
+    admin_id	   VARCHAR2(10)		 NOT NULL,
+    CONSTRAINT QNA_PK PRIMARY KEY (qna_no)
 )
 /
 
-CREATE SEQUENCE FAQ_SEQ
+CREATE SEQUENCE QNA_SEQ
 START WITH 1
-INCREMENT BY 1
-NOCYCLE
-NOCACHE;
+INCREMENT BY 1;
 /
 
---DROP SEQUENCE FAQ_SEQ;
+
 /
 
-ALTER TABLE FAQ
-    ADD CONSTRAINT FK_FAQ_user_no_Users_user_no FOREIGN KEY (user_no)
+--DROP TRIGGER QNA_AI_TRG;
+/
+
+--DROP SEQUENCE QNA_SEQ;
+/
+
+ALTER TABLE QNA
+    ADD CONSTRAINT FK_QNA_user_no_Users_user_no FOREIGN KEY (user_no)
         REFERENCES Users (user_no)
 /
 
@@ -148,9 +179,13 @@ CREATE TABLE movie_genre
 
 CREATE SEQUENCE movie_genre_SEQ
 START WITH 1
-INCREMENT BY 1
-NOCYCLE
-NOCACHE;
+INCREMENT BY 1;
+/
+
+
+/
+
+--DROP TRIGGER movie_genre_AI_TRG;
 /
 
 --DROP SEQUENCE movie_genre_SEQ;
@@ -179,9 +214,10 @@ CREATE TABLE movie_actor
 
 CREATE SEQUENCE movie_actor_SEQ
 START WITH 1
-INCREMENT BY 1
-NOCYCLE
-NOCACHE;
+INCREMENT BY 1;
+/
+
+
 /
 
 --DROP TRIGGER movie_actor_AI_TRG;
@@ -213,9 +249,13 @@ CREATE TABLE movie_feel
 
 CREATE SEQUENCE movie_feel_SEQ
 START WITH 1
-INCREMENT BY 1
-NOCYCLE
-NOCACHE;
+INCREMENT BY 1;
+/
+
+
+/
+
+--DROP TRIGGER movie_feel_AI_TRG;
 /
 
 --DROP SEQUENCE movie_feel_SEQ;
@@ -244,9 +284,13 @@ CREATE TABLE wishList
 
 CREATE SEQUENCE wishList_SEQ
 START WITH 1
-INCREMENT BY 1
-NOCYCLE
-NOCACHE;
+INCREMENT BY 1;
+/
+
+
+/
+
+--DROP TRIGGER wishList_AI_TRG;
 /
 
 --DROP SEQUENCE wishList_SEQ;
@@ -276,9 +320,13 @@ CREATE TABLE movie_score
 
 CREATE SEQUENCE movie_score_SEQ
 START WITH 1
-INCREMENT BY 1
-NOCYCLE
-NOCACHE;
+INCREMENT BY 1;
+/
+
+
+/
+
+--DROP TRIGGER movie_score_AI_TRG;
 /
 
 --DROP SEQUENCE movie_score_SEQ;
@@ -306,11 +354,14 @@ CREATE TABLE main_view
 
 CREATE SEQUENCE main_view_SEQ
 START WITH 1
-INCREMENT BY 1
-NOCYCLE
-NOCACHE;
+INCREMENT BY 1;
 /
 
+
+/
+
+--DROP TRIGGER main_view_AI_TRG;
+/
 
 --DROP SEQUENCE main_view_SEQ;
 /
@@ -341,10 +392,15 @@ CREATE TABLE comments
 
 CREATE SEQUENCE comments_SEQ
 START WITH 1
-INCREMENT BY 1
-NOCYCLE
-NOCACHE;
+INCREMENT BY 1;
 /
+
+
+/
+
+--DROP TRIGGER comments_AI_TRG;
+/
+
 --DROP SEQUENCE comments_SEQ;
 /
 
@@ -360,29 +416,33 @@ ALTER TABLE comments
 
 
 -- movie Table Create SQL
-CREATE TABLE faq_comments
+CREATE TABLE qna_comments
 (
-    faq_comment_no         NUMBER            NOT NULL, 
-    faq_no                 NUMBER            NOT NULL, 
-    faq_comment_content    VARCHAR2(4000)    NOT NULL, 
-    faq_comment_date       DATE              NOT NULL, 
-    CONSTRAINT FAQ_COMMENTS_PK PRIMARY KEY (faq_comment_no)
+    qna__comment_no         NUMBER            NOT NULL, 
+    qna__no                 NUMBER            NOT NULL, 
+    qna__comment_content    VARCHAR2(4000)    NOT NULL, 
+    qna__comment_date       DATE              NOT NULL, 
+    CONSTRAINT QNA_COMMENTS_PK PRIMARY KEY (qna__comment_no)
 )
 /
 
-CREATE SEQUENCE faq_comments_SEQ
+CREATE SEQUENCE qna_comments_SEQ
 START WITH 1
-INCREMENT BY 1
-NOCYCLE
-NOCACHE;
+INCREMENT BY 1;
 /
 
---DROP SEQUENCE faq_comments_SEQ;
+
 /
 
-ALTER TABLE faq_comments
-    ADD CONSTRAINT FK_faq_comments_faq_no_FAQ_faq FOREIGN KEY (faq_no)
-        REFERENCES FAQ (faq_no)
+--DROP TRIGGER qna_comments_AI_TRG;
+/
+
+--DROP SEQUENCE qna_comments_SEQ;
+/
+
+ALTER TABLE qna_comments
+    ADD CONSTRAINT FK_qna_comments_qna__no_QNA_qn FOREIGN KEY (qna__no)
+        REFERENCES QNA (qna_no)
 /
 
 
@@ -398,10 +458,15 @@ CREATE TABLE movie_taste
 
 CREATE SEQUENCE movie_taste_SEQ
 START WITH 1
-INCREMENT BY 1
-NOCYCLE
-NOCACHE;
+INCREMENT BY 1;
 /
+
+
+/
+
+--DROP TRIGGER movie_taste_AI_TRG;
+/
+
 --DROP SEQUENCE movie_taste_SEQ;
 /
 
@@ -411,8 +476,8 @@ ALTER TABLE movie_taste
 /
 
 ALTER TABLE movie_taste
-    ADD CONSTRAINT FK_movie_taste_genre_no_movie_ FOREIGN KEY (genre_no)
-        REFERENCES movie (movie_no)
+    ADD CONSTRAINT FK_movie_taste_genre_no_genre_ FOREIGN KEY (genre_no)
+        REFERENCES genre (genre_no)
 /
 
 

@@ -38,4 +38,9 @@ public interface MyDao {
 	public int updateComment(String commentTitle, String commentContent, String commentNo );
 	
 	public int deleteComment(int commentNo);
+	
+	public int userAddProfile(String uploadFilename, int userNo);
+	
+	public int userAddCover(String uploadFilename, int userNo);
+	
 }
