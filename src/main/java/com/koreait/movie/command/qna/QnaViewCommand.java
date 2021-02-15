@@ -19,6 +19,10 @@ public class QnaViewCommand implements CommonVoidCommand {
 		HttpServletRequest request = (HttpServletRequest)map.get("request");
 		
 		int qna_no = Integer.parseInt(request.getParameter("qna_no"));
+		int qna_yn = 0;
+		if (request.getParameter("admin_id") == null && !request.getParameter("admin_id").isEmpty()) {
+			qna_yn = 1;
+		}
 		
 		QnaDao qnaDao = sqlSession.getMapper(QnaDao.class);
 		
