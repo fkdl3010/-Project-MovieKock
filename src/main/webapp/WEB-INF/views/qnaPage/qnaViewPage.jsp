@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <jsp:include page="../template/header.jsp">
 	<jsp:param value="문의하기상세보기" name="title" />
 </jsp:include>
@@ -7,18 +9,39 @@
 <link rel="stylesheet" href="/movie/assets/style/qnaPageCss/qnaViewPage.css"/>
 	<div class="wrap">
 		<div class="main">
-			<div class="main_user">
-				<table class="table qna_list_table1">
-					<tr class="tr qna_list_tr qna_list_1st_tr">
-						<td class="td qna_list_td">내용</td>
-						<td class="td qna_list_td">문의 날짜</td>
-						<td class="td qna_list_td">답변 여부</td>
+			<div class="main_body">
+				<table class="tableUserWrite">
+					<tr class="userWriteTr">
+						<td class="userWriteTd">내용</td>
+						<td class="userWriteTd">문의 날짜</td>
+						<td class="userWriteTd">답변 여부</td>
 					</tr>
-					<tr class="tr qna_list_tr_resp1">
-						<td class="td qna_list_td_resp">${qnaDto.qna_content}</td>
-						<td class="td qna_list_td_resp">${qnaDto.qna_date}</td>
-						<td class="td qna_list_td_resp">${qnaDto.qna_yn}</td>
+					<tr class="userWriteTrResp">
+						<td class="userWriteTdResp">${qnaDto.qna_content}</td>
+						<td class="userWriteTdResp">${qnaDto.qna_date}</td>
+						<td class="userWriteTdResp" >${qnaDto.qna_yn}</td>
 					</tr>
+				</table>
+				<table class="tableAdminWrite">
+					<tr class="adminWriteTr">
+						<td class="adminWriteTd">답변 내용</td>
+						<td class="adminWriteTd">답변 날짜</td>
+						<td class="adminWriteTd">답변 여부</td>
+					</tr>
+					<c:if test="${empty adminWrite}">
+					<tr class="adminWriteTrResp">
+						<td class="adminWriteTdResp">${qnaDto.qna_content}</td>
+						<td class="adminWriteTdResp">${qnaDto.qna_date}</td>
+						<td class="adminWriteTdResp">답변 대기중</td>
+					</tr>
+					</c:if>
+					<c:if test="${not empty adminWrite}">
+					<tr class="adminWriteTrResp">
+						<td class="adminWriteTdResp">${qnaDto.qna_content}</td>
+						<td class="adminWriteTdResp">${qnaDto.qna_date}</td>
+						<td class="adminWriteTdResp">답변 완료</td>
+					</tr>
+					</c:if>
 				</table>
 				<form method="post">
 					<input type="button" class="deleteBtn" value="삭제"  onclick="fn_qnaDelete(this.form)" />
@@ -27,20 +50,13 @@
 				<form method="get">
 					<input type="button" class="listBtn" value="목록" onclick="fn_qnaListView(this.form)" />	
 				</form>
-			</div>
-			<div class="main_admin">
-				<table class="table qna_list_table2">
-					<tr class="tr qna_list_tr_qna_list_2st_tr">
-						<td class="td qna_list_td_resp">답변내용</td>
-						<td class="td qna_list_td_resp">답변날짜</td>
-						<td class="td qna_list_td_resp">답변여부</td>
-					</tr>
-					<tr class="tr qna_list_tr_resp2">
-						<td class="td qna_list_td_resp">${qnaDto.qna_content}</td>
-						<td class="td qna_list_td_resp">${qnaDto.qna_date}</td>
-						<td class="td qna_list_td_resp">${qnaDto.qna_yn}</td>
-					</tr>
-				</table>
+				<form method="get">
+					<c:if test="${user_nickname eq 'admin' }">
+						<input type="button" class="adiminWrite" value="답변하기" onclick="fn_qnaAdminWrite(this.form)" />
+					</c:if>
+					<c:if test="${user_nickname not eq 'admin' }">
+					</c:if>
+				</form>
 			</div>
 		</div>
 	</div>

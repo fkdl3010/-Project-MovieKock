@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.koreait.movie.command.qna.QnaAdminWriteCommand;
 import com.koreait.movie.command.qna.QnaDeleteCommand;
 import com.koreait.movie.command.qna.QnaListCommand;
 import com.koreait.movie.command.qna.QnaViewCommand;
@@ -27,16 +28,19 @@ public class QnaController {
 	private QnaListCommand qnaListCommand;
 	private QnaViewCommand qnaViewCommand;
 	private QnaDeleteCommand qnaDeleteCommand;
+	private QnaAdminWriteCommand qnaAdminWriteCommand;
 	
 	@Autowired
 	public void setBean(QnaWriteCommand qnaWriteCommand,
 						QnaListCommand qnaListCommand,
 						QnaViewCommand qnaViewCommand,
-						QnaDeleteCommand qnaDeleteCommand) {
+						QnaDeleteCommand qnaDeleteCommand,
+						QnaAdminWriteCommand qnaAdminWriteCommand) {
 		this.qnaWriteCommand = qnaWriteCommand;
 		this.qnaListCommand = qnaListCommand;
 		this.qnaViewCommand = qnaViewCommand;
 		this.qnaDeleteCommand = qnaDeleteCommand;
+		this.qnaAdminWriteCommand = qnaAdminWriteCommand;
 		
 	}
 	
@@ -87,6 +91,24 @@ public class QnaController {
 		qnaDeleteCommand.execute(sqlSession, model);
 		return "redirect:qnaListView.do";
 	}
+	
+	// 관리자 답변페이지로 넘어가기
+	@RequestMapping(value="qnaAdminWritePage.do")
+	public String qnaAdminWritePage() {
+		return "qnaPage/qnaAdminWrite";
+	}
+	
+	// 관리자 답변페이지에서 등록
+	@RequestMapping(value="qnaAdminWrite.do")
+	public String qnaAdminWrite(HttpServletRequest request,
+						        RedirectAttributes rttr,
+						        Model model) {
+		model.addAttribute("request", request);
+		model.addAttribute("rttr", rttr);
+		qnaAdminWriteCommand.execute(sqlSession, model);
+		return "redirect:qnaListView.do";
+	}
+	
 	
 	
 	
