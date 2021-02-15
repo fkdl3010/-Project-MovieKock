@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.koreait.movie.command.qna.QnaAdminWriteCommand;
+import com.koreait.movie.command.qna.QnaReplyCommand;
 import com.koreait.movie.command.qna.QnaDeleteCommand;
 import com.koreait.movie.command.qna.QnaListCommand;
 import com.koreait.movie.command.qna.QnaViewCommand;
@@ -28,19 +28,19 @@ public class QnaController {
 	private QnaListCommand qnaListCommand;
 	private QnaViewCommand qnaViewCommand;
 	private QnaDeleteCommand qnaDeleteCommand;
-	private QnaAdminWriteCommand qnaAdminWriteCommand;
+	private QnaReplyCommand qnaReplyCommand;
 	
 	@Autowired
 	public void setBean(QnaWriteCommand qnaWriteCommand,
 						QnaListCommand qnaListCommand,
 						QnaViewCommand qnaViewCommand,
 						QnaDeleteCommand qnaDeleteCommand,
-						QnaAdminWriteCommand qnaAdminWriteCommand) {
+						QnaReplyCommand qnaReplyCommand) {
 		this.qnaWriteCommand = qnaWriteCommand;
 		this.qnaListCommand = qnaListCommand;
 		this.qnaViewCommand = qnaViewCommand;
 		this.qnaDeleteCommand = qnaDeleteCommand;
-		this.qnaAdminWriteCommand = qnaAdminWriteCommand;
+		this.qnaReplyCommand = qnaReplyCommand;
 		
 	}
 	
@@ -62,10 +62,8 @@ public class QnaController {
 	
 	// 문의글 상세보기
 	@RequestMapping(value="qnaView.do", method=RequestMethod.GET)
-	public String qnaView(HttpServletRequest request,
-            				  Model model) {
+	public String qnaView(HttpServletRequest request, Model model) {
 		model.addAttribute("request", request);
-		
 		qnaViewCommand.execute(sqlSession, model);
 		return "qnaPage/qnaViewPage";
 	}
@@ -93,19 +91,19 @@ public class QnaController {
 	}
 	
 	// 관리자 답변페이지로 넘어가기
-	@RequestMapping(value="qnaAdminWritePage.do")
-	public String qnaAdminWritePage() {
-		return "qnaPage/qnaAdminWrite";
+	@RequestMapping(value="qnaReply.do")
+	public String QnaReplyPage() {
+		return "qnaPage/qnaReply";
 	}
 	
 	// 관리자 답변페이지에서 등록
-	@RequestMapping(value="qnaAdminWrite.do")
-	public String qnaAdminWrite(HttpServletRequest request,
+	@RequestMapping(value="qnaReply.do")
+	public String qnaReply(HttpServletRequest request,
 						        RedirectAttributes rttr,
 						        Model model) {
 		model.addAttribute("request", request);
 		model.addAttribute("rttr", rttr);
-		qnaAdminWriteCommand.execute(sqlSession, model);
+		qnaReplyCommand.execute(sqlSession, model);
 		return "redirect:qnaListView.do";
 	}
 	
