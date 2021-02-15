@@ -12,7 +12,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.koreait.movie.common.CommonVoidCommand;
 import com.koreait.movie.dao.QnaDao;
 import com.koreait.movie.dto.QnaDto;
-import com.koreait.movie.dto.UserDto;
 
 public class QnaAdminWriteCommand implements CommonVoidCommand {
 
