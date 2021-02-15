@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <!DOCTYPE html>
 <html>
 <head>
@@ -79,6 +80,7 @@
 		crossorigin="anonymous"></script>
 	<script type="text/javascript">
 		function fn_cancle(f) {
+			/*(confirm("회원가입을 취소하시겠습니까?") == true) {  */
 			if (confirm("회원가입을 취소하시겠습니까?") == true) {
 				history.back();
 			}
@@ -101,6 +103,7 @@
 					success : function(responseJSON) {
 						if (responseJSON.idCheckResult == 'yes') {
 							alert('이 아이디는 사용 가능합니다.');
+							
 							$('#idCheckbtn').attr('disabled', 'true');
 							$('#pw').focus();
 							return true;

@@ -38,4 +38,8 @@ public interface MyDao {
 	public int updateComment(String commentTitle, String commentContent, String commentNo );
 	
 	public int deleteComment(int commentNo);
+	
+	public Integer pwCheck(String pw);
+	
+	
 }

@@ -85,6 +85,7 @@
 	<!-- myPage -->
 	<bean id="myPageCommand" class="com.koreait.movie.command.myPage.MyPageCommand"></bean>
 	<bean id="userUpdateCommand" class="com.koreait.movie.command.myPage.UserUpdateCommand"></bean>
+	<bean id="myPagePwCommand" class="com.koreait.movie.command.myPage.MyPagePwCommand"></bean>
 
 	<!-- request -->
 	<bean id="requestWriteCommand" class="com.koreait.movie.command.request.RequestWriteCommand"></bean> 
