@@ -46,7 +46,7 @@
 <script type="text/javascript">
 	
 	/* 유저정보 */
-	let userNo = ${loginUser.user_no}2;
+	let userNo = ${loginUser.user_no};
 	
 	let nickName;
 	let name;
