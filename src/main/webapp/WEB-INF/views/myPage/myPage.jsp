@@ -43,13 +43,13 @@
               		가입일: <input type="text" id="date" value="${loginUser.user_date }" readonly/><br>
               	</c:if>
                 
-<<<<<<< HEAD
+
                 <input type="button" id="update" class="none" value="수정하기" onclick="fn_userUpdate()"/>
                 <input type="button" id="alter" value="수정" onclick="fn_userAlter()"/>
-=======
+
                 <input type="button" id="update" class="inp_btn update_btn none" value="수정하기" onclick="fn_userUpdate()">
                 <input type="button" id="alter" class="inp_btn alter_btn" value="수정" onclick="fn_userAlter()">
->>>>>>> b89f2adb5afe4b77647be26de3b040efc97059b7
+
               </div>
               <div class="small-box"  id="card-box2"></div>
               <div class="small-box"  id="card-box3"></div>
@@ -201,14 +201,31 @@ function passWord() {
 		const shaPw =SHA256(pw); 
  		  	 
 			if(shaPw=='${loginUser.user_pw}'){
-        			alert('로그인에 성공하였습니다');
+				
+				swal({
+				    title: "Hello",
+				    text: "로그인에 성공했습니다.",
+				    icon: "info" //"info,success,warning,error" 중 택1
+				});
+        			//alert('로그인에 성공하였습니다');
         				flag = true;
         				break;
    		 		}else{
-        			alert('비밀번호가 틀렸습니다');
+   		 		swal({
+				    title: "Failed",
+				    text: "비밀번호 확인에 실패했습니다. 비밀번호를 확인해주세요.",
+				    icon: "warning" //"info,success,warning,error" 중 택1
+				});
+
+   		 			//alert('비밀번호가 틀렸습니다');
         				count++;
         				if(count==3){
-        					alert('입력 횟수를 초과했습니다. 처음부터 다시 시도해주세요.');
+        					//alert('입력 횟수를 초과했습니다. 처음부터 다시 시도해주세요.');
+        					swal({
+        					    title: "Wraring",
+        					    text: "입력 횟수를 초과했습니다. 처음부터 다시 시도해주세요.",
+        					    icon: "warning" //"info,success,warning,error" 중 택1
+        					});
         					}
     				}
 			}
@@ -360,7 +377,12 @@ function passWord() {
 			const userNick = nickName.value;
 			
 			if(orNickName == userNick){
-				alert('기존 정보와 동일합니다.');
+				swal({
+				    title: "Info",
+				    text: "기존 정보와 동일합니다.",
+				    icon: "info" 
+				});
+			/*  alert('기존 정보와 동일합니다.');*/	
 				$('#nickNameCheckbtn').attr('disabled','true');
 				return true;
 			}
@@ -414,7 +436,12 @@ function passWord() {
 		const userEmail = $('#email').val();
 		
 		if(orEmail == userEmail){
-			alert('기존 정보와 동일합니다.');
+			swal({
+			    title: "Info",
+			    text: "기존 정보와 동일합니다.",
+			    icon: "info" 
+			});
+			/*  alert('기존 정보와 동일합니다.');*/
 			$('#emailCheckbtn').attr('disabled','true');
 			return true;
 		}
@@ -446,7 +473,12 @@ function passWord() {
 		
 			return true;
 		}else{
-			alert('이메일을 입력해주세요');
+			swal({
+			    title: "Info",
+			    text: "이메일을 입력해주세요",
+			    icon: "info" //"info,success,warning,error" 중 택1
+			});
+			/*  alert('이메일을 입력해주세요');*/
 			$('#email').focus();
 			return false;
 		}
@@ -461,7 +493,12 @@ function passWord() {
 		
 		
 		if($('#nickNameCheckbtn').attr('disabled') != 'disabled'){
-			alert('닉네임 중복확인을 진행해 주세요.');
+			swal({
+			    title: "Info",
+			    text: "닉네임 중복확인을 진행해 주세요.",
+			    icon: "info" //"info,success,warning,error" 중 택1
+			});
+			/* alert('닉네임 중복확인을 진행해 주세요.'); */
 			$('#nickName').focus();
 			return;
 		}
@@ -473,13 +510,23 @@ function passWord() {
 		}
 		
 		if($('#emailCheckbtn').attr('disabled') != 'disabled'){
-			alert('이메일 중복확인을 진행해 주세요.');
+			swal({
+			    title: "Info",
+			    text: "이메일 중복확인을 진행해 주세요.",
+			    icon: "info" //"info,success,warning,error" 중 택1
+			});
+			/*  alert('이메일 중복확인을 진행해 주세요.');*/
 			$('#email').focus();
 			return;
 		}
 		
 		if($('#phone').val() == ''){
-			alert('핸드폰 번호를 입력해 주세요');
+			swal({
+			    title: "Info",
+			    text: "핸드폰 번호를 입력해 주세요.",
+			    icon: "info" //"info,success,warning,error" 중 택1
+			});
+			/* alert('핸드폰 번호를 입력해 주세요'); */
 			$('#phone').focus();
 			return;
 		}
@@ -504,7 +551,12 @@ function passWord() {
 				success: function(responseObj){
 					
 					if(responseObj.updateResult){
-						alert('정보가 수정되었습니다.');
+						swal({
+						    title: "Info",
+						    text: "정보가 수정되었습니다.",
+						    icon: "info" //"info,success,warning,error" 중 택1
+						});
+						/* alert('정보가 수정되었습니다.'); */
 						/*pw.value = $('#pw').val();  */	
 						nickName.value = $('#nickName').val();
 							name.value = $('#name').val();
@@ -517,7 +569,13 @@ function passWord() {
 					}
 				},
 				error: function(){
-					alert('오류');
+					
+					swal({
+					    title: "Error",
+					    text: "Error",
+					    icon: "error" //"info,success,warning,error" 중 택1
+					});
+					/*  alert('오류');*/
 				}
 				
 				
@@ -568,13 +626,25 @@ function passWord() {
 		            }
 		        },
 		        error : function(err) {
-		            alert(err.status);
+		        	
+		        	swal({
+		        	    title: "Error",
+		        	    text: err.status,
+		        	    icon: "error" //"info,success,warning,error" 중 택1
+		        	});
+		           /*  alert(err.status); */
 		        }
 	
 	
 		    });
 	    }else{
-	    	alert('첨부 파일 사이즈 10MB 이내로 등록 가능합니다.');
+	    	
+	    	swal({
+	    	    title: "Info",
+	    	    text: "첨부 파일 사이즈 10MB 이내로 등록 가능합니다.",
+	    	    icon: "info" //"info,success,warning,error" 중 택1
+	    	});
+	    	/* alert('첨부 파일 사이즈 10MB 이내로 등록 가능합니다.'); */
 	    }
 
 	}
@@ -628,13 +698,23 @@ function passWord() {
 		            }
 		        },
 		        error : function(err) {
-		            alert(err.status);
+		        	swal({
+		        	    title: "Error",
+		        	    text: err.status,
+		        	    icon: "error" //"info,success,warning,error" 중 택1
+		        	});
 		        }
 	
 	
 		    });
 	    }else{
-	    	alert('첨부 파일 사이즈 10MB 이내로 등록 가능합니다.');
+	    	swal({
+	    	    title: "Info",
+	    	    text: "첨부 파일 사이즈 10MB 이내로 등록 가능합니다.",
+	    	    icon: "info" //"info,success,warning,error" 중 택1
+	    	})
+	    	
+	    	/*  alert('첨부 파일 사이즈 10MB 이내로 등록 가능합니다.');*/
 	    }
 
 	}

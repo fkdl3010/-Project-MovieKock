@@ -19,12 +19,12 @@ import com.koreait.movie.command.myPage.CommentDeleteCommand;
 import com.koreait.movie.command.myPage.CommentUpdateCommand;
 import com.koreait.movie.command.myPage.GetMovieTitleCommand;
 import com.koreait.movie.command.myPage.MyPageCommand;
-<<<<<<< HEAD
+
 import com.koreait.movie.command.myPage.MyPagePwCommand;
-=======
+
 import com.koreait.movie.command.myPage.UserAddCoverCommand;
 import com.koreait.movie.command.myPage.UserAddProfileCommand;
->>>>>>> b89f2adb5afe4b77647be26de3b040efc97059b7
+
 import com.koreait.movie.command.myPage.UserUpdateCommand;
 import com.koreait.movie.command.myPage.UserWriteListCommand;
 import com.koreait.movie.dto.PageVo;
@@ -43,12 +43,12 @@ public class MyPageController {
 	private GetMovieTitleCommand getMovieTitleCommand;
 	private CommentUpdateCommand commentUpdateCommand;
 	private CommentDeleteCommand commentDeleteCommand;
-<<<<<<< HEAD
+
 	private MyPagePwCommand myPagePwCommand;
-=======
+
 	private UserAddProfileCommand userAddProfileCommand;
 	private UserAddCoverCommand userAddCoverCommand;
->>>>>>> b89f2adb5afe4b77647be26de3b040efc97059b7
+
 	
 	@Autowired
 	public void setBean(
@@ -58,12 +58,10 @@ public class MyPageController {
 				GetMovieTitleCommand getMovieTitleCommand,
 				CommentUpdateCommand commentUpdateCommand,
 				CommentDeleteCommand commentDeleteCommand,
-<<<<<<< HEAD
-				MyPagePwCommand myPagePwCommand
-=======
+
 				UserAddProfileCommand userAddProfileCommand,
 				UserAddCoverCommand userAddCoverCommand
->>>>>>> b89f2adb5afe4b77647be26de3b040efc97059b7
+
 			) {
 		this.myPageCommand = myPageCommand;
 		this.userUpdateCommand = userUpdateCommand;
@@ -71,12 +69,11 @@ public class MyPageController {
 		this.getMovieTitleCommand = getMovieTitleCommand;
 		this.commentUpdateCommand = commentUpdateCommand;
 		this.commentDeleteCommand = commentDeleteCommand;
-<<<<<<< HEAD
 		this.myPagePwCommand = myPagePwCommand;
-=======
+
 		this.userAddProfileCommand = userAddProfileCommand;
 		this.userAddCoverCommand = userAddCoverCommand;
->>>>>>> b89f2adb5afe4b77647be26de3b040efc97059b7
+
 	}
 
 	@RequestMapping(value="myWritePage.do")

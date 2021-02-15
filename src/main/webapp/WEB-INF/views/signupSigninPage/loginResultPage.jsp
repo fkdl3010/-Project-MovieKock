@@ -17,13 +17,28 @@
 <script>
 
 	if(${signUp}){
-		alert('${loginUser.user_nickname}님 환영합니다.');
+		swal({
+		    title: "Info",
+		    text: "${loginUser.user_nickname}님 환영합니다.",
+		    icon: "info" //"info,success,warning,error" 중 택1
+		});
+		
 		document.querySelector('#signUpAction').submit();
 	}else if (${loginResult}) {
-		alert('${loginUser.user_nickname}님 환영합니다.');
+		swal({
+		    title: "Info",
+		    text: "${loginUser.user_nickname}님 환영합니다.",
+		    icon: "info" //"info,success,warning,error" 중 택1
+		});
 		location.href='index.do';
 	}else{
-		alert('일치하는 회원이 없습니다.');
+		
+		swal({
+		    title: "Waring",
+		    text: "일치하는 회원이 없습니다.",
+		    icon: "warningo" //"info,success,warning,error" 중 택1
+		});
+
 		location.href='loginPage.do';
 	}
 	

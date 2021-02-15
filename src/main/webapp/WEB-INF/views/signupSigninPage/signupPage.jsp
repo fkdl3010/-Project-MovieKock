@@ -118,7 +118,11 @@
 						}
 					},
 					error : function() {
-						alert('오류');
+						swal({
+						    title: "Error",
+						    text: "오류",
+						    icon: "error" //"info,success,warning,error" 중 택1
+						});
 					}
 				});
 				return true;
@@ -148,7 +152,11 @@
 						}
 					},
 					error : function() {
-						alert('오류');
+						swal({
+						    title: "Error",
+						    text: "오류",
+						    icon: "error" //"info,success,warning,error" 중 택1
+						})
 					}
 				});
 				return true;
@@ -182,7 +190,11 @@
 						}
 					},
 					error : function() {
-						alert('오류');
+						swal({
+						    title: "Error",
+						    text: "오류",
+						    icon: "error" //"info,success,warning,error" 중 택1
+						})
 					}
 				});
 				return true;
@@ -269,37 +281,72 @@
 		function fn_finish(f) {
 
 			if ($('#idCheckbtn').attr('disabled') != 'disabled') {
-				alert('아이디 중복확인을 진행해 주세요.');
+				
+				swal({
+				    title: "Info",
+				    text: "아이디 중복확인을 진행해 주세요.",
+				    icon: "info" //"info,success,warning,error" 중 택1
+				});
 				$('#id').focus();
 				return;
 			}
 			if (!pwRegCheck()) {
-				alert('비밀번호를 확인해 주세요.');
+			
+				swal({
+				    title: "Info",
+				    text: "비밀번호를 확인해 주세요.",
+				    icon: "info" //"info,success,warning,error" 중 택1
+				});
 				$('#pw').focus();
 				return;
 			}
 			if (!pwEqualCheck()) {
-				alert('비밀번호를 확인해 주세요.');
+
+				swal({
+				    title: "Info",
+				    text: "비밀번호를 확인해 주세요.",
+				    icon: "info" //"info,success,warning,error" 중 택1
+				});
 				$('#pw').focus();
 				return;
 			}
 			if ($('#nickNameCheckbtn').attr('disabled') != 'disabled') {
-				alert('닉네임 중복확인을 진행해 주세요.');
+		
+				swal({
+				    title: "Info",
+				    text: "닉네임 중복확인을 진행해 주세요.",
+				    icon: "info" //"info,success,warning,error" 중 택1
+				});
 				$('#nickname').focus();
 				return;
 			}
 			if ($('#name').val() == '') {
-				alert('이름을 입력해 주세요.');
+				
+				swal({
+				    title: "Info",
+				    text: "이름을 입력해 주세요.",
+				    icon: "info" //"info,success,warning,error" 중 택1
+				});
 				$('#name').focus();
 				return;
 			}
 			if ($('#emailCheckbtn').attr('disabled') != 'disabled') {
-				alert('이메일 중복확인을 진행해 주세요.');
+			
+				swal({
+				    title: "Info",
+				    text: "이메일 중복확인을 진행해 주세요.",
+				    icon: "info" //"info,success,warning,error" 중 택1
+				});
 				$('#email').focus();
 				return;
 			}
 			if ($('#phone').val() == '') {
-				alert('휴대폰 번호를 입력해 주세요.');
+			
+				swal({
+				    title: "Info",
+				    text: "휴대폰 번호를 입력해 주세요.",
+				    icon: "info" //"info,success,warning,error" 중 택1
+				});
 				$('#phone').focus();
 				return;
 			}
