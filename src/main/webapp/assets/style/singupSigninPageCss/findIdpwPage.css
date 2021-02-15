@@ -36,9 +36,11 @@ body {
 
 .id-pw-form-box {
 	display: flex;
-	border: 1px solid #aaa;
+	border-radius: 15px;
 	width: 100%;
 	height: 74%;
+	background: #282828;
+	
 }
 
 .id-section, .pw-section {
@@ -48,11 +50,11 @@ body {
 }
 
 .pw-section {
-	border-left: 1px solid #aaa;
+	border-left: 2px solid #666666;
 }
 
 .section-header {
-	font-size: 18px;
+	font-size: 26px;
 }
 
 .inputs {
@@ -92,4 +94,5 @@ input:focus {
 	height: 40px;
 	border-radius: 15px;
 	background-color: #ec7114;
+	color: white;
 }

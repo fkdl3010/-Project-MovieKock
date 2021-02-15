@@ -48,6 +48,7 @@
 		  </div>
 	  </form>
     </div>
+  </div>
   
     <div class="main-movieList">
  <!--  <c:if test="${empty movieList}">

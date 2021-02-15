@@ -69,7 +69,7 @@
 							<img alt="보노보노" class="staff_profile_img" src="/movie/assets/images/감독_${movieDto.movie_director }.jpg" />
 						</div>
 						<div class="bot_staff_profiles_txt">
-							<div class="bot_staff_progiles_name">
+							<div class="bot_staff_progiles_name txt">
 								${movieDto.movie_director.replaceAll("_", " ") }
 							</div>
 							<div class="bot_staff_progiles_position txt">
@@ -86,10 +86,10 @@
 								<img alt="배우" class="staff_profile_img" src="/movie/assets/images/staff_profile/${actor }.jpg" />
 							</div>
 							<div class="bot_staff_profiles_txt">
-								<div class="bot_staff_progiles_name">
+								<div class="bot_staff_progiles_name txt">
 									${actor.replaceAll("_", " ") }
 								</div>
-								<div class="bot_staff_progiles_position">
+								<div class="bot_staff_progiles_position txt">
 									배우
 								</div>
 							</div>
@@ -120,7 +120,7 @@ dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddsssssssssssss
 								</textarea>
 							</div>
 							<div class="comment_main_bot">
-								<a href="">
+								<a href="" class="txt">
 								좋아요<i class="far fa-thumbs-up">&nbsp;&nbsp;77</i>
 								</a>
 							</div>
@@ -128,7 +128,7 @@ dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddsssssssssssss
 						<div class="comment_bot_2nd">
 							<div class="comment_main_top">
 								<a href="">
-									<i class="fas fa-user-circle fa-2x">정현</i>
+									<i class="fas fa-user-circle fa-2x txt">정현</i>
 								</a>
 								<!--**************************** 별점 기능 필수 ******************************* -->
 								★5.0
@@ -139,7 +139,7 @@ dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddsssssssssssss
 								</textarea>
 							</div>
 							<div class="comment_main_bot">
-								<a href="">
+								<a href="" class="txt">
 								좋아요<i class="far fa-thumbs-up">&nbsp;&nbsp;77</i>
 								</a>
 							</div>
@@ -147,7 +147,7 @@ dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddsssssssssssss
 						<div class="comment_bot_3rd">
 							<div class="comment_main_top">
 								<a href="">
-									<i class="fas fa-user-circle fa-2x">정현</i>
+									<i class="fas fa-user-circle fa-2x txt">정현</i>
 								</a>
 								<!--**************************** 별점 기능 필수 ******************************* -->
 								★5.0
@@ -158,7 +158,7 @@ dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddsssssssssssss
 								</textarea>
 							</div>
 							<div class="comment_main_bot">
-								<a href="">
+								<a href="" class="txt">
 								좋아요<i class="far fa-thumbs-up">&nbsp;&nbsp;77</i>
 								</a>
 							</div>

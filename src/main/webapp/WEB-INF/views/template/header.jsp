@@ -18,19 +18,14 @@
 <title>${title }</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"> -->
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> -->
+<link rel="stylesheet"	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
 
-
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
 <link rel="stylesheet" href="/movie/assets/style/common.css" />
+
 </head>
 <body>
-	<!-- 로그인 상태 -->
-	<c:if test="${ not empty loginUser }">
 		<div class="top-wrap">
 			<div class="main-template-header animated fadeInDown">
 				<span class="main-template-logo">
@@ -50,15 +45,24 @@
 				<div class="login-search-box">
 					<form class="search-form" name="search" method="get"
 						action="searchResultPage.do">
-						<input type="text" class="input-search" name="searchKeyword"
-							placeholder="검색어를 입력해 주세요." /> <span class="btn-a">
+						<input type="text" class="input-search" name="searchKeyword" placeholder="검색어를 입력해 주세요." autocomplete="off"/>
+						<span class="btn-a">
 							<button class="search-btn" onclick="fn_search(this.form)">
 								<i class="fas fa-search"></i>
 							</button>
 						</span>
 					</form>
-					<!-- 드롭다운박스 -->
-					<%@ include file="dropDown.jsp"%>
+					<!-- 로그인 상태 -->
+					<c:if test="${ not empty loginUser }">
+						<!-- 드롭다운박스 -->
+						<%@ include file="dropDown.jsp"%>
+					</c:if>
+					<!-- 로그아웃 상태 -->
+					<c:if test="${ empty loginUser }">
+						<span class="user-btn">
+							<i class="fas fa-user-circle fa-3x top_user_circle" onclick="location.href='loginPage.do'"></i>
+						</span>
+					</c:if>
 				</div>
 			</div>
 		</div>
@@ -100,46 +104,3 @@
 
 			bindingAccordionEvent('.accordion_area');
 		</script>
-	</c:if>
-	<!-- 로그아웃 상태 -->
-	<c:if test="${ empty loginUser }">
-		<div class="top-wrap">
-
-			<div class="main-template-header animated fadeInDown">
-				<span class="main-template-logo">
-					<img src="/movie/assets/images/top_logo.jpg" style="width: 100px">
-				</span>
-				<div class="main-header-link-box">
-					<span class="recommend-link">
-						<a href="#" class="recommend-link-a txt"> 추천 받기 </a>
-					</span>
-					<span class="category-link">
-						<a href="request_list_page.do" class="category-link-a txt"> 장르별 </a>
-					</span>
-					<span class="faq-link">
-						<a href="request_list_page.do" class="faq-link-a txt"> 문의 하기 </a>
-					</span>
-				</div>
-				<div class="login-search-box">
-					<form class="search-form" name="search" method="get"
-						action="searchResultPage.do">
-						<input type="text" class="input-search" name="searchKeyword"
-							placeholder="검색어를 입력해 주세요." /> <span class="btn-a">
-							<button class="search-btn" onclick="fn_search(this.form)">
-								<i class="fas fa-search"></i>
-							</button>
-						</span>
-					</form>
-					<span class="user-btn"> <i class="fas fa-user-circle fa-3x"
-						onclick="location.href='loginPage.do'"></i>
-					</span>
-				</div>
-			</div>
-		</div>
-		<script>
-			function fn_search(f) {
-				f.action = "searchResultPage.do?search=" + search;
-				f.submit();
-			}
-		</script>
-	</c:if>

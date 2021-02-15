@@ -21,10 +21,11 @@
 }
 
 body {
-	background: #141414;
+	margin-top: 95px;
 }
 	.wrap {
 		text-align: center;
+		background: white;
 		width: 100%;
 	}
 	
@@ -33,7 +34,7 @@ body {
 		width: 850px;
 		margin: auto;
 		display: block;
-		background: #3b3b3b;
+		background: inherit;
 	}
 	
 /***** 스냅샷 *****/
@@ -128,10 +129,14 @@ body {
 
 .info_main_bot{
 	width: 90%;
-	border: 1px solid #ccc;
+	border: 2px solid #ec7114;
 	border-radius: 15px;
 	display: inline-block;
 	padding: 0px 20px 20px 20px;
+}
+
+.btn-default {
+	border: 1px solid #ec7114;
 }
 
 /***** 기본 정보 *****/
