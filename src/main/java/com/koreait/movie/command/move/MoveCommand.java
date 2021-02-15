@@ -30,7 +30,7 @@ public class MoveCommand implements CommonVoidCommand {
 		
 		int movieNo = dao.movieNo(choiceMovieNo);
 		
-		int clickMovieNO = dao.clickMovieNo(no);
+//		int clickMovieNO = dao.clickMovieNo(no);
 		
 		model.addAttribute("movieNo", movieNo);
 			
