@@ -1,5 +1,8 @@
-@charset "EUC-KR";
+@charset "UTF-8";
 
+body {
+	background: #141414;
+}
         .big-box{
             border: 4px solid black;
             border-radius: 30px;
@@ -124,6 +127,7 @@
 			display: none;
 		}
 		
+<<<<<<< HEAD
 		.coverBox{
 		    border: 1px solid black;
 		    width: 100%;
@@ -162,4 +166,26 @@
    			height: 100%;
         }
         
+=======
+		<!-- 부트스트랩 btn 커스터마이징 -->
+.btn-info {
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+    color: #eee;
+}
+.btn-info:hover,
+.btn-info:focus {
+    border-color: #128496;
+    background-color: #128496;
+    color: #ccc;
+}
+.btn-info:active,
+.btn-info:visited,
+.btn-info:active:focus,
+.btn-info:active:hover {
+    border-color: #128496;
+    background-color: #128496;
+    color: #ccc;
+}
+>>>>>>> origin/hyeon
         

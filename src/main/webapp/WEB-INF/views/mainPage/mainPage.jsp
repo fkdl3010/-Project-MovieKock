@@ -30,7 +30,6 @@
 							<img
 								src="/movie/assets/images/poster/${movieDto.movie_title}_포스터.jpg">
 							<input type="checkbox" id="checkbox_id" class="movie_no" value="${movieDto.movie_no}" onclick="fn_goInfo()"/>
-							<img src="/movie/assets/images/poster/${movieDto.movie_title}_포스터.jpg">
 						</div>
 						<div class="info">
 							<div class="text">

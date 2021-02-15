@@ -1,4 +1,8 @@
 @charset "UTF-8";
+
+body {
+	background: #141414;
+}
 html {
   box-sizing: border-box;
 }
@@ -13,12 +17,28 @@ html {
 	
 }
 
+img {
+	width: 183.333px;
+	height: 330px;
+
+	
+}
+
 .main-wrapper{
-  width: 80%;
-  height: 40%;
-  margin: auto;
+	width: 80%;
+	height: 40%;
+	margin: 100px auto;
   
 }
+
+.info {
+	position: absolute;
+	top: 100%;
+	width: 200px;
+	color: #141414;
+	font-size: 15px;
+}
+
 .main-movieList{
   width: 90%;
   display: flex;
@@ -28,10 +48,10 @@ html {
 }
 
 .list {
-  width: 150px;
+	width: 183.333px;
   margin: 20px;
-  height: 200px;
-  background-color: coral;
+  height: 300px;
+  background-color: red;
   border: 1px solid black;
   border-radius: 2rem;
 }

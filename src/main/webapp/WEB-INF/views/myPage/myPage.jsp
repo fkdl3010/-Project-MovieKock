@@ -29,7 +29,6 @@
                 </form>
             </div>
                
-                
               <div class="small-box" id="card-box1">
               	<c:if test="${empty loginUser }">
               		없음
@@ -37,16 +36,16 @@
               	
               	<c:if test="${not empty loginUser }">
               		닉네임: <input type="text" id="nickName" value="${loginUser.user_nickname }" readonly onkeyup="nickCheck()"/>
-              				<input type="button" id="nickNameCheckbtn" class="none" value="중복체크" onclick="fn_nickCheck()"/><br>
+              				<input type="button" id="nickNameCheckbtn" class="btn btn-info none" value="중복체크" onclick="fn_nickCheck()"/><br>
               		이름: <input type="text" id="name" value="${loginUser.user_name }" readonly/><br>
               		이메일: <input type="text" id="email" value="${loginUser.user_email }" readonly onkeyup="emailCheck()"/>
-              				<input type="button" id="emailCheckbtn" class="none" value="중복체크" onclick="fn_emailCheck()"/><br>
+              				<input type="button" id="emailCheckbtn" class="btn btn-info none" value="중복체크" onclick="fn_emailCheck()"/><br>
               		휴대폰 번호: <input type="text" id="phone" value="${loginUser.user_phone }" readonly/><br>
               		가입일: <input type="text" id="date" value="${loginUser.user_date }" readonly/><br>
               	</c:if>
                 
-                <input type="button" id="update" class="none" value="수정하기" onclick="fn_userUpdate()">
-                <input type="button" id="alter" value="수정" onclick="fn_userAlter()">
+                <input type="button" id="update" class="btn btn-info none" value="수정하기" onclick="fn_userUpdate()">
+                <input type="button" id="alter" class="btn btn-info" value="수정" onclick="fn_userAlter()">
               </div>
               <div class="small-box"  id="card-box2"></div>
               <div class="small-box"  id="card-box3"></div>
@@ -326,7 +325,6 @@
 	    let fileSize = event.target.files[0].size;
 	    let maxSize = 10 * 1024 * 1024;//10MB
 	    
-	    console.log(fileSize);
 	    
 	    if(fileSize < maxSize){
 	    	
@@ -340,7 +338,6 @@
 		        success : function(responseObj) {
 		            if(responseObj.result){
 		            	let filename = decodeURI(responseObj.filename);
-		                console.log(filename);
 		                coverBox.style.backgroundImage = 'url(/movie/assets/images/userProfile/'+decodeURI(responseObj.filename) +')';
 		        		document.querySelector('.profileAddLabel').innerText = '';
 		            }else{
@@ -362,7 +359,6 @@
 	if('${loginUser.user_profile_name}' != 'none'){
 		document.querySelector('.profileAddLabel').innerText = '';
 		let filename = decodeURIComponent('${loginUser.user_profile_name}');
-		console.log(filename);
 		document.querySelector('.profileBox').style.backgroundImage = 'url(/movie/assets/images/userProfile/' + filename+ ')';
 	}
 	
@@ -376,8 +372,11 @@
 	    let filesTempArr = [];
 		
 		let files = event.target.files;
+		console.log(files);
 	    let filesArr = Array.prototype.slice.call(files);
+		console.log(filesArr);
 	    let filesArrLen = filesArr.length;
+		console.log(filesArrLen);
 	    filesTempArr.push(filesArr[0]);
 	    
 	    formData.append("userCover", filesTempArr[0]);
@@ -386,7 +385,6 @@
 	    let fileSize = event.target.files[0].size;
 	    let maxSize = 10 * 1024 * 1024;//10MB
 	    
-	    console.log(fileSize);
 	    
 	    if(fileSize < maxSize){
 	    	
@@ -400,7 +398,6 @@
 		        success : function(responseObj) {
 		            if(responseObj.result){
 		            	let filename = decodeURIComponent(responseObj.filename);
-		                console.log(responseObj.filename);
 		                coverBox.style.backgroundImage = 'url(/movie/assets/images/userCover/'+filename +')';
 		        		document.querySelector('.coverAddLabel').innerText = '';
 		            }else{
@@ -422,7 +419,6 @@
 	if('${loginUser.user_image_name}' != 'none'){
 		document.querySelector('.coverAddLabel').innerText = '';
 		let filename = decodeURIComponent('${loginUser.user_image_name}');
-		console.log(filename);
 		document.querySelector('.coverBox').style.backgroundImage = 'url(/movie/assets/images/userCover/' + filename+ ')';
 	}
 	

@@ -29,12 +29,23 @@ public class MainCommand implements CommonVoidCommand {
 		
 		UserDto loginUser = (UserDto)session.getAttribute("loginUser");
 		
-		int userNo = loginUser.getUser_no();
-		String userNickname = loginUser.getUser_nickname();
-		model.addAttribute("userNickname", userNickname);
+		if(loginUser != null) {
+			
+			int userNo = loginUser.getUser_no();
+			String userNickname = loginUser.getUser_nickname();
+			model.addAttribute("userNickname", userNickname);
+			
+			// 사용자의 취향에 맞춰 12개의 영화를 가져옴
+			List<MovieDto> list = dao.userGenreList(userNo);
+			
+			model.addAttribute("mainList2", list);
+		}else {
+			List<MovieDto> mainList2 = dao.mainList2();
+			
+			model.addAttribute("mainList2", mainList2);
+		}
 		
-		// 사용자의 취향에 맞춰 12개의 영화를 가져옴
-		List<MovieDto> list = dao.userGenreList(userNo);
+		
 		
 		List<MovieDto> mainList1 = dao.mainList1();
 		model.addAttribute("mainList1", mainList1);
@@ -42,7 +53,7 @@ public class MainCommand implements CommonVoidCommand {
 		// 사용자 취향 정보가 담겨있는 영화들 12개
 		List<MovieDto> mainList2 = dao.mainList2();
 		
-		model.addAttribute("mainList2", list);
+		
 		
 		List<MovieDto> mainList3 = dao.mainList3();
 		model.addAttribute("mainList3", mainList3);

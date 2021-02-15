@@ -1,4 +1,8 @@
 @charset "UTF-8";
+
+body {
+	background: #141414;
+}
      #wrap{
             width: 1300px;
             height: 1000px;
@@ -126,10 +130,10 @@
 			margin-left: -12px;
 		}
 
-		button:focus {
-  			background-color:gray;
-  			color:white;
-		}
+/* 		button:focus { */
+/*   			background-color:gray; */
+/*   			color:white; */
+/* 		} */
 	
 		
 		.clicked{
@@ -147,4 +151,25 @@
 			border:5px solid navy;
   			color:navy;
 		}
+		
+		<!-- 부트스트랩 btn 커스터마이징 -->
+.btn-info {
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+    color: #eee;
+}
+.btn-info:hover,
+.btn-info:focus {
+    border-color: #128496;
+    background-color: #128496;
+    color: #ccc;
+}
+.btn-info:active,
+.btn-info:visited,
+.btn-info:active:focus,
+.btn-info:active:hover {
+    border-color: #128496;
+    background-color: #128496;
+    color: #ccc;
+}
 		
