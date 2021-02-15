@@ -57,7 +57,7 @@
 	       <!-- header -->
 	       <div class="modal-header">
 	         <!-- 닫기(x) 버튼 -->
-	         <button type="button" class="close" data-dismiss="modal">×</button>
+	         <button type="button" class="close btn btn-info" data-dismiss="modal">×</button>
 	         <!-- header title -->
 	         <h4 class="modal-title">영화 이름</h4>
 	       </div>
@@ -68,13 +68,13 @@
 			   </jsp:include>
 	       </div>
 	       <div class="footer-btn-box">
-				<input type="button" value="수정하기" class="btn btn-primary none" id="updateControlBtn" onclick="fn_commentUpdateControl()"/>
-	      		<input type="button" value="수정완료" class="btn btn-primary none" id="updateComment" onclick="fn_commentUpdate()"/>
-				<input type="button" value="삭제하기" class="btn btn-primary none" id="deleteBtn" onclick="fn_commentDeleteBtn()"/>
+				<input type="button" value="수정하기" class="btn btn-info none" id="updateControlBtn" onclick="fn_commentUpdateControl()"/>
+	      		<input type="button" value="수정완료" class="btn btn-info none" id="updateComment" onclick="fn_commentUpdate()"/>
+				<input type="button" value="삭제하기" class="btn btn-info none" id="deleteBtn" onclick="fn_commentDeleteBtn()"/>
        	   </div>
 	       <!-- Footer -->
 	       <div class="modal-footer">
-	         <button type="button" id="close-btn" class="btn btn-default" data-dismiss="modal">닫기</button>
+	         <button type="button" id="close-btn" class="btn btn-info" data-dismiss="modal">닫기</button>
 	       </div>
 	     </div>
 	   </div>
