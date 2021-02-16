@@ -29,7 +29,7 @@
 		<div class="top-wrap">
 			<div class="main-template-header animated fadeInDown">
 				<span class="main-template-logo">
-					<img src="/movie/assets/images/top_logo.jpg" style="width: 100px">
+					<img src="/movie/assets/images/top_logo.jpg" class="top_logo">
 				</span>
 				<div class="main-header-link-box">
 					<span class="recommend-link">

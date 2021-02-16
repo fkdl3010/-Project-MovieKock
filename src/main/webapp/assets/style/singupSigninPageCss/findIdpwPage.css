@@ -2,7 +2,12 @@
 
 body {
 	margin: 0px;
-	background: #141414;
+	background: white;
+}
+
+.findPage_logo {
+	width: 100px;
+	height: 100px;
 }
 
 .id-pw-main-wrapper {
@@ -25,22 +30,15 @@ body {
 	height: 81%;
 }
 
-.contents-header {
-	width: 100%;
-	height: 132px;
-	text-align: center;
-	line-height: 132px;
-	font-size: 25px;
-	font-weight: bold;
-}
-
 .id-pw-form-box {
 	display: flex;
 	border-radius: 15px;
 	width: 100%;
 	height: 74%;
-	background: #282828;
-	
+	border: 3px solid #ec7114;
+	background: white;
+	margin: auto;
+	margin-top: 100px;
 }
 
 .id-section, .pw-section {
@@ -60,6 +58,7 @@ body {
 .inputs {
 	padding: 12px;
 	width: 300px;
+	border-bottom: 2px solid #ddd;
 	margin: 10px 10px 10px 0px;
 }
 
@@ -75,7 +74,7 @@ input {
 
 input:focus {
 	outline: none !important;
-	border: 2px solid orange;
+	border-bottom: 2px solid #ec7114;
 }
 
 .btn btn-info {

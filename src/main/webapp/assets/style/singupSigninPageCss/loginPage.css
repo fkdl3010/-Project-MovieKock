@@ -1,16 +1,21 @@
 @charset "UTF-8";
 
 body {
-	background: #141414;
+	background: white;
 }
-html, body {
-	display: grid;
-	place-items: center;
-	min-height: 100vh;
-}
+/* html, body { */
+/* 	display: grid; */
+/* 	place-items: center; */
+/* 	min-height: 100vh; */
+/* } */
 
 .fas {
 	color: #ec7114;
+}
+
+.loginPage_logo {
+	width: 100px;
+	height: 100px;
 }
 
 .txt {
@@ -43,6 +48,7 @@ a {
 	width: 60rem;
 	padding: 5rem;
 	margin: auto;
+	margin-top: 15%;
 }
 
 .footer-link {

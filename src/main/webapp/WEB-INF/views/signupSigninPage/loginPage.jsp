@@ -14,11 +14,11 @@
   <link rel="stylesheet" href="/movie/assets/style/singupSigninPageCss/loginPage.css"/>
 </head>
 
-<body onkeydown="onEnterLogin()" >
+<body>
   <div class="main-wrapper">
   	
     <div class="logo">
-     <a href="main_page.do"><i class="fas fa-video fa-5x"></i></a>
+     <a href="main_page.do"><img class="loginPage_logo" src="assets/images/logo.jpg"/></a>
     </div>
   
     	<div class="header">
