@@ -18,4 +18,6 @@ public class CommentDto {
 	private String comment_content;
 	private Date comment_date;
 	private int comment_like;
+	private double comment_score;
+	private String user_nickname;
 }

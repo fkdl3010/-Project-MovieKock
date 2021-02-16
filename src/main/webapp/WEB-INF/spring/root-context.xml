@@ -129,4 +129,7 @@
 	<bean id="movieInfoViewCommand" class="com.koreait.movie.command.movieInfo.MovieInfoViewCommand"></bean>
 	<bean id="starSetCommand" class="com.koreait.movie.command.movieInfo.StarSetCommand"></bean>
 	<bean id="initStarScoreCommand" class="com.koreait.movie.command.movieInfo.InitStarScoreCommand"></bean>
+	<bean id="commentInsertCommand" class="com.koreait.movie.command.movieInfo.CommentInsertCommand"></bean>
+	<bean id="movieCommentViewListCommand" class="com.koreait.movie.command.movieInfo.MovieCommentViewListCommand"></bean>
+	<bean id="commentScrollEventCommand" class="com.koreait.movie.command.movieInfo.CommentScrollEventCommand"></bean>
 </beans>

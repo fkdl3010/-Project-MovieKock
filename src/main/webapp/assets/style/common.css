@@ -32,7 +32,6 @@ body {
 	padding: 5px 30px;
 	margin-bot: 20px;
 	display: inline-block;
-	position: fixed;
 	background-color: #141414;
 	top: 0px;
 	z-index: 99;

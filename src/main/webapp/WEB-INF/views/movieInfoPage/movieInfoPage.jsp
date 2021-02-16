@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <jsp:include page="../template/header.jsp">
 	<jsp:param value="인덱스" name="title" />
 </jsp:include>
@@ -28,7 +29,7 @@
 		        </div>
 		        <div class="info_main_mid_mid info_main_mid_box">
 		          <div class="info_main_mid_mid_title">
-		            ${movieDto.movie_title }
+		            ${movieDto.movie_title.replaceAll("_"," ")}
 		          </div>
 		          <div class="info_main_mid_mid_contents">
 		            <span class="movie_info_main"> ${movieDto.genre_name } • ${movieDto.movie_nation } </span><br>
@@ -66,7 +67,7 @@
 					<div class="bot_staff_profiles">
 						<div class="bot_staff_profiles_img">
 							<!-- <img alt="사진" src="" /> 나중에 변경해야함 개발편의를 위해 box 로 대체-->
-							<img alt="보노보노" class="staff_profile_img" src="/movie/assets/images/감독_${movieDto.movie_director }.jpg" />
+							<img alt="보노보노" class="staff_profile_img" src="/movie/assets/images/staff_profile/감독_${movieDto.movie_director }.jpg" />
 						</div>
 						<div class="bot_staff_profiles_txt">
 							<div class="bot_staff_progiles_name">
@@ -101,91 +102,154 @@
 				<div class="info_main_bot_comment">
 					<div class="info_main_bot_comment_top">
 						<div class="comment_top_left txt">
-							코멘트 200+
+							코멘트+
 						</div>
 						
 					</div>
 					<div class="info_main_bot_comment_bot">
-						<div class="comment_bot_1th">
-							<div class="comment_main_top">
-								<a href="">
-									<i class="fas fa-user-circle fa-2x txt">정현</i>
-								</a>
-								<!--**************************** 별점 기능 필수 ******************************* -->
-								★5.0
-							</div>
-							<div class="comment_main_mid">
-								<textarea class="comment_main_mid_txt" readonly>
-dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
-								</textarea>
-							</div>
-							<div class="comment_main_bot">
-								<a href="">
-								좋아요<i class="far fa-thumbs-up">&nbsp;&nbsp;77</i>
-								</a>
-							</div>
-						</div>
-						<div class="comment_bot_2nd">
-							<div class="comment_main_top">
-								<a href="">
-									<i class="fas fa-user-circle fa-2x">정현</i>
-								</a>
-								<!--**************************** 별점 기능 필수 ******************************* -->
-								★5.0
-							</div>
-							<div class="comment_main_mid">
-								<textarea class="comment_main_mid_txt" readonly>
-dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
-								</textarea>
-							</div>
-							<div class="comment_main_bot">
-								<a href="">
-								좋아요<i class="far fa-thumbs-up">&nbsp;&nbsp;77</i>
-								</a>
-							</div>
-						</div>
-						<div class="comment_bot_3rd">
-							<div class="comment_main_top">
-								<a href="">
-									<i class="fas fa-user-circle fa-2x">정현</i>
-								</a>
-								<!--**************************** 별점 기능 필수 ******************************* -->
-								★5.0
-							</div>
-							<div class="comment_main_mid">
-								<textarea class="comment_main_mid_txt" readonly>
-dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
-								</textarea>
-							</div>
-							<div class="comment_main_bot">
-								<a href="">
-								좋아요<i class="far fa-thumbs-up">&nbsp;&nbsp;77</i>
-								</a>
-							</div>
-						</div>
+						<c:if test="${empty commentList }">
+							코멘트가 등록되지 않았습니다.
+						</c:if>
+						<c:if test="${not empty commentList }">
+							<c:choose>
+								<c:when test="${fn:length(commentList) > 3}">
+									<c:forEach begin="0" end="2" items="${commentList }" var="commentDto">
+										<div class="comment_bot" id="movieView" data-target="#layerpop-commentView" data-toggle="modal">
+											<div class="comment_main_top">
+													<i class="fas fa-user-circle fa-2x txt">${commentDto.user_nickname }</i>
+												<!--**************************** 별점 기능 필수 ******************************* -->
+												★${commentDto.comment_score }
+											</div>
+											<div class="comment_main_mid">
+												<textarea class="comment_main_mid_txt" readonly>
+													${commentDto.comment_content }
+												</textarea>
+											</div>
+											<div class="comment_main_bot">
+												<a href="#">
+												좋아요<i class="far fa-thumbs-up">&nbsp;&nbsp;${commentDto.comment_like }</i>
+												</a>
+											</div>
+											<input type="hidden" name="userNo" value= "${commentDto.user_no}" >
+											<input type="hidden" name="movieNo" value="${commentDto.movie_no}" >
+											<input type="hidden" name="commentNo" value="${commentDto.comment_no}">
+				        	 				<input type="hidden" name="userNickname" value="${commentDto.user_nickname}">
+								        	<input type="hidden" name="commentContent" value="${commentDto.comment_content}">
+							        	    <input type="hidden" name="date" value="${commentDto.comment_date}">
+  							        	    <input type="hidden" name="title" value="${commentDto.comments_title}">
+							        	    
+										</div>
+									</c:forEach>
+								</c:when>
+								<c:otherwise>
+									<c:forEach items="${commentList }" var="commentDto">
+										<div class="comment_bot" id="movieView" data-target="#layerpop-commentView" data-toggle="modal">
+											<div class="comment_main_top">
+													<i class="fas fa-user-circle fa-2x txt">${commentDto.user_nickname }</i>
+												<!--**************************** 별점 기능 필수 ******************************* -->
+												★${commentDto.comment_score }
+											</div>
+											<div class="comment_main_mid">
+												<textarea class="comment_main_mid_txt" readonly>
+													${commentDto.comment_content }
+												</textarea>
+											</div>
+											<div class="comment_main_bot">
+												<a href="#">
+												좋아요<i class="far fa-thumbs-up">&nbsp;&nbsp;${commentDto.comment_like }</i>
+												</a>
+											</div>
+											<input type="hidden" name="userNo" value= "${commentDto.user_no}" >
+											<input type="hidden" name="movieNo" value="${commentDto.movie_no}" >
+											<input type="hidden" name="commentNo" value="${commentDto.comment_no}">
+				        	 				<input type="hidden" name="userNickname" value="${commentDto.user_nickname}">
+								        	<input type="hidden" name="commentContent" value="${commentDto.comment_content}">
+							        	    <input type="hidden" name="date" value="${commentDto.comment_date}">
+							        	    <input type="hidden" name="title" value="${commentDto.comments_title}">
+										</div>
+									</c:forEach>
+								</c:otherwise>
+							</c:choose>
+						</c:if>
+						
 					</div>
-					<input class="inp_btn commet_view_btn" type="button" value="더보기" onclick="" />
+					<input class="commet_view_btn" type="button" value="더보기" onclick="" />
 				</div>
 				<div class="info_main_bot_movies">
+					<c:choose>
+						<c:when test="${fn:length(relationMovieList) > 12}">
+							<c:forEach begin="0" end="11" items="${relationMovieList }" var="relationMovie">
+									<div class="main_bot_movies_poster" style="background-image: url('/movie/assets/images/poster/${relationMovie.movie_title}_포스터.jpg')">
+										<div class="main_bot_poster_info">
+											<div>제목 ${relationMovie.movie_title.replaceAll("_", " ") }</div>
+											<span>장르 ${relationMovie.genre_name }&nbsp; 평점</span>
+											<input type="hidden" id="movieNo" value="${relationMovie.movie_no }"/>
+										</div>
+									</div>
+							</c:forEach>
+							
+						</c:when>
+						<c:otherwise>
+							<c:forEach var="relationMovie" items="${relationMovieList }">
+								<div class="main_bot_movies_poster" style="background-image: url('/movie/assets/images/poster/${relationMovie.movie_title}_포스터.jpg')">
+									<div class="main_bot_poster_info">
+										<div>제목 ${relationMovie.movie_title.replaceAll("_", " ")  }</div>
+										<span>장르 ${relationMovie.genre_name }&nbsp; 평점</span>
+										<input type="hidden" id="movieNo" value="${relationMovie.movie_no }"/>
+									</div>
+								</div>
+							</c:forEach>
+						</c:otherwise>
+					</c:choose>
 					
-					<c:forEach var="relationMovie" items="${relationMovieList }">
-						<div class="main_bot_movies_poster" style="background-image: url('/movie/assets/images/poster/${relationMovie.movie_title}_포스터.jpg')">
-							<div class="main_bot_poster_info">
-								<div>제목</div>
-								<span>장르 ${relationMovie.genre_name }&nbsp; 평점</span>
-							</div>
-						</div>
-					</c:forEach>
 					
 				</div>
 			</div>
 		</div>
 	</div>
 </c:if>
+
+<!-- modal -->
+	<style>
+		.commentView .modal-dialog{
+			width: 1200px
+		}
+		.modal-header {
+   			 width: 100%;
+   		}
+   		.modal-footer {
+		    width: 100%;
+		}
+		
+	</style>
+	 <div class="modal fade commentView" id="layerpop-commentView" >
+	   <div class="modal-dialog">
+	     <div class="modal-content">
+	       <!-- header -->
+	       <div class="modal-header">
+	         <!-- 닫기(x) 버튼 -->
+	         <button type="button" class="close btn btn-info" data-dismiss="modal">×</button>
+	         <!-- header title -->
+	         <h4 class="modal-title">코멘트</h4>
+	       </div>
+	       <!-- body -->
+	       <div class="modal-body">
+	           <jsp:include page="../myPage/myWriteViewPage.jsp">
+					<jsp:param value="test" name="title" />
+			   </jsp:include>
+	       </div>
+	       <!-- Footer -->
+	       <div class="modal-footer">
+	         <button type="button" id="close-btn" class="btn btn-info" data-dismiss="modal">닫기</button>
+	       </div>
+	     </div>
+	   </div>
+	 </div>
 	
 	
 	
 <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
+<script src="/movie/assets/script/commentViewModal.js"></script>
 <script>
 
 	const movieNo = ${movieDto.movie_no};
@@ -272,6 +336,7 @@ dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddsssssssssssss
 
 		 let rating = data.rating;
 		 ratingContentsText(e, rating);
+		 console.log(rating);
 		 
 		 $.ajax({
 			 url: 'setStar/'+ movieNo + '/' + rating,
@@ -359,7 +424,46 @@ dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddsssssssssssss
 			 location.href="loginPage.do";
 		 }
 	 }
-			 
+	 
+	 // 코멘트 작성
+	 $('.inp_btn').on('click',handleCommentSubmit);
+	 
+	 function handleCommentSubmit(e){
+		 
+		 if( $('#commentTitle').val() == ''){
+			 alert('제목은 필수입니다.');
+			 $('#commentTitle').focus();
+			 e.stopPropagation();
+			 return;
+		 }
+		 
+		 if( $('#commentContents').val() == ''){
+			 alert('내용은 필수입니다.');
+			 $('#commentContents').focus();
+			 e.stopPropagation();
+			 return;
+		 }
+		 
+		$('#commentForm').submit();
+		 
+	 }
+	 
+	 
+	 // 관계된 영화들 링크주기
+	 $('.main_bot_movies_poster').on('click',handleMovieInfo);
+	 
+	 function handleMovieInfo(event){
+		 let movieNo = event.target.children[0].children[2].value;
+		 
+		 location.href="movieInfoPage.do?movieNo=" + movieNo;
+	 }
+	
+	 // 코멘트 더보기 페이지
+	 $('.commet_view_btn').on('click',handleCommentViewList);
+	
+	 function handleCommentViewList(){
+		 location.href='movieCommentPage.do?movieNo=' + movieNo;
+	 }
 	
 		
 	</script>	
