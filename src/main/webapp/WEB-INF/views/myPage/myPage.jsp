@@ -30,6 +30,7 @@
 				
 				<c:if test="${not empty loginUser }">
 					<div class="info_box">
+						비밀번호 : <input type="password" id="pw" placeholder="변경할 비밀번호를 입력하세요" readonly /><br>
 						<span class="info_txt">닉네임: </span><input type="text" class="inp_txt" id="nickName" value="${loginUser.user_nickname }" readonly onkeyup="nickCheck()"/>
 						<input type="button" id="nickNameCheckbtn" class="check_btn inp_btn none" value="중복체크" onclick="fn_nickCheck()"/><br>
 						<span class="info_txt">이름: </span><input type="text" class="inp_txt" id="name" value="${loginUser.user_name }" readonly/><br>
@@ -57,6 +58,7 @@
 	/* 유저정보 */
 	let userNo = ${loginUser.user_no};
 	
+	let pw;
 	let nickName;
 	let name;
 	let email;
@@ -64,6 +66,7 @@
 	
 	function initValue(){
 		
+		pw = 	document.querySelector('#pw');	
 		nickName = document.querySelector('#nickName');
 		name = document.querySelector('#name');
 		email = document.querySelector('#email');
@@ -71,12 +74,14 @@
 	}
 	
 	/* 기존 유저 정보 */
+	let orPw;
 	let orNickName;
 	let orName;
 	let orEmail;
 	let orPhone;
 	
 	/* 버튼정보 */
+	
 	const updateBtn = document.querySelector('#update');
 	const alterBtn = document.querySelector('#alter');
 	const nickCheckBtn = document.querySelector('#nickNameCheckbtn');
@@ -91,6 +96,7 @@
 			nickCheckBtn.classList.remove('none');
 			emailCheckBtn.classList.remove('none');
 			
+			pw.removeAttribute('readonly');
 			nickName.removeAttribute('readonly');
 			name.removeAttribute('readonly');
 			email.removeAttribute('readonly');
@@ -102,6 +108,8 @@
 			nickCheckBtn.classList.add('none');
 			emailCheckBtn.classList.add('none');
 			
+			
+			pw.setAttribute('readonly','readonly');
 			nickName.setAttribute('readonly','readonly');
 			name.setAttribute('readonly' ,'readonly');
 			email.setAttribute('readonly','readonly');
@@ -116,6 +124,7 @@
 		if(alterBtn.value == '수정'){
 			
 			
+			orPw = pw.value;
 			orNickName = nickName.value;
 			orName = name.value;
 			orEmail = email.value;
@@ -125,6 +134,7 @@
 		}else{
 			
 			
+			pw.value = orPw;
 			nickName.value = orNickName;
 			name.value = orName;
 			email.value = orEmail;
@@ -265,6 +275,7 @@
 		}
 		
 		const sendUserObj = {
+				"user_pw" : pw.value,
 				"user_no": userNo,
 				"user_nickname": nickName.value,
 				"user_name": name.value,
@@ -284,6 +295,7 @@
 					
 					if(responseObj.updateResult){
 						alert('정보가 수정되었습니다.');
+						pw.value = $('#nickName').val();
 						nickName.value = $('#nickName').val();
 							name.value = $('#name').val();
 						   email.value = $('#email').val();
