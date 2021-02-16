@@ -9,7 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.koreait.movie.common.CommonVoidCommand;
-import com.koreait.movie.dao.QnaDao;
+import com.koreait.movie.dao.QnaReplyDao;
 
 public class QnaDeleteCommand implements CommonVoidCommand {
 
@@ -22,8 +22,8 @@ public class QnaDeleteCommand implements CommonVoidCommand {
 						
 		int qna_no = Integer.parseInt(request.getParameter("qna_no"));
 		
-	    QnaDao qnaDao = sqlSession.getMapper(QnaDao.class);
-		int qnaDeleteResult = qnaDao.qnaDelete(qna_no);
+	    QnaReplyDao qnaReplyDao = sqlSession.getMapper(QnaReplyDao.class);
+		int qnaDeleteResult = qnaReplyDao.qnaDelete(qna_no);
 		
 		rttr.addFlashAttribute("qnaDeleteResult", qnaDeleteResult);
 		

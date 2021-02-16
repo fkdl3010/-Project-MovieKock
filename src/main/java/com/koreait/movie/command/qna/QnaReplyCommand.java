@@ -10,10 +10,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.koreait.movie.common.CommonVoidCommand;
-import com.koreait.movie.dao.QnaDao;
-import com.koreait.movie.dto.QnaDto;
+import com.koreait.movie.dao.QnaReplyDao;
+import com.koreait.movie.dto.QnaReplyDto;
 
-public class QnaAdminWriteCommand implements CommonVoidCommand {
+public class QnaReplyCommand implements CommonVoidCommand {
 
 	@Override
 	public void execute(SqlSession sqlSession, Model model) {
@@ -22,22 +22,22 @@ public class QnaAdminWriteCommand implements CommonVoidCommand {
 		HttpServletRequest request = (HttpServletRequest)map.get("request");
 		RedirectAttributes rttr = (RedirectAttributes)map.get("rttr");
 		
-		//String adminId = request.getParameter("adminId");
+		String qna_reply_content = request.getParameter("qna_reply_content");
 		
 		HttpSession session = request.getSession();
-		String admin_id = (String) session.getAttribute("admin_id");
+		QnaReplyDto qnaReply = (QnaReplyDto)session.getAttribute("qnaReply");
 		
-		QnaDto qnaDto = new QnaDto();
-		qnaDto.setAdmin_id(admin_id);
+		QnaReplyDto qnaReplyDto = new QnaReplyDto();
+		qnaReplyDto.setQna_reply_content(qna_reply_content);
 		
 		
-	    QnaDao qnaDao = sqlSession.getMapper(QnaDao.class);
-	    int qnaAdminWriteResult = qnaDao.qnaAdminWrite(qnaDto);
+	    QnaReplyDao qnaReplyDao = sqlSession.getMapper(QnaReplyDao.class);
+	    QnaReplyDto qnaReplyResult = qnaReplyDao.qnaReply(qnaReplyDto);
 		
-		rttr.addFlashAttribute("qnaAdminWriteResult", qnaAdminWriteResult);
+		rttr.addFlashAttribute("qnaReplyResult", qnaReplyResult);
 		
 		// insert 후에 이동되었음을 JSP에게 알려주겠습니다.
-		rttr.addFlashAttribute("afterqnaAdminWrite", true);
+		rttr.addFlashAttribute("afterqnaReply", true);
 		
 		
 	}
