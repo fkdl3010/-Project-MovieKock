@@ -19,7 +19,7 @@ body {
 }
 
 .txt {
-	color: #ddd;
+	color: black;
 	font-weight: bold;
 }
 
@@ -48,7 +48,7 @@ a {
 	width: 60rem;
 	padding: 5rem;
 	margin: auto;
-	margin-top: 15%;
+	margin-top: 9%;
 }
 
 .footer-link {

@@ -10,33 +10,60 @@
         <div class="big-box">
                 <i id="profile" class="fas fa-user-circle"></i>
               <div class="tableBox" >
-                <div class="table">
-					<div class="thead">
-						<div class="tr thead_tr">
-							<div class="th">글 번호</div>
-							<div class="th">영화</div>
-							<div class="th">제목</div>
-							<div class="th">닉네임</div>
-							<div class="th">작성일</div>
-							<div class="th">좋아요</div>
-							<div class="th">비고</div>
-						</div>
-					</div>
-					
-					<div class="tbody" id="commentList"></div>
-					
-					<div class="tfoot">
-						<div class="tr">
-							<div class="td">
-								<div id="paging" class="paging"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>글 번호</th>
+                            <th>영화</th>
+                            <th>제목</th>
+                            <th>닉네임</th>
+                            <th>작성일</th>
+                            <th>좋아요</th>
+                            <th colspan="2">비고</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="commentList"></tbody>
+
+                    <tfoot>
+                        <tr>
+                            <td colspan="7">
+                                <div id="paging" class="paging"></div>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+
               </div>
-              
             </div>
+              
+<!--               <div class="tableBox" > -->
+<!--                 <div class="table"> -->
+<!-- 					<div class="thead"> -->
+<!-- 						<div class="tr thead_tr"> -->
+<!-- 							<div class="th">글 번호</div> -->
+<!-- 							<div class="th">영화</div> -->
+<!-- 							<div class="th">제목</div> -->
+<!-- 							<div class="th">닉네임</div> -->
+<!-- 							<div class="th">작성일</div> -->
+<!-- 							<div class="th">좋아요</div> -->
+<!-- 							<div class="th">비고</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+					
+<!-- 					<div class="tbody" id="commentList"></div> -->
+					
+<!-- 					<div class="tfoot"> -->
+<!-- 						<div class="tr"> -->
+<!-- 							<div class="td"> -->
+<!-- 								<div id="paging" class="paging"></div> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+                
+<!--               </div> -->
+              
             
             
             <!-- modal -->

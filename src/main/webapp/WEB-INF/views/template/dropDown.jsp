@@ -71,8 +71,8 @@
 	    <div class="dropdown">
 	        <button onclick="dp_menu()" class="button"><i class="fas fa-user-circle fa-3x top_user_circle"></i></button>
 	        <div style="display: none;" id="drop-content" class="dropDown-menu dropdown-menu-right" >
-	            <input type="button" value="마이페이지" onclick="myPage.do" />
-	            <input type="button" value="로그아웃" onclick="logout.do" />
+	            <input type="button" value="마이페이지" onclick="location.href='myPage.do'" />
+	            <input type="button" value="로그아웃" onclick="location.href='logout.do'" />
 	        </div>
 	    </div>
     </div>
