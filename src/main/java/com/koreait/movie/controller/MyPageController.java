@@ -177,12 +177,4 @@ public class MyPageController {
 		return userAddCoverCommand.execute(sqlSession, model);
 	}
 
-	/*****비밀번호 변경 전 비밀번호 입력******/
-	@RequestMapping(value="myPagePw.do",
-			method=RequestMethod.POST)
-	public String myPagePw(HttpServletRequest request,Model model){
-		model.addAttribute("request", request);
-		 myPagePwCommand.execute(sqlSession, model);
-		return "myPage/myPage";
-	}
 }
