@@ -25,7 +25,7 @@ public class StarSetCommand implements CommonMapCommand {
 		MovieInfoDao dao = sqlSession.getMapper(MovieInfoDao.class);
 		
 		int movieNo = (Integer)map.get("movieNo");	
-		int rating = (Integer)map.get("rating");	
+		double rating = (double)map.get("rating");	
 		
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		
@@ -44,6 +44,7 @@ public class StarSetCommand implements CommonMapCommand {
 				dao.setStarScore(userNo, movieNo, rating);
 				resultMap.put("setUserScore", true);
 			}else {
+				System.out.println(rating);
 				dao.updateStarScore(rating, movieScoreDto.getMovie_score_no() );
 				resultMap.put("setUserScore", true);
 			}
