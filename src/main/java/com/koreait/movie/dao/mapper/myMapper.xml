@@ -25,7 +25,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		set user_nickname = #{user_nickname},
 			user_name = #{user_name},
 			user_email = #{user_email},
-			user_phone = #{user_phone}
+			user_phone = #{user_phone},
+			user_pw = #{user_pw}
 		where user_no = #{user_no}
 	</update>
 	
@@ -77,7 +78,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where user_pw = #{pw}
 	</select>
 
-	<update id="userAddProfile">
+	<update id="userAddProfile"> 
 		update users
 		set user_profile_name = #{param1}
 		where user_no = #{param2}
