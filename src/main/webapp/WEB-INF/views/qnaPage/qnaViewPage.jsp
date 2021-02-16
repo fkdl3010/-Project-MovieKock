@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="/movie/assets/style/qnaPageCss/qnaViewPage.css"/>
 	<div class="wrap">
 		<div class="main">
-			<div class="main_body">
+			<div class="mainBody">
 				<table class="tableUserWrite">
 					<tr class="userWriteTr">
 						<td class="userWriteTd">내용</td>
@@ -44,15 +44,17 @@
 					</c:if>
 				</table>
 				<form method="post">
-					<input type="button" class="deleteBtn" value="삭제"  onclick="fn_qnaDelete(this.form)" />
-					<input type="hidden" name="qna_no" value="${qnaDto.qna_no}" />
+					<c:if test="${loginUser.user_id eq 'admin' || qnaDto.user_no eq loginUser.user_no  }">
+						<input type="button" class="deleteBtn" value="삭제"  onclick="fn_qnaDelete(this.form)" />
+						<input type="hidden" name="qna_no" value="${qnaDto.qna_no}" />
+					</c:if>
 				</form>
 				<form method="get">
 					<input type="button" class="listBtn" value="목록" onclick="fn_qnaListView(this.form)" />	
 				</form>
 				<form method="get">
-					<c:if test="${qnaDto.user_nickname eq 'admin'}">
-						<input type="button" class="adiminWrite" value="답변하기" onclick="fn_qnaAdminWrite(this.form)" />
+					<c:if test="${loginUser.user_id eq 'admin' }">
+						<input type="button" class="qnaReplyBtn" value="답변하기" onclick="fn_qnaReplyPage(this.form)" />
 					</c:if>
 				</form>
 			</div>
@@ -68,8 +70,14 @@
 			f.submit();
 		}
 	}
+ 	
  	function fn_qnaListView(f) {
 			f.action = 'qnaListView.do';
+			f.submit();
+		}
+ 	
+ 	function fn_qnaReplyPage(f) {
+			f.action = 'qnaReplyPage.do';
 			f.submit();
 		}
 	

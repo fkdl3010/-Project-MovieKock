@@ -91,9 +91,9 @@ public class QnaController {
 	}
 	
 	// 관리자 답변페이지로 넘어가기
-	@RequestMapping(value="qnaReply.do")
+	@RequestMapping(value="qnaReplyPage.do")
 	public String QnaReplyPage() {
-		return "qnaPage/qnaReply";
+		return "qnaPage/qnaReplyPage";
 	}
 	
 	// 관리자 답변페이지에서 등록

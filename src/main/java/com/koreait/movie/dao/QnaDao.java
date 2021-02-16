@@ -22,6 +22,9 @@ public interface QnaDao {
 
 	// 상세보기
 	public int qnaView(String qna_content, Date date, int yn);
+	
+	// 게시글 비밀번호 
+	public String qnaPw(String qna_pw);
 
 		
 }

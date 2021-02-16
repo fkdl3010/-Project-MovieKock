@@ -12,9 +12,9 @@ import lombok.NoArgsConstructor;
 @Data
 public class QnaReplyDto {
 	
-	private int admin_no; 
+	private int qna_reply_no; 
 	private int qna_no;
-	private String admin_content;
-	private Date admin_date;
+	private String qna_reply_content;
+	private Date qna_reply_date ;
 
 }
