@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.ui.Model;
 
 import com.koreait.movie.common.CommonVoidCommand;
+import com.koreait.movie.common.Sha256;
 import com.koreait.movie.dto.UserDto;
 
 public class MyPageCommand implements CommonVoidCommand {
@@ -24,6 +25,7 @@ public class MyPageCommand implements CommonVoidCommand {
 
 		UserDto loginUser = (UserDto)session.getAttribute("loginUser");
 		model.addAttribute("loginUser", loginUser);
+	
 		
 	}
 }

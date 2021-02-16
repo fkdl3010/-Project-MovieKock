@@ -79,4 +79,48 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where user_no = #{param1}
 		and movie_no = #{param2}
 	</select>
+	
+	<insert id="commentInsert" parameterType="com.koreait.movie.dto.CommentDto">
+		insert into comments
+		values(comments_seq.nextval, #{comment_content}, sysdate, #{user_no}, #{movie_no}, 0, #{comments_title})
+	</insert>
+	
+	<select id="commentList" parameterType="int" resultType="com.koreait.movie.dto.CommentDto">
+		select *
+		from(
+		    select rownum as rn, x.*
+		    from (
+		    select a.*, nvl(b.star_score, 0)  as comment_score, c.user_nickname
+		            from comments a, movie_score b, users c
+		            where a.movie_no = b.movie_no(+)
+		            and a.user_no = b.user_no(+)
+		            and a.user_no = c.user_no
+		            and a.movie_no = #{movieNo}
+		            order by a.comment_no desc) x) z
+		where z.rn between 1 and 3
+	</select>
+	
+	<select id="totalCommentRecord" parameterType="int" resultType="int">
+		select count(*)
+		from comments
+		where movie_no = #{movieNo}
+		
+	</select>
+	
+	<select id="scrollCommentList" parameterType="map" resultType="com.koreait.movie.dto.CommentDto">
+		select *
+		from(
+		    select rownum as rn, x.*
+		    from (
+		    select a.*, nvl(b.star_score, 0)  as comment_score, c.user_nickname
+		            from comments a, movie_score b, users c
+		            where a.movie_no = b.movie_no(+)
+		            and a.user_no = b.user_no(+)
+		            and a.user_no = c.user_no
+		            and a.movie_no = #{movieNo}
+		            order by a.comment_no desc) x) z
+		where z.rn between #{beginRecord} and #{endRecord}  
+	</select>
+	
+	
 </mapper>

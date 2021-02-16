@@ -18,6 +18,12 @@
 .commet_view_btn {
 	width: 70px;
 	height: 30px;
+	background: #ec7114;
+	color: #ddd;
+	border: none;
+	outline: none;
+	border-radius: 15px;
+	font-weight: bold;
 }
 
 body {
@@ -207,17 +213,21 @@ body {
 
 .info_main_bot_comment_bot {
 	display: flex;
-	justify-content: space-between;
 	margin-top: 20px;
 }
 
-.comment_bot_1th, .comment_bot_2nd, .comment_bot_3rd {
+.comment_bot{
 	width: 220px;
 	height: 220px;
 	background: #ddd;
 	border-radius: 15px; 
 	position: relative;
 	padding: 10px;
+	cursor: pointer;
+}
+
+.comment_bot:nth-child(2) {
+    margin: 0px 20px;
 }
 
 .comment_main_top {
@@ -271,6 +281,8 @@ body {
 	display: flex;
 	margin-bottom: 20px;
 	background-size: 220px 250px;
+	cursor: pointer;
+	
 }
 
 .main_bot_poster_info {
