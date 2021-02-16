@@ -6,9 +6,8 @@
 <jsp:include page="../template/header.jsp">
 	<jsp:param value="인덱스" name="title" />
 </jsp:include>
-      <title></title>
 
-<link rel="stylesheet" href="/movie/assets/style/myPage.css"/>
+<link rel="stylesheet" href="/movie/assets/style/myPageCss/myPage.css"/>
         <div class="big-box">
         	<div class="coverBox">
                 <!-- 초기 값은 커버사진 추가하기 버튼 -->
@@ -23,36 +22,41 @@
              		<label for="addProfileBtn" class="profileAddLabel">프로필 추가하기</label>
                 </form>
             </div>
-               
-              <div class="small-box" id="card-box1">
-              	<c:if test="${empty loginUser }">
-              		없음
-              	</c:if>
-              	
-              	<c:if test="${not empty loginUser }">
-              		비밀번호 : <input type="password" id="pw" placeholder="변경할 비밀번호를 입력하세요" readonly /><br>
-              		닉네임: <input type="text" id="nickName" value="${loginUser.user_nickname }" readonly onkeyup="nickCheck()"/>
-              				<input type="button" id="nickNameCheckbtn" class="btn btn-info none" value="중복체크" onclick="fn_nickCheck()"/><br>
-              		이름: <input type="text" id="name" value="${loginUser.user_name }" readonly/><br>
-              		이메일: <input type="text" id="email" value="${loginUser.user_email }" readonly onkeyup="emailCheck()"/>
-              				<input type="button" id="emailCheckbtn" class="btn btn-info none" value="중복체크" onclick="fn_emailCheck()"/><br>
-              		휴대폰 번호: <input type="text" id="phone" value="${loginUser.user_phone }" readonly/><br>
-              		가입일: <input type="text" id="date" value="${loginUser.user_date }" readonly/><br>
-              	</c:if>
-                
-                <input type="button" id="update" class="inp_btn update_btn none" value="수정하기" onclick="fn_userUpdate()">
-                <input type="button" id="alter" class="inp_btn alter_btn" value="수정" onclick="fn_userAlter()">
-              </div>
-              <div class="small-box"  id="card-box2"></div>
-              <div class="small-box"  id="card-box3"></div>
-            </div>
-    </body>
+			<div class="card_box">
+				<div class="small-box" id="card-box1">
+					<c:if test="${empty loginUser }">
+						없음
+					</c:if>
+				
+				<c:if test="${not empty loginUser }">
+					<div class="info_box">
+						<span class="info_txt">닉네임: </span><input type="text" class="inp_txt" id="nickName" value="${loginUser.user_nickname }" readonly onkeyup="nickCheck()"/>
+						<input type="button" id="nickNameCheckbtn" class="check_btn inp_btn none" value="중복체크" onclick="fn_nickCheck()"/><br>
+						<span class="info_txt">이름: </span><input type="text" class="inp_txt" id="name" value="${loginUser.user_name }" readonly/><br>
+						<span class="info_txt">이메일: </span><input type="text" class="inp_txt" id="email" value="${loginUser.user_email }" readonly onkeyup="emailCheck()"/>
+						<input type="button" id="emailCheckbtn" class="check_btn inp_btn none" value="중복체크" onclick="fn_emailCheck()"/><br>
+						<span class="info_txt">휴대폰 번호: </span><input type="text" class="inp_txt" id="phone" value="${loginUser.user_phone }" readonly/><br>
+						<span class="info_txt">가입일: </span><input type="text" class="inp_txt" id="date" value="${loginUser.user_date }" readonly/><br>
+					</div>
+				</c:if>
+				
+				<input type="button" id="update" class="inp_btn update_btn none" value="수정하기" onclick="fn_userUpdate()">
+				<input type="button" id="alter" class="inp_btn alter_btn" value="수정" onclick="fn_userAlter()">
+				</div>
+				<div class="small-box"  id="card-box2">
+				
+				</div>
+				<div class="small-box"  id="card-box3">
+				
+				</div>
+				</div>
+			</div>
+    <%@ include file="../template/footer.jsp" %>
 <script type="text/javascript">
 	
 	/* 유저정보 */
-	let userNo = ${loginUser.user_no}2;
+	let userNo = ${loginUser.user_no};
 	
-	let pw;
 	let nickName;
 	let name;
 	let email;
@@ -60,7 +64,6 @@
 	
 	function initValue(){
 		
-		pw = document.querySelector('#pw');
 		nickName = document.querySelector('#nickName');
 		name = document.querySelector('#name');
 		email = document.querySelector('#email');
@@ -68,7 +71,6 @@
 	}
 	
 	/* 기존 유저 정보 */
-	let orPw;
 	let orNickName;
 	let orName;
 	let orEmail;
@@ -84,22 +86,22 @@
 		
 		if(controll == 'remove'){
 			alterBtn.value = '취소';
+
 			updateBtn.classList.remove('none');
 			nickCheckBtn.classList.remove('none');
 			emailCheckBtn.classList.remove('none');
 			
-			pw.removeAttribute('readonly');
 			nickName.removeAttribute('readonly');
 			name.removeAttribute('readonly');
 			email.removeAttribute('readonly');
 			phone.removeAttribute('readonly');
 		}else{
 			alterBtn.value = '수정';
+
 			updateBtn.classList.add('none');
 			nickCheckBtn.classList.add('none');
 			emailCheckBtn.classList.add('none');
 			
-			pw.setAttribute('readonly','readonly');
 			nickName.setAttribute('readonly','readonly');
 			name.setAttribute('readonly' ,'readonly');
 			email.setAttribute('readonly','readonly');
@@ -114,7 +116,6 @@
 		if(alterBtn.value == '수정'){
 			
 			
-			orPw = pw.vale;
 			orNickName = nickName.value;
 			orName = name.value;
 			orEmail = email.value;
@@ -123,7 +124,7 @@
 			
 		}else{
 			
-			pw.value = prPw;
+			
 			nickName.value = orNickName;
 			name.value = orName;
 			email.value = orEmail;
@@ -264,7 +265,6 @@
 		}
 		
 		const sendUserObj = {
-				"user_pw" : pw.value,
 				"user_no": userNo,
 				"user_nickname": nickName.value,
 				"user_name": name.value,
@@ -284,7 +284,6 @@
 					
 					if(responseObj.updateResult){
 						alert('정보가 수정되었습니다.');
-						pw.value = $('#pw').val();
 						nickName.value = $('#nickName').val();
 							name.value = $('#name').val();
 						   email.value = $('#email').val();
@@ -293,7 +292,6 @@
 						   
 					}else{
 						alert('정보가 변경되지 않았습니다.');
-						console.log(pw.value);
 					}
 				},
 				error: function(){
@@ -314,6 +312,7 @@
 		let coverBox = document.querySelector('.profileBox');
 		
 		let formData = new FormData(document.querySelector('#userControllProfile'));
+
 	    let filesTempArr = [];
 		
 		let files = event.target.files;
@@ -355,6 +354,7 @@
 	    }else{
 	    	alert('첨부 파일 사이즈 10MB 이내로 등록 가능합니다.');
 	    }
+
 	}
 	
 	if('${loginUser.user_profile_name}' != 'none'){
@@ -369,6 +369,7 @@
 		let coverBox = document.querySelector('.coverBox');
 		
 		let formData = new FormData(document.querySelector('#userControllCover'));
+
 	    let filesTempArr = [];
 		
 		let files = event.target.files;
@@ -413,6 +414,7 @@
 	    }else{
 	    	alert('첨부 파일 사이즈 10MB 이내로 등록 가능합니다.');
 	    }
+
 	}
 	
 	if('${loginUser.user_image_name}' != 'none'){
@@ -421,5 +423,5 @@
 		document.querySelector('.coverBox').style.backgroundImage = 'url(/movie/assets/images/userCover/' + filename+ ')';
 	}
 	
+
 </script>
-</html>

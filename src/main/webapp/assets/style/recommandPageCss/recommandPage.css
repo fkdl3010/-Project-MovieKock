@@ -1,29 +1,42 @@
 @charset "UTF-8";
 
-body {
-	background: #141414;
+* {
+	outline: none;
 }
-     #wrap{
-            width: 1300px;
-            height: 1000px;
-            margin: auto;   
-             
+
+body {
+	background: white;
+}
+     .recommand_wrap{
+     	display: block;
+		width: 100%;
+		margin-top: 100px;
+     }
+ 
+        .recommand_main{
+        	border: 3px solid #ec7114;
+        	border-radius: 15px;
+        	display: block;
+        	width : 1000px;
+        	margin: auto;
         }
- 
- body{
- 
- background:#ddd; 
- }
-        #main{
-        	width : 1300px;
-        	height: 900px;
-        	position :relative;
+        
+        .recommand_header {
+        	text-align: center;
         }
         
         .topmenu{
-			position: absolute;
-			left: 10px;
-			top : -5px;
+        	margin: 20px 0px;
+		}
+		
+		.menu-button {
+			text-align: center;
+			font-weight: bold;
+			font-size: 20px;
+			background-color: white;
+			border : 2px solid gray;
+			height: 40px;
+			width : 130px;
 		}
 		
 		.display{
@@ -31,20 +44,40 @@ body {
 		}
 		
 		#random-frame{
-			position: absolute;
-			top : 150px;
-			left : 400px;
+			display: block;
+		}
+		
+		.fbtn,
+		.tgbtn,
+		.rdbtn {
+			text-align: center;
+			font-weight: bold;
+			font-size: 20px;
+			background-color: white;
+			border : 2px solid gray;
+			height: 40px;
+			width : 130px;
+			border-radius: 15px;
+			margin: 0px 0px 20px 20px;
+		}
+		
+		.fbtn:hover,
+		.tgbtn:hover,
+		.rdbtn:hover {
+			background-color: #dedede;
+		}
+		
+		
+		#random-frame img {
+			width : 500px;
+			height: 600px;
+			margin : auto;
 		}
 		
 		#feel-frame{
-			position : absolute;
-			top : 200px;
-			left : 200px;
-		
 		}
 		
 	  #situ-frame{
-         	position : absolute;
             top : 250px;
 			left : 100px;
         }
@@ -57,17 +90,16 @@ body {
 			width : 500px;
 			height: 600px;
 			margin : auto;
-			position : relative;
-			top : 10px;
+/* 			position : relative; */
+/* 			top : 10px; */
 			
 		}
         
         #emoticon-frame{
-        	postion : absolute;
-        	right: 0px;
-            width: 950px;
+        	width: 81%;
             display: flex;
             flex-wrap: wrap;
+            margin: auto;
         }
         
        .situation-box{
@@ -84,14 +116,14 @@ body {
             color : gray;
         }
         
-        img{
+        .emoticon-box > img{
         	width : 100px;
         	height : 100px;
         	margin : 30px;
         	margin-top: 25px;	
         }
        
-       input{
+       .recommand_main > input{
        		border-radius: 10px;
        		background-color: light-gray;
        		border : 2px solid light-gray;
@@ -99,33 +131,19 @@ body {
 			width : 130px;
        		font-size: 20px;
        		font-weight: bold;
-       		position : absolute;
-       		left : 175px;
-       		bottom : -200px;
-       		
-       
-       
        }
   
-		button{
-			text-align: center;
-			font-weight: bold;
-			font-size: 20px;
-			background-color: white;
-			border : 2px solid gray;
-			height: 40px;
-			width : 130px;
-		}
 	
-		#b1{
+		.b1{
 			border-radius: 10px 0px 0px 10px;
 			margin-right: -12px;
 	
 			}
-		#b2{
+		.b2{
 			width:135px;
 		}
-		#b3{
+		
+		.b3{
 			border-radius: 0px 10px 10px 0px;
 			margin-left: -12px;
 		}
@@ -142,7 +160,7 @@ body {
 			
 		}
 		
-		input:hover{
+		.recommand_main > input:hover{
 			background-color:gray;
   			color:white;
 		}
@@ -151,25 +169,4 @@ body {
 			border:5px solid navy;
   			color:navy;
 		}
-		
-		<!-- 부트스트랩 btn 커스터마이징 -->
-.btn-info {
-    background-color: #17a2b8;
-    border-color: #17a2b8;
-    color: #eee;
-}
-.btn-info:hover,
-.btn-info:focus {
-    border-color: #128496;
-    background-color: #128496;
-    color: #ccc;
-}
-.btn-info:active,
-.btn-info:visited,
-.btn-info:active:focus,
-.btn-info:active:hover {
-    border-color: #128496;
-    background-color: #128496;
-    color: #ccc;
-}
 		

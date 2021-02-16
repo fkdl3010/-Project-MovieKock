@@ -54,22 +54,20 @@
 
     <div class="logo-wrapper">
       <div class="logo-px">
-        <a href="mainPage.do"><i class="fas fa-video fa-5x"></i></a>
+        <a href="mainPage.do"><img class="findPage_logo" src="assets/images/logo.jpg"/></a>
       </div>
     </div>
 
 
 		<div class="contents-wrapper">
-			<div class="contents-header txt">아이디, 비밀번호 찾기</div>
-
 			<div class="id-pw-form-box">
 
 				<div class="id-section">
 					<div class="id-section-header section-header txt">아이디 찾기</div>
 					<div class="id-form-control-box section-form">
 						<form method="post">
-							<input type="text" class="input-id inputs" id="input-name" name="user_name" placeholder="이름을 입력해 주세요." />
-							<input type="text" class="input-id-email inputs" id="input-id-email" name="user_email" placeholder="이메일을 입력해 주세요." />
+							<input type="text" class="input-id inputs" id="input-name" name="user_name" placeholder="이름을 입력해 주세요." autocomplete="off" />
+							<input type="text" class="input-id-email inputs" id="input-id-email" name="user_email" placeholder="이메일을 입력해 주세요." autocomplete="off" />
 							<input type="button" class="inp_btn" onclick="fn_findId(this.form)" value="아이디 찾기" />
 						</form>
 					</div>
@@ -79,9 +77,9 @@
 					<div class="pw-section-header section-header txt">비밀번호 찾기</div>
 					<div class="pw-form-control-box section-form">
 						<form method="post">
-							<input class="input-pw-name inputs" name="user_name" placeholder="이름을 입력해 주세요." />
-							<input type="text" class="input-pw-email inputs" name="user_email" placeholder="이메일을 입력해 주세요." />
-							<input type="text" class="input-pw-id inputs" name="user_id" placeholder="아이디를 입력해 주세요." />
+							<input class="input-pw-name inputs" name="user_name" placeholder="이름을 입력해 주세요." autocomplete="off" />
+							<input type="text" class="input-pw-email inputs" name="user_email" placeholder="이메일을 입력해 주세요." autocomplete="off" />
+							<input type="text" class="input-pw-id inputs" name="user_id" placeholder="아이디를 입력해 주세요." autocomplete="off" />
 							<input type="button" class="inp_btn" onclick="fn_findPw(this.form)" value="비밀번호 찾기" />
 						</form>
 					</div>

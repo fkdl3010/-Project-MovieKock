@@ -1,14 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+
+<!-- <!DOCTYPE html> -->
+<!-- <html> -->
+<!-- <head> -->
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> -->
+<!-- <title>Insert title here</title> -->
+
 <link rel="stylesheet" href="/movie/assets/style/singupSigninPageCss/privacyAgreementPage.css">
-</head>
-<body>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!-- </head> -->
+<!-- <body> -->
 		<div class="signupPage_top_logo">
 			<a href="mainPage.do"><img class="top_logo" alt="회원가입페이지 상단로고" src="/movie/assets/images/logo.jpg" /></a>
 		</div>
@@ -49,5 +51,5 @@
 		$('#close-btn').trigger('click');
 	}
 </script>
-</body>
-</html>
+<!-- </body> -->
+<!-- </html> -->
