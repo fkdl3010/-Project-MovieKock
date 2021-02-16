@@ -12,7 +12,6 @@
         let height = $(document).height();
         let height_win = $(window).height();
         
-        
         /* 스크롤이 하단에 위치한다면 */
      if (Math.round( $(window).scrollTop()) == $(document).height() - $(window).height()) {
         
