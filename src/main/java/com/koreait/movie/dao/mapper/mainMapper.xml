@@ -17,11 +17,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		 WHERE user_no = #{user_no}
 	</select>
 	
-	<select id="mainList1"
-		resultType="com.koreait.movie.dto.MovieDto">
-		SELECT *
-		FROM MOVIE
-		<![CDATA[WHERE ROWNUM <= 12]]>
+	<select id="mainList1" resultType="com.koreait.movie.dto.MovieDto">
+		 SELECT B.*
+		  FROM (SELECT ROWNUM AS RN, A.*
+			      FROM (SELECT ROW_NUMBER() OVER(PARTITION BY M.movie_title ORDER BY DBMS_RANDOM.RANDOM)AS RNUM,
+                        M.*, G.GENRE_NAME
+					     FROM MOVIE M, MOVIE_GENRE MG, GENRE G
+						WHERE M.MOVIE_NO = MG.MOVIE_NO
+					  	  AND G.GENRE_NO = MG.GENRE_NO
+					  	<if test="today=='월'">AND G.GENRE_NO IN (3, 7)</if>
+					     <if test="today=='화'">AND G.GENRE_NO IN (9, 11)</if>
+					     <if test="today=='수'">AND G.GENRE_NO IN (10, 12)</if>
+					     <if test="today=='목'">AND G.GENRE_NO IN (8, 11)</if>
+					     <if test="today=='금'">AND G.GENRE_NO IN (5, 9)</if>
+					     <if test="today=='토'">AND G.GENRE_NO IN (1, 2)</if>
+					     <if test="today=='일'">AND G.GENRE_NO IN (1, 5)</if>
+					     ORDER BY DBMS_RANDOM.RANDOM)A
+                     WHERE RNUM = 1) B
+		 <![CDATA[WHERE B.RN <= 12]]>
 	</select>
 
 	<select id="mainList2" resultType="com.koreait.movie.dto.MovieDto">
@@ -36,6 +49,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<![CDATA[WHERE ROWNUM <= 12]]>
 	</select>
 	
+	<select id="mainList4" resultType="com.koreait.movie.dto.MovieDto">
+		SELECT *
+		FROM MOVIE
+		<![CDATA[WHERE ROWNUM <= 12]]>
+		ORDER BY MOVIE_OPENING_DATE DESC
+	</select>
+	
+	<select id="mainList5" resultType="com.koreait.movie.dto.MovieDto">
+		SELECT *
+		FROM (
+			SELECT *
+			FROM movie
+			WHERE movie_nation ='한국'
+			ORDER BY DBMS_RANDOM.RANDOM
+			)
+		<![CDATA[WHERE ROWNUM <= 12]]>
+	</select>
+	
 	<select id="resultList" parameterType="String" resultType="com.koreait.movie.dto.MovieDto">
 		SELECT *
 		FROM movie
@@ -44,6 +75,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			or movie_audience LIKE '%'|| #{search} || '%'
 			or movie_nation LIKE '%'|| #{search} || '%'
 	</select>
+	
 	
 	<select id="userGenreList" parameterType="int" resultType="com.koreait.movie.dto.MovieDto">
 		select e.*

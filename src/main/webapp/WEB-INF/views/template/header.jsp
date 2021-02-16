@@ -8,24 +8,21 @@
 	}
 	pageContext.setAttribute("title", title);
 %>
-
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${title }</title>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
 <link rel="stylesheet" href="/movie/assets/style/common.css" />
+
 </head>
 <body>
 	<div class="top-wrap">
@@ -47,7 +44,7 @@
 			</div>
 			<div class="login-search-box">
 				<form class="search-form" action="searchResultPage.do" method="get">
-					<input type="text" class="input-search" name="search" placeholder="검색어를 입력해 주세요." />
+					<input type="text" class="input-search" name="search" id="searchInput" placeholder="검색어를 입력해 주세요." /> 
 					<span class="btn-a">
 						<button class="search-btn">
 							<i class="fas fa-search"></i>
@@ -59,3 +56,5 @@
 			</div>
 		</div>
 	</div>
+</body>
+</html>

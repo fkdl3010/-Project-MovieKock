@@ -112,7 +112,7 @@
 	
 	<!-- main -->
 	<bean id="mainCommand" class="com.koreait.movie.command.main.MainCommand"></bean>
-	<bean id="resultResultCommand" class="com.koreait.movie.command.main.SearchResultCommand"></bean>
+	<bean id="searchResultCommand" class="com.koreait.movie.command.main.SearchResultCommand"></bean>
 	
 	<!-- movieInfo -->
 	<bean id="movieInfoViewCommand" class="com.koreait.movie.command.movieInfo.MovieInfoViewCommand"></bean>

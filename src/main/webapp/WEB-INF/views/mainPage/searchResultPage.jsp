@@ -17,18 +17,29 @@
 			<p class="title">'${search}'에 대한 검색내용입니다.</p>
 			<div class="container">
 				<c:forEach var="movieDto" items="${resultList}">
-					<div class="mainMovieList" onclick="">
+					<div class="mainMovieList">
 						<div class="list">
 							<img src="/movie/assets/images/poster/${movieDto.movie_title}_포스터.jpg" />
 						</div>
 						<div class="info">
 							<h4>${movieDto.movie_title.replace('_',' ')}</h4>
 						</div>
+						<input type="hidden" id="movieNo" value="${movieDto.movie_no }" />
 					</div>
 				</c:forEach>
 			</div>
 		</c:if>
 	</div>
 </div>
+<script>
+	$(document).on("click", ".mainMovieList", movePage);
+
+	function movePage(event) {
+
+		const movieNo = event.currentTarget.children[2].value;
+
+		location.href = "movieInfoPage.do?movieNo=" + movieNo;
+	}
+</script>
 
 <%@ include file="../template/footer.jsp"%>

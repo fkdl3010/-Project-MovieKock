@@ -12,6 +12,8 @@ public interface MainDao {
 	public List<MovieDto> mainList2();
 
 	public List<MovieDto> mainList3();
+	public List<MovieDto> mainList4();
+	public List<MovieDto> mainList5();
 
 	public List<MovieDto> resultList(String search);
 

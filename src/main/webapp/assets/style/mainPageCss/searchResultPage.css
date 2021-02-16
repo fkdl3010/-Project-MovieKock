@@ -28,6 +28,7 @@
 
 .mainMovieList{
 	margin-bottom: 40px;
+	cursor: pointer;
 }
 
 .list {
