@@ -1,19 +1,19 @@
 let is_progress;
 	 // 코멘트 보기
-	 $('.comment_bot').on('click',handleCommentView);
-	 
+	 $(document).on("click",".comment_body",handleCommentView);
+
 	 function handleCommentView(event){
 		 	if(is_progress == true){
 				return;
 			}
 			is_progress = true;
-			const userNo = event.currentTarget.children[3].value;
-			const movieNo = event.currentTarget.children[4].value;
-			const commentNo = event.currentTarget.children[5].value;
-			const userNickname = event.currentTarget.children[6].value;
-			const commentContent = event.currentTarget.children[7].value;
-			const date = event.currentTarget.children[8].value;
-			const commentName = event.currentTarget.children[9].value;
+			const userNo = event.currentTarget.children.userNo.value;
+			const movieNo = event.currentTarget.children.movieNo.value;
+			const commentNo = event.currentTarget.children.commentNo.value;
+			const userNickname = event.currentTarget.children.userNickname.value;
+			const commentContent = event.currentTarget.children.commentContent.value;
+			const date = event.currentTarget.children.date.value;
+			const commentName = event.currentTarget.children.title.value;
 			let movieTitle;
 		 
 		 $.ajax({

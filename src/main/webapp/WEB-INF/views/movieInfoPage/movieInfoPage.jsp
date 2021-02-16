@@ -114,58 +114,61 @@
 							<c:choose>
 								<c:when test="${fn:length(commentList) > 3}">
 									<c:forEach begin="0" end="2" items="${commentList }" var="commentDto">
-										<div class="comment_bot" id="movieView" data-target="#layerpop-commentView" data-toggle="modal">
-											<div class="comment_main_top">
-													<i class="fas fa-user-circle fa-2x txt">${commentDto.user_nickname }</i>
-												<!--**************************** 별점 기능 필수 ******************************* -->
-												★${commentDto.comment_score }
-											</div>
-											<div class="comment_main_mid">
-												<textarea class="comment_main_mid_txt" readonly>
-													${commentDto.comment_content }
-												</textarea>
+										<div class="comment_bot" >
+											<div class="comment_body" id="movieView" data-target="#layerpop-commentView" data-toggle="modal">
+											
+												<div class="comment_main_top">
+														<i class="fas fa-user-circle fa-2x txt">${commentDto.user_nickname }</i>
+													<!--**************************** 별점 기능 필수 ******************************* -->
+													★${commentDto.comment_score }
+												</div>
+												<div class="comment_main_mid">
+													<textarea class="comment_main_mid_txt" readonly>${commentDto.comment_content }
+													</textarea>
+												</div>
+												<input type="hidden" name="userNo" value= "${commentDto.user_no}" >
+												<input type="hidden" name="movieNo" value="${commentDto.movie_no}" >
+												<input type="hidden" name="commentNo" value="${commentDto.comment_no}">
+					        	 				<input type="hidden" name="userNickname" value="${commentDto.user_nickname}">
+									        	<input type="hidden" name="commentContent" value="${commentDto.comment_content}">
+								        	    <input type="hidden" name="date" value="${commentDto.comment_date}">
+	  							        	    <input type="hidden" name="title" value="${commentDto.comments_title}">
 											</div>
 											<div class="comment_main_bot">
 												<a href="#">
 												좋아요<i class="far fa-thumbs-up">&nbsp;&nbsp;${commentDto.comment_like }</i>
 												</a>
 											</div>
-											<input type="hidden" name="userNo" value= "${commentDto.user_no}" >
-											<input type="hidden" name="movieNo" value="${commentDto.movie_no}" >
-											<input type="hidden" name="commentNo" value="${commentDto.comment_no}">
-				        	 				<input type="hidden" name="userNickname" value="${commentDto.user_nickname}">
-								        	<input type="hidden" name="commentContent" value="${commentDto.comment_content}">
-							        	    <input type="hidden" name="date" value="${commentDto.comment_date}">
-  							        	    <input type="hidden" name="title" value="${commentDto.comments_title}">
 							        	    
 										</div>
 									</c:forEach>
 								</c:when>
 								<c:otherwise>
 									<c:forEach items="${commentList }" var="commentDto">
-										<div class="comment_bot" id="movieView" data-target="#layerpop-commentView" data-toggle="modal">
-											<div class="comment_main_top">
-													<i class="fas fa-user-circle fa-2x txt">${commentDto.user_nickname }</i>
-												<!--**************************** 별점 기능 필수 ******************************* -->
-												★${commentDto.comment_score }
-											</div>
-											<div class="comment_main_mid">
-												<textarea class="comment_main_mid_txt" readonly>
-													${commentDto.comment_content }
-												</textarea>
+										<div class="comment_bot" >
+											<div class="comment_body" id="movieView" data-target="#layerpop-commentView" data-toggle="modal">
+												<div class="comment_main_top">
+														<i class="fas fa-user-circle fa-2x txt">${commentDto.user_nickname }</i>
+													<!--**************************** 별점 기능 필수 ******************************* -->
+													★${commentDto.comment_score }
+												</div>
+												<div class="comment_main_mid">
+													<textarea class="comment_main_mid_txt" readonly>${commentDto.comment_content }
+													</textarea>
+												</div>
+												<input type="hidden" name="userNo" value= "${commentDto.user_no}" >
+												<input type="hidden" name="movieNo" value="${commentDto.movie_no}" >
+												<input type="hidden" name="commentNo" value="${commentDto.comment_no}">
+					        	 				<input type="hidden" name="userNickname" value="${commentDto.user_nickname}">
+									        	<input type="hidden" name="commentContent" value="${commentDto.comment_content}">
+								        	    <input type="hidden" name="date" value="${commentDto.comment_date}">
+								        	    <input type="hidden" name="title" value="${commentDto.comments_title}">
 											</div>
 											<div class="comment_main_bot">
 												<a href="#">
 												좋아요<i class="far fa-thumbs-up">&nbsp;&nbsp;${commentDto.comment_like }</i>
 												</a>
 											</div>
-											<input type="hidden" name="userNo" value= "${commentDto.user_no}" >
-											<input type="hidden" name="movieNo" value="${commentDto.movie_no}" >
-											<input type="hidden" name="commentNo" value="${commentDto.comment_no}">
-				        	 				<input type="hidden" name="userNickname" value="${commentDto.user_nickname}">
-								        	<input type="hidden" name="commentContent" value="${commentDto.comment_content}">
-							        	    <input type="hidden" name="date" value="${commentDto.comment_date}">
-							        	    <input type="hidden" name="title" value="${commentDto.comments_title}">
 										</div>
 									</c:forEach>
 								</c:otherwise>
@@ -219,6 +222,10 @@
    		}
    		.modal-footer {
 		    width: 100%;
+		}
+		textarea#commentContents {
+		    width: 100%;
+		    height: 100%;
 		}
 		
 	</style>
