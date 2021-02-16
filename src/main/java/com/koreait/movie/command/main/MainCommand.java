@@ -1,6 +1,8 @@
 
 package com.koreait.movie.command.main;
 
+import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -44,18 +46,26 @@ public class MainCommand implements CommonVoidCommand {
 			
 			model.addAttribute("mainList2", mainList2);
 		}
-		
-		
-		
-		List<MovieDto> mainList1 = dao.mainList1();
-		model.addAttribute("mainList1", mainList1);
 	
 		// 사용자 취향 정보가 담겨있는 영화들 12개
 		List<MovieDto> mainList2 = dao.mainList2();
 		
+		// 요일별 리스트
+		Calendar cal = Calendar.getInstance();
+		String[] days = {"", "일", "월", "화", "수", "목", "금", "토"};
+		String today = days[cal.get(Calendar.DAY_OF_WEEK)];
 		
-		
+		List<MovieDto> mainList1 = dao.mainList1();
+		model.addAttribute("mainList1", mainList1);
+		model.addAttribute("today", today);
+	
+		// 나머지
 		List<MovieDto> mainList3 = dao.mainList3();
 		model.addAttribute("mainList3", mainList3);
+		List<MovieDto> mainList4 = dao.mainList4();
+		model.addAttribute("mainList4", mainList4);
+		List<MovieDto> mainList5 = dao.mainList5();
+		model.addAttribute("mainList5", mainList5);
+		
 	}
 }
