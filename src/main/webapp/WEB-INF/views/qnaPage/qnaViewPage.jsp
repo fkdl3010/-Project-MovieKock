@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="/movie/assets/style/qnaPageCss/qnaViewPage.css"/>
 	<div class="wrap">
 		<div class="main">
-			<div class="main_body">
+			<div class="mainBody">
 				<table class="tableUserWrite">
 					<tr class="userWriteTr">
 						<td class="userWriteTd">내용</td>
@@ -19,7 +19,7 @@
 					<tr class="userWriteTrResp">
 						<td class="userWriteTdResp">${qnaDto.qna_content}</td>
 						<td class="userWriteTdResp">${qnaDto.qna_date}</td>
-						<td class="userWriteTdResp" >${qnaDto.qna_yn}</td>
+						<td class="userWriteTdResp">${qnaDto.qna_yn}</td>
 					</tr>
 				</table>
 				<table class="tableAdminWrite">
@@ -28,14 +28,14 @@
 						<td class="adminWriteTd">답변 날짜</td>
 						<td class="adminWriteTd">답변 여부</td>
 					</tr>
-					<c:if test="${empty adminWrite}">
+					<c:if test="${qnaReplyCount eq 0}">
 					<tr class="adminWriteTrResp">
 						<td class="adminWriteTdResp">${qnaDto.qna_content}</td>
 						<td class="adminWriteTdResp">${qnaDto.qna_date}</td>
 						<td class="adminWriteTdResp">답변 대기중</td>
 					</tr>
 					</c:if>
-					<c:if test="${not empty adminWrite}">
+					<c:if test="${qnaReplyCount gt 1}">
 					<tr class="adminWriteTrResp">
 						<td class="adminWriteTdResp">${qnaDto.qna_content}</td>
 						<td class="adminWriteTdResp">${qnaDto.qna_date}</td>
@@ -44,17 +44,17 @@
 					</c:if>
 				</table>
 				<form method="post">
-					<input type="button" class="deleteBtn" value="삭제"  onclick="fn_qnaDelete(this.form)" />
-					<input type="hidden" name="qna_no" value="${qnaDto.qna_no}" />
+					<c:if test="${loginUser.user_id eq 'admin' || qnaDto.user_no eq loginUser.user_no  }">
+						<input type="button" class="deleteBtn" value="삭제"  onclick="fn_qnaDelete(this.form)" />
+						<input type="hidden" name="qna_no" value="${qnaDto.qna_no}" />
+					</c:if>
 				</form>
 				<form method="get">
 					<input type="button" class="listBtn" value="목록" onclick="fn_qnaListView(this.form)" />	
 				</form>
 				<form method="get">
-					<c:if test="${user_nickname eq 'admin' }">
-						<input type="button" class="adiminWrite" value="답변하기" onclick="fn_qnaAdminWrite(this.form)" />
-					</c:if>
-					<c:if test="${user_nickname not eq 'admin' }">
+					<c:if test="${loginUser.user_id eq 'admin' }">
+						<input type="button" class="qnaReplyBtn" value="답변하기" onclick="fn_qnaReplyPage(this.form)" />
 					</c:if>
 				</form>
 			</div>
@@ -70,8 +70,14 @@
 			f.submit();
 		}
 	}
+ 	
  	function fn_qnaListView(f) {
 			f.action = 'qnaListView.do';
+			f.submit();
+		}
+ 	
+ 	function fn_qnaReplyPage(f) {
+			f.action = 'qnaReplyPage.do';
 			f.submit();
 		}
 	
