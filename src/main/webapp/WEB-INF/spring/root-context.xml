@@ -87,7 +87,16 @@
 	<!-- myPage -->
 	<bean id="myPageCommand" class="com.koreait.movie.command.myPage.MyPageCommand"></bean>
 	<bean id="userUpdateCommand" class="com.koreait.movie.command.myPage.UserUpdateCommand"></bean>
+
+	<bean id="myPagePwCommand" class="com.koreait.movie.command.myPage.MyPagePwCommand"></bean>
+
+	<!-- request 
+	<bean id="requestWriteCommand" class="com.koreait.movie.command.request.RequestWriteCommand"></bean> 
+	<bean id="requestListCommand" class="com.koreait.movie.command.request.RequestListCommand"></bean>
+	<bean id="requestViewCommand" class="com.koreait.movie.command.request.RequestViewCommand"></bean> -->
+
 	<bean id="userAddProfileCommand" class="com.koreait.movie.command.myPage.UserAddProfileCommand"></bean>
+
 
 	<bean id="userWriteListCommand" class="com.koreait.movie.command.myPage.UserWriteListCommand"></bean>
 	<bean id="getMovieTitleCommand" class="com.koreait.movie.command.myPage.GetMovieTitleCommand"></bean>
@@ -102,7 +111,9 @@
 	<bean id="qnaListCommand" class="com.koreait.movie.command.qna.QnaListCommand"></bean>
 	<bean id="qnaViewCommand" class="com.koreait.movie.command.qna.QnaViewCommand"></bean>
 	<bean id="qnaDeleteCommand" class="com.koreait.movie.command.qna.QnaDeleteCommand"></bean>
-	<bean id="qnaAdminWriteCommand" class="com.koreait.movie.command.qna.QnaAdminWriteCommand"></bean>
+	
+	<!-- admin -->
+	<bean id="qnaAdminContentCommand" class="com.koreait.movie.command.qna.QnaReplyCommand"></bean>
 	
 	<!--recommand -->
 	<bean id="randomMovieCommand" class="com.koreait.movie.command.recommand.RecommandRandomMovieCommand"></bean>

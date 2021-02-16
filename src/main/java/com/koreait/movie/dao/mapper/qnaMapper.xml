@@ -19,12 +19,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE USER_NO = #{user_no} 
 	</select> 
 	
-	<select id="adminId" parameterType="int" resultType="string"> 
-		SELECT USER_id
-        FROM USERS 
-        WHERE USER_NICKNAME = 'admin'
-	</select> 
-	 
 	
 	<select id="qnaList" resultType="com.koreait.movie.dto.QnaDto">
 		SELECT B.*
@@ -43,17 +37,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="qnaView" parameterType="int" resultType="com.koreait.movie.dto.QnaDto">
-		SELECT *
-		  FROM QNA
-		 WHERE QNA_NO = #{qna_no}
+		SELECT Q.*, U.USER_NICKNAME
+		  FROM QNA Q, USERS U
+		 WHERE Q.USER_NO = U.USER_NO
+		   AND QNA_NO = #{qna_no}
 	</select>
 	
-	<delete id="qnaDelete" parameterType="int">
-		DELETE
-		  FROM QNA
-		 WHERE QNA_NO = #{qna_no}
-	</delete>
+
 	
 	
-	
-</mapper>	
+</mapper>
+

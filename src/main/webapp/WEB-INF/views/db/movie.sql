@@ -166,6 +166,20 @@ ALTER TABLE QNA
         REFERENCES Users (user_no)
 /
 
+CREATE TABLE QNA_REPLY
+(
+    qna_reply_no    NUMBER            NOT NULL, 
+    qna_no      NUMBER            REFERENCES QNA(QNA_NO), 
+    qna_reply_content     VARCHAR2(4000)    NULL, 
+    qna_reply_date        date              NULL, 
+    CONSTRAINT QNA_REPLY_PK PRIMARY KEY (qna_reply_no)
+)
+/
+
+CREATE SEQUENCE qna_reply_SEQ
+START WITH 1
+INCREMENT BY 1;
+
 
 -- movie Table Create SQL
 CREATE TABLE movie_genre

@@ -19,7 +19,13 @@
 <script type="text/javascript">
 	function fn_findId(f){
 		if(f.user_name.value == '' || f.user_email.value == ''){
-			alert('필요한 정보를 전부 입력 해주시기 바랍니다.');
+			
+			swal({
+			    title: "Info",
+			    text: "필요한 정보를 전부 입력 해주시기 바랍니다.",
+			    icon: "info" //"info,success,warning,error" 중 택1
+			});
+			
 			return;
 		} else {
 			f.action="findId.do";
@@ -29,7 +35,13 @@
 	
 	function fn_findPw(f){
 		if(f.user_name.value == '' || f.user_email.value == '' || f.user_id.value == ''){
-			alert('필요한 정보를 전부 입력 해주시기 바랍니다.');
+			
+			swal({
+			    title: "Info",
+			    text: "필요한 정보를 전부 입력 해주시기 바랍니다.",
+			    icon: "info" //"info,success,warning,error" 중 택1
+			});
+			
 			return;
 		} else {
 			f.action="findPw.do";
