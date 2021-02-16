@@ -145,7 +145,12 @@
 		if(userSelect.length > 10){
 			/* 영화선택 배열을 하나 지워주고 checked 속성을 false로 되돌림 */
 			userSelect.pop();
-			alert('영화는 10개까지 선택이 가능합니다.');
+			swal({
+			    title: "Info",
+			    text: "영화는 10개까지 선택이 가능합니다.",
+			    icon: "info" //"info,success,warning,error" 중 택1
+			});
+			
 			event.target.children[0].setAttribute('checked', 'false');
 			return;
 		}
@@ -198,7 +203,13 @@
   
   /* 값 보내는 fn */
   function fn_submit(f){
-	  alert('회원님이 고르신 영화들로 추천해드릴게요!!');
+;
+	  
+	  swal({
+		    title: "Info",
+		    text: "회원님이 고르신 영화들로 추천해드릴게요!!",
+		    icon: "info" //"info,success,warning,error" 중 택1
+		});
 	  
 	  f.action = 'userSelectMovieList.do?userNo=' + userNo;
 	  f.submit();

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,7 +53,12 @@
 	
 	function fn_login(f){
 		if(f.id.value == '' || f.pw.value == ''){
-			alert('아이디와 비밀번호를 모두 입력하세요');
+			swal({
+			    title: "Warning",
+			    text: "아이디와 비밀번호를 모두 입력하세요'.",
+			    icon: "warning" //"info,success,warning,error" 중 택1
+			});
+	
 			return;
 		} else {
 			f.action="login.do";

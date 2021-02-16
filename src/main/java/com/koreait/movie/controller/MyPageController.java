@@ -19,8 +19,12 @@ import com.koreait.movie.command.myPage.CommentDeleteCommand;
 import com.koreait.movie.command.myPage.CommentUpdateCommand;
 import com.koreait.movie.command.myPage.GetMovieTitleCommand;
 import com.koreait.movie.command.myPage.MyPageCommand;
+
+import com.koreait.movie.command.myPage.MyPagePwCommand;
+
 import com.koreait.movie.command.myPage.UserAddCoverCommand;
 import com.koreait.movie.command.myPage.UserAddProfileCommand;
+
 import com.koreait.movie.command.myPage.UserUpdateCommand;
 import com.koreait.movie.command.myPage.UserWriteListCommand;
 import com.koreait.movie.dto.PageVo;
@@ -39,8 +43,12 @@ public class MyPageController {
 	private GetMovieTitleCommand getMovieTitleCommand;
 	private CommentUpdateCommand commentUpdateCommand;
 	private CommentDeleteCommand commentDeleteCommand;
+
+	private MyPagePwCommand myPagePwCommand;
+
 	private UserAddProfileCommand userAddProfileCommand;
 	private UserAddCoverCommand userAddCoverCommand;
+
 	
 	@Autowired
 	public void setBean(
@@ -50,8 +58,10 @@ public class MyPageController {
 				GetMovieTitleCommand getMovieTitleCommand,
 				CommentUpdateCommand commentUpdateCommand,
 				CommentDeleteCommand commentDeleteCommand,
+
 				UserAddProfileCommand userAddProfileCommand,
 				UserAddCoverCommand userAddCoverCommand
+
 			) {
 		this.myPageCommand = myPageCommand;
 		this.userUpdateCommand = userUpdateCommand;
@@ -59,8 +69,11 @@ public class MyPageController {
 		this.getMovieTitleCommand = getMovieTitleCommand;
 		this.commentUpdateCommand = commentUpdateCommand;
 		this.commentDeleteCommand = commentDeleteCommand;
+		this.myPagePwCommand = myPagePwCommand;
+
 		this.userAddProfileCommand = userAddProfileCommand;
 		this.userAddCoverCommand = userAddCoverCommand;
+
 	}
 
 	@RequestMapping(value="myWritePage.do")
@@ -164,4 +177,12 @@ public class MyPageController {
 		return userAddCoverCommand.execute(sqlSession, model);
 	}
 
+	/*****비밀번호 변경 전 비밀번호 입력******/
+	@RequestMapping(value="myPagePw.do",
+			method=RequestMethod.POST)
+	public String myPagePw(HttpServletRequest request,Model model){
+		model.addAttribute("request", request);
+		 myPagePwCommand.execute(sqlSession, model);
+		return "myPage/myPage";
+	}
 }

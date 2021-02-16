@@ -70,6 +70,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where comment_no = #{commentNo}
 	</delete>
 	
+
+	<select id="pwCheck"  parameterType="String" resultType="int">
+		select user_no
+		from users
+		where user_pw = #{pw}
+	</select>
+
 	<update id="userAddProfile">
 		update users
 		set user_profile_name = #{param1}
