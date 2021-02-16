@@ -18,46 +18,40 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</if>
 	</insert>
 
-	<select id="userNickname" parameterType="int"
-		resultType="string">
-		SELECT USER_NICKNAME
-		FROM USERS
-		WHERE USER_NO = #{user_no}
-	</select>
-
-	<select id="adminId" parameterType="int" resultType="string">
-		SELECT USER_id
-		FROM USERS
-		WHERE USER_NICKNAME = 'admin'
-	</select>
-
-
+	
+	<select id="userNickname" parameterType="int" resultType="string"> 
+		SELECT USER_NICKNAME 
+		FROM USERS 
+		WHERE USER_NO = #{user_no} 
+	</select> 
+	
+	
 	<select id="qnaList" resultType="com.koreait.movie.dto.QnaDto">
 		SELECT B.*
-		FROM (SELECT ROWNUM AS RN, A.*
-		FROM (SELECT Q.*, U.USER_NICKNAME
-		FROM QNA Q, USERS U
-		WHERE Q.USER_NO = U.USER_NO
-		ORDER BY QNA_NO DESC) A) B
-		WHERE B.RN BETWEEN #{param1} AND #{param2}
+		  FROM (SELECT ROWNUM AS RN, A.*
+		          FROM (SELECT Q.*, U.USER_NICKNAME
+		                  FROM QNA Q, USERS U
+		                 WHERE Q.USER_NO = U.USER_NO
+		              ORDER BY QNA_NO DESC) A) B
+		 WHERE B.RN BETWEEN #{param1} AND #{param2}
 	</select>
-
-
+	
+	
 	<select id="totalRecord" resultType="int">
 		SELECT COUNT(*)
-		FROM QNA
+		  FROM QNA
 	</select>
-
-	<select id="qnaView" parameterType="int"
-		resultType="com.koreait.movie.dto.QnaDto">
-		SELECT *
-		FROM QNA
-		WHERE QNA_NO = #{qna_no}
+	
+	<select id="qnaView" parameterType="int" resultType="com.koreait.movie.dto.QnaDto">
+		SELECT Q.*, U.USER_NICKNAME
+		  FROM QNA Q, USERS U
+		 WHERE Q.USER_NO = U.USER_NO
+		   AND QNA_NO = #{qna_no}
 	</select>
+	
 
-	<delete id="qnaDelete" parameterType="int">
-		DELETE
-		FROM QNA
-		WHERE QNA_NO = #{qna_no}
-	</delete>
+	
+	
 </mapper>
+
+

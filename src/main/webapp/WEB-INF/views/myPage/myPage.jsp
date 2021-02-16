@@ -6,9 +6,8 @@
 <jsp:include page="../template/header.jsp">
 	<jsp:param value="인덱스" name="title" />
 </jsp:include>
-      <title></title>
 
-<link rel="stylesheet" href="/movie/assets/style/myPage.css"/>
+<link rel="stylesheet" href="/movie/assets/style/myPageCss/myPage.css"/>
         <div class="big-box">
         	<div class="coverBox">
                 <!-- 초기 값은 커버사진 추가하기 버튼 -->
@@ -23,33 +22,40 @@
              		<label for="addProfileBtn" class="profileAddLabel">프로필 추가하기</label>
                 </form>
             </div>
-               
-              <div class="small-box" id="card-box1">
-              	<c:if test="${empty loginUser }">
-              		없음
-              	</c:if>
-              	
-              	<c:if test="${not empty loginUser }">
-              		닉네임: <input type="text" id="nickName" value="${loginUser.user_nickname }" readonly onkeyup="nickCheck()"/>
-              				<input type="button" id="nickNameCheckbtn" class="btn btn-info none" value="중복체크" onclick="fn_nickCheck()"/><br>
-              		이름: <input type="text" id="name" value="${loginUser.user_name }" readonly/><br>
-              		이메일: <input type="text" id="email" value="${loginUser.user_email }" readonly onkeyup="emailCheck()"/>
-              				<input type="button" id="emailCheckbtn" class="btn btn-info none" value="중복체크" onclick="fn_emailCheck()"/><br>
-              		휴대폰 번호: <input type="text" id="phone" value="${loginUser.user_phone }" readonly/><br>
-              		가입일: <input type="text" id="date" value="${loginUser.user_date }" readonly/><br>
-              	</c:if>
-                
-                <input type="button" id="update" class="inp_btn update_btn none" value="수정하기" onclick="fn_userUpdate()">
-                <input type="button" id="alter" class="inp_btn alter_btn" value="수정" onclick="fn_userAlter()">
-              </div>
-              <div class="small-box"  id="card-box2"></div>
-              <div class="small-box"  id="card-box3"></div>
-            </div>
-    </body>
+			<div class="card_box">
+				<div class="small-box" id="card-box1">
+					<c:if test="${empty loginUser }">
+						없음
+					</c:if>
+				
+				<c:if test="${not empty loginUser }">
+					<div class="info_box">
+						<span class="info_txt">닉네임: </span><input type="text" class="inp_txt" id="nickName" value="${loginUser.user_nickname }" readonly onkeyup="nickCheck()"/>
+						<input type="button" id="nickNameCheckbtn" class="check_btn inp_btn none" value="중복체크" onclick="fn_nickCheck()"/><br>
+						<span class="info_txt">이름: </span><input type="text" class="inp_txt" id="name" value="${loginUser.user_name }" readonly/><br>
+						<span class="info_txt">이메일: </span><input type="text" class="inp_txt" id="email" value="${loginUser.user_email }" readonly onkeyup="emailCheck()"/>
+						<input type="button" id="emailCheckbtn" class="check_btn inp_btn none" value="중복체크" onclick="fn_emailCheck()"/><br>
+						<span class="info_txt">휴대폰 번호: </span><input type="text" class="inp_txt" id="phone" value="${loginUser.user_phone }" readonly/><br>
+						<span class="info_txt">가입일: </span><input type="text" class="inp_txt" id="date" value="${loginUser.user_date }" readonly/><br>
+					</div>
+				</c:if>
+				
+				<input type="button" id="update" class="inp_btn update_btn none" value="수정하기" onclick="fn_userUpdate()">
+				<input type="button" id="alter" class="inp_btn alter_btn" value="수정" onclick="fn_userAlter()">
+				</div>
+				<div class="small-box"  id="card-box2">
+				
+				</div>
+				<div class="small-box"  id="card-box3">
+				
+				</div>
+				</div>
+			</div>
+    <%@ include file="../template/footer.jsp" %>
 <script type="text/javascript">
 	
 	/* 유저정보 */
-	let userNo = ${loginUser.user_no}2;
+	let userNo = ${loginUser.user_no};
 	
 	let nickName;
 	let name;
@@ -419,4 +425,3 @@
 	
 
 </script>
-</html>

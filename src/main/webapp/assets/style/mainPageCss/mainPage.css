@@ -1,13 +1,15 @@
+@charset "UTF-8";
 
 body {
-	background: #141414;
+	margin-top: 100px !important;
 }
 
 .wrap {
 	display: grid;
 	place-items: center;
 	height: 100%;
-	margin-top: 100px;
+	margin-top: -3px;
+	background: #e8e5e578;
 }
 
 .section {
@@ -19,11 +21,11 @@ body {
 .main {
 	position: relative;
 	margin: 1px 50px 1px 120px;
-	width: 1300px;
+	width: 90%;
 }
 
 .wrap h3 {
-	color: #fff;
+	color: #141414;
 }
 
 .text > p, h4{

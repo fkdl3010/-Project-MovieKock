@@ -17,6 +17,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		 WHERE user_no = #{user_no}
 	</select>
 	
+
 	<select id="mainList1" resultType="com.koreait.movie.dto.MovieDto">
 		 SELECT B.*
 		  FROM (SELECT ROWNUM AS RN, A.*
@@ -35,18 +36,31 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 					     ORDER BY DBMS_RANDOM.RANDOM)A
                      WHERE RNUM = 1) B
 		 <![CDATA[WHERE B.RN <= 12]]>
+
 	</select>
 
 	<select id="mainList2" resultType="com.koreait.movie.dto.MovieDto">
-		SELECT *
-		FROM MOVIE
-		<![CDATA[WHERE ROWNUM <= 12]]>
+		select b.movie_no, b.movie_title, b.movie_director, b.movie_audience, b.movie_opening_date, b.movie_nation, a.genre_name
+		from (
+		    select a.movie_no, LISTAGG(b.genre_name, ',') within group (order by b.genre_name) as genre_name
+				from movie a, genre b, movie_genre c
+				where a.movie_no = c.movie_no
+				and b.genre_no = c.genre_no
+				group by a.movie_no) a , movie b
+		where a.movie_no = b.movie_no
+		<![CDATA[and ROWNUM <= 12]]>
 	</select>
 
 	<select id="mainList3" resultType="com.koreait.movie.dto.MovieDto">
-		SELECT *
-		FROM MOVIE
-		<![CDATA[WHERE ROWNUM <= 12]]>
+		select b.movie_no, b.movie_title, b.movie_director, b.movie_audience, b.movie_opening_date, b.movie_nation, a.genre_name
+		from (
+		    select a.movie_no, LISTAGG(b.genre_name, ',') within group (order by b.genre_name) as genre_name
+				from movie a, genre b, movie_genre c
+				where a.movie_no = c.movie_no
+				and b.genre_no = c.genre_no
+				group by a.movie_no) a , movie b
+		where a.movie_no = b.movie_no
+		<![CDATA[and ROWNUM <= 12]]>
 	</select>
 	
 	<select id="mainList4" resultType="com.koreait.movie.dto.MovieDto">

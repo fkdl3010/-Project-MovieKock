@@ -25,7 +25,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		set user_nickname = #{user_nickname},
 			user_name = #{user_name},
 			user_email = #{user_email},
-			user_phone = #{user_phone}
+			user_phone = #{user_phone},
+			user_pw = #{user_pw}
 		where user_no = #{user_no}
 	</update>
 	
@@ -70,7 +71,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where comment_no = #{commentNo}
 	</delete>
 	
-	<update id="userAddProfile">
+
+	<select id="pwCheck"  parameterType="String" resultType="int">
+		select user_no
+		from users
+		where user_pw = #{pw}
+	</select>
+
+	<update id="userAddProfile"> 
 		update users
 		set user_profile_name = #{param1}
 		where user_no = #{param2}

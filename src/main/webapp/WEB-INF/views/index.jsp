@@ -10,7 +10,11 @@
 	}
 	
 </script>
-
+<style>
+	body{
+		margin-top: 95px;
+	}
+</style>
 	<a href="mainPage.do">메인페이지</a><br>
 	<a href="searchResultPage.do">검색</a>
 	<br><br>

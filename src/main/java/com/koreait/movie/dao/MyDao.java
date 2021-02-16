@@ -39,8 +39,13 @@ public interface MyDao {
 	
 	public int deleteComment(int commentNo);
 	
+
+	public Integer pwCheck(String pw);
+	
+
 	public int userAddProfile(String uploadFilename, int userNo);
 	
 	public int userAddCover(String uploadFilename, int userNo);
+
 	
 }

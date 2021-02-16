@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 public class MovieScoreDto {
 
 	private int movie_score_no;
-	private int star_score;
+	private double star_score;
 	private int movie_no;
 	private int user_no;
 	
