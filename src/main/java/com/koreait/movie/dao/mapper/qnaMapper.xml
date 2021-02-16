@@ -5,13 +5,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 <mapper namespace="com.koreait.movie.dao.QnaDao">
-		
-	<insert id="qnaWrite" parameterType="com.koreait.movie.dto.QnaDto">
+
+	<insert id="qnaWrite"
+		parameterType="com.koreait.movie.dto.QnaDto">
 		INSERT INTO
-		   QNA
-	    <if test="qna_pw!=null">VALUES (QNA_SEQ.NEXTVAL, #{qna_select}, #{qna_title}, #{qna_secret}, #{user_no}, #{qna_content}, #{qna_pw}, SYSDATE, #{qna_yn})</if>
-	    <if test="qna_pw==null">VALUES (QNA_SEQ.NEXTVAL, #{qna_select}, #{qna_title}, #{qna_secret}, #{user_no}, #{qna_content}, NULL, SYSDATE, #{qna_yn})</if>
+		QNA
+		<if test="qna_pw!=null">VALUES (QNA_SEQ.NEXTVAL, #{qna_select}, #{qna_title},
+			#{qna_secret}, #{user_no}, #{qna_content}, #{qna_pw}, SYSDATE,
+			#{qna_yn})</if>
+		<if test="qna_pw==null">VALUES (QNA_SEQ.NEXTVAL, #{qna_select}, #{qna_title},
+			#{qna_secret}, #{user_no}, #{qna_content}, NULL, SYSDATE, #{qna_yn})
+		</if>
 	</insert>
+
 	
 	<select id="userNickname" parameterType="int" resultType="string"> 
 		SELECT USER_NICKNAME 
@@ -47,4 +53,5 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	
 </mapper>
+
 
