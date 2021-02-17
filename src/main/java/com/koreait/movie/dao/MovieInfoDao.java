@@ -1,6 +1,7 @@
 package com.koreait.movie.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import com.koreait.movie.dto.CommentDto;
 import com.koreait.movie.dto.MovieDto;
@@ -20,9 +21,19 @@ public interface MovieInfoDao {
 	
 	public List<MovieDto> getRelationMovieList(int movieNo);
 	
-	public int setStarScore(int userNo, int movieNo, int starScore);
+	public int setStarScore(int userNo, int movieNo, double starScore);
 	
-	public int updateStarScore(int starScore, int movieScoreNo);
+	public int updateStarScore(double starScore, int movieScoreNo);
 	
 	public MovieScoreDto seachUserStarScore(int userNo, int movieNo);
+	
+	public int commentInsert(CommentDto commentDto);
+	
+	public List<CommentDto> commentList(int movieNo);
+	
+	public List<CommentDto> movieCommentViewList(int movieNo);
+	
+	public int totalCommentRecord(int movieNo);
+	
+	public List<CommentDto> scrollCommentList(Map<String, Object> map);
 }

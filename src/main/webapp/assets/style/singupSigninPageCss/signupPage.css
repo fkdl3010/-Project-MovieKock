@@ -1,11 +1,11 @@
 @charset "UTF-8";
 
 .txt{
-	color: #ddd;
+	color: black;
 }
 
 body {
-	background: #141414;
+	background: white;
 }
 	
 	.signupPage_top_logo {

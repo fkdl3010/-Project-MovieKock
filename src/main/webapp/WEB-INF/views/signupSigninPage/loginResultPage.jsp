@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
@@ -17,13 +19,28 @@
 <script>
 
 	if(${signUp}){
-		alert('${loginUser.user_nickname}님 환영합니다.');
+		swal({
+		    title: "Info",
+		    text: "${loginUser.user_nickname}님 환영합니다.",
+		    icon: "info" //"info,success,warning,error" 중 택1
+		});
+		
 		document.querySelector('#signUpAction').submit();
 	}else if (${loginResult}) {
-		alert('${loginUser.user_nickname}님 환영합니다.');
+		swal({
+		    title: "Info",
+		    text: "${loginUser.user_nickname}님 환영합니다.",
+		    icon: "info" //"info,success,warning,error" 중 택1
+		});
 		location.href='index.do';
 	}else{
-		alert('일치하는 회원이 없습니다.');
+		
+		swal({
+		    title: "Waring",
+		    text: "일치하는 회원이 없습니다.",
+		    icon: "warningo" //"info,success,warning,error" 중 택1
+		});
+
 		location.href='loginPage.do';
 	}
 	

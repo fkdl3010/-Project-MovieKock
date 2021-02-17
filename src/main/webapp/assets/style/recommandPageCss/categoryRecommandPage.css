@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 body {
-	background: #141414;
+	background: white;
 }
 html {
   box-sizing: border-box;
@@ -23,6 +23,13 @@ img {
 
 	
 }
+
+.list afterInsert: hover{
+	filter: blur(10px);
+	-webkit-filter: blur(10px);
+	transition: all 4s;
+}
+
 
 .main-wrapper{
 	width: 80%;
