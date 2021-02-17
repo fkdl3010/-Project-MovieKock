@@ -22,10 +22,13 @@ public class MyPageCommand implements CommonVoidCommand {
 		HttpServletRequest request = (HttpServletRequest)map.get("request");
 		
 		HttpSession session = request.getSession();
+		
+		
 
 		UserDto loginUser = (UserDto)session.getAttribute("loginUser");
 		model.addAttribute("loginUser", loginUser);
 	
-		
+		//UserDto userDto = new UserDto();
+		//userDto.setUser_pw(user_pw);
 	}
 }
