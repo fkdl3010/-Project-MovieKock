@@ -314,7 +314,6 @@
 					    icon: "error" //"info,success,warning,error" 중 택1
 					});
 					
-					
 					/*  alert('유저초기별점에러');*/
 				}
 				
