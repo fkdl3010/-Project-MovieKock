@@ -37,7 +37,7 @@
 		
 		swal({
 		    title: "Waring",
-		    text: "일치하는 회원이 없습니다.",
+		    text: "아이디와 비밀번호를 확인해주세요.",
 		    icon: "warningo" //"info,success,warning,error" 중 택1
 		});
 
