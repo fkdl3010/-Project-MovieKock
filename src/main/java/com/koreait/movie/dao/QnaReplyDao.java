@@ -9,7 +9,7 @@ public interface QnaReplyDao {
 	
 	public int qnaDelete(int qna_no);
 	
-	public QnaReplyDto qnaReply(QnaReplyDto qna_reply_content);
+	public QnaReplyDto qnaReply(QnaReplyDto qnaRepltDto);
 	
 	public QnaDto qnaReplyName(QnaDto user_nickname);
 	

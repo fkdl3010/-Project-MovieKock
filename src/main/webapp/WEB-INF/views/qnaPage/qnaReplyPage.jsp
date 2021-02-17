@@ -11,12 +11,12 @@
 	        <h3>답변 하기</h3>
         </div>  
         <div class="main_body">
-            <form action="qnaReplyPage.do" method="post">
+            <form action="qnaReply.do" method="post">
             <div class="box1">
-                <button class="btn">답변등록</button>
                 <div class="box2">
-                	<textarea rows="100" cols="100" name="qnaReplyContent" class="qnaReplyContent" id="qnaReplyContent" placeholder="답변 내용을 입력하세요."></textarea>                     
+                	<textarea rows="100" cols="100" name="qna_reply_content" class="qna_reply_content" id="qna_reply_content" placeholder="답변 내용을 입력하세요."></textarea>                     
                 </div>
+                <button class="btn">답변등록</button>
         	</div>
 			</form>
             </div>
