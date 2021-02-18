@@ -1,8 +1,6 @@
 package com.koreait.movie.dao;
 
 import java.util.List;
-import java.util.Map;
-
 import com.koreait.movie.dto.MovieDto;
 
 public interface MainDao {
@@ -16,6 +14,8 @@ public interface MainDao {
 	public List<MovieDto> mainList5();
 
 	public List<MovieDto> resultList(String search);
+
+	public List<MovieDto> autoComplete(String search);
 
 	public List<MovieDto> userGenreList(int userNo);
 

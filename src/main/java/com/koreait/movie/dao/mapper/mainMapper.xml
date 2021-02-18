@@ -60,8 +60,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT *
 		FROM (
 			SELECT *
-			FROM movie
-			WHERE movie_nation ='한국'
+			FROM MOVIE
+			WHERE MOVIE_NATION ='한국'
 			ORDER BY DBMS_RANDOM.RANDOM
 			)
 		<![CDATA[WHERE ROWNUM <= 12]]>
@@ -69,13 +69,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="resultList" parameterType="String" resultType="com.koreait.movie.dto.MovieDto">
 		SELECT *
-		FROM movie
-		WHERE movie_title LIKE '%'|| #{search} || '%'
-			or movie_director LIKE '%'|| #{search} || '%'
-			or movie_audience LIKE '%'|| #{search} || '%'
-			or movie_nation LIKE '%'|| #{search} || '%'
+		FROM MOVIE
+		WHERE MOVIE_TITLE LIKE '%'|| #{search} || '%'
+			OR MOVIE_DIRECTOR LIKE '%'|| #{search} || '%'
+			OR MOVIE_AUDIENCE LIKE '%'|| #{search} || '%'
+			OR MOVIE_NATION LIKE '%'|| #{search} || '%'
 	</select>
-	
 	
 	<select id="userGenreList" parameterType="int" resultType="com.koreait.movie.dto.MovieDto">
 		select e.*

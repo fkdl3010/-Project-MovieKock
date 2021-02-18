@@ -1,5 +1,7 @@
 package com.koreait.movie.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.ibatis.session.SqlSession;
@@ -8,9 +10,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.koreait.movie.command.main.MainCommand;
 import com.koreait.movie.command.main.SearchResultCommand;
+import com.koreait.movie.dto.MovieDto;
 
 @Controller
 public class MainPageController {
@@ -20,7 +24,7 @@ public class MainPageController {
 
 	private MainCommand mainCommand;
 	private SearchResultCommand searchResultCommand;
-
+	
 	@Autowired
 	public void setBean(MainCommand mainCommand, SearchResultCommand searchResultCommand) {
 		this.mainCommand = mainCommand;
@@ -36,6 +40,7 @@ public class MainPageController {
 
 		return "mainPage/mainPage";
 	}
+
 	@RequestMapping(value = "searchResultPage.do", method=RequestMethod.GET)
 	public String list(HttpServletRequest request, Model model) {
 		model.addAttribute("request", request);

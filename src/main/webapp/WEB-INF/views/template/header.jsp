@@ -44,7 +44,10 @@
 			</div>
 			<div class="login-search-box">
 				<form class="search-form" action="searchResultPage.do" method="get">
-					<input type="text" class="input-search" name="search" id="searchInput" placeholder="검색어를 입력해 주세요." /> 
+					<input list="autoCompleteList" type="text" class="input-search" name="search" placeholder="검색어를 입력해 주세요." /> 
+					<datalist id="autoCompleteList">
+		
+		</datalist>
 					<span class="btn-a">
 						<button class="search-btn">
 							<i class="fas fa-search"></i>

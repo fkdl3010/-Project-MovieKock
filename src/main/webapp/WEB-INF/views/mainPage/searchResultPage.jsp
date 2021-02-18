@@ -5,8 +5,7 @@
 	<jsp:param value="검색결과" name="title" />
 </jsp:include>
 
-<link rel="stylesheet"
-	href="/movie/assets/style/mainPageCss/searchResultPage.css" />
+<link rel="stylesheet" href="/movie/assets/style/mainPageCss/searchResultPage.css" />
 
 <div class="wrap">
 	<div class="main">
@@ -27,19 +26,10 @@
 						<input type="hidden" id="movieNo" value="${movieDto.movie_no }" />
 					</div>
 				</c:forEach>
+			<div id="paging"></div>
 			</div>
 		</c:if>
 	</div>
 </div>
-<script>
-	$(document).on("click", ".mainMovieList", movePage);
-
-	function movePage(event) {
-
-		const movieNo = event.currentTarget.children[2].value;
-
-		location.href = "movieInfoPage.do?movieNo=" + movieNo;
-	}
-</script>
 
 <%@ include file="../template/footer.jsp"%>
