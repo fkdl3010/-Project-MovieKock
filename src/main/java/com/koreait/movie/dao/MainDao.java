@@ -7,7 +7,7 @@ import com.koreait.movie.dto.MovieDto;
 
 public interface MainDao {
 
-	public List<MovieDto> mainList1();
+	public List<MovieDto> mainList1(Map<String, Object> map2);
 
 	public List<MovieDto> mainList2();
 

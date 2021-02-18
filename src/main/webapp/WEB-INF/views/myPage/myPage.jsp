@@ -518,7 +518,7 @@ function pwEqualCheck() {
 		        success : function(responseObj) {
 		            if(responseObj.result){
 		            	let filename = decodeURIComponent(responseObj.filename);
-		                coverBox.style.backgroundImage = 'url(/movie/assets/images/userCover/'+filename +')';
+		                coverBox.style.backgroundImage = 'linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ),url(/movie/assets/images/userCover/'+filename +')';
 		        		document.querySelector('.coverAddLabel').innerText = '';
 		            }else{
 		                alert('123');
@@ -535,7 +535,7 @@ function pwEqualCheck() {
 	    		   title: "CHeck!",
 	    		   text: "첨부 파일 사이즈 10MB 이내로 등록 가능합니다.",
 	    		   icon: "warning" //"info,success,warning,error" 중 택1
-	    		});;
+	    		});
 	    }
 
 	}
@@ -543,7 +543,7 @@ function pwEqualCheck() {
 	if('${loginUser.user_image_name}' != 'none'){
 		document.querySelector('.coverAddLabel').innerText = '';
 		let filename = decodeURIComponent('${loginUser.user_image_name}');
-		document.querySelector('.coverBox').style.backgroundImage = 'url(/movie/assets/images/userCover/' + filename+ ')';
+		document.querySelector('.coverBox').style.backgroundImage = 'linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url(/movie/assets/images/userCover/' + filename+ ')';
 	}
 	
 	
@@ -553,7 +553,11 @@ function pwEqualCheck() {
 	function handleMyWrite(){
 		
 		if($('#commentListCount').text() == '0'){
-			alert('등록된 코멘트가 없습니다!');
+			swal({
+	    		   title: "Check!",
+	    		   text: "등록된 코멘트가 없습니다!",
+	    		   icon: "warning" //"info,success,warning,error" 중 택1
+    		});
 		}else{
 			
 			location.href='myWritePage.do';
@@ -566,7 +570,11 @@ function pwEqualCheck() {
 	function handleMyWishList(){
 		
 		if($('#wishListCount').text() == '0'){
-			alert('등록된 찜리스트가 없습니다!');
+			swal({
+	    		   title: "Check!",
+	    		   text: "등록된 찜리스트가 없습니다!",
+	    		   icon: "warning" //"info,success,warning,error" 중 택1
+    		});
 		}else{
 			location.href='wishList.do';
 		}

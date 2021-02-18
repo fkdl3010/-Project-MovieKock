@@ -35,8 +35,7 @@ body {
     left:33%;
     border:3px solid;
     border-radius: 30px;
-    background-color: rgb(224, 224, 224);
-    
+    background-color: #ffd5a7;
   }
   .box1_top {
     width: 100%;
@@ -46,7 +45,8 @@ body {
   #user_icon1 {
     position: relative;
     top:15px;
-    left: 15px;	
+    left: 15px;
+    color: #ff6d37;	
   }
   .box1_name {
     position: absolute;
@@ -230,8 +230,10 @@ body {
     overflow: hidden;
     width: 100%;
     height: 100%;
-    background: #ddd;
     border: none;
+    background-color: #fff1dc;
+    margin-top: 5px;
+    border-radius: 10px;
 }
 
 .commentContents:focus{
