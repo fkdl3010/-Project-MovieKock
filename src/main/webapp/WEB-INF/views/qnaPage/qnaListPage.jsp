@@ -68,20 +68,37 @@
 							<tr>
 								<td>${qnaDto.qna_no}</td>
 								<td>${qnaDto.qna_select}</td>
-								<c:if test="${loginUser.user_id eq 'admin' || qnaDto.qna_pw eq null  }" >
-								<td><a href="qnaView.do?qna_no=${qnaDto.qna_no}&page=${page}" id="pw">${qnaDto.qna_title}</a></td>
+							<%-- 	<c:if test="${loginUser.user_id eq 'admin' || qnaDto.qna_pw eq null}" >
+									<td><a href="qnaView.do?qna_no=${qnaDto.qna_no}&page=${page}" id="pw">${qnaDto.qna_title}</a></td>
 								</c:if>
-								<c:if test="${loginUser.user_id ne 'admin' }" >
-								<td><a class="viewLinks" data-pw="${qnaDto.qna_pw}" data-no="${qnaDto.qna_no}" data-page="${page}" href="#" data-target="#layerpop" data-toggle="modal">${qnaDto.qna_title}</a></td>
+								<c:if test="${loginUser.user_id eq 'admin' and qnaDto.qna_pw ne null}" >
+									<td><a class="viewLinks" data-pw="${qnaDto.qna_pw}" data-no="${qnaDto.qna_no}" data-page="${page}" href="#" data-target="#layerpop" data-toggle="modal">${qnaDto.qna_title}</a></td>
+								</c:if> --%>
+								
+								
+								<c:if test="${loginUser.user_id eq 'admin'}">
+									<td><a href="qnaView.do?qna_no=${qnaDto.qna_no}&page=${page}" id="pw">${qnaDto.qna_title}</a></td>
 								</c:if>
+								
+								<c:if test="${loginUser.user_id ne 'admin'}">
+									<c:if test="${qnaDto.qna_pw eq null}">
+										<td><a href="qnaView.do?qna_no=${qnaDto.qna_no}&page=${page}" id="pw">${qnaDto.qna_title}</a></td>
+									</c:if>
+									<c:if test="${qnaDto.qna_pw ne null}">
+										<td><a class="viewLinks" data-pw="${qnaDto.qna_pw}" data-no="${qnaDto.qna_no}" data-page="${page}" href="#" data-target="#layerpop" data-toggle="modal">${qnaDto.qna_title}</a></td>
+									</c:if>
+								</c:if>
+								
 								<td>${qnaDto.user_nickname}</td>
 								<td>${qnaDto.qna_date}</td>
+								
 								<c:if test="${qnaDto.qna_yn eq 0}">
-								<td>답변 대기중</td>
+									<td>답변 대기중</td>
 								</c:if>
 								<c:if test="${qnaDto.qna_yn eq 1}">
-								<td>답변 완료</td>
+									<td>답변 완료</td>
 								</c:if>
+								
 							</tr>
 						</c:forEach>
 					</c:if>
