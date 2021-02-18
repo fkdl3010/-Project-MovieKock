@@ -122,5 +122,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where z.rn between #{beginRecord} and #{endRecord}  
 	</select>
 	
+	<insert id="insertWishList">
+		insert into wishList
+		values(wishList_seq.nextval, #{param1}, #{param2})
+	</insert>
+	
+	<delete id="deleteWishList">
+		delete
+		from wishList
+		where user_no = #{param1}
+		and movie_no = #{param2}
+	</delete>
+	
+	<select id="selectWishList" parameterType="map" resultType="com.koreait.movie.dto.WishListDto">
+		select *
+		from wishList
+		where user_no = #{userNo}
+		and movie_no = #{movieNo}
+	</select>
 	
 </mapper>

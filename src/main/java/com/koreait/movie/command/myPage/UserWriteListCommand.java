@@ -34,7 +34,7 @@ public class UserWriteListCommand implements CommonMapCommand {
 		int userNo = loginUser.getUser_no();
 		
 		int totalRecord = myDao.userWriteTotalCount(userNo);
-		int recordPerPage = 5;
+		int recordPerPage = 6;
 		int beginRecord = (page - 1) * recordPerPage + 1;
 		int endRecord = beginRecord + recordPerPage - 1;
 		endRecord = (endRecord < totalRecord) ? endRecord : totalRecord;

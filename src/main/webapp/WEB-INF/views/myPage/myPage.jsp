@@ -59,10 +59,12 @@
 				<input type="button" id="alter" class="inp_btn alter_btn" value="수정" onclick="fn_userAlter()">
 				</div>
 				<div class="small-box"  id="card-box2">
-				
+					찜리스트<br>
+					<i class="fas fa-heart fa-2x"></i> + <span id="wishListCount">${wishListCount }</span>
 				</div>
 				<div class="small-box"  id="card-box3">
-				
+					내가 쓴 글<br>
+					<i class="fas fa-pen fa-2x"></i> + <span id="commentListCount">${commentListCount }</span>
 				</div>
 				</div>
 			</div>
@@ -544,6 +546,31 @@ function pwEqualCheck() {
 		document.querySelector('.coverBox').style.backgroundImage = 'url(/movie/assets/images/userCover/' + filename+ ')';
 	}
 	
+	
+	// 내가쓴글
+	$('#card-box3').on('click',handleMyWrite);
+	
+	function handleMyWrite(){
+		
+		if($('#commentListCount').text() == '0'){
+			alert('등록된 코멘트가 없습니다!');
+		}else{
+			
+			location.href='myWritePage.do';
+		}
+	}
+	
+	// 위시리스트
+	$('#card-box2').on('click',handleMyWishList);
+	
+	function handleMyWishList(){
+		
+		if($('#wishListCount').text() == '0'){
+			alert('등록된 찜리스트가 없습니다!');
+		}else{
+			location.href='wishList.do';
+		}
+	}
 	
 	
 	/*sha256 적용 함수  */

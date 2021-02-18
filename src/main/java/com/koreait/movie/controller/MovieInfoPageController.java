@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.koreait.movie.command.movieInfo.CommentInsertCommand;
 import com.koreait.movie.command.movieInfo.CommentScrollEventCommand;
+import com.koreait.movie.command.movieInfo.DeleteWishListCommand;
 import com.koreait.movie.command.movieInfo.InitStarScoreCommand;
+import com.koreait.movie.command.movieInfo.InsertWishListCommand;
 import com.koreait.movie.command.movieInfo.MovieCommentViewListCommand;
 import com.koreait.movie.command.movieInfo.MovieInfoViewCommand;
 import com.koreait.movie.command.movieInfo.StarSetCommand;
@@ -32,6 +34,8 @@ public class MovieInfoPageController {
 	private CommentInsertCommand commentInsertCommand;
 	private MovieCommentViewListCommand movieCommentViewListCommand;
 	private CommentScrollEventCommand commentScrollEventCommand;
+	private InsertWishListCommand insertWishListCommand;
+	private DeleteWishListCommand deleteWishListCommand;
 	
 	@Autowired
 	public void setBean(MovieInfoViewCommand movieInfoViewCommand,
@@ -39,13 +43,17 @@ public class MovieInfoPageController {
 						InitStarScoreCommand initStarScoreCommand,
 						CommentInsertCommand commentInsertCommand,
 						MovieCommentViewListCommand movieCommentViewListCommand,
-						CommentScrollEventCommand commentScrollEventCommand) {
+						CommentScrollEventCommand commentScrollEventCommand,
+						InsertWishListCommand insertWishListCommand,
+						DeleteWishListCommand deleteWishListCommand) {
 		this.movieInfoViewCommand = movieInfoViewCommand;
 		this.starSetCommand = starSetCommand;
 		this.initStarScoreCommand = initStarScoreCommand;
 		this.commentInsertCommand = commentInsertCommand;
 		this.movieCommentViewListCommand = movieCommentViewListCommand;
 		this.commentScrollEventCommand = commentScrollEventCommand;
+		this.insertWishListCommand = insertWishListCommand;
+		this.deleteWishListCommand = deleteWishListCommand;
 		
 	}
 	
@@ -122,6 +130,30 @@ public class MovieInfoPageController {
 		model.addAttribute("movieNo", movieNo);
 		
 		return commentScrollEventCommand.execute(sqlSession, model);
+	}
+	
+	@RequestMapping(value="insertWishList/{movieNo}",
+					method=RequestMethod.POST,
+					produces="application/json; charset=utf-8")
+	@ResponseBody
+	public Map<String, Object> insertWishList(@PathVariable("movieNo") int movieNo,
+												HttpServletRequest request, Model model){
+		model.addAttribute("movieNo", movieNo);
+		model.addAttribute("request", request);
+		
+		return insertWishListCommand.execute(sqlSession, model);
+	}
+	
+	@RequestMapping(value="deleteWishList/{movieNo}",
+			method=RequestMethod.POST,
+			produces="application/json; charset=utf-8")
+	@ResponseBody
+	public Map<String, Object> deleteWishList(@PathVariable("movieNo") int movieNo,
+			HttpServletRequest request, Model model){
+		model.addAttribute("movieNo", movieNo);
+		model.addAttribute("request", request);
+		
+		return deleteWishListCommand.execute(sqlSession, model);
 	}
 	
 }
