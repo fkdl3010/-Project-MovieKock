@@ -7,29 +7,20 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
 
-  <link rel="stylesheet" href="/movie/assets/style/recommandPageCss/categoryRecommandPage.css"/>
+<link rel="stylesheet" href="/movie/assets/style/recommandPageCss/categoryRecommandPage.css"/>
 
   <div class="main-wrapper">
 
     <div class="nav-category">
-      <!-- <form class="top-form col-xs-2">
-        <select name="left" class="left form-control">
-          <option value="모든장르">모든장르</option>
-          <option value="모든장르">모든장르</option>
-          <option value="모든장르">모든장르</option>
-          <option value="모든장르">모든장르</option>
-        </select>
-        <select name="right" class="right form-control ">
-          <option value="정렬기준">정렬기준</option>
-          <option value="정렬기준">정렬기준</option>
-          <option value="정렬기준">정렬기준</option>
-          <option value="정렬기준">정렬기준</option>
-        </select>
-      </form> -->
       <form name="form" class="form-inline">
 		  <div class="form-group">
-		  	<select id="genre" name="genre" class="left form-control" onChange='formChange()'>
+		  	<select id="genre" name="genre" class="left form-control" onChange="formChange()">
 		  	  <option value="0">모든장르</option>
 	          <option value="1">코미디</option>
 	          <option value="2">드라마</option>
@@ -44,51 +35,35 @@
 	          <option value="11">전쟁</option>
 	          <option value="12">공포</option>
 	        </select>
-		  
 		  </div>
 	  </form>
-	  
-	     <div class="main-movieList">
-	     	<c:forEach var="movie" items="${movieGenreAllList}" varStatus="i">
-			<div class="list afterInsert" style="background-image: url(/movie/assets/images/poster/'+ movie.movie_title+'_포스터.jpg' + '); background-size: 250px 300px;">
-			<input type="checkbox" name="movie_no" class="movie_no" value='+movieN.movie_no+' style="display: none;"/>'+'</div>'
-		</c:forEach>
-		</div>
-    </div>
-  </div>
+ </div>	  
  
-    
  
-	     <!-- <c:forEach var="movie" items="${movieGenreAllList}">
-	      		<div class="list" style="background-image: url('/movie/assets/images/poster/${movie.movie_title}_포스터.jpg'); background-size: 250px 300px;">
-	      			<input type="checkbox" name="movie_no" class="movie_no" value="${movie.movie_no }" style="display: none;"/>
-	      		</div>
-	      				<div class="info">
-							<div class="text">
-								<h4>
-										${movieDto.movie_title.replaceAll("_"," ")}
-								</h4>
-								<p>${movieDto.movie_nation}&nbsp;&nbsp; 평점<br /> 장르 ${movieDto.genre_name }
-								</p>
-								
-							</div>
+  <div class="main-movieList">
+
+		<c:forEach var="movieDto" items="${movieAllList}" varStatus="i">
+					<div class="movie-box">
+						<div class="movie">
+							<img src="/movie/assets/images/poster/${movieDto.movie_title}_포스터.jpg">
 						</div>
-						<input type="hidden" id="movieNo" value="${movieDto.movie_no }"/>
-					
-	      	</c:forEach>
-    </div> --> 	
+						<div class="default-info">
+							<div class="text">
+								<h4>${movieDto.movie_title.replaceAll("_"," ")}</h4>
+								<p>${movieDto.movie_nation}&nbsp;&nbsp;
+									평점 ${movieDto.movie_web_score }<br /> 장르 ${movieDto.genre_name }
+								</p>
+							</div>
+						</div>	
+						<input type="hidden" id="movieNo" value="${movieDto.movie_no}" />
+					</div>		
+			</c:forEach>
+		</div>	
+ 
+  </div>
+
+ 
 <script>
-
-console.log('${movieGenreAllList}');
-
-$(document).on("click",".list",movePage);
-
-function movePage(event){
-
-	location.href = "movieInfoPage.do?movieNo" + movieNo +"&movieDto"+movieDto;
-}
-
-
 function formChange(){
 	
 	const genreNo =  $('#genre').val(); 
@@ -99,23 +74,19 @@ function formChange(){
 				dataType:'json',
 				success: function(responseObj){
         			const movieList = responseObj.movieGenreList;
-        			$('.main-movieList').empty();
+        		$('.main-movieList').empty();
         			movieList.forEach(function(movieN){
-  
-        		/* const movieOne ='<div class="list afterInsert"><div class="movie"><div class="rankBadge">'+movieN.movie_no+'</div>'
-									+'<img src="/movie/assets/images/poster/'+movieN.movie_title+'_포스터.jpg">'
-        							+'</div>'+'<div class="info">'+'<div class="text">'+'<h4>'+movieN.movie_title+'</h4>'
-        							+'<p>'+movieN.movie_nation+'&nbsp;&nbsp; 평점<br /> 장르</p></div></div>'
-        							+'<input type="hidden" id="movieNo" value="'+movieN.movie_no='"/></div>';
-        				$('.main-movieList').append(movieOne); */	
+        				console.log(movieN);
+        				const movieOne = '<div class="insert-movie-box"><div class="movie-insert" style="background-image: url(/movie/assets/images/poster/'+ movieN.movie_title+'_포스터.jpg' + '); background-size:210px 100%;"></div>'
         				
-        				const movieOne = '<div class="rankBadge"></div><div class="list afterInsert" style="background-image: url(/movie/assets/images/poster/'+ movieN.movie_title+'_포스터.jpg' + '); background-size: 250px 300px;">'
-						+'<input type="checkbox" name="movie_no" class="movie_no" value='+movieN.movie_no+' style="display: none;"/>'+'</div>';
-
+						+'<div class="insert-info"><div class="text"><h4>'+movieN.movie_title.replaceAll("_"," ")+'</h4><p>'+movieN.movie_nation+'&nbsp;&nbsp;평점 '+movieN.movie_web_score+'<br/> 장르 '+movieN.genre_name+
+						'</p></div></div><input type="hidden" id="movieNo" value="'+movieN.movie_no+'" /></div></div>';
+							
+						
 						$('.main-movieList').append(movieOne);
         			});
      
-        			
+  
         		},
         		error: function(){
         			
@@ -125,15 +96,23 @@ function formChange(){
 	}) ;
 }	
 
-$(document).on("click",".list afterInsert",movePage);
+$(document).on("click",".movie-box",movePage1);
 
-function movePage(event){
+function movePage1(event){
 	
-	const movieNo = event.currentTarget.children[0].value;
+	const movieNo = event.currentTarget.children[2].value;
 	
 	location.href = "movieInfoPage.do?movieNo=" + movieNo;
 }
 
+$(document).on("click",".insert-movie-box",movePage2);
+
+function movePage2(event){
+	
+	const movieNo = event.currentTarget.children[2].value;
+	
+	location.href = "movieInfoPage.do?movieNo=" + movieNo;
+}
 </script>
 
 <%@ include file="../template/footer.jsp" %>
