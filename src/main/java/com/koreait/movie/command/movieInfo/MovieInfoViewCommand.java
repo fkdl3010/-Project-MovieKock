@@ -1,5 +1,6 @@
 package com.koreait.movie.command.movieInfo;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -14,6 +15,7 @@ import com.koreait.movie.dao.MovieInfoDao;
 import com.koreait.movie.dto.CommentDto;
 import com.koreait.movie.dto.MovieDto;
 import com.koreait.movie.dto.UserDto;
+import com.koreait.movie.dto.WishListDto;
 
 public class MovieInfoViewCommand implements CommonVoidCommand {
 
@@ -27,6 +29,8 @@ public class MovieInfoViewCommand implements CommonVoidCommand {
 		
 		String movie = request.getParameter("movieNo");
 		
+		
+		int userNo = 0;
 		int movieNo= 0;
 		
 //		영화정보, 배우 정보
@@ -53,6 +57,7 @@ public class MovieInfoViewCommand implements CommonVoidCommand {
 		if(loginUser != null) {
 			
 			model.addAttribute("loginUser", loginUser);
+			userNo = loginUser.getUser_no();
 		}
 		
 		
@@ -61,6 +66,22 @@ public class MovieInfoViewCommand implements CommonVoidCommand {
 		
 		if(commentList != null) {
 			model.addAttribute("commentList", commentList);
+		}
+		
+		
+		// 위시리스트 여부
+		if(userNo > 0) {
+			Map<String, Object> wishListMap = new HashMap<String, Object>();
+			wishListMap.put("userNo", userNo);
+			wishListMap.put("movieNo", movieNo);
+			WishListDto wishListDto = dao.selectWishList(wishListMap);
+			if(wishListDto != null) {
+				model.addAttribute("isWishList", 1);
+			}else {
+				model.addAttribute("isWishList", 0);
+				
+			}
+			
 		}
 		
 		

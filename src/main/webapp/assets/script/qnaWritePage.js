@@ -16,18 +16,31 @@ let btn = document.querySelector('#secret');
 	
 	}
 	
-	   
-   function fn_send(f){
-		if(f.title.value == '' || f.content.value == ''){
-			alert('제목과 내용을 확인후 다시 입력해주세요');
+	function fn_sendClick(f){
+			
+		if ($('#title').val() == '') {
+			swal({
+				title: "error",
+				text: "제목을 입력해 주세요.",
+				icon: "error" //"info,success,warning,error" 중 택1
+			});
+			$('#title').focus();
 			return;
-		} else {
-			f.action="qnaListPage.do";
-				f.submit();
-			}
 		}
-   
-	   init();
+		if ($('#content').val() == '') {
+			swal({
+				title: "error",
+				text: "내용을 입력해 주세요.",
+				icon: "error" //"info,success,warning,error" 중 택1
+			});
+			$('#content').focus();
+			return;
+		}
+		f.action = 'qnaWrite.do';
+		f.submit();
+	}
+	
+
    
 	
 	

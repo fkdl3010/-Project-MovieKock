@@ -76,8 +76,8 @@ html {
 	right: 0px;
 	margin-right: 20px;
 /* 	align-items: center; */
-	height: 60px;
-/* 	line-height: 84px; */
+	height: 86px;
+	line-height: 84px;
 }
 
 .main-template-logo {
@@ -87,19 +87,18 @@ html {
 }
 
 .user-btn {
-	margin-right: 20px;
-	margin-top: 12px;
+	margin: 16px -3px 0px 18px;
 }
 
 .input-search {
-	position: relative !important;
+	position: absolute !important;
 	margin: 5px !important;
 	right: -20px !important;
 	padding: 10px !important;
 	width: 250px !important;
 	height: 50px !important;
 	border: 2px solid #ec7114 !important;
-	color: #fff !important;
+	color: #141414 !important;
 	font-weight: bold !important;
 	background: white !important; 
 	font-size: 16px !important;
@@ -135,21 +134,33 @@ html {
 .top_user_circle{
 	color: #ec7114;
 }
+.top_user_circle{
+	background-color: white;
+}
 
 .btn-a {
 	position: relative;
-	right: 38px;
-	top: 4px
+	display: block;
+	right: 20px;
+	top: 13px;
 }
 
 .search-form {
+	display: contents;
 	width: 316px;
 	margin-left: -30px;
 }
 
 .search-btn {
+	position: absolute;
 	background: none;
 	border: none;
+	right: -20px;
+	top: -9px;
+}
+
+.search-btn:focus {
+	outline: none;
 }
 
 /* footer */

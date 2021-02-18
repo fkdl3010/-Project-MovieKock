@@ -7,20 +7,40 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
 <link rel="stylesheet" href="/movie/assets/style/mainPageCss/mainPage.css?ver=1" />
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css%22%3E" /> -->
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css%22%3E" /> -->
-<!-- <script src="//code.jquery.com/jquery-1.11.0.min.js"></script> -->
-<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js%22%3E"></script> -->
-
 <!-- Link Swiper's CSS -->
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
+<script>
+
+	function fn_logout(){
+		location.href="logout.do";
+	}
+	
+	
+	if('${afterInsert}'){
+		
+		if('${insertResult}' > 0){
+			alert('회원가입 성공');
+		}else{
+			alert('회원가입 실패');
+			
+		}
+	}
+</script>
+
 <div class="wrap">
 	<div class="main">
 		<div class="swiper-container s2">
-			<h3>${userNickname }님의 취향 저격 영화들</h3>
+			<c:if test="${not empty userNickname }">
+			
+				<h3>${userNickname }님의 취향 저격 영화들</h3>
+			</c:if>
+			<c:if test="${empty userNickname }">
+			
+				<h3>무비콕의 영화 추천!</h3>
+			</c:if>
 			<div class="swiper-wrapper">
 				<c:forEach var="movieDto" items="${mainList2}" varStatus="i">
 					<div class="swiper-slide">
@@ -32,8 +52,13 @@
 							<div class="text">
 								<h4>${movieDto.movie_title.replaceAll("_"," ")}</h4>
 								<p>${movieDto.movie_nation}&nbsp;&nbsp;
-									평점<br /> 장르 ${movieDto.genre_name }
-								</p>
+									평점 <c:if test="${fn:length(movieDto.movie_web_score) == 1 }">
+												${ movieDto.movie_web_score}.0
+										 </c:if>
+										 <c:if test="${fn:length(movieDto.movie_web_score) > 1 }">
+												${ movieDto.movie_web_score}
+										 </c:if>
+										 <br /> 장르 ${movieDto.genre_name}</p>
 							</div>
 						</div>
 						<input type="hidden" id="movieNo" value="${movieDto.movie_no }" />
@@ -59,7 +84,13 @@
 							<div class="text">
 								<h4>${movieDto.movie_title.replaceAll("_"," ")}</h4>
 								<p>${movieDto.movie_nation}&nbsp;&nbsp;
-									평점<br /> ${movieDto.genre_name}</p>
+									평점<c:if test="${fn:length(movieDto.movie_web_score) == 1 }">
+												${ movieDto.movie_web_score}.0
+										 </c:if>
+										 <c:if test="${fn:length(movieDto.movie_web_score) > 1 }">
+												${ movieDto.movie_web_score}
+										 </c:if>
+										 <br /> 장르 ${movieDto.genre_name}</p>
 							</div>
 						</div>
 						<input type="hidden" id="movieNo" value="${movieDto.movie_no }" />
@@ -86,8 +117,13 @@
 								<h4>${movieDto.movie_title.replaceAll("_"," ")}</h4>
 
 								<p>${movieDto.movie_nation}&nbsp;&nbsp;
-									평점<br /> 장르
-								</p>
+									평점 <c:if test="${fn:length(movieDto.movie_web_score) == 1 }">
+												${ movieDto.movie_web_score}.0
+										 </c:if>
+										 <c:if test="${fn:length(movieDto.movie_web_score) > 1 }">
+												${ movieDto.movie_web_score}
+										 </c:if>
+										 <br /> 장르 ${movieDto.genre_name }								</p>
 
 							</div>
 						</div>
@@ -115,7 +151,13 @@
 							<div class="text">
 								<h4>${movieDto.movie_title.replaceAll("_"," ")}</h4>
 								<p>${movieDto.movie_nation}&nbsp;&nbsp;
-									평점<br /> 장르
+									평점 <c:if test="${fn:length(movieDto.movie_web_score) == 1 }">
+												${ movieDto.movie_web_score}.0
+										 </c:if>
+										 <c:if test="${fn:length(movieDto.movie_web_score) > 1 }">
+												${ movieDto.movie_web_score}
+										 </c:if>
+										 <br /> 장르 ${movieDto.genre_name }
 								</p>
 							</div>
 						</div>
@@ -142,7 +184,13 @@
 								<h4>${movieDto.movie_title.replaceAll("_"," ")}</h4>
 
 								<p>${movieDto.movie_nation}&nbsp;&nbsp;
-									평점<br /> 장르
+									평점 <c:if test="${fn:length(movieDto.movie_web_score) == 1 }">
+												${ movieDto.movie_web_score}.0
+										 </c:if>
+										 <c:if test="${fn:length(movieDto.movie_web_score) > 1 }">
+												${ movieDto.movie_web_score}
+										 </c:if>
+										 <br /> 장르 ${movieDto.genre_name }
 								</p>
 
 							</div>

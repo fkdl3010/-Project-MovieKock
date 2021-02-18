@@ -10,6 +10,7 @@
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
   <link rel="stylesheet" href="/movie/assets/style/singupSigninPageCss/signupChoicePage.css"  />
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
   <div class="main-choice">
@@ -204,16 +205,18 @@
   
   /* 값 보내는 fn */
   function fn_submit(f){
-;
+
 	  
 	  swal({
 		    title: "Info",
 		    text: "회원님이 고르신 영화들로 추천해드릴게요!!",
-		    icon: "info" //"info,success,warning,error" 중 택1
-		});
+		    icon: "success" //"info,success,warning,error" 중 택1
+		}).then(function(){
+			
+			  f.action = 'userSelectMovieList.do?userNo=' + userNo;
+			  f.submit();
+		})
 	  
-	  f.action = 'userSelectMovieList.do?userNo=' + userNo;
-	  f.submit();
 	  
 	  
   }

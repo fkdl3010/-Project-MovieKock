@@ -31,8 +31,6 @@ public class QnaWriteCommand implements CommonVoidCommand {
 			qna_secret = 1;
 		}
 		String qna_pw = request.getParameter("qna_pw");
-		int qna_yn = 0;
-		
 		
 		HttpSession session = request.getSession();
 		UserDto loginUser = (UserDto)session.getAttribute("loginUser");
@@ -45,7 +43,6 @@ public class QnaWriteCommand implements CommonVoidCommand {
 		qnaDto.setQna_content(qna_content);
 		qnaDto.setQna_secret(qna_secret);
 		qnaDto.setQna_pw(qna_pw);
-		qnaDto.setQna_yn(qna_yn);
 		
 	    QnaDao qnaDao = sqlSession.getMapper(QnaDao.class);
 		int qnaWriteResult = qnaDao.qnaWrite(qnaDto);

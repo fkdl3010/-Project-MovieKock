@@ -38,7 +38,7 @@ public class QnaListCommand implements CommonVoidCommand {
 		
 		List<QnaDto> list = qnaDao.qnaList(beginRecord, endRecord);
 		
-		String paging = Paging.getPaging("qnaListPage.do", totalRecord, recordPerPage, page);
+		String paging = Paging.getPaging("qnaListView.do", totalRecord, recordPerPage, page);
 		
 		model.addAttribute("list", list);
 		

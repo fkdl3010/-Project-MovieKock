@@ -6,6 +6,7 @@ import java.util.Map;
 import com.koreait.movie.dto.CommentDto;
 import com.koreait.movie.dto.MovieDto;
 import com.koreait.movie.dto.MovieScoreDto;
+import com.koreait.movie.dto.WishListDto;
 
 public interface MovieInfoDao {
 	
@@ -36,4 +37,10 @@ public interface MovieInfoDao {
 	public int totalCommentRecord(int movieNo);
 	
 	public List<CommentDto> scrollCommentList(Map<String, Object> map);
+	
+	public int insertWishList(int userNo, int movieNo);
+	
+	public int deleteWishList(int userNo, int movieNo);
+	
+	public WishListDto selectWishList(Map<String, Object> map);
 }
