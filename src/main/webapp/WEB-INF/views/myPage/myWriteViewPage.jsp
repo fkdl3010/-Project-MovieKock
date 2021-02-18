@@ -14,6 +14,7 @@
         <div class="movie-poster">
           <div class="movie-poster-img">
 			<!-- 영화 포스터 -->
+			<input type="hidden" id="movieNo" />
           </div>
         </div>
       </div>
@@ -21,6 +22,9 @@
         <div class="top-title">
           <span class="top-title-contents">
           <!-- 글제목 -->
+          </span>
+          <span class="movie-score-box">
+          	<i class="fas fa-star fa-2x"></i><span class="movie-score">4.5</span>
           </span>
         </div>
         <div class="top-contents">
@@ -43,3 +47,17 @@
 
     </div>
   </div>
+  
+  <script>
+  	$('.movie-poster-img').on('click',handleMovieInfo);
+  	
+  	function handleMovieInfo(event){
+  		
+  		let movieNo = event.target.children[0].value;
+  		
+  		location.href='movieInfoPage.do?movieNo=' + movieNo;
+  		
+  	}
+  	
+  	
+  </script>

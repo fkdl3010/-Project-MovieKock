@@ -80,7 +80,7 @@
 	      <!-- body -->
 	      <div class="modal-body">
 	      	<form action="commentSubmit.do" method="post" id="commentForm">
-	      		<input type="text" id="commentTitle" class="comment_title" name="commentTitle" placeholder="제목을 입력해주세요." />
+	      		<input type="text" id="commentTitle" class="comment_title" name="commentTitle" placeholder="제목을 1~15글자 사이로 입력해주세요." />
 	      		<textarea class="comment_contents" id="commentContents"  name="commentContents" placeholder="내용을 입력해주세요." ></textarea>
 	      		<input type="hidden" class="commentMovieNo" name="commentMovieNo" value="${movieDto.movie_no}"/>
 	      	</form>

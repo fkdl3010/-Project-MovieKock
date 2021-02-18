@@ -9,7 +9,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.ui.Model;
 
 import com.koreait.movie.common.CommonVoidCommand;
-import com.koreait.movie.common.Sha256;
+import com.koreait.movie.dao.MyDao;
 import com.koreait.movie.dto.UserDto;
 
 public class MyPageCommand implements CommonVoidCommand {
@@ -22,10 +22,25 @@ public class MyPageCommand implements CommonVoidCommand {
 		HttpServletRequest request = (HttpServletRequest)map.get("request");
 		
 		HttpSession session = request.getSession();
+		
+		
 
 		UserDto loginUser = (UserDto)session.getAttribute("loginUser");
 		model.addAttribute("loginUser", loginUser);
-	
+		MyDao dao = sqlSession.getMapper(MyDao.class);
+		
+		int userNo = loginUser.getUser_no();
+		
+		int wishListCount = 0;
+		int commentListCount = 0;
+		
+		if(userNo > 0) {
+			wishListCount = dao.wishListCount(userNo);
+			commentListCount = dao.commentListCount(userNo);
+			model.addAttribute("wishListCount", wishListCount);
+			model.addAttribute("commentListCount", commentListCount);
+		}
+		
 		
 	}
 }

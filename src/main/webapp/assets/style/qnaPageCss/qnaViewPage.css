@@ -15,7 +15,7 @@
 	text-align: center;
 }
 
-.mainBody {
+.main_body {
 	border: 1px solid black;
 	border-radius: 10px;
 	padding: 15px;
@@ -23,28 +23,28 @@
 	background:white;
 }
 
-.userWriteTr {
+.user_write_tr {
 	background: #ddd;
 }
 
-.adminWriteTr {
+.reply_content_tr {
 	background: #ddd;
 }
 
-.userWriteTdResp {
+.user_write_td_resp {
 	text-align: center;
 }
 
-.userWriteTr>.td:nth-of-type(2) {
+.user_write_tr>.td:nth-of-type(2) {
 	border-left: 1px solid #ddd;
 	border-right: 1px solid #ddd;
 }
-.adminWriteTr>.td:nth-of-type(2) {
+.reply_content_tr>.td:nth-of-type(2) {
 	border-left: 1px solid #ddd;
 	border-right: 1px solid #ddd;
 }
 
-.qnaReplyBtn {
+.qna_reply_btn {
 	  width:100px;
 	  height: 44px;
 	  position: absolute;
@@ -60,7 +60,7 @@
 	  border-bottom-left-radius: 4px;
 	  background-color: rgb(52, 152, 219);
 }
-.listBtn { 
+.list_btn { 
 	  width:100px;
 	  height: 44px;
 	  position: absolute;
@@ -81,7 +81,7 @@
 	  background-color: rgb(52, 152, 219);
 }
 
-.deleteBtn { 
+.delete_btn { 
 	  width:100px;
 	  height: 44px;
 	  position: absolute;

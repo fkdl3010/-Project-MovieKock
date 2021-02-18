@@ -34,13 +34,29 @@
 		          <div class="info_main_mid_mid_contents">
 		            <span class="movie_info_main"> ${movieDto.genre_name } • ${movieDto.movie_nation } </span><br>
 		            <span class="movie_info_opendate textdeco">개봉일 : ${movieDto.movie_opening_date } 누적관객 : ${movieDto.movie_audience }</span><br>
-		            <span class="movie_info_score textdeco">평균 ★ 4.4(1,831명)</span>
+		            <span class="movie_info_score textdeco">평점 <span id="littleStar">★</span> <c:if test="${fn:length(movieDto.moivie_web_score) == 1 }">
+																			${ movieDto.moivie_web_score}.0
+																	 </c:if>
+																	 <c:if test="${fn:length(movieDto.moivie_web_score) > 1 }">
+																			${ movieDto.moivie_web_score}
+																	 </c:if></span>
 		          </div>
 		        </div>
 		        <div class="info_main_mid_right info_main_mid_box">
+		        
 		          <div class="my-rating-contents txt">평가하기</div>
 				  <div id="star-rating"></div>
-		            <button class="btn btn-default" id="wish">+보고싶어요</button>
+		        <c:if test="${empty isWishList }">
+		            <button class="btn btn-default" id="wish">+ 위시리스트 추가하기</button>
+		        </c:if>
+		        <c:if test="${not empty isWishList }">
+		        	<c:if test="${isWishList > 0}">
+			            <button class="btn btn-default" id="wish">- 위시리스트 제거하기</button>
+		        	</c:if>
+		        	<c:if test="${isWishList == 0}">
+			            <button class="btn btn-default" id="wish">+ 위시리스트 추가하기</button>
+		        	</c:if>
+		        </c:if>
 		            <!-- modal comment -->
 					<div class="comment_top_right">
 						<%@ include file="../template/modalComment.jsp" %>
@@ -54,10 +70,7 @@
 					</div>
 					<br/>
 					<div class="main_bot_bot">
-						<span class="main_bot_bot_font txt">
-							혈귀로 변해버린 여동생 ‘네즈코’를 인간으로 되돌릴 단서를 찾아 비밀조직 귀살대에 들어간 ‘탄지로.’ ‘젠이츠’, ‘이노스케’와 새로운 임무 수행을 위해 무한열차에 탑승 후 귀살대 최강 검사 염주 ‘렌고쿠’와 합류한다. 
-
-달리는 무한열차에서 승객들이 하나 둘 흔적 없이 사라지자 숨어있는 식인 혈귀의 존재를 직감하는 ‘렌고쿠’. 귀살대 ‘탄지로’ 일행과 최강 검사 염주 ‘렌고쿠’는 어둠 속을 달리는 무한열차에서 모두의 목숨을 구하기 위해 예측불가능한 능력을 가진 혈귀와 목숨을 건 혈전을 시작하는데…
+						<span class="main_bot_bot_font txt">${movieDto.movie_story }
 						</span>
 					</div>
 				</div>
@@ -114,58 +127,64 @@
 							<c:choose>
 								<c:when test="${fn:length(commentList) > 3}">
 									<c:forEach begin="0" end="2" items="${commentList }" var="commentDto">
-										<div class="comment_bot" id="movieView" data-target="#layerpop-commentView" data-toggle="modal">
-											<div class="comment_main_top">
-													<i class="fas fa-user-circle fa-2x txt">${commentDto.user_nickname }</i>
-												<!--**************************** 별점 기능 필수 ******************************* -->
-												★${commentDto.comment_score }
-											</div>
-											<div class="comment_main_mid">
-												<textarea class="comment_main_mid_txt" readonly>
-													${commentDto.comment_content }
-												</textarea>
+										<div class="comment_bot" >
+											<div class="comment_body" id="movieView" data-target="#layerpop-commentView" data-toggle="modal">
+											
+												<div class="comment_main_top">
+														<i class="fas fa-user-circle fa-2x txt">${commentDto.user_nickname }</i>
+													<!--**************************** 별점 기능 필수 ******************************* -->
+													<span id="commentStar"><i class="fas fa-star"></i> ${commentDto.comment_score }</span>
+												</div>
+												<div class="comment_main_mid">
+													<textarea class="comment_main_mid_txt" readonly>${commentDto.comment_content }
+													</textarea>
+												</div>
+												<input type="hidden" name="userNo" value= "${commentDto.user_no}" >
+												<input type="hidden" name="movieNo" value="${commentDto.movie_no}" >
+												<input type="hidden" name="commentNo" value="${commentDto.comment_no}">
+					        	 				<input type="hidden" name="userNickname" value="${commentDto.user_nickname}">
+									        	<input type="hidden" name="commentContent" value="${commentDto.comment_content}">
+								        	    <input type="hidden" name="date" value="${commentDto.comment_date}">
+	  							        	    <input type="hidden" name="title" value="${commentDto.comments_title}">
+	  							        	    <input type="hidden" name="commentScore" value="${commentDto.comment_score}">
 											</div>
 											<div class="comment_main_bot">
 												<a href="#">
 												좋아요<i class="far fa-thumbs-up">&nbsp;&nbsp;${commentDto.comment_like }</i>
 												</a>
 											</div>
-											<input type="hidden" name="userNo" value= "${commentDto.user_no}" >
-											<input type="hidden" name="movieNo" value="${commentDto.movie_no}" >
-											<input type="hidden" name="commentNo" value="${commentDto.comment_no}">
-				        	 				<input type="hidden" name="userNickname" value="${commentDto.user_nickname}">
-								        	<input type="hidden" name="commentContent" value="${commentDto.comment_content}">
-							        	    <input type="hidden" name="date" value="${commentDto.comment_date}">
-  							        	    <input type="hidden" name="title" value="${commentDto.comments_title}">
 							        	    
 										</div>
 									</c:forEach>
 								</c:when>
 								<c:otherwise>
 									<c:forEach items="${commentList }" var="commentDto">
-										<div class="comment_bot" id="movieView" data-target="#layerpop-commentView" data-toggle="modal">
-											<div class="comment_main_top">
-													<i class="fas fa-user-circle fa-2x txt">${commentDto.user_nickname }</i>
-												<!--**************************** 별점 기능 필수 ******************************* -->
-												★${commentDto.comment_score }
-											</div>
-											<div class="comment_main_mid">
-												<textarea class="comment_main_mid_txt" readonly>
-													${commentDto.comment_content }
-												</textarea>
+										<div class="comment_bot" >
+											<div class="comment_body" id="movieView" data-target="#layerpop-commentView" data-toggle="modal">
+												<div class="comment_main_top">
+														<i class="fas fa-user-circle fa-2x txt">${commentDto.user_nickname }</i>
+													<!--**************************** 별점 기능 필수 ******************************* -->
+													<span id="commentStar"><i class="fas fa-star"></i> ${commentDto.comment_score }</span>
+												</div>
+												<div class="comment_main_mid">
+													<textarea class="comment_main_mid_txt" readonly>${commentDto.comment_content }
+													</textarea>
+												</div>
+												<input type="hidden" name="userNo" value= "${commentDto.user_no}" >
+												<input type="hidden" name="movieNo" value="${commentDto.movie_no}" >
+												<input type="hidden" name="commentNo" value="${commentDto.comment_no}">
+					        	 				<input type="hidden" name="userNickname" value="${commentDto.user_nickname}">
+									        	<input type="hidden" name="commentContent" value="${commentDto.comment_content}">
+								        	    <input type="hidden" name="date" value="${commentDto.comment_date}">
+								        	    <input type="hidden" name="title" value="${commentDto.comments_title}">
+  	  							        	    <input type="hidden" name="commentScore" value="${commentDto.comment_score}">
+								        	    
 											</div>
 											<div class="comment_main_bot">
 												<a href="#">
 												좋아요<i class="far fa-thumbs-up">&nbsp;&nbsp;${commentDto.comment_like }</i>
 												</a>
 											</div>
-											<input type="hidden" name="userNo" value= "${commentDto.user_no}" >
-											<input type="hidden" name="movieNo" value="${commentDto.movie_no}" >
-											<input type="hidden" name="commentNo" value="${commentDto.comment_no}">
-				        	 				<input type="hidden" name="userNickname" value="${commentDto.user_nickname}">
-								        	<input type="hidden" name="commentContent" value="${commentDto.comment_content}">
-							        	    <input type="hidden" name="date" value="${commentDto.comment_date}">
-							        	    <input type="hidden" name="title" value="${commentDto.comments_title}">
 										</div>
 									</c:forEach>
 								</c:otherwise>
@@ -175,6 +194,9 @@
 					</div>
 					<input class="commet_view_btn" type="button" value="더보기" onclick="" />
 				</div>
+				<div class="description-box">
+					<span class="section-description">영화 <span class="section-movieName">${movieDto.movie_title.replaceAll("_"," ") }</span> 과(와) 관련된 영화들 입니다!</span>
+				</div>
 				<div class="info_main_bot_movies">
 					<c:choose>
 						<c:when test="${fn:length(relationMovieList) > 12}">
@@ -182,7 +204,12 @@
 									<div class="main_bot_movies_poster" style="background-image: url('/movie/assets/images/poster/${relationMovie.movie_title}_포스터.jpg')">
 										<div class="main_bot_poster_info">
 											<div>제목 ${relationMovie.movie_title.replaceAll("_", " ") }</div>
-											<span>장르 ${relationMovie.genre_name }&nbsp; 평점</span>
+											<span>장르 ${relationMovie.genre_name }&nbsp; 평점 <c:if test="${fn:length(relationMovie.moivie_web_score) == 1 }">
+																										${ relationMovie.moivie_web_score}.0
+																								 </c:if>
+																								 <c:if test="${fn:length(relationMovie.moivie_web_score) > 1 }">
+																										${ relationMovie.moivie_web_score}
+																								 </c:if></span>
 											<input type="hidden" id="movieNo" value="${relationMovie.movie_no }"/>
 										</div>
 									</div>
@@ -194,7 +221,12 @@
 								<div class="main_bot_movies_poster" style="background-image: url('/movie/assets/images/poster/${relationMovie.movie_title}_포스터.jpg')">
 									<div class="main_bot_poster_info">
 										<div>제목 ${relationMovie.movie_title.replaceAll("_", " ")  }</div>
-										<span>장르 ${relationMovie.genre_name }&nbsp; 평점</span>
+										<span>장르 ${relationMovie.genre_name }&nbsp; 평점 <c:if test="${fn:length(relationMovie.moivie_web_score) == 1 }">
+																										${ relationMovie.moivie_web_score}.0
+																								 </c:if>
+																								 <c:if test="${fn:length(relationMovie.moivie_web_score) > 1 }">
+																										${ relationMovie.moivie_web_score}
+																								 </c:if></span>
 										<input type="hidden" id="movieNo" value="${relationMovie.movie_no }"/>
 									</div>
 								</div>
@@ -219,6 +251,10 @@
    		}
    		.modal-footer {
 		    width: 100%;
+		}
+		textarea#commentContents {
+		    width: 100%;
+		    height: 100%;
 		}
 		
 	</style>
@@ -335,7 +371,6 @@
 
 		 let rating = data.rating;
 		 ratingContentsText(e, rating);
-		 console.log(rating);
 		 
 		 $.ajax({
 			 url: 'setStar/'+ movieNo + '/' + rating,
@@ -343,7 +378,6 @@
 			 contentType: 'application/json; charset=utf-8',
 			 dataType: 'json',
 			 success: function(responseObj){
-				 console.log(responseObj.setUserScore);
 				 
 				 let movieStarObj = {
 						 "movieNo": movieNo,
@@ -419,8 +453,79 @@
 	 
 	 function handleModal(){
 		 if(loginUser == ''){
-			 alert('로그인 후 이용해 주세요!');
-			 location.href="loginPage.do";
+			 /* alert('로그인 후 이용해 주세요!'); */
+			 swal({
+	    		   title: "Check!",
+	    		   text: "로그인 후 이용해 주세요!",
+	    		   icon: "warning" //"info,success,warning,error" 중 택1
+  			 }).then(function(){
+  				 
+			 	location.href="loginPage.do";
+  			 });
+		 }
+	 }
+	 
+	 // 위시리스트
+	 $('#wish').on('click',handleWish);
+	 
+	 function handleWish(){
+		 if(loginUser == ''){
+			 swal({
+	    		   title: "Check!",
+	    		   text: "로그인 후 이용해 주세요!",
+	    		   icon: "warning" //"info,success,warning,error" 중 택1
+			 }).then(function(){
+				 
+			 	location.href="loginPage.do";
+			 });
+		 }else{
+			 
+			 if($('#wish').text() == '+ 위시리스트 추가하기'){
+				 
+				 $.ajax({
+					 url: 'insertWishList/' + movieNo,
+					 type: 'post',
+					 contentType: 'application/json; charset=utf-8',
+					 success: function(responseObj){
+						 if(responseObj.insertResult){
+							 swal({
+					    		   title: "Success!",
+					    		   text: "위시리스트에 등록되었습니다!",
+					    		   icon: "success" //"info,success,warning,error" 중 택1
+							 });
+							 $('#wish').text('- 위시리스트 제거하기');
+						 }
+					 },
+					 error: function(){
+						 alert('실패');
+					 }
+					 
+				 });
+			 }else{
+				 
+				 $.ajax({
+					 url: 'deleteWishList/' + movieNo,
+					 type: 'post',
+					 contentType: 'application/json; charset=utf-8',
+					 success: function(responseObj){
+						 if(responseObj.deleteResult){
+							 alert('위시리스트에서 제거되었습니다.');
+							 swal({
+					    		   title: "Delete!",
+					    		   text: "위시리스트에서 제거되었습니다.",
+					    		   icon: "warning" //"info,success,warning,error" 중 택1
+							 });
+							 $('#wish').text('+ 위시리스트 추가하기');
+						 }
+					 },
+					 error: function(){
+						 alert('실패');
+					 }
+					 
+				 });
+			 }
+			 
+			 
 		 }
 	 }
 	 
@@ -443,8 +548,48 @@
 			 return;
 		 }
 		 
-		$('#commentForm').submit();
+		 if( !fnCut($('#commentTitle').val(), 50)){
+        	 alert('제목은 50byte까지 가능합니다.');
+   	 		 $('#commentTitle').focus();
+			 e.stopPropagation();
+			 return;
+		 }
 		 
+		swal({
+ 		   title: "Success!",
+ 		   text: "코멘트가 등록되었습니다!",
+ 		   icon: "success" //"info,success,warning,error" 중 택1
+		}).then(function(){
+			
+			$('#commentForm').submit();
+		})
+	 }
+	 
+	 function fnCut(str,lengths) // str은 inputbox에 입력된 문자열이고,lengths는 제한할 문자수 이다.
+	 {
+	       var len = 0;
+	       var newStr = '';
+	   
+	       for (var i=0;i<str.length; i++) 
+	       {
+	         var n = str.charCodeAt(i); // charCodeAt : String개체에서 지정한 인덱스에 있는 문자의 unicode값을 나타내는 수를 리턴한다.
+	         // 값의 범위는 0과 65535사이이여 첫 128 unicode값은 ascii문자set과 일치한다.지정한 인덱스에 문자가 없다면 NaN을 리턴한다.
+	         
+	        var nv = str.charAt(i); // charAt : string 개체로부터 지정한 위치에 있는 문자를 꺼낸다.
+	         
+
+	         if ((n>= 0)&&(n<256)) len ++; // ASCII 문자코드 set.
+	         else len += 3; // 한글이면 2byte로 계산한다.
+	         console.log(len);
+	         
+	       }
+	         if (len>lengths){
+	        	 
+	        	 return false; // 제한 문자수를 넘길경우.
+	        	 
+	         }else{
+	        	 return true;
+	         }
 	 }
 	 
 	 

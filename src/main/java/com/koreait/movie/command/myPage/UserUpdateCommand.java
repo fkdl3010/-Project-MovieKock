@@ -10,6 +10,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.ui.Model;
 
 import com.koreait.movie.common.CommonMapCommand;
+import com.koreait.movie.common.Sha256;
 import com.koreait.movie.dao.MyDao;
 import com.koreait.movie.dto.UserDto;
 
@@ -25,7 +26,14 @@ public class UserUpdateCommand implements CommonMapCommand {
 		
 		MyDao myDao = sqlSession.getMapper(MyDao.class);
 		
+		
+		String user_pw = Sha256.sha256(userDto.getUser_pw());
+		
+		userDto.setUser_pw(user_pw);
+
 		int resultUpdate = myDao.userUpdate(userDto);
+	
+		
 		
 //		회원 변경이 성공 할 시 로그인 세션 정보를 업데이트해줌
 		Map<String, Object> resultMap = new HashMap<String, Object>();

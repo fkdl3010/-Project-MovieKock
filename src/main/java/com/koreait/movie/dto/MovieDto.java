@@ -1,4 +1,4 @@
-package com.koreait.movie.dto;
+	package com.koreait.movie.dto;
 
 import java.sql.Date;
 
@@ -18,5 +18,6 @@ public class MovieDto {
 	private Date movie_opening_date;
 	private String movie_nation;
 	private String genre_name;
-	
+	private String movie_story;
+	private String moivie_web_score;
 }

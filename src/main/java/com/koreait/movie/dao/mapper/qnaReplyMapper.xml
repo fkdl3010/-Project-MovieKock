@@ -6,12 +6,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.koreait.movie.dao.QnaReplyDao">
 
-	<insert id="qnaReply" parameterType="com.koreait.movie.dto.QnaReplyDto">
-		INSERT INTO
-		   QNA_REPLY
-	    VALUES (QNA_SEQ.NEXTVAL, #{qna_no}, #{qna_reply_content}, SYSDATE)
+	<insert id="qnaReplyWrite" parameterType="com.koreait.movie.dto.QnaReplyDto">
+		INSERT 
+		  INTO QNA_REPLY
+	    VALUES (QNA_REPLY_SEQ.NEXTVAL, #{qna_no}, #{qna_reply_content}, SYSDATE)
 	</insert>
-	
 	
 	<select id="qnaReplyCount" parameterType="int" resultType="int"> 
 		SELECT COUNT(*)
@@ -19,25 +18,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
          WHERE QNA_NO = #{qna_no}
 	</select > 
 	
+	<select id="qnaReplyView" parameterType="int" resultType="com.koreait.movie.dto.QnaReplyDto"> 
+		SELECT *
+          FROM QNA_REPLY 
+         WHERE QNA_NO = #{qna_no}
+	</select>
 	
-	<select id="qnaReplyName" parameterType="com.koreait.movie.dto.QnaDto" resultType="com.koreait.movie.dto.QnaDto">
-		SELECT USER_NICKNAME
-        FROM USERS 
-        WHERE USER_NICKNAME = 'admin'
-	</select > 
-	
-	
-	<select id="qnaReplyNo" parameterType="int" resultType="int"> 
-		SELECT qna_reply_no
-        FROM QNA_REPLY 
-        WHERE QNA_NO = #{qna_no}
-	</select> 
-	
-	
-	<delete id="qnaDelete" parameterType="int">
+	<delete id="qnaReplyDelete" parameterType="int">
 		DELETE
-		  FROM QNA
-		 WHERE QNA_NO = #{qna_no}
+		  FROM QNA_REPLY
+		 WHERE QNA_REPLY_NO = #{qna_reply_no}
 	</delete>
 	
 </mapper>

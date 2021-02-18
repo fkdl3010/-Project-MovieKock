@@ -8,9 +8,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.koreait.movie.command.qna.QnaReplyCommand;
+import com.koreait.movie.command.qna.QnaReplyWriteCommand;
 import com.koreait.movie.command.qna.QnaDeleteCommand;
 import com.koreait.movie.command.qna.QnaListCommand;
 import com.koreait.movie.command.qna.QnaViewCommand;
@@ -28,19 +29,19 @@ public class QnaController {
 	private QnaListCommand qnaListCommand;
 	private QnaViewCommand qnaViewCommand;
 	private QnaDeleteCommand qnaDeleteCommand;
-	private QnaReplyCommand qnaReplyCommand;
+	private QnaReplyWriteCommand qnaReplyWriteCommand;
 	
 	@Autowired
 	public void setBean(QnaWriteCommand qnaWriteCommand,
 						QnaListCommand qnaListCommand,
 						QnaViewCommand qnaViewCommand,
 						QnaDeleteCommand qnaDeleteCommand,
-						QnaReplyCommand qnaReplyCommand) {
+						QnaReplyWriteCommand qnaReplyWriteCommand) {
 		this.qnaWriteCommand = qnaWriteCommand;
 		this.qnaListCommand = qnaListCommand;
 		this.qnaViewCommand = qnaViewCommand;
 		this.qnaDeleteCommand = qnaDeleteCommand;
-		this.qnaReplyCommand = qnaReplyCommand;
+		this.qnaReplyWriteCommand = qnaReplyWriteCommand;
 		
 	}
 	
@@ -92,19 +93,20 @@ public class QnaController {
 	
 	// 관리자 답변페이지로 넘어가기
 	@RequestMapping(value="qnaReplyPage.do")
-	public String QnaReplyPage() {
+	public String QnaReplyPage(@RequestParam("qna_no") int qna_no, Model model) {
+		model.addAttribute("qna_no", qna_no);
 		return "qnaPage/qnaReplyPage";
 	}
 	
 	// 관리자 답변페이지에서 등록
-	@RequestMapping(value="qnaReply.do")
+	@RequestMapping(value="qnaReply.do", method=RequestMethod.POST)
 	public String qnaReply(HttpServletRequest request,
 						        RedirectAttributes rttr,
 						        Model model) {
 		model.addAttribute("request", request);
 		model.addAttribute("rttr", rttr);
-		qnaReplyCommand.execute(sqlSession, model);
-		return "redirect:qnaListView.do";
+		qnaReplyWriteCommand.execute(sqlSession, model);
+		return "redirect:qnaView.do?qna_no=" + request.getParameter("qna_no") + "&page=" + request.getParameter("page");
 	}
 	
 	

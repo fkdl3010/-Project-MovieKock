@@ -145,7 +145,6 @@
 	         let date = yyyy + '-' + (mm[1]?mm:"0"+mm[0]) + '-' + (dd[1]?dd:"0"+dd[0]);
 
 	         let string = `<tr><td>${totalRecord - (recordPerPage * (page - 1)) - idx}</td>
-							<td>${comment.movie_no}</td>
 							<td>
 								<a href="#" id="movieView" data-target="#layerpop" data-toggle="modal"> ${comment.comments_title} </a>
 								<input type="hidden" name="userNo" value= ${userNo} >
@@ -153,7 +152,8 @@
 								<input type="hidden" name="commentNo" value=${comment.comment_no}>
 	        	 				<input type="hidden" name="userNickname" value=${userNickname}>
 					        	<input type="hidden" name="commentContent" value=${comment.comment_content}>
-				        	    <input type="hidden" name="date" value=${date}></td>
+				        	    <input type="hidden" name="date" value=${date}>
+					        	<input type="hidden" name="commentScore" value=${comment.comment_score}></td>
 							<td>${userNickname}</td>
 							<td>${date}</td>
 							<td>${comment.comment_like}</td></tr>`;
@@ -187,6 +187,7 @@
 			const userNickname = event.target.parentElement.children.userNickname.value;
 			const commentContent = event.target.parentElement.children.commentContent.value;
 			const date = event.target.parentElement.children.date.value;
+			const commentScore = event.target.parentElement.children.commentScore.value;
 			const commentName = event.target.innerText;
 			let movieTitle;
 		
@@ -201,7 +202,7 @@
 					if(!movieTitle){
 						alert('일치하는 영화없음');
 					}
-					sendModalView(userNo, movieNo, commentNo, userNickname, commentName, movieTitle, commentContent, date);
+					sendModalView(userNo, movieNo, commentNo, userNickname, commentName, movieTitle, commentContent, date, commentScore );
 					
 					setTimeout(function(){is_progress = false;}, 100);
 				},
@@ -214,7 +215,7 @@
 		}
 		
 		/* 버튼 클릭 시 모달창에 정보전달 */
-		function sendModalView(userNo, movieNo, commentNo, userNickname, commentName, movieTitle, commentContent, date){
+		function sendModalView(userNo, movieNo, commentNo, userNickname, commentName, movieTitle, commentContent, date, commentScore){
 			const modal = document.querySelector('.modal');
 			modal.querySelector('.modal-title').innerText = `${userNickname} 님이 작성하신 글입니다.`;
 			
@@ -223,6 +224,7 @@
 			modalContents.querySelector('.movie-name-span').innerText = movieTitle.replaceAll('_', ' ');
 			modalContents.querySelector('.movie-poster-img').style.backgroundImage = `url("/movie/assets/images/poster/${movieTitle}_포스터.jpg")`;
 			modalContents.querySelector('.movie-poster-img').style.backgroundSize = '100% 100%';
+			modalContents.querySelector('#movieNo').value = movieNo;
 			
 			let contentTitle = `
 								<input type="text" class="textOutline" value="${commentName}" id="contentTitle" readonly/>
@@ -238,6 +240,10 @@
 //			contentTextarea.className = 'contentTextArea';
 //			contentTextarea.innerText = commentContent;
 			modalContents.querySelector('.right-textarea-contents').innerHTML = contentTextarea;
+			
+			// 스코어
+			commentScore = commentScore.length == 1 ? commentScore + '.0' : commentScore
+			modalContents.querySelector('.movie-score').innerHTML = commentScore;
 			
 			if(document.title == '내가 쓴 글 목록'){
 				const modalBox = modal.querySelector('.main-wrapper-my-write');
