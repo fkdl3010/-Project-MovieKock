@@ -27,9 +27,12 @@
         
         #card-box1{
             width: 570px;
-            height: 200px;
+            height: 230px;
             margin-bottom: 10px;
             border-bottom: 2px solid #ec7114;
+            position: relative;
+            top: -10px;
+            
         }
         
         #card-box2{
