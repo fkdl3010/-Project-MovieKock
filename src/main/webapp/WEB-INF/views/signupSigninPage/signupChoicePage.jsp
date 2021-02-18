@@ -205,16 +205,18 @@
   
   /* 값 보내는 fn */
   function fn_submit(f){
-;
+
 	  
 	  swal({
 		    title: "Info",
 		    text: "회원님이 고르신 영화들로 추천해드릴게요!!",
-		    icon: "info" //"info,success,warning,error" 중 택1
-		});
+		    icon: "success" //"info,success,warning,error" 중 택1
+		}).then(function(){
+			
+			  f.action = 'userSelectMovieList.do?userNo=' + userNo;
+			  f.submit();
+		})
 	  
-	  f.action = 'userSelectMovieList.do?userNo=' + userNo;
-	  f.submit();
 	  
 	  
   }

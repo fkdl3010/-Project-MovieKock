@@ -210,7 +210,6 @@
 					dataType : 'json',
 					success : function(responseJSON) {
 						if (responseJSON.emailCheckResult == 'yes') {
-							alert('이 이메일은 사용 가능합니다.');
 							swal({
 							    title: "OK",
 							    text: "이 이메일은 사용 가능합니다.",

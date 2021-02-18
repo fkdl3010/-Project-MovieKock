@@ -32,7 +32,7 @@
 				  <div class="box1">
 				  	<div class="comment_body" id="movieView" data-target="#layerpop-commentView" data-toggle="modal">
 			            <div class="box1_top comment_main_top">
-					    <i class="fas fa-user-alt fa-4x" id=user_icon1></i>
+					    <i class="fas fa-user-circle fa-4x" id=user_icon1></i>
 			            <div class="box1_name">${commentDto.user_nickname }</div>
 			            <div class="box1_star_box">★ ${commentDto.comment_score == 0.0 ? 0 : commentDto.comment_score}</div>
 					    </div>
@@ -47,7 +47,7 @@
 			        	<input type="hidden" name="commentContent" value="${commentDto.comment_content}">
 		        	    <input type="hidden" name="date" value="${commentDto.comment_date}">
 		        	    <input type="hidden" name="title" value="${commentDto.comments_title}">
-        	   			 <input type="hidden" name="commentScore" value="${commentDto.comment_like}">
+        	   			 <input type="hidden" name="commentScore" value="${commentDto.comment_score}">
 		        	    
 				  	</div>
 		            <div class="box1_bottom">
