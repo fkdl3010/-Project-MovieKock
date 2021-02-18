@@ -47,11 +47,19 @@
 		  
 		  </div>
 	  </form>
+	  
+	     <div class="main-movieList">
+	     	<c:forEach var="movie" items="${movieGenreAllList}" varStatus="i">
+			<div class="list afterInsert" style="background-image: url(/movie/assets/images/poster/'+ movie.movie_title+'_포스터.jpg' + '); background-size: 250px 300px;">
+			<input type="checkbox" name="movie_no" class="movie_no" value='+movieN.movie_no+' style="display: none;"/>'+'</div>'
+		</c:forEach>
+		</div>
     </div>
   </div>
-  
-    <div class="main-movieList">
-	      	<c:forEach var="movie" items="${movieGenreAllList}">
+ 
+    
+ 
+	     <!-- <c:forEach var="movie" items="${movieGenreAllList}">
 	      		<div class="list" style="background-image: url('/movie/assets/images/poster/${movie.movie_title}_포스터.jpg'); background-size: 250px 300px;">
 	      			<input type="checkbox" name="movie_no" class="movie_no" value="${movie.movie_no }" style="display: none;"/>
 	      		</div>
@@ -68,7 +76,7 @@
 						<input type="hidden" id="movieNo" value="${movieDto.movie_no }"/>
 					
 	      	</c:forEach>
-    </div>
+    </div> --> 	
 <script>
 
 console.log('${movieGenreAllList}');
@@ -101,7 +109,7 @@ function formChange(){
         							+'<input type="hidden" id="movieNo" value="'+movieN.movie_no='"/></div>';
         				$('.main-movieList').append(movieOne); */	
         				
-        				const movieOne = '<div class="list afterInsert" style="background-image: url(/movie/assets/images/poster/'+ movieN.movie_title+'_포스터.jpg' + '); background-size: 250px 300px;">'
+        				const movieOne = '<div class="rankBadge"></div><div class="list afterInsert" style="background-image: url(/movie/assets/images/poster/'+ movieN.movie_title+'_포스터.jpg' + '); background-size: 250px 300px;">'
 						+'<input type="checkbox" name="movie_no" class="movie_no" value='+movieN.movie_no+' style="display: none;"/>'+'</div>';
 
 						$('.main-movieList').append(movieOne);
@@ -121,7 +129,7 @@ $(document).on("click",".list afterInsert",movePage);
 
 function movePage(event){
 	
-	const movieNo = event.currentTarget.children[2].value;
+	const movieNo = event.currentTarget.children[0].value;
 	
 	location.href = "movieInfoPage.do?movieNo=" + movieNo;
 }

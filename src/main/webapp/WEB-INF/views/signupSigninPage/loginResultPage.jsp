@@ -7,6 +7,7 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
 
@@ -36,9 +37,11 @@
 	}else{
 		
 		swal({
-		    title: "Waring",
-		    text: "아이디와 비밀번호를 확인해주세요.",
-		    icon: "warningo" //"info,success,warning,error" 중 택1
+
+		    title: "Warning",
+		    text: "일치하는 회원이 없습니다.",
+		    icon: "warning" //"info,success,warning,error" 중 택1
+
 		});
 
 		location.href='loginPage.do';
