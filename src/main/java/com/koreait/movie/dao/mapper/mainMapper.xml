@@ -40,7 +40,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<select id="mainList2" resultType="com.koreait.movie.dto.MovieDto">
-		select b.movie_no, b.movie_title, b.movie_director, b.movie_audience, b.movie_opening_date, b.movie_nation, a.genre_name, b.moivie_web_score
+		select b.movie_no, b.movie_title, b.movie_director, b.movie_audience, b.movie_opening_date, b.movie_nation, a.genre_name, b.movie_web_score
 		from (
 		    select a.movie_no, LISTAGG(b.genre_name, ',') within group (order by b.genre_name) as genre_name
 				from movie a, genre b, movie_genre c
@@ -53,7 +53,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<select id="mainList3" resultType="com.koreait.movie.dto.MovieDto">
-		select b.movie_no, b.movie_title, b.movie_director, b.movie_audience, b.movie_opening_date, b.movie_nation, a.genre_name, b.moivie_web_score
+		select b.movie_no, b.movie_title, b.movie_director, b.movie_audience, b.movie_opening_date, b.movie_nation, a.genre_name, b.movie_web_score
 		from (
 		    select a.movie_no, LISTAGG(b.genre_name, ',') within group (order by b.genre_name) as genre_name
 				from movie a, genre b, movie_genre c
@@ -66,7 +66,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="mainList4" resultType="com.koreait.movie.dto.MovieDto">
 	
-		select b.movie_no, b.movie_title, b.movie_director, b.movie_audience, b.movie_opening_date, b.movie_nation, a.genre_name, b.moivie_web_score
+		select b.movie_no, b.movie_title, b.movie_director, b.movie_audience, b.movie_opening_date, b.movie_nation, a.genre_name, b.movie_web_score
 		from (
 		    select a.movie_no, LISTAGG(b.genre_name, ',') within group (order by b.genre_name) as genre_name
 				from movie a, genre b, movie_genre c
@@ -80,7 +80,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="mainList5" resultType="com.koreait.movie.dto.MovieDto">
-		SELECT b.movie_no, b.movie_title, b.movie_director, b.movie_audience, b.movie_opening_date, b.movie_nation, a.genre_name, b.moivie_web_score
+		SELECT b.movie_no, b.movie_title, b.movie_director, b.movie_audience, b.movie_opening_date, b.movie_nation, a.genre_name, b.movie_web_score
 		FROM (
 			select a.movie_no, LISTAGG(b.genre_name, ',') within group (order by b.genre_name) as genre_name
 				from movie a, genre b, movie_genre c
@@ -109,13 +109,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		from (select rownum as rn, d.*
 		     from (
 		        select c.movie_no, c.movie_title, c.movie_director, c.movie_audience, c.movie_opening_date, c.movie_nation,LISTAGG(f.genre_name, ',') within group (order by f.genre_name) as genre_name
-		        		,c.moivie_web_score
+		        		,c.movie_web_score
 		        from movie_taste a, movie_genre b, movie c, genre f
 		        where b.genre_no = a.genre_no
 		        and b.movie_no = c.movie_no
 		        and b.genre_no = f.genre_no
 		        and a.user_no = #{userNo}
-		        group by c.movie_no,c.movie_no, c.movie_title, c.movie_director, c.movie_audience, c.movie_opening_date, c.movie_nation, c.moivie_web_score
+		        group by c.movie_no,c.movie_no, c.movie_title, c.movie_director, c.movie_audience, c.movie_opening_date, c.movie_nation, c.movie_web_score
 		        order by DBMS_RANDOM.RANDOM) d) e
 		where e.rn between 1 and 12
 	</select>
