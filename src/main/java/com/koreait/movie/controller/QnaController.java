@@ -56,7 +56,6 @@ public class QnaController {
 	public String qnaListView(HttpServletRequest request,
 							  Model model) {
 		model.addAttribute("request", request);
-		//RequestListCommand command = new RequestListCommand();
 		qnaListCommand.execute(sqlSession, model);
 		return "qnaPage/qnaListPage";
 	}

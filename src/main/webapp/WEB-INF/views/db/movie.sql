@@ -44,7 +44,7 @@ CREATE TABLE movie
     movie_opening_date    DATE              NULL, 
     movie_nation          VARCHAR2(40)      NULL, 
     movie_story           VARCHAR2(4000)    NULL,
-    moivie_web_scroe      NUMBER            NULL,  
+    moivie_web_score      NUMBER            NULL,  
     CONSTRAINT MOVIE_PK PRIMARY KEY (movie_no) 
 );
 
@@ -95,7 +95,7 @@ INCREMENT BY 1;
 CREATE TABLE QNA
 (
     qna_no         NUMBER            NOT NULL, 
-    qna_select     NUMBER            NOT NULL, 
+    qna_select     varchar2(30)      NOT NULL, 
     qna_title      VARCHAR2(50)      NOT NULL, 
     qna_secrect    NUMBER            NULL, 
     user_no        NUMBER            NOT NULL, 
@@ -396,11 +396,11 @@ ALTER TABLE movie_taste
 -- QNA_REPLY Table Create SQL
 CREATE TABLE QNA_REPLY
 (
-    QNA_REPLY_NO         NUMBER            NOT NULL, 
-    QNA_NO               NUMBER            NOT NULL, 
-    QNA_REPLY_CONTENT    VARCHAR2(4000)    NULL, 
-    QNA_REPLY_DATE       date              NULL, 
-    CONSTRAINT QNA_REPLY_PK PRIMARY KEY (QNA_REPLY_NO)
+    qna_reply_no         NUMBER            NOT NULL, 
+    qna_no               NUMBER            NOT NULL, 
+    qna_reply_content    VARCHAR2(4000)    NULL, 
+    qna_reply_date       date              NULL, 
+    CONSTRAINT QNA_REPLY_PK PRIMARY KEY (qna_reply_no)
 );
 
 

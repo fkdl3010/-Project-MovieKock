@@ -4,6 +4,7 @@
 	display: grid;
 	place-items: center;
 	height: 100%;
+	margin-top: 200px;
 }
 
 .main {
@@ -11,8 +12,14 @@
 	width: 800px;
 }
 
-.table {
+.table_user_write {
 	text-align: center;
+	width: 775px;
+}
+
+.table_reply_content {
+	text-align: center;
+	width: 770px;
 }
 
 .main_body {
@@ -20,28 +27,39 @@
 	border-radius: 10px;
 	padding: 15px;
 	height: 400px;
+	width: 100%;
 	background:white;
 }
 
 .user_write_tr {
+	margin: auto;
 	background: #ddd;
+	text-align: center;
+	width: 770px;
 }
 
 .reply_content_tr {
+	margin: auto;
 	background: #ddd;
+	width: 770px;
 }
 
 .user_write_td_resp {
 	text-align: center;
+	width: 400px;
 }
 
 .user_write_tr>.td:nth-of-type(2) {
 	border-left: 1px solid #ddd;
 	border-right: 1px solid #ddd;
+	width: 400px;
+	margin: auto;
 }
 .reply_content_tr>.td:nth-of-type(2) {
 	border-left: 1px solid #ddd;
 	border-right: 1px solid #ddd;
+	width: 400px;
+	margin: auto;
 }
 
 .qna_reply_btn {
@@ -49,7 +67,7 @@
 	  height: 44px;
 	  position: absolute;
 	  left: 36%;
-	  top: 43%;
+	  top: 55%;
 	  font-size: 16px;
 	  color: rgb(255, 255, 255);
 	  text-align: center;
@@ -65,11 +83,9 @@
 	  height: 44px;
 	  position: absolute;
 	  right: 32%;
-	  top: 43%;
+	  top: 55%;
 	  width:100px;
 	  height: 44px;
-	  position: absolute;
-	  right: 30%;
 	  font-size: 16px;
 	  color: rgb(255, 255, 255);
 	  text-align: center;
@@ -86,7 +102,7 @@
 	  height: 44px;
 	  position: absolute;
 	  left: 30%;
-	  top: 43%;
+	  top: 55%;
 	  font-size: 16px;
 	  color: rgb(255, 255, 255);
 	  text-align: center;
