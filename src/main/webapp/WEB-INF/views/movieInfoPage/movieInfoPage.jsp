@@ -34,7 +34,12 @@
 		          <div class="info_main_mid_mid_contents">
 		            <span class="movie_info_main"> ${movieDto.genre_name } • ${movieDto.movie_nation } </span><br>
 		            <span class="movie_info_opendate textdeco">개봉일 : ${movieDto.movie_opening_date } 누적관객 : ${movieDto.movie_audience }</span><br>
-		            <span class="movie_info_score textdeco">평균 ★ 4.4(1,831명)</span>
+		            <span class="movie_info_score textdeco">평점 <span id="littleStar">★</span> <c:if test="${fn:length(movieDto.moivie_web_scroe) == 1 }">
+																			${ movieDto.moivie_web_scroe}.0
+																	 </c:if>
+																	 <c:if test="${fn:length(movieDto.moivie_web_scroe) > 1 }">
+																			${ movieDto.moivie_web_scroe}
+																	 </c:if></span>
 		          </div>
 		        </div>
 		        <div class="info_main_mid_right info_main_mid_box">
@@ -65,10 +70,7 @@
 					</div>
 					<br/>
 					<div class="main_bot_bot">
-						<span class="main_bot_bot_font txt">
-							혈귀로 변해버린 여동생 ‘네즈코’를 인간으로 되돌릴 단서를 찾아 비밀조직 귀살대에 들어간 ‘탄지로.’ ‘젠이츠’, ‘이노스케’와 새로운 임무 수행을 위해 무한열차에 탑승 후 귀살대 최강 검사 염주 ‘렌고쿠’와 합류한다. 
-
-달리는 무한열차에서 승객들이 하나 둘 흔적 없이 사라지자 숨어있는 식인 혈귀의 존재를 직감하는 ‘렌고쿠’. 귀살대 ‘탄지로’ 일행과 최강 검사 염주 ‘렌고쿠’는 어둠 속을 달리는 무한열차에서 모두의 목숨을 구하기 위해 예측불가능한 능력을 가진 혈귀와 목숨을 건 혈전을 시작하는데…
+						<span class="main_bot_bot_font txt">${movieDto.movie_story }
 						</span>
 					</div>
 				</div>
@@ -131,7 +133,7 @@
 												<div class="comment_main_top">
 														<i class="fas fa-user-circle fa-2x txt">${commentDto.user_nickname }</i>
 													<!--**************************** 별점 기능 필수 ******************************* -->
-													★${commentDto.comment_score }
+													<span id="commentStar"><i class="fas fa-star"></i> ${commentDto.comment_score }</span>
 												</div>
 												<div class="comment_main_mid">
 													<textarea class="comment_main_mid_txt" readonly>${commentDto.comment_content }
@@ -144,7 +146,7 @@
 									        	<input type="hidden" name="commentContent" value="${commentDto.comment_content}">
 								        	    <input type="hidden" name="date" value="${commentDto.comment_date}">
 	  							        	    <input type="hidden" name="title" value="${commentDto.comments_title}">
-	  							        	    <input type="hidden" name="commentScore" value="${commentDto.comment_like}">
+	  							        	    <input type="hidden" name="commentScore" value="${commentDto.comment_score}">
 											</div>
 											<div class="comment_main_bot">
 												<a href="#">
@@ -162,7 +164,7 @@
 												<div class="comment_main_top">
 														<i class="fas fa-user-circle fa-2x txt">${commentDto.user_nickname }</i>
 													<!--**************************** 별점 기능 필수 ******************************* -->
-													★${commentDto.comment_score }
+													<span id="commentStar"><i class="fas fa-star"></i> ${commentDto.comment_score }</span>
 												</div>
 												<div class="comment_main_mid">
 													<textarea class="comment_main_mid_txt" readonly>${commentDto.comment_content }
@@ -175,7 +177,7 @@
 									        	<input type="hidden" name="commentContent" value="${commentDto.comment_content}">
 								        	    <input type="hidden" name="date" value="${commentDto.comment_date}">
 								        	    <input type="hidden" name="title" value="${commentDto.comments_title}">
-  	  							        	    <input type="hidden" name="commentScore" value="${commentDto.comment_like}">
+  	  							        	    <input type="hidden" name="commentScore" value="${commentDto.comment_score}">
 								        	    
 											</div>
 											<div class="comment_main_bot">
@@ -192,6 +194,9 @@
 					</div>
 					<input class="commet_view_btn" type="button" value="더보기" onclick="" />
 				</div>
+				<div class="description-box">
+					<span class="section-description">영화 <span class="section-movieName">${movieDto.movie_title.replaceAll("_"," ") }</span> 과(와) 관련된 영화들 입니다!</span>
+				</div>
 				<div class="info_main_bot_movies">
 					<c:choose>
 						<c:when test="${fn:length(relationMovieList) > 12}">
@@ -199,7 +204,12 @@
 									<div class="main_bot_movies_poster" style="background-image: url('/movie/assets/images/poster/${relationMovie.movie_title}_포스터.jpg')">
 										<div class="main_bot_poster_info">
 											<div>제목 ${relationMovie.movie_title.replaceAll("_", " ") }</div>
-											<span>장르 ${relationMovie.genre_name }&nbsp; 평점</span>
+											<span>장르 ${relationMovie.genre_name }&nbsp; 평점 <c:if test="${fn:length(relationMovie.moivie_web_scroe) == 1 }">
+																										${ relationMovie.moivie_web_scroe}.0
+																								 </c:if>
+																								 <c:if test="${fn:length(relationMovie.moivie_web_scroe) > 1 }">
+																										${ relationMovie.moivie_web_scroe}
+																								 </c:if></span>
 											<input type="hidden" id="movieNo" value="${relationMovie.movie_no }"/>
 										</div>
 									</div>
@@ -211,7 +221,12 @@
 								<div class="main_bot_movies_poster" style="background-image: url('/movie/assets/images/poster/${relationMovie.movie_title}_포스터.jpg')">
 									<div class="main_bot_poster_info">
 										<div>제목 ${relationMovie.movie_title.replaceAll("_", " ")  }</div>
-										<span>장르 ${relationMovie.genre_name }&nbsp; 평점</span>
+										<span>장르 ${relationMovie.genre_name }&nbsp; 평점 <c:if test="${fn:length(relationMovie.moivie_web_scroe) == 1 }">
+																										${ relationMovie.moivie_web_scroe}.0
+																								 </c:if>
+																								 <c:if test="${fn:length(relationMovie.moivie_web_scroe) > 1 }">
+																										${ relationMovie.moivie_web_scroe}
+																								 </c:if></span>
 										<input type="hidden" id="movieNo" value="${relationMovie.movie_no }"/>
 									</div>
 								</div>
@@ -356,7 +371,6 @@
 
 		 let rating = data.rating;
 		 ratingContentsText(e, rating);
-		 console.log(rating);
 		 
 		 $.ajax({
 			 url: 'setStar/'+ movieNo + '/' + rating,
@@ -364,7 +378,6 @@
 			 contentType: 'application/json; charset=utf-8',
 			 dataType: 'json',
 			 success: function(responseObj){
-				 console.log(responseObj.setUserScore);
 				 
 				 let movieStarObj = {
 						 "movieNo": movieNo,
@@ -440,8 +453,15 @@
 	 
 	 function handleModal(){
 		 if(loginUser == ''){
-			 alert('로그인 후 이용해 주세요!');
-			 location.href="loginPage.do";
+			 /* alert('로그인 후 이용해 주세요!'); */
+			 swal({
+	    		   title: "Check!",
+	    		   text: "로그인 후 이용해 주세요!",
+	    		   icon: "warning" //"info,success,warning,error" 중 택1
+  			 }).then(function(){
+  				 
+			 	location.href="loginPage.do";
+  			 });
 		 }
 	 }
 	 
@@ -450,8 +470,14 @@
 	 
 	 function handleWish(){
 		 if(loginUser == ''){
-			 alert('로그인 후 이용해 주세요!');
-			 location.href="loginPage.do";
+			 swal({
+	    		   title: "Check!",
+	    		   text: "로그인 후 이용해 주세요!",
+	    		   icon: "warning" //"info,success,warning,error" 중 택1
+			 }).then(function(){
+				 
+			 	location.href="loginPage.do";
+			 });
 		 }else{
 			 
 			 if($('#wish').text() == '+ 위시리스트 추가하기'){
@@ -462,7 +488,11 @@
 					 contentType: 'application/json; charset=utf-8',
 					 success: function(responseObj){
 						 if(responseObj.insertResult){
-							 alert('위시리스트에 등록되었습니다.');
+							 swal({
+					    		   title: "Success!",
+					    		   text: "위시리스트에 등록되었습니다!",
+					    		   icon: "success" //"info,success,warning,error" 중 택1
+							 });
 							 $('#wish').text('- 위시리스트 제거하기');
 						 }
 					 },
@@ -480,6 +510,11 @@
 					 success: function(responseObj){
 						 if(responseObj.deleteResult){
 							 alert('위시리스트에서 제거되었습니다.');
+							 swal({
+					    		   title: "Delete!",
+					    		   text: "위시리스트에서 제거되었습니다.",
+					    		   icon: "warning" //"info,success,warning,error" 중 택1
+							 });
 							 $('#wish').text('+ 위시리스트 추가하기');
 						 }
 					 },
@@ -520,8 +555,14 @@
 			 return;
 		 }
 		 
-		$('#commentForm').submit();
-		 
+		swal({
+ 		   title: "Success!",
+ 		   text: "코멘트가 등록되었습니다!",
+ 		   icon: "success" //"info,success,warning,error" 중 택1
+		}).then(function(){
+			
+			$('#commentForm').submit();
+		})
 	 }
 	 
 	 function fnCut(str,lengths) // str은 inputbox에 입력된 문자열이고,lengths는 제한할 문자수 이다.
