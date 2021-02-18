@@ -111,7 +111,7 @@
 	<bean id="qnaListCommand" class="com.koreait.movie.command.qna.QnaListCommand"></bean>
 	<bean id="qnaViewCommand" class="com.koreait.movie.command.qna.QnaViewCommand"></bean>
 	<bean id="qnaDeleteCommand" class="com.koreait.movie.command.qna.QnaDeleteCommand"></bean>
-	<bean id="qnaReplyCommand" class="com.koreait.movie.command.qna.QnaReplyCommand"></bean>
+	<bean id="qnaReplyWriteCommand" class="com.koreait.movie.command.qna.QnaReplyWriteCommand"></bean>
 	
 	
 	<!--recommand -->

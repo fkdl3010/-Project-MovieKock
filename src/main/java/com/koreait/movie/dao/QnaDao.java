@@ -10,9 +10,9 @@ public interface QnaDao {
 	// 리스트
 	public List<QnaDto> qnaList(int beginRecord, int endRecord);
 	
-	public int qnaWrite(QnaDto qnaDto);
-	
 	public int totalRecord();
+	
+	public int qnaWrite(QnaDto qnaDto);
 	
 	// 뷰
 	public QnaDto qnaView(int qna_no);
@@ -25,6 +25,12 @@ public interface QnaDao {
 	
 	// 게시글 비밀번호 
 	public String qnaPw(String qna_pw);
+	
+	// 게시글 답변 여부
+	public void updateQnaYn(int qna_no);
+	
+	// 게시글 삭제
+	public int qnaDelete(int qna_no);
 
 		
 }

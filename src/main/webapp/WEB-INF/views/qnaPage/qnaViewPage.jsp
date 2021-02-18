@@ -19,7 +19,7 @@
 					<tr class="user_write_tr_resp">
 						<td class="user_write_td_resp">${qnaDto.qna_content}</td>
 						<td class="user_write_td_resp">${qnaDto.qna_date}</td>
-						<td class="user_write_td_resp">${qnaDto.qna_yn}</td>
+						<td class="user_write_td_resp">---</td>
 					</tr>
 				</table>
 				<table class="table_reply_content">
@@ -28,14 +28,14 @@
 						<td class="reply_content_td">답변 날짜</td>
 						<td class="reply_content_td">답변 여부</td>
 					</tr>
-					<c:if test="${qnaReplyCount eq 0}">
+					<c:if test="${qnaDto.qna_yn eq 0}">
 					<tr class="reply_content_tr_resp">
-						<td class="reply_content_td_resp">${qnaDto.qna_content}</td>
-						<td class="reply_content_td_resp">${qnaDto.qna_date}</td>
+						<td class="reply_content_td_resp">아직 답변이 등록되지 않았습니다</td>
+						<td class="reply_content_td_resp">---</td>
 						<td class="reply_content_td_resp">답변 대기중</td>
 					</tr>
 					</c:if>
-					<c:if test="${qnaReplyCount gt 1}">
+					<c:if test="${qnaDto.qna_yn eq 1}">
 					<tr class="reply_content_tr_resp">
 						<td class="reply_content_td_resp">${qnaReplyDto.qna_reply_content}</td>
 						<td class="reply_content_td_resp">${qnaReplyDto.qna_reply_date}</td>
@@ -47,13 +47,16 @@
 					<c:if test="${loginUser.user_id eq 'admin' || qnaDto.user_no eq loginUser.user_no  }">
 						<input type="button" class="delete_btn" value="삭제"  onclick="fn_qnaDelete(this.form)" />
 						<input type="hidden" name="qna_no" value="${qnaDto.qna_no}" />
+						<input type="hidden" name="qna_reply_no" value="${qnaReplyDto.qna_reply_no}" />
 					</c:if>
 				</form>
 				<form method="get">
 					<input type="button" class="list_btn" value="목록" onclick="fn_qnaListView(this.form)" />	
 				</form>
 				<form method="get">
-					<c:if test="${loginUser.user_id eq 'admin' }">
+					<c:if test="${loginUser.user_id eq 'admin' and qnaDto.qna_yn eq 0}">
+						<input type="hidden" name="page" value="${page}" />
+						<input type="hidden" name="qna_no" value="${qnaDto.qna_no}" />
 						<input type="button" class="qna_reply_btn" value="답변하기" onclick="fn_qnaReplyPage(this.form)" />
 					</c:if>
 				</form>
