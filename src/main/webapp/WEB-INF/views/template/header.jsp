@@ -10,10 +10,6 @@
 %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<<<<<<< HEAD
-=======
-
->>>>>>> ffccabe093490992551afb75a216c5e136279802
 <!DOCTYPE html>
 <html>
 <head>
