@@ -5,9 +5,12 @@
 <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> -->
 <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" /> -->
 <style>
+*{
+	outline: none;
+}
+
 .ddBody{
-	margin-top: 25px;
-    margin : 10px;
+	margin-top: 5px;
     padding: 10px;
     text-align: center;
     display: block;
@@ -32,7 +35,7 @@
 .dropDown:action,
 .dropDown:focus,
 .dropDown:hover {
- 	outline: #141414;
+ 	outline: none;
  	border: none;
  }
  
@@ -63,7 +66,7 @@
 
 .top_user_circle {
 	color: #ec7114;
-	background-color: #141414;
+	background-color: white;
 }
 
 </style>

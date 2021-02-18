@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,7 +21,7 @@
   <div class="main-wrapper">
   	
     <div class="logo">
-     <a href="main_page.do"><img class="loginPage_logo" src="assets/images/logo.jpg"/></a>
+     <a href="mainPage.do"><img class="loginPage_logo" src="assets/images/logo.jpg"/></a>
     </div>
   
     	<div class="header">
@@ -31,7 +31,7 @@
     	<div class="control-form">
      	 <form class="login-form" id="loginForm" name="loginForm" method="post">
         	<input type="text" class="login-input txt" id="id" name="id" placeholder="아이디" />
-        	<input type="password" class="login-input txt" id="pw" name="pw" placeholder="비밀번호" />
+        	<input type="password" class="login-input txt" id="pw" name="pw" placeholder="비밀번호" onkeypress="if(event.keyCode == 13){ loginOk(); return; }" />
         	<input type="checkbox" name="rememberId" id="rememberId"/>
         	<label for="rememberId" class="txt">아이디 저장</label>
         	<input type="button" value="로그인" class="login-btn" onclick="fn_login(this.form)" />
@@ -67,7 +67,42 @@
 			f.submit();
 		}
 	}
-			
+	
+	function loginOk() {
+
+		var f = document.loginForm;
+
+
+		if(f.id.value == '') {
+
+			swal({
+			    title: "Warning",
+			    text: "아이디를 입력하세요'.",
+			    icon: "warning" //"info,success,warning,error" 중 택1
+			});
+
+		return false;
+
+		}
+
+		if(f.pw.value == '') {
+
+			swal({
+			    title: "Warning",
+			    text: "비밀번호를 입력하세요'.",
+			    icon: "warning" //"info,success,warning,error" 중 택1
+			});
+
+		return false;
+
+		}
+
+		f.action="login.do";
+
+		f.submit();
+
+		}
+	
 </script>
 
   <!-- modal -->

@@ -8,6 +8,12 @@
 </jsp:include>
 
 <link rel="stylesheet" href="/movie/assets/style/myPageCss/myPage.css"/>
+<style>
+.search-btn {
+	top: 7px !important;
+}
+</style>
+
         <div class="big-box">
         	<div class="coverBox">
                 <!-- 초기 값은 커버사진 추가하기 버튼 -->
