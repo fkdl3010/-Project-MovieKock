@@ -7,6 +7,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
   <link rel="stylesheet" href="/movie/assets/style/singupSigninPageCss/signupChoicePage.css"  />
 </head>
@@ -146,7 +147,7 @@
 			/* 영화선택 배열을 하나 지워주고 checked 속성을 false로 되돌림 */
 			userSelect.pop();
 			swal({
-			    title: "Info",
+			    title: "Check!",
 			    text: "영화는 10개까지 선택이 가능합니다.",
 			    icon: "info" //"info,success,warning,error" 중 택1
 			});
