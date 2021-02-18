@@ -77,7 +77,7 @@ function formChange(){
         		$('.main-movieList').empty();
         			movieList.forEach(function(movieN){
         				console.log(movieN);
-        				const movieOne = '<div class="insert-movie-box"><div class="movie-insert" style="background-image: url(/movie/assets/images/poster/'+ movieN.movie_title+'_포스터.jpg' + '); background-size: 190px 100%;"></div>'
+        				const movieOne = '<div class="insert-movie-box"><div class="movie-insert" style="background-image: url(/movie/assets/images/poster/'+ movieN.movie_title+'_포스터.jpg' + '); background-size:210px 100%;"></div>'
         				
 						+'<div class="insert-info"><div class="text"><h4>'+movieN.movie_title.replaceAll("_"," ")+'</h4><p>'+movieN.movie_nation+'&nbsp;&nbsp;평점 '+movieN.movie_web_score+'<br/> 장르 '+movieN.genre_name+
 						'</p></div></div><input type="hidden" id="movieNo" value="'+movieN.movie_no+'" /></div></div>';
@@ -100,12 +100,12 @@ $(document).on("click",".movie-box",movePage1);
 
 function movePage1(event){
 	
-	const movieNo = event.currentTarget.children[1].value;
+	const movieNo = event.currentTarget.children[2].value;
 	
 	location.href = "movieInfoPage.do?movieNo=" + movieNo;
 }
 
-$(document).on("click",".main-movieList",movePage2);
+$(document).on("click",".insert-movie-box",movePage2);
 
 function movePage2(event){
 	
