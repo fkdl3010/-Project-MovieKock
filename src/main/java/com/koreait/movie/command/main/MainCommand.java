@@ -54,7 +54,6 @@ public class MainCommand implements CommonVoidCommand {
 		Calendar cal = Calendar.getInstance();
 		String[] days = {"", "일", "월", "화", "수", "목", "금", "토"};
 		String today = days[cal.get(Calendar.DAY_OF_WEEK)];
-		System.out.println(today);
 		Map<String, Object> todayMap = new HashMap<>();
 		todayMap.put("today", today);
 		List<MovieDto> mainList1 = dao.mainList1(todayMap);

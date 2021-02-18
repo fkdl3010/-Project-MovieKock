@@ -34,11 +34,11 @@
 		          <div class="info_main_mid_mid_contents">
 		            <span class="movie_info_main"> ${movieDto.genre_name } • ${movieDto.movie_nation } </span><br>
 		            <span class="movie_info_opendate textdeco">개봉일 : ${movieDto.movie_opening_date } 누적관객 : ${movieDto.movie_audience }</span><br>
-		            <span class="movie_info_score textdeco">평점 <span id="littleStar">★</span> <c:if test="${fn:length(movieDto.moivie_web_scroe) == 1 }">
-																			${ movieDto.moivie_web_scroe}.0
+		            <span class="movie_info_score textdeco">평점 <span id="littleStar">★</span> <c:if test="${fn:length(movieDto.moivie_web_score) == 1 }">
+																			${ movieDto.moivie_web_score}.0
 																	 </c:if>
-																	 <c:if test="${fn:length(movieDto.moivie_web_scroe) > 1 }">
-																			${ movieDto.moivie_web_scroe}
+																	 <c:if test="${fn:length(movieDto.moivie_web_score) > 1 }">
+																			${ movieDto.moivie_web_score}
 																	 </c:if></span>
 		          </div>
 		        </div>
@@ -204,11 +204,11 @@
 									<div class="main_bot_movies_poster" style="background-image: url('/movie/assets/images/poster/${relationMovie.movie_title}_포스터.jpg')">
 										<div class="main_bot_poster_info">
 											<div>제목 ${relationMovie.movie_title.replaceAll("_", " ") }</div>
-											<span>장르 ${relationMovie.genre_name }&nbsp; 평점 <c:if test="${fn:length(relationMovie.moivie_web_scroe) == 1 }">
-																										${ relationMovie.moivie_web_scroe}.0
+											<span>장르 ${relationMovie.genre_name }&nbsp; 평점 <c:if test="${fn:length(relationMovie.moivie_web_score) == 1 }">
+																										${ relationMovie.moivie_web_score}.0
 																								 </c:if>
-																								 <c:if test="${fn:length(relationMovie.moivie_web_scroe) > 1 }">
-																										${ relationMovie.moivie_web_scroe}
+																								 <c:if test="${fn:length(relationMovie.moivie_web_score) > 1 }">
+																										${ relationMovie.moivie_web_score}
 																								 </c:if></span>
 											<input type="hidden" id="movieNo" value="${relationMovie.movie_no }"/>
 										</div>
@@ -221,11 +221,11 @@
 								<div class="main_bot_movies_poster" style="background-image: url('/movie/assets/images/poster/${relationMovie.movie_title}_포스터.jpg')">
 									<div class="main_bot_poster_info">
 										<div>제목 ${relationMovie.movie_title.replaceAll("_", " ")  }</div>
-										<span>장르 ${relationMovie.genre_name }&nbsp; 평점 <c:if test="${fn:length(relationMovie.moivie_web_scroe) == 1 }">
-																										${ relationMovie.moivie_web_scroe}.0
+										<span>장르 ${relationMovie.genre_name }&nbsp; 평점 <c:if test="${fn:length(relationMovie.moivie_web_score) == 1 }">
+																										${ relationMovie.moivie_web_score}.0
 																								 </c:if>
-																								 <c:if test="${fn:length(relationMovie.moivie_web_scroe) > 1 }">
-																										${ relationMovie.moivie_web_scroe}
+																								 <c:if test="${fn:length(relationMovie.moivie_web_score) > 1 }">
+																										${ relationMovie.moivie_web_score}
 																								 </c:if></span>
 										<input type="hidden" id="movieNo" value="${relationMovie.movie_no }"/>
 									</div>

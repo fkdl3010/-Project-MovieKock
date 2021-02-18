@@ -52,11 +52,11 @@
 							<div class="text">
 								<h4>${movieDto.movie_title.replaceAll("_"," ")}</h4>
 								<p>${movieDto.movie_nation}&nbsp;&nbsp;
-									평점 <c:if test="${fn:length(movieDto.moivie_web_scroe) == 1 }">
-												${ movieDto.moivie_web_scroe}.0
+									평점 <c:if test="${fn:length(movieDto.moivie_web_score) == 1 }">
+												${ movieDto.moivie_web_score}.0
 										 </c:if>
-										 <c:if test="${fn:length(movieDto.moivie_web_scroe) > 1 }">
-												${ movieDto.moivie_web_scroe}
+										 <c:if test="${fn:length(movieDto.moivie_web_score) > 1 }">
+												${ movieDto.moivie_web_score}
 										 </c:if>
 										 <br /> 장르 ${movieDto.genre_name}</p>
 							</div>
@@ -84,11 +84,11 @@
 							<div class="text">
 								<h4>${movieDto.movie_title.replaceAll("_"," ")}</h4>
 								<p>${movieDto.movie_nation}&nbsp;&nbsp;
-									평점<c:if test="${fn:length(movieDto.moivie_web_scroe) == 1 }">
-												${ movieDto.moivie_web_scroe}.0
+									평점<c:if test="${fn:length(movieDto.moivie_web_score) == 1 }">
+												${ movieDto.moivie_web_score}.0
 										 </c:if>
-										 <c:if test="${fn:length(movieDto.moivie_web_scroe) > 1 }">
-												${ movieDto.moivie_web_scroe}
+										 <c:if test="${fn:length(movieDto.moivie_web_score) > 1 }">
+												${ movieDto.moivie_web_score}
 										 </c:if>
 										 <br /> 장르 ${movieDto.genre_name}</p>
 							</div>
@@ -117,11 +117,11 @@
 								<h4>${movieDto.movie_title.replaceAll("_"," ")}</h4>
 
 								<p>${movieDto.movie_nation}&nbsp;&nbsp;
-									평점 <c:if test="${fn:length(movieDto.moivie_web_scroe) == 1 }">
-												${ movieDto.moivie_web_scroe}.0
+									평점 <c:if test="${fn:length(movieDto.moivie_web_score) == 1 }">
+												${ movieDto.moivie_web_score}.0
 										 </c:if>
-										 <c:if test="${fn:length(movieDto.moivie_web_scroe) > 1 }">
-												${ movieDto.moivie_web_scroe}
+										 <c:if test="${fn:length(movieDto.moivie_web_score) > 1 }">
+												${ movieDto.moivie_web_score}
 										 </c:if>
 										 <br /> 장르 ${movieDto.genre_name }								</p>
 
@@ -151,11 +151,11 @@
 							<div class="text">
 								<h4>${movieDto.movie_title.replaceAll("_"," ")}</h4>
 								<p>${movieDto.movie_nation}&nbsp;&nbsp;
-									평점 <c:if test="${fn:length(movieDto.moivie_web_scroe) == 1 }">
-												${ movieDto.moivie_web_scroe}.0
+									평점 <c:if test="${fn:length(movieDto.moivie_web_score) == 1 }">
+												${ movieDto.moivie_web_score}.0
 										 </c:if>
-										 <c:if test="${fn:length(movieDto.moivie_web_scroe) > 1 }">
-												${ movieDto.moivie_web_scroe}
+										 <c:if test="${fn:length(movieDto.moivie_web_score) > 1 }">
+												${ movieDto.moivie_web_score}
 										 </c:if>
 										 <br /> 장르 ${movieDto.genre_name }
 								</p>
@@ -184,11 +184,11 @@
 								<h4>${movieDto.movie_title.replaceAll("_"," ")}</h4>
 
 								<p>${movieDto.movie_nation}&nbsp;&nbsp;
-									평점 <c:if test="${fn:length(movieDto.moivie_web_scroe) == 1 }">
-												${ movieDto.moivie_web_scroe}.0
+									평점 <c:if test="${fn:length(movieDto.moivie_web_score) == 1 }">
+												${ movieDto.moivie_web_score}.0
 										 </c:if>
-										 <c:if test="${fn:length(movieDto.moivie_web_scroe) > 1 }">
-												${ movieDto.moivie_web_scroe}
+										 <c:if test="${fn:length(movieDto.moivie_web_score) > 1 }">
+												${ movieDto.moivie_web_score}
 										 </c:if>
 										 <br /> 장르 ${movieDto.genre_name }
 								</p>
