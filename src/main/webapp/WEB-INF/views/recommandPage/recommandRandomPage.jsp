@@ -10,7 +10,7 @@
 </head>
 <body>
 
- <img src="/movie/assets/images/poster/${movieTitle}_포스터.jpg"/>
+<a href="movieInfoPage.do?movieNo=${ no }"><img src="/movie/assets/images/poster/${movieTitle}_포스터.jpg"/></a>
 
 </body>
 </html>

@@ -40,7 +40,8 @@ body {
   width: 100%;
   height: 100%;
   background-color: gray;
-  
+  border-radius: 20px;
+  cursor: pointer;
 }
 
 .section-right{
@@ -69,7 +70,7 @@ body {
   border: 1px solid black;
   border-radius: 15px;
   padding: 20px;
-  height: 83%;
+  height: 76%;
   width: 100%;
 }
 
@@ -100,4 +101,17 @@ body {
     border-color: #128496;
     background-color: #128496;
     color: #ccc;
+}
+
+i.fas.fa-star.fa-2x {
+    color: gold;
+}
+
+input#contentTitle {
+}
+span.movie-score {
+    font-size: 25px;
+}
+.top-title {
+    text-align: right;
 }

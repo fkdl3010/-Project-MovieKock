@@ -8,25 +8,31 @@
 
 <link rel="stylesheet" href="/movie/assets/style/myPageCss/myWritePage.css"/>
         <div class="big-box">
-                <i id="profile" class="fas fa-user-circle"></i>
+        	<div class="coverBox" style="background-image: url(/movie/assets/images/userCover/${loginUser.user_image_name}) ">
+        	
+        	</div>
+        	
+            <div class="profileBox" style="background-image: url(/movie/assets/images/userProfile/${loginUser.user_profile_name}) ">
+            
+            </div>
+        	
+        	
               <div class="tableBox" >
-                <table>
+                <table class="bordered">
                     <thead>
-                        <tr>
+                        <tr id="commentHead">
                             <th>글 번호</th>
-                            <th>영화</th>
                             <th>제목</th>
                             <th>닉네임</th>
                             <th>작성일</th>
                             <th>좋아요</th>
-                            <th colspan="2">비고</th>
                         </tr>
                     </thead>
 
                     <tbody id="commentList"></tbody>
 
                     <tfoot>
-                        <tr>
+                        <tr id="bottom-paging">
                             <td colspan="7">
                                 <div id="paging" class="paging"></div>
                             </td>
@@ -97,7 +103,7 @@
 	 </div>
             
     <script src="/movie/assets/script/commentView.js"></script>
- 
+ 	
     </body>
 	
 
