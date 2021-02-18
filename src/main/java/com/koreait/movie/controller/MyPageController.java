@@ -27,6 +27,7 @@ import com.koreait.movie.command.myPage.UserAddProfileCommand;
 
 import com.koreait.movie.command.myPage.UserUpdateCommand;
 import com.koreait.movie.command.myPage.UserWriteListCommand;
+import com.koreait.movie.command.myPage.WishListCommand;
 import com.koreait.movie.dto.PageVo;
 import com.koreait.movie.dto.UserDto;
 
@@ -48,6 +49,7 @@ public class MyPageController {
 
 	private UserAddProfileCommand userAddProfileCommand;
 	private UserAddCoverCommand userAddCoverCommand;
+	private WishListCommand wishListCommand;
 
 	
 	@Autowired
@@ -58,9 +60,9 @@ public class MyPageController {
 				GetMovieTitleCommand getMovieTitleCommand,
 				CommentUpdateCommand commentUpdateCommand,
 				CommentDeleteCommand commentDeleteCommand,
-
 				UserAddProfileCommand userAddProfileCommand,
-				UserAddCoverCommand userAddCoverCommand
+				UserAddCoverCommand userAddCoverCommand,
+				WishListCommand wishListCommand
 
 			) {
 		this.myPageCommand = myPageCommand;
@@ -70,9 +72,9 @@ public class MyPageController {
 		this.commentUpdateCommand = commentUpdateCommand;
 		this.commentDeleteCommand = commentDeleteCommand;
 		this.myPagePwCommand = myPagePwCommand;
-
 		this.userAddProfileCommand = userAddProfileCommand;
 		this.userAddCoverCommand = userAddCoverCommand;
+		this.wishListCommand = wishListCommand;
 
 	}
 
@@ -177,4 +179,10 @@ public class MyPageController {
 		return userAddCoverCommand.execute(sqlSession, model);
 	}
 
+	@RequestMapping(value="wishList.do")
+	public String wishList(HttpServletRequest request, Model model) {
+		model.addAttribute("request", request);
+		wishListCommand.execute(sqlSession, model);
+		return "myPage/wishListPage";
+	}
 }

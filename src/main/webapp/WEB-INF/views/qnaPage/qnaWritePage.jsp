@@ -23,7 +23,7 @@
                             <option value="기타문의">기타문의</option>
 					    </select>
                   		<input type="text" name="qna_title" id="title" class="title" placeholder="제목을 입력하세요. " />
-                        <label for="secret" id="secret-btn">나만 보기</label>
+                        <label for="secret" id="secret_btn">나만 보기</label>
                         <input type="checkbox" name="qna_secret" value="1" id="secret" />
                         <input type="password" name="qna_pw" id="pw" class="display-none" />
 				   </div>
@@ -31,7 +31,7 @@
                         <textarea rows="100" cols="100" name="qna_content" class="content" id="content" placeholder="문의 내용을 입력하세요."></textarea>                     
                     </div> 
                     <div class="box5">
-                        <button class="btn">문의하기</button>
+                        <button type="button" class="btn" id="send" onclick="fn_sendClick(this.form)">문의하기</button>
                     </div>
                 </div>
 				</form>

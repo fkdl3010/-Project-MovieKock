@@ -12,9 +12,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		QNA
 		<if test="qna_pw!=null">VALUES (QNA_SEQ.NEXTVAL, #{qna_select}, #{qna_title},
 			#{qna_secret}, #{user_no}, #{qna_content}, #{qna_pw}, SYSDATE,
-			#{qna_yn})</if>
+			0)</if>
 		<if test="qna_pw==null">VALUES (QNA_SEQ.NEXTVAL, #{qna_select}, #{qna_title},
-			#{qna_secret}, #{user_no}, #{qna_content}, NULL, SYSDATE, #{qna_yn})
+			#{qna_secret}, #{user_no}, #{qna_content}, NULL, SYSDATE, 0)
 		</if>
 	</insert>
 
@@ -49,7 +49,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		   AND QNA_NO = #{qna_no}
 	</select>
 	
-
+	<update id="updateQnaYn" parameterType="int">
+		UPDATE QNA
+		   SET QNA_YN = 1
+		 WHERE QNA_NO = #{qna_no}
+	</update>
+	
+	<delete id="qnaDelete" parameterType="int">
+		DELETE
+		  FROM QNA
+		 WHERE QNA_NO = #{qna_no}
+	</delete>
 	
 	
 </mapper>

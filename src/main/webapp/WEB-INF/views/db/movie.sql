@@ -142,7 +142,6 @@ CREATE TABLE QNA
     qna_pw         VARCHAR2(50)      NOT NULL, 
     qna_date       DATE              NOT NULL, 
     qna_yn         NUMBER            NOT NULL, 
-    admin_id	   VARCHAR2(10)		 NOT NULL,
     CONSTRAINT QNA_PK PRIMARY KEY (qna_no)
 )
 /
@@ -168,15 +167,15 @@ ALTER TABLE QNA
 
 CREATE TABLE QNA_REPLY
 (
-    qna_reply_no    NUMBER            NOT NULL, 
-    qna_no      NUMBER            REFERENCES QNA(QNA_NO), 
-    qna_reply_content     VARCHAR2(4000)    NULL, 
-    qna_reply_date        date              NULL, 
-    CONSTRAINT QNA_REPLY_PK PRIMARY KEY (qna_reply_no)
+    QNA_REPLY_NO    NUMBER            NOT NULL, 
+    QNA_NO      NUMBER            REFERENCES QNA(QNA_NO), 
+    QNA_REPLY_CONTENT     VARCHAR2(4000)    NULL, 
+    QNA_REPLY_DATE        DATE              NULL, 
+    CONSTRAINT QNA_REPLY_PK PRIMARY KEY (QNA_REPLY_NO)
 )
 /
-
-CREATE SEQUENCE qna_reply_SEQ
+delete from qna_reply where qna_reply_no = 87;
+CREATE SEQUENCE QNA_REPLY_SEQ
 START WITH 1
 INCREMENT BY 1;
 
@@ -191,7 +190,7 @@ CREATE TABLE movie_genre
 )
 /
 
-CREATE SEQUENCE movie_genre_SEQ
+CREATE SEQUENCE MOVIE_GENRE_SEQ
 START WITH 1
 INCREMENT BY 1;
 /

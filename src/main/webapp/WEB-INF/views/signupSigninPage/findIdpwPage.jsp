@@ -14,6 +14,7 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="/movie/assets/style/singupSigninPageCss/findIdpwPage.css"	/>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
 <script type="text/javascript">
@@ -21,9 +22,9 @@
 		if(f.user_name.value == '' || f.user_email.value == ''){
 			
 			swal({
-			    title: "Info",
+			    title: "Check!",
 			    text: "필요한 정보를 전부 입력 해주시기 바랍니다.",
-			    icon: "info" //"info,success,warning,error" 중 택1
+			    icon: "warning" //"info,success,warning,error" 중 택1
 			});
 			
 			return;
@@ -37,9 +38,9 @@
 		if(f.user_name.value == '' || f.user_email.value == '' || f.user_id.value == ''){
 			
 			swal({
-			    title: "Info",
+			    title: "Check!",
 			    text: "필요한 정보를 전부 입력 해주시기 바랍니다.",
-			    icon: "info" //"info,success,warning,error" 중 택1
+			    icon: "warning" //"info,success,warning,error" 중 택1
 			});
 			
 			return;

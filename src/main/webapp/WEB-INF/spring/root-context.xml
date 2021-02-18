@@ -111,7 +111,11 @@
 	<bean id="qnaListCommand" class="com.koreait.movie.command.qna.QnaListCommand"></bean>
 	<bean id="qnaViewCommand" class="com.koreait.movie.command.qna.QnaViewCommand"></bean>
 	<bean id="qnaDeleteCommand" class="com.koreait.movie.command.qna.QnaDeleteCommand"></bean>
+<<<<<<< HEAD
 	<bean id="qnaReplyCommand" class="com.koreait.movie.command.qna.QnaReplyCommand"></bean>
+=======
+	<bean id="qnaReplyWriteCommand" class="com.koreait.movie.command.qna.QnaReplyWriteCommand"></bean>
+>>>>>>> 175f0bf34ed9a535e5233c3de8c1703df9cf7b03
 	
 	
 	<!--recommand -->
@@ -131,4 +135,7 @@
 	<bean id="commentInsertCommand" class="com.koreait.movie.command.movieInfo.CommentInsertCommand"></bean>
 	<bean id="movieCommentViewListCommand" class="com.koreait.movie.command.movieInfo.MovieCommentViewListCommand"></bean>
 	<bean id="commentScrollEventCommand" class="com.koreait.movie.command.movieInfo.CommentScrollEventCommand"></bean>
+	<bean id="insertWishListCommand" class="com.koreait.movie.command.movieInfo.InsertWishListCommand"></bean>
+	<bean id="deleteWishListCommand" class="com.koreait.movie.command.movieInfo.DeleteWishListCommand"></bean>
+	<bean id="wishListCommand" class="com.koreait.movie.command.myPage.WishListCommand"></bean>
 </beans>
