@@ -75,14 +75,14 @@
 	        <!-- 닫기(x) 버튼 -->
 	        <button type="button" class="close btn btn-info" data-dismiss="modal">×</button>
 	        <!-- header title -->
-	        <h4 class="modal-title">영화 이름</h4>
+	        <h4 class="modal-title">${movieDto.movie_title.replaceAll("_"," ")}</h4>
 	      </div>
 	      <!-- body -->
 	      <div class="modal-body">
-	      	<form>
-	      		<input type="text" class="comment_title" name="commentTitle" placeholder="제목을 입력해주세요." />
-	      		<textarea class="comment_contents" name="commentContents" placeholder="내용을 입력해주세요." ></textarea>
-	      		<input type="hidden" class="commentMovieNo" name="commentMovieNo"/>
+	      	<form action="commentSubmit.do" method="post" id="commentForm">
+	      		<input type="text" id="commentTitle" class="comment_title" name="commentTitle" placeholder="제목을 1~15글자 사이로 입력해주세요." />
+	      		<textarea class="comment_contents" id="commentContents"  name="commentContents" placeholder="내용을 입력해주세요." ></textarea>
+	      		<input type="hidden" class="commentMovieNo" name="commentMovieNo" value="${movieDto.movie_no}"/>
 	      	</form>
 	      </div>
 	      <!-- Footer -->

@@ -1,24 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
   <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
   <link rel="stylesheet" href="/movie/assets/style/singupSigninPageCss/loginPage.css"/>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
-<body onkeydown="onEnterLogin()" >
+<body>
   <div class="main-wrapper">
   	
     <div class="logo">
-     <a href="main_page.do"><i class="fas fa-video fa-5x"></i></a>
+     <a href="mainPage.do"><img class="loginPage_logo" src="assets/images/logo.jpg"/></a>
     </div>
   
     	<div class="header">
@@ -28,7 +31,7 @@
     	<div class="control-form">
      	 <form class="login-form" id="loginForm" name="loginForm" method="post">
         	<input type="text" class="login-input txt" id="id" name="id" placeholder="아이디" />
-        	<input type="password" class="login-input txt" id="pw" name="pw" placeholder="비밀번호" />
+        	<input type="password" class="login-input txt" id="pw" name="pw" placeholder="비밀번호" onkeypress="if(event.keyCode == 13){ loginOk(); return; }" />
         	<input type="checkbox" name="rememberId" id="rememberId"/>
         	<label for="rememberId" class="txt">아이디 저장</label>
         	<input type="button" value="로그인" class="login-btn" onclick="fn_login(this.form)" />
@@ -52,14 +55,54 @@
 	
 	function fn_login(f){
 		if(f.id.value == '' || f.pw.value == ''){
-			alert('아이디와 비밀번호를 모두 입력하세요');
+			swal({
+			    title: "Warning",
+			    text: "아이디와 비밀번호를 모두 입력하세요'.",
+			    icon: "warning" //"info,success,warning,error" 중 택1
+			});
+	
 			return;
 		} else {
 			f.action="login.do";
 			f.submit();
 		}
 	}
-			
+	
+	function loginOk() {
+
+		var f = document.loginForm;
+
+
+		if(f.id.value == '') {
+
+			swal({
+			    title: "Warning",
+			    text: "아이디를 입력하세요'.",
+			    icon: "warning" //"info,success,warning,error" 중 택1
+			});
+
+		return false;
+
+		}
+
+		if(f.pw.value == '') {
+
+			swal({
+			    title: "Warning",
+			    text: "비밀번호를 입력하세요'.",
+			    icon: "warning" //"info,success,warning,error" 중 택1
+			});
+
+		return false;
+
+		}
+
+		f.action="login.do";
+
+		f.submit();
+
+		}
+	
 </script>
 
   <!-- modal -->

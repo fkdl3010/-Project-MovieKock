@@ -10,7 +10,11 @@
 	}
 	
 </script>
-
+<style>
+	body{
+		margin-top: 95px;
+	}
+</style>
 	<a href="mainPage.do">메인페이지</a><br>
 	<a href="searchResultPage.do">검색</a>
 	<br><br>
@@ -47,7 +51,7 @@
 	<a href="qnaWritePage.do">문의하기 페이지</a><br>
 	<a href="qnaListView.do">문의목록 페이지</a><br>
 	<a href="qnaViewPage.do">문의보기 페이지</a><br>
-	<a href="qnaAdminWrite.do">관리자 답변하기 페이지</a><br>
+	<a href="qnaReplyPage.do">관리자 답변하기 페이지</a><br>
 	
 	
 

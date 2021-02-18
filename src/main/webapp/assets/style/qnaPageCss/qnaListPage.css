@@ -37,3 +37,33 @@ body {
 .qna_list_1st_tr {
 	background: #ddd;
 }
+
+	/* MODAL*/
+
+.modal_dialog {
+	width: 800px;
+	height: 460px;
+}
+
+.modal_content {
+	height: 100%;
+}
+
+.modal_title {
+	font-weight: bold;
+}
+
+.modal_footer{
+	padding: 0px 15px;
+}
+
+.modal_close {
+	width: 80px;
+	height: 40px;
+	border-radius: 15px;
+	background-color: #ec7114;
+	margin-top: 25px;
+	outline: none;
+	font-weight: bold;
+	border: none;
+}

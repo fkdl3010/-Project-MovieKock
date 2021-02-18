@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +17,7 @@
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">1 -->
 <!-- <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script> -->
 <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" ></script> -->
-
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
 	<div class="wrap">
@@ -83,6 +84,7 @@
 		crossorigin="anonymous"></script>
 	<script type="text/javascript">
 		function fn_cancle(f) {
+			/*(confirm("회원가입을 취소하시겠습니까?") == true) {  */
 			if (confirm("회원가입을 취소하시겠습니까?") == true) {
 				history.back();
 			}
@@ -93,7 +95,11 @@
 			const userId = $('#id').val();
 
 			if (!idRegCheck()) {
-				alert('아이디 양식에 맞춰주세요.');
+				swal({
+				    title: "warning",
+				    text: "아이디 양식에 맞춰주세요.",
+				    icon: "warning" //"info,success,warning,error" 중 택1
+				});
 				return;
 			}
 			if (userId != null && userId != '') {
@@ -104,23 +110,39 @@
 					dataType : 'json',
 					success : function(responseJSON) {
 						if (responseJSON.idCheckResult == 'yes') {
-							alert('이 아이디는 사용 가능합니다.');
+							swal({
+							    title: "OK",
+							    text: "이 아이디는 사용 가능합니다",
+							    icon: "info" //"info,success,warning,error" 중 택1
+							});
 							$('#idCheckbtn').attr('disabled', 'true');
 							$('#pw').focus();
 							return true;
 						} else {
-							alert('사용 중인 아이디입니다.');
+							swal({
+							    title: "warning",
+							    text: "사용 중인 아이디입니다.",
+							    icon: "warning" //"info,success,warning,error" 중 택1
+							});
 							$('#id').focus();
 							return false;
 						}
 					},
 					error : function() {
-						alert('오류');
+						swal({
+						    title: "Error",
+						    text: "오류",
+						    icon: "error" //"info,success,warning,error" 중 택1
+						});
 					}
 				});
 				return true;
 			} else {
-				alert('아이디를 입력해주세요');
+				swal({
+				    title: "warning",
+				    text: "아이디를 입력해주세요",
+				    icon: "warning" //"info,success,warning,error" 중 택1
+				});
 				$('#id').focus();
 				return false;
 			}
@@ -134,23 +156,39 @@
 					dataType : 'json',
 					success : function(responseJSON) {
 						if (responseJSON.nickCheckResult == 'yes') {
-							alert('이 닉네임은 사용 가능합니다.');
+							swal({
+							    title: "OK",
+							    text: "이 닉네임은 사용 가능합니다.",
+							    icon: "info" //"info,success,warning,error" 중 택1
+							});
 							$('#nickNameCheckbtn').attr('disabled', 'true');
 							$('#name').focus();
 							return true;
 						} else {
-							alert('사용 중인 닉네임입니다.');
+							swal({
+							    title: "warning",
+							    text: "사용 중인 닉네임입니다.",
+							    icon: "warning" //"info,success,warning,error" 중 택1
+							});
 							$('#nickname').focus();
 							return false;
 						}
 					},
 					error : function() {
-						alert('오류');
+						swal({
+						    title: "Error",
+						    text: "오류",
+						    icon: "error" //"info,success,warning,error" 중 택1
+						})
 					}
 				});
 				return true;
 			} else {
-				alert('닉네임을 입력해주세요');
+				swal({
+				    title: "warning",
+				    text: "닉네임을 입력해주세요",
+				    icon: "warning" //"info,success,warning,error" 중 택1
+				});
 				$('#nickname').focus();
 				return false;
 			}
@@ -158,7 +196,11 @@
 		function fn_emailCheck(f) {
 			const userEmail = $('#email').val();
 			if (!emailRegCheck()) {
-				alert('이메일 양식에 맞춰주세요.');
+				swal({
+				    title: "warning",
+				    text: "이메일 양식에 맞춰주세요",
+				    icon: "warning" //"info,success,warning,error" 중 택1
+				});
 				return;
 			}
 			if (userEmail != null && userEmail != '') {
@@ -169,22 +211,39 @@
 					success : function(responseJSON) {
 						if (responseJSON.emailCheckResult == 'yes') {
 							alert('이 이메일은 사용 가능합니다.');
+							swal({
+							    title: "OK",
+							    text: "이 이메일은 사용 가능합니다.",
+							    icon: "info" //"info,success,warning,error" 중 택1
+							});
 							$('#emailCheckbtn').attr('disabled', 'true');
 							$('#phone').focus();
 							return true;
 						} else {
-							alert('사용 중인 이메일입니다.');
+							swal({
+							    title: "warning",
+							    text: "사용 중인 이메일입니다..",
+							    icon: "warning" //"info,success,warning,error" 중 택1
+							});
 							$('#email').focus();
 							return false;
 						}
 					},
 					error : function() {
-						alert('오류');
+						swal({
+						    title: "Error",
+						    text: "오류",
+						    icon: "error" //"info,success,warning,error" 중 택1
+						})
 					}
 				});
 				return true;
 			} else {
-				alert('이메일을 입력해주세요');
+				swal({
+				    title: "warning",
+				    text: "이메일을 입력해주세요",
+				    icon: "warning" //"info,success,warning,error" 중 택1
+				});
 				$('#email').focus();
 				return false;
 			}
@@ -266,37 +325,72 @@
 		function fn_finish(f) {
 
 			if ($('#idCheckbtn').attr('disabled') != 'disabled') {
-				alert('아이디 중복확인을 진행해 주세요.');
+				
+				swal({
+				    title: "Check!",
+				    text: "아이디 중복확인을 진행해 주세요.",
+				    icon: "warning" //"info,success,warning,error" 중 택1
+				});
 				$('#id').focus();
 				return;
 			}
 			if (!pwRegCheck()) {
-				alert('비밀번호를 확인해 주세요.');
+			
+				swal({
+				    title: "Check!",
+				    text: "비밀번호를 확인해 주세요.",
+				    icon: "warning" //"info,success,warning,error" 중 택1
+				});
 				$('#pw').focus();
 				return;
 			}
 			if (!pwEqualCheck()) {
-				alert('비밀번호를 확인해 주세요.');
+
+				swal({
+				    title: "Check!",
+				    text: "비밀번호를 확인해 주세요.",
+				    icon: "warning" //"info,success,warning,error" 중 택1
+				});
 				$('#pw').focus();
 				return;
 			}
 			if ($('#nickNameCheckbtn').attr('disabled') != 'disabled') {
-				alert('닉네임 중복확인을 진행해 주세요.');
+		
+				swal({
+				    title: "Check!",
+				    text: "닉네임 중복확인을 진행해 주세요.",
+				    icon: "warning" //"info,success,warning,error" 중 택1
+				});
 				$('#nickname').focus();
 				return;
 			}
 			if ($('#name').val() == '') {
-				alert('이름을 입력해 주세요.');
+				
+				swal({
+				    title: "Check!",
+				    text: "이름을 입력해 주세요.",
+				    icon: "warning" //"info,success,warning,error" 중 택1
+				});
 				$('#name').focus();
 				return;
 			}
 			if ($('#emailCheckbtn').attr('disabled') != 'disabled') {
-				alert('이메일 중복확인을 진행해 주세요.');
+			
+				swal({
+				    title: "Check!",
+				    text: "이메일 중복확인을 진행해 주세요.",
+				    icon: "warning" //"info,success,warning,error" 중 택1
+				});
 				$('#email').focus();
 				return;
 			}
 			if ($('#phone').val() == '') {
-				alert('휴대폰 번호를 입력해 주세요.');
+			
+				swal({
+				    title: "Check!",
+				    text: "휴대폰 번호를 입력해 주세요.",
+				    icon: "warning" //"info,success,warning,error" 중 택1
+				});
 				$('#phone').focus();
 				return;
 			}

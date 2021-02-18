@@ -47,27 +47,36 @@
 		  
 		  </div>
 	  </form>
+	  
+	     <div class="main-movieList">
+	     	<c:forEach var="movie" items="${movieGenreAllList}" varStatus="i">
+			<div class="list afterInsert" style="background-image: url(/movie/assets/images/poster/'+ movie.movie_title+'_포스터.jpg' + '); background-size: 250px 300px;">
+			<input type="checkbox" name="movie_no" class="movie_no" value='+movieN.movie_no+' style="display: none;"/>'+'</div>'
+		</c:forEach>
+		</div>
     </div>
-  
-    <div class="main-movieList">
- <!--  <c:if test="${empty movieList}">
-     	조건에 맞는 영화가 없습니다.
-	  </c:if>
-	  <c:if test="$('#genre').val()==0 "> -->
-	      	<c:forEach var="movie" items="${movieGenreAllList}">
+  </div>
+ 
+    
+ 
+	     <!-- <c:forEach var="movie" items="${movieGenreAllList}">
 	      		<div class="list" style="background-image: url('/movie/assets/images/poster/${movie.movie_title}_포스터.jpg'); background-size: 250px 300px;">
 	      			<input type="checkbox" name="movie_no" class="movie_no" value="${movie.movie_no }" style="display: none;"/>
 	      		</div>
-	      		<div class="info">
+	      				<div class="info">
 							<div class="text">
-								<h4>${movieDto.movie_title}</h4>
-								<p>${movieDto.movie_nation}&nbsp;&nbsp; 평점<br /> 장르
+								<h4>
+										${movieDto.movie_title.replaceAll("_"," ")}
+								</h4>
+								<p>${movieDto.movie_nation}&nbsp;&nbsp; 평점<br /> 장르 ${movieDto.genre_name }
 								</p>
+								
 							</div>
-				</div>
+						</div>
+						<input type="hidden" id="movieNo" value="${movieDto.movie_no }"/>
+					
 	      	</c:forEach>
- <!-- 	      </c:if>   -->
-    </div>
+    </div> --> 	
 <script>
 
 console.log('${movieGenreAllList}');
@@ -92,11 +101,18 @@ function formChange(){
         			const movieList = responseObj.movieGenreList;
         			$('.main-movieList').empty();
         			movieList.forEach(function(movieN){
-        		
-        				const movieOne = '<div class="list afterInsert" style="background-image: url(/movie/assets/images/poster/'+ movieN.movie_title+'_포스터.jpg' + '); background-size: 250px 300px;">'
-        										+'<input type="checkbox" name="movie_no" class="movie_no" value='+movieN.movie_no+' style="display: none;"/>'+'</div>';
+  
+        		/* const movieOne ='<div class="list afterInsert"><div class="movie"><div class="rankBadge">'+movieN.movie_no+'</div>'
+									+'<img src="/movie/assets/images/poster/'+movieN.movie_title+'_포스터.jpg">'
+        							+'</div>'+'<div class="info">'+'<div class="text">'+'<h4>'+movieN.movie_title+'</h4>'
+        							+'<p>'+movieN.movie_nation+'&nbsp;&nbsp; 평점<br /> 장르</p></div></div>'
+        							+'<input type="hidden" id="movieNo" value="'+movieN.movie_no='"/></div>';
+        				$('.main-movieList').append(movieOne); */	
         				
-        				$('.main-movieList').append(movieOne);
+        				const movieOne = '<div class="rankBadge"></div><div class="list afterInsert" style="background-image: url(/movie/assets/images/poster/'+ movieN.movie_title+'_포스터.jpg' + '); background-size: 250px 300px;">'
+						+'<input type="checkbox" name="movie_no" class="movie_no" value='+movieN.movie_no+' style="display: none;"/>'+'</div>';
+
+						$('.main-movieList').append(movieOne);
         			});
      
         			
@@ -109,6 +125,14 @@ function formChange(){
 	}) ;
 }	
 
+$(document).on("click",".list afterInsert",movePage);
+
+function movePage(event){
+	
+	const movieNo = event.currentTarget.children[0].value;
+	
+	location.href = "movieInfoPage.do?movieNo=" + movieNo;
+}
 
 </script>
 

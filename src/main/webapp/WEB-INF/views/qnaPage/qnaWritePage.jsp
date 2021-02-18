@@ -23,7 +23,7 @@
                             <option value="기타문의">기타문의</option>
 					    </select>
                   		<input type="text" name="qna_title" id="title" class="title" placeholder="제목을 입력하세요. " />
-                        <label for="secret" id="secret-btn">나만 보기</label>
+                        <label for="secret" id="secret_btn">나만 보기</label>
                         <input type="checkbox" name="qna_secret" value="1" id="secret" />
                         <input type="password" name="qna_pw" id="pw" class="display-none" />
 				   </div>

@@ -19,10 +19,15 @@ import com.koreait.movie.command.myPage.CommentDeleteCommand;
 import com.koreait.movie.command.myPage.CommentUpdateCommand;
 import com.koreait.movie.command.myPage.GetMovieTitleCommand;
 import com.koreait.movie.command.myPage.MyPageCommand;
+
+import com.koreait.movie.command.myPage.MyPagePwCommand;
+
 import com.koreait.movie.command.myPage.UserAddCoverCommand;
 import com.koreait.movie.command.myPage.UserAddProfileCommand;
+
 import com.koreait.movie.command.myPage.UserUpdateCommand;
 import com.koreait.movie.command.myPage.UserWriteListCommand;
+import com.koreait.movie.command.myPage.WishListCommand;
 import com.koreait.movie.dto.PageVo;
 import com.koreait.movie.dto.UserDto;
 
@@ -39,8 +44,13 @@ public class MyPageController {
 	private GetMovieTitleCommand getMovieTitleCommand;
 	private CommentUpdateCommand commentUpdateCommand;
 	private CommentDeleteCommand commentDeleteCommand;
+
+	private MyPagePwCommand myPagePwCommand;
+
 	private UserAddProfileCommand userAddProfileCommand;
 	private UserAddCoverCommand userAddCoverCommand;
+	private WishListCommand wishListCommand;
+
 	
 	@Autowired
 	public void setBean(
@@ -51,7 +61,9 @@ public class MyPageController {
 				CommentUpdateCommand commentUpdateCommand,
 				CommentDeleteCommand commentDeleteCommand,
 				UserAddProfileCommand userAddProfileCommand,
-				UserAddCoverCommand userAddCoverCommand
+				UserAddCoverCommand userAddCoverCommand,
+				WishListCommand wishListCommand
+
 			) {
 		this.myPageCommand = myPageCommand;
 		this.userUpdateCommand = userUpdateCommand;
@@ -59,8 +71,11 @@ public class MyPageController {
 		this.getMovieTitleCommand = getMovieTitleCommand;
 		this.commentUpdateCommand = commentUpdateCommand;
 		this.commentDeleteCommand = commentDeleteCommand;
+		this.myPagePwCommand = myPagePwCommand;
 		this.userAddProfileCommand = userAddProfileCommand;
 		this.userAddCoverCommand = userAddCoverCommand;
+		this.wishListCommand = wishListCommand;
+
 	}
 
 	@RequestMapping(value="myWritePage.do")
@@ -164,4 +179,10 @@ public class MyPageController {
 		return userAddCoverCommand.execute(sqlSession, model);
 	}
 
+	@RequestMapping(value="wishList.do")
+	public String wishList(HttpServletRequest request, Model model) {
+		model.addAttribute("request", request);
+		wishListCommand.execute(sqlSession, model);
+		return "myPage/wishListPage";
+	}
 }

@@ -84,7 +84,9 @@ body {
 			background: silver;
 		}
 		
+		.pwCheck{
 		
+		}
 		
 		.paging {
 			display: flex;
@@ -127,7 +129,9 @@ body {
 			display: none;
 		}
 		
-<<<<<<< HEAD
+	
+		
+		
 		.coverBox{
 		    border: 1px solid black;
 		    width: 100%;
@@ -166,7 +170,6 @@ body {
    			height: 100%;
         }
         
-=======
 		<!-- 부트스트랩 btn 커스터마이징 -->
 .btn-info {
     background-color: #17a2b8;
@@ -187,5 +190,4 @@ body {
     background-color: #128496;
     color: #ccc;
 }
->>>>>>> origin/hyeon
         

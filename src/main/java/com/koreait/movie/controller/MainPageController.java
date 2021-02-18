@@ -31,7 +31,7 @@ public class MainPageController {
 	public String mainPage(HttpServletRequest request, Model model) {
 		
 		model.addAttribute("request", request);
-		MainCommand mainCommand = new MainCommand();
+//		MainCommand mainCommand = new MainCommand();
 		mainCommand.execute(sqlSession, model);
 
 		return "mainPage/mainPage";
@@ -40,7 +40,7 @@ public class MainPageController {
 	public String list(HttpServletRequest request, Model model) {
 		model.addAttribute("request", request);
 		
-		SearchResultCommand searchResultCommand = new SearchResultCommand();
+//		SearchResultCommand searchResultCommand = new SearchResultCommand();
 		searchResultCommand.execute(sqlSession, model);
 		
 		return "mainPage/searchResultPage";

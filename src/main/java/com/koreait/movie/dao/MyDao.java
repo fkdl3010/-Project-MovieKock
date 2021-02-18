@@ -2,6 +2,7 @@ package com.koreait.movie.dao;import java.util.List;
 import java.util.Map;
 
 import com.koreait.movie.dto.CommentDto;
+import com.koreait.movie.dto.MovieDto;
 import com.koreait.movie.dto.UserDto;
 
 import java.sql.Date;
@@ -39,8 +40,17 @@ public interface MyDao {
 	
 	public int deleteComment(int commentNo);
 	
+
+	public Integer pwCheck(String pw);
+	
+
 	public int userAddProfile(String uploadFilename, int userNo);
 	
 	public int userAddCover(String uploadFilename, int userNo);
+
+	public int wishListCount(int userNo);
 	
+	public int commentListCount(int userNo);
+	
+	public List<MovieDto> wishList(int userNo);
 }

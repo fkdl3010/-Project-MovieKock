@@ -25,7 +25,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		set user_nickname = #{user_nickname},
 			user_name = #{user_name},
 			user_email = #{user_email},
-			user_phone = #{user_phone}
+			user_phone = #{user_phone},
+			user_pw = #{user_pw}
 		where user_no = #{user_no}
 	</update>
 	
@@ -42,13 +43,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="loginUserCommentList" parameterType="Map" resultType="com.koreait.movie.dto.CommentDto">
-		select b.*
-		  from (select rownum as rn, a.*
-		  		  from (select	*
-		  		   		  from comments
-	  		   		     where user_no = #{userNo}
-		  		   	  order by comment_date DESC) a) b
-		 where b.rn between #{beginRecord} AND #{endRecord}
+		select z.*
+		  from (select rownum as rn, x.*
+		  		  from (
+			  		  	select a.*, nvl(b.star_score, 0)  as comment_score, c.user_nickname
+			            from comments a, movie_score b, users c
+			            where a.movie_no = b.movie_no(+)
+			            and a.user_no = b.user_no(+)
+			            and a.user_no = c.user_no
+			            and a.user_no = #{userNo}
+		  		   	  order by comment_date DESC) x) z
+		 where z.rn between #{beginRecord} AND #{endRecord}
 	</select>
 	
 	<select id="getMovieTitle" parameterType="int" resultType="String">
@@ -70,7 +75,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where comment_no = #{commentNo}
 	</delete>
 	
-	<update id="userAddProfile">
+
+	<select id="pwCheck"  parameterType="String" resultType="int">
+		select user_no
+		from users
+		where user_pw = #{pw}
+	</select>
+
+	<update id="userAddProfile"> 
 		update users
 		set user_profile_name = #{param1}
 		where user_no = #{param2}
@@ -83,5 +95,27 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where user_no = #{param2}
 	
 	</update>
+	
+	<select id="wishListCount" parameterType="int" resultType="int">
+		select count(*)
+		from wishList
+		where user_no = #{userNo}
+	</select>
+	
+	<select id="commentListCount" parameterType="int" resultType="int">
+		select count(*)
+		from comments
+		where user_no = #{userNo}
+	</select>
+	
+	<select id="wishList" parameterType="int" resultType="com.koreait.movie.dto.MovieDto">
+		select *
+		from movie
+		where movie_no in (
+			select movie_no
+			from wishList
+			where user_no = #{userNo}
+		)
+	</select>
 	
 </mapper>

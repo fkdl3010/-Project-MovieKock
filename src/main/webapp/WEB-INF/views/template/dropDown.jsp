@@ -1,61 +1,81 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> -->
+<!-- <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script> -->
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" /> -->
 <style>
+*{
+	outline: none;
+}
+
 .ddBody{
-    margin : 10px;
+	margin-top: 5px;
     padding: 10px;
     text-align: center;
+    display: block;
 }
 .dropdown{
-    position: relative;
-    display: inline-block;
+     position: relative;
+     display: inline-block;
+    display: flex;
 }
-/* .button{ */
-/*     padding: 10px 40px; */
-/*     font-size:20px; */
-/*     background-color: brown; */
-/*     color: wheat; */
-/* } */
-#drop-content{
-    position: absolute;
-    z-index: 1;
-}
-#drop-content a{
-    display:block;
-    font-size: 16px;
-    background-color: #dfdfdf;
-    color: black;
-    text-decoration: none;
-    padding: 10px 0px;
-    margin: 2px 0px 0px 0px;
-    width: 100px;
-}
-
-.button{
-	padding: 0px;
+ .button{
+ 	height: 58px;
+    padding: 0px;
+    font-size:20px;
+    color: wheat;
 	margin: 0px;
 	border: none;
+ }
+ 
+/*  .button:action, */
+/*  .button:focus, */
+/*  .button:hover */
+.dropDown:action,
+.dropDown:focus,
+.dropDown:hover {
+ 	outline: none;
+ 	border: none;
+ }
+ 
+.dropDown-menu{
+	position: absolute;
+	min-width: 100px;
+	margin-top: 11px;
+	text-align: center;
+	border-radius: 15px;
+	top: 100%;
+	float: left;
+	background-color: white;
+	border: 1px solid #ddd;
 }
 
-.fas {
-	color: #f01765;
-	background: #141414;
+.dropDown-menu input{
+    font-size: 16px;
+    color: black;
+    margin-top: 4px;
+    margin: auto;
+    padding: 0px;
+    border: none;
+    outline: none;
+    background-color: #fff;
+    height: 40px;
+    line-height: 40px;
 }
+
+.top_user_circle {
+	color: #ec7114;
+	background-color: white;
+}
+
 </style>
-<body>
 	<div class="ddBody">
 	    <div class="dropdown">
-	        <button onclick="dp_menu()" class="button"><i class="fas fa-user-circle fa-3x"></i></button>
+	        <button onclick="dp_menu()" class="button"><i class="fas fa-user-circle fa-3x top_user_circle"></i></button>
 	        <div style="display: none;" id="drop-content" class="dropDown-menu dropdown-menu-right" >
-	            <a href="myPage.do">마이페이지</a>
-	            <a href="logout.do">로그아웃</a>
+	            <input type="button" value="마이페이지" onclick="location.href='myPage.do'" />
+	            <input type="button" value="로그아웃" onclick="location.href='logout.do'" />
 	        </div>
 	    </div>
     </div>
@@ -72,5 +92,3 @@
             }
         }
     </script>
-</body>
-</html>

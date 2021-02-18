@@ -5,52 +5,74 @@
 <jsp:include page="../template/header.jsp">
 	<jsp:param value="내가 쓴 글 목록" name="title" />
 </jsp:include>
-<style>
-	.none{
-		display: none;
-	}
-</style>      
 
-<link rel="stylesheet" href="/movie/assets/style/myPage.css"/>
+<link rel="stylesheet" href="/movie/assets/style/myPageCss/myWritePage.css"/>
         <div class="big-box">
-                <i id="profile" class="fas fa-user-circle"></i>
-              <div class="tableBox" >
-                <table>
-					<thead>
-						<tr>
-							<th>글 번호</th>
-							<th>영화</th>
-							<th>제목</th>
-							<th>닉네임</th>
-							<th>작성일</th>
-							<th>좋아요</th>
-							<th colspan="2">비고</th>
-						</tr>
-					</thead>
-					
-					<tbody id="commentList"></tbody>
-					
-					<tfoot>
-						<tr>
-							<td colspan="7">
-								<div id="paging" class="paging"></div>
-							</td>
-						</tr>
-					</tfoot>
-				</table>
-                
-              </div>
-              
+        	<div class="coverBox" style="background-image: url(/movie/assets/images/userCover/${loginUser.user_image_name}) ">
+        	
+        	</div>
+        	
+            <div class="profileBox" style="background-image: url(/movie/assets/images/userProfile/${loginUser.user_profile_name}) ">
+            
             </div>
+        	
+        	
+              <div class="tableBox" >
+                <table class="bordered">
+                    <thead>
+                        <tr id="commentHead">
+                            <th>글 번호</th>
+                            <th>제목</th>
+                            <th>닉네임</th>
+                            <th>작성일</th>
+                            <th>좋아요</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="commentList"></tbody>
+
+                    <tfoot>
+                        <tr id="bottom-paging">
+                            <td colspan="7">
+                                <div id="paging" class="paging"></div>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+
+              </div>
+            </div>
+              
+<!--               <div class="tableBox" > -->
+<!--                 <div class="table"> -->
+<!-- 					<div class="thead"> -->
+<!-- 						<div class="tr thead_tr"> -->
+<!-- 							<div class="th">글 번호</div> -->
+<!-- 							<div class="th">영화</div> -->
+<!-- 							<div class="th">제목</div> -->
+<!-- 							<div class="th">닉네임</div> -->
+<!-- 							<div class="th">작성일</div> -->
+<!-- 							<div class="th">좋아요</div> -->
+<!-- 							<div class="th">비고</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+					
+<!-- 					<div class="tbody" id="commentList"></div> -->
+					
+<!-- 					<div class="tfoot"> -->
+<!-- 						<div class="tr"> -->
+<!-- 							<div class="td"> -->
+<!-- 								<div id="paging" class="paging"></div> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+                
+<!--               </div> -->
+              
             
             
             <!-- modal -->
-	<style>
-		.modal-dialog{
-			width: 1200px
-		}
-		
-	</style>
 	 <div class="modal fade" id="layerpop" >
 	   <div class="modal-dialog">
 	     <div class="modal-content">
@@ -81,7 +103,7 @@
 	 </div>
             
     <script src="/movie/assets/script/commentView.js"></script>
- 
+ 	
     </body>
 	
 

@@ -21,8 +21,8 @@ body {
     }
     h3 {
         position: absolute;
-        top:50%;
-        left:25%;
+        top: 50%;
+        left: 25%;
         font-size: 25px;
         font-weight:bold;
     }
@@ -99,7 +99,7 @@ body {
     .display-block {
     	display: block;
     }
-    #secret-btn {
+    #secret_btn {
         width:5%;
         height: 8%;
         position: absolute;
