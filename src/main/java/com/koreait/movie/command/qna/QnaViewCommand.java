@@ -27,6 +27,7 @@ public class QnaViewCommand implements CommonVoidCommand {
 		
 		QnaReplyDao qnaReplyDao = sqlSession.getMapper(QnaReplyDao.class);
 		model.addAttribute("qnaReplyCount", qnaReplyDao.qnaReplyCount(qna_no));
+		model.addAttribute("qnaReplyDto", qnaReplyDao.qnaReplyView(qna_no));
 		
 	}
 

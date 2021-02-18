@@ -12,12 +12,14 @@
         </div>  
         <div class="main_body">
             <form action="qnaReply.do" method="post">
-            <div class="box1">
-                <div class="box2">
-                	<textarea rows="100" cols="100" name="qna_reply_content" class="qna_reply_content" id="qna_reply_content" placeholder="답변 내용을 입력하세요."></textarea>                     
-                </div>
-                <button class="btn">답변등록</button>
-        	</div>
+	            <div class="box1">
+	                <div class="box2">
+	                	<input type="hidden" name="page" value="${page}" />
+	                	<input type="hidden" name="qna_no" value="${qna_no}" />
+	                	<textarea rows="100" cols="100" name="qna_reply_content" class="qna_reply_content" id="qna_reply_content" placeholder="답변 내용을 입력하세요."></textarea>                     
+	                </div>
+	                <button class="btn" id="send">답변등록</button>
+	        	</div>
 			</form>
             </div>
         </div>

@@ -50,7 +50,7 @@
 	-문의하기-<br>
 	<a href="qnaWritePage.do">문의하기 페이지</a><br>
 	<a href="qnaListView.do">문의목록 페이지</a><br>
-	<a href="qnaViewPage.do">문의보기 페이지</a><br>
+<!-- 	<a href="qnaViewPage.do">문의보기 페이지</a><br> -->
 	<a href="qnaReplyPage.do">관리자 답변하기 페이지</a><br>
 	
 	
