@@ -48,6 +48,11 @@
 	
 	function fn_agreement_no(f){
 		alert('회원가입을 취소합니다.');
+		swal({
+			   title: "Cancle",
+			   text: "회원가입을 취소합니다.",
+			   icon: "warning" //"info,success,warning,error" 중 택1
+			})
 		$('#close-btn').trigger('click');
 	}
 </script>
