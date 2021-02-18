@@ -17,29 +17,16 @@ public class RecommandCategoryCommand implements CommonVoidCommand {
 
 	@Override
 	public void execute(SqlSession sqlSession, Model model) {
+		
 		RecommandDao dao = sqlSession.getMapper(RecommandDao.class);
 		
-		Map<String, Object> map = model.asMap();
-		
-		HttpServletRequest request = (HttpServletRequest)map.get("request");
-		
-		
-		String genre = request.getParameter("genre");
-		
-		int genre_no = 5;
-		//int genre_no = Integer.parseInt(genre);
 
+		
 		List<MovieDto> movieAllList = dao.movieListGenreAll();
-		List<MovieDto> movieList = dao.movieListGenre(genre_no);
+		
+		model.addAttribute("movieAllList",movieAllList);
 		
 		
-		if(genre_no==0) {
-			model.addAttribute("movieList",movieAllList);
-		}else {
-			model.addAttribute("movieList",movieList);
-		}
-		
-
 
 	}
 

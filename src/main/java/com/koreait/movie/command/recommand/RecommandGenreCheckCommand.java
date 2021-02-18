@@ -19,25 +19,18 @@ public class RecommandGenreCheckCommand implements CommonMapCommand {
 	public Map<String, Object> execute(SqlSession sqlSession, Model model) {
 		
 		
-		
 		Map<String, Object> map = model.asMap();
 		RecommandDao dao = sqlSession.getMapper(RecommandDao.class);
 		
 		int genre_no = (Integer)map.get("genreNo");
 		
 	
-		//String genre = (String)map.get("genreNo");
-		
-		//int genre_no = Integer.parseInt(genre);
-		
-		
-		
 		List<MovieDto> movieGenreAllList = dao.movieListGenreAll();
 		List<MovieDto> movieGenreList = dao.movieListGenre(genre_no);
 		
 		Map<String, Object> genreMap = new HashMap<String, Object>();
 		
-		genreMap.put("movieGenreAllList",movieGenreAllList);
+
 		
 		if(genre_no==0) {
 			genreMap.put("movieGenreList",movieGenreAllList);
@@ -45,7 +38,6 @@ public class RecommandGenreCheckCommand implements CommonMapCommand {
 			genreMap.put("movieGenreList",movieGenreList);
 		}
 		
-	  // genreMap.put("genreNo",genre);
 		
 		return genreMap;
 		
