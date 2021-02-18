@@ -38,9 +38,20 @@
 		          </div>
 		        </div>
 		        <div class="info_main_mid_right info_main_mid_box">
+		        
 		          <div class="my-rating-contents txt">평가하기</div>
 				  <div id="star-rating"></div>
-		            <button class="btn btn-default" id="wish">+보고싶어요</button>
+		        <c:if test="${empty isWishList }">
+		            <button class="btn btn-default" id="wish">+ 위시리스트 추가하기</button>
+		        </c:if>
+		        <c:if test="${not empty isWishList }">
+		        	<c:if test="${isWishList > 0}">
+			            <button class="btn btn-default" id="wish">- 위시리스트 제거하기</button>
+		        	</c:if>
+		        	<c:if test="${isWishList == 0}">
+			            <button class="btn btn-default" id="wish">+ 위시리스트 추가하기</button>
+		        	</c:if>
+		        </c:if>
 		            <!-- modal comment -->
 					<div class="comment_top_right">
 						<%@ include file="../template/modalComment.jsp" %>
@@ -133,6 +144,7 @@
 									        	<input type="hidden" name="commentContent" value="${commentDto.comment_content}">
 								        	    <input type="hidden" name="date" value="${commentDto.comment_date}">
 	  							        	    <input type="hidden" name="title" value="${commentDto.comments_title}">
+	  							        	    <input type="hidden" name="commentScore" value="${commentDto.comment_like}">
 											</div>
 											<div class="comment_main_bot">
 												<a href="#">
@@ -163,6 +175,8 @@
 									        	<input type="hidden" name="commentContent" value="${commentDto.comment_content}">
 								        	    <input type="hidden" name="date" value="${commentDto.comment_date}">
 								        	    <input type="hidden" name="title" value="${commentDto.comments_title}">
+  	  							        	    <input type="hidden" name="commentScore" value="${commentDto.comment_like}">
+								        	    
 											</div>
 											<div class="comment_main_bot">
 												<a href="#">
@@ -431,6 +445,55 @@
 		 }
 	 }
 	 
+	 // 위시리스트
+	 $('#wish').on('click',handleWish);
+	 
+	 function handleWish(){
+		 if(loginUser == ''){
+			 alert('로그인 후 이용해 주세요!');
+			 location.href="loginPage.do";
+		 }else{
+			 
+			 if($('#wish').text() == '+ 위시리스트 추가하기'){
+				 
+				 $.ajax({
+					 url: 'insertWishList/' + movieNo,
+					 type: 'post',
+					 contentType: 'application/json; charset=utf-8',
+					 success: function(responseObj){
+						 if(responseObj.insertResult){
+							 alert('위시리스트에 등록되었습니다.');
+							 $('#wish').text('- 위시리스트 제거하기');
+						 }
+					 },
+					 error: function(){
+						 alert('실패');
+					 }
+					 
+				 });
+			 }else{
+				 
+				 $.ajax({
+					 url: 'deleteWishList/' + movieNo,
+					 type: 'post',
+					 contentType: 'application/json; charset=utf-8',
+					 success: function(responseObj){
+						 if(responseObj.deleteResult){
+							 alert('위시리스트에서 제거되었습니다.');
+							 $('#wish').text('+ 위시리스트 추가하기');
+						 }
+					 },
+					 error: function(){
+						 alert('실패');
+					 }
+					 
+				 });
+			 }
+			 
+			 
+		 }
+	 }
+	 
 	 // 코멘트 작성
 	 $('.inp_btn').on('click',handleCommentSubmit);
 	 
@@ -450,8 +513,42 @@
 			 return;
 		 }
 		 
+		 if( !fnCut($('#commentTitle').val(), 50)){
+        	 alert('제목은 50byte까지 가능합니다.');
+   	 		 $('#commentTitle').focus();
+			 e.stopPropagation();
+			 return;
+		 }
+		 
 		$('#commentForm').submit();
 		 
+	 }
+	 
+	 function fnCut(str,lengths) // str은 inputbox에 입력된 문자열이고,lengths는 제한할 문자수 이다.
+	 {
+	       var len = 0;
+	       var newStr = '';
+	   
+	       for (var i=0;i<str.length; i++) 
+	       {
+	         var n = str.charCodeAt(i); // charCodeAt : String개체에서 지정한 인덱스에 있는 문자의 unicode값을 나타내는 수를 리턴한다.
+	         // 값의 범위는 0과 65535사이이여 첫 128 unicode값은 ascii문자set과 일치한다.지정한 인덱스에 문자가 없다면 NaN을 리턴한다.
+	         
+	        var nv = str.charAt(i); // charAt : string 개체로부터 지정한 위치에 있는 문자를 꺼낸다.
+	         
+
+	         if ((n>= 0)&&(n<256)) len ++; // ASCII 문자코드 set.
+	         else len += 3; // 한글이면 2byte로 계산한다.
+	         console.log(len);
+	         
+	       }
+	         if (len>lengths){
+	        	 
+	        	 return false; // 제한 문자수를 넘길경우.
+	        	 
+	         }else{
+	        	 return true;
+	         }
 	 }
 	 
 	 

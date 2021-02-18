@@ -37,10 +37,19 @@
             height: 200px;
             padding-right: 15px;
             border-right: 2px solid #ec7114;
+            text-align: center;
+		    padding: 45px;
+		    font-size: 30px;
+		    cursor: pointer;
         }
         #card-box3{
         	width: 280px;
             height: 200px;
+            text-align: center;
+		    padding: 45px;
+		    font-size: 30px;
+   		    cursor: pointer;
+		    
         }
         
         #alter{

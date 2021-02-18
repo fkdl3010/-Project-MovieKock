@@ -47,6 +47,8 @@
 			        	<input type="hidden" name="commentContent" value="${commentDto.comment_content}">
 		        	    <input type="hidden" name="date" value="${commentDto.comment_date}">
 		        	    <input type="hidden" name="title" value="${commentDto.comments_title}">
+        	   			 <input type="hidden" name="commentScore" value="${commentDto.comment_like}">
+		        	    
 				  	</div>
 		            <div class="box1_bottom">
 		              <p>좋아요</p>

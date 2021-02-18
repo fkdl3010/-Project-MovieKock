@@ -132,4 +132,7 @@
 	<bean id="commentInsertCommand" class="com.koreait.movie.command.movieInfo.CommentInsertCommand"></bean>
 	<bean id="movieCommentViewListCommand" class="com.koreait.movie.command.movieInfo.MovieCommentViewListCommand"></bean>
 	<bean id="commentScrollEventCommand" class="com.koreait.movie.command.movieInfo.CommentScrollEventCommand"></bean>
+	<bean id="insertWishListCommand" class="com.koreait.movie.command.movieInfo.InsertWishListCommand"></bean>
+	<bean id="deleteWishListCommand" class="com.koreait.movie.command.movieInfo.DeleteWishListCommand"></bean>
+	<bean id="wishListCommand" class="com.koreait.movie.command.myPage.WishListCommand"></bean>
 </beans>
