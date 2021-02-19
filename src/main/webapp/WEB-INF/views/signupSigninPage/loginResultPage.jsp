@@ -7,6 +7,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+<body>
+
+	<form id="signUpAction" method="post" action="signupChoicePage.do">
+		<input type="hidden" name="no" value="${loginUser.user_no }">
+	</form>
+
 <script>
 
 	if(${signUp}){
@@ -35,12 +42,5 @@
 	
 	
 </script>
-</head>
-<body>
-
-	<form id="signUpAction" method="post" action="signupChoicePage.do">
-		<input type="hidden" name="no" value="${loginUser.user_no }">
-	</form>
-
 </body>
 </html>
