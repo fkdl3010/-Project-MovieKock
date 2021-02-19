@@ -44,7 +44,7 @@ public class SignupSigninLoginCommand implements CommonVoidCommand {
         	user_pw = Sha256.sha256(request.getParameter("pw"));
         }
         
-        
+        // 아이디 저장 을 눌러두었을때 아이디를 전달하기 위함
 		String rememberId = request.getParameter("rememberId");
 		
 		Cookie cookie = null;
