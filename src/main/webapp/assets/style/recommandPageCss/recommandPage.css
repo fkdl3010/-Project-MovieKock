@@ -5,21 +5,25 @@
 }
 
 body {
-	background: white;
+	background: #e8e5e578;
 }
      .recommand_wrap{
      	display: block;
 		width: 100%;
-		margin-top: 100px;
+		margin-top: 90px;
      }
  
         .recommand_main{
-        	border: 3px solid #ec7114;
+        	border: 3px solid #EAEAEA;
         	border-radius: 15px;
         	display: block;
-        	width : 1000px;
+        	width : 900px;
+        	height : 800px;
         	margin: auto;
+        	margin-top : 160px;
+        	background-color: white;
         }
+        
         
         .recommand_header {
         	text-align: center;
@@ -52,13 +56,13 @@ body {
 		.rdbtn {
 			text-align: center;
 			font-weight: bold;
-			font-size: 20px;
-			background-color: white;
-			border : 2px solid gray;
+			font-size: 23px;
+			background-color: #EAEAEA;
+			border:1px solid #EAEAEA;
 			height: 40px;
 			width : 130px;
-			border-radius: 15px;
-			margin: 0px 0px 20px 20px;
+			border-radius: 10px;
+			margin: 15px 0px 20px 380px;
 		}
 		
 		.fbtn:hover,
@@ -72,6 +76,7 @@ body {
 			width : 500px;
 			height: 600px;
 			margin : auto;
+			
 		}
 		
 		#feel-frame{
@@ -169,4 +174,7 @@ body {
 			border:5px solid navy;
   			color:navy;
 		}
+		
+		
+
 		

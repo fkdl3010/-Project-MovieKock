@@ -26,19 +26,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="movieListGenre" parameterType="int" resultType="com.koreait.movie.dto.MovieDto">
-	<!-- SELECT DISTINCT C.*
-			FROM (
-    SELECT DISTINCT A.*,C.GENRE_NAME 
-        FROM MOVIE A, MOVIE_GENRE B, GENRE C
-        WHERE A.MOVIE_NO=B.MOVIE_NO
-        AND B.GENRE_NO=#{genre_no}) C; -->
-        
          SELECT * FROM
 		(SELECT ROW_NUMBER() OVER(PARTITION BY M.MOVIE_NO ORDER BY M.MOVIE_TITLE DESC ) AS RNUM, M.*,GM.GENRE_NAME
    			 FROM MOVIE M,(SELECT * 
         			FROM MOVIE_GENRE A, GENRE B
         				WHERE A.GENRE_NO = #{genre_no}) GM
-	WHERE M.MOVIE_NO = GM.MOVIE_NO) MOVIE WHERE RNUM =1
+				WHERE M.MOVIE_NO = GM.MOVIE_NO) MOVIE WHERE RNUM =1
 	</select>
 	
 	<select id="movieListGenreAll" resultType="com.koreait.movie.dto.MovieDto">
