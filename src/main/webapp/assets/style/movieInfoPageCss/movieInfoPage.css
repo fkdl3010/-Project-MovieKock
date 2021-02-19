@@ -167,7 +167,6 @@ body {
 }
 
 .btn-default {
-	background-color: #ec7114;
 }
 
 /***** 기본 정보 *****/
@@ -376,7 +375,6 @@ body {
 button.btn.btn-default {
     width: 230px;
     height: 55px;
-    background-color: #ec7114;
 }
 
 .info_main_mid_right #modalBox{
