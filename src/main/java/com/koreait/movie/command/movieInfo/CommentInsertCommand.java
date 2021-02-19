@@ -27,6 +27,7 @@ public class CommentInsertCommand implements CommonVoidCommand {
 		String commentContents = request.getParameter("commentContents");
 		int movieNo = Integer.parseInt(request.getParameter("commentMovieNo"));
 		
+		// 현재 로그인된 유저의 정보를 가져옵니다
 		UserDto loginUser = (UserDto)session.getAttribute("loginUser");
 		
 		int userNo = loginUser.getUser_no();
