@@ -34,6 +34,7 @@ public class MovieInfoViewCommand implements CommonVoidCommand {
 		int movieNo= 0;
 		
 //		영화정보, 배우 정보
+		// http://localhost:8080/movie/movieInfoPage.do?movieNo=1 의 movieNo 정보를 받아옵니다.
 		if(movie != null) {
 			
 			movieNo = Integer.parseInt(request.getParameter("movieNo"));
@@ -52,6 +53,7 @@ public class MovieInfoViewCommand implements CommonVoidCommand {
 		
 		HttpSession session = request.getSession();
 		
+		// 로그인된 유저의 정보를 받아옵니다.
 		UserDto loginUser = (UserDto)session.getAttribute("loginUser");
 		
 		if(loginUser != null) {
