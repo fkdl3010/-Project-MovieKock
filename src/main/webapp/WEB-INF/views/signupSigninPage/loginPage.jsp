@@ -44,7 +44,9 @@
   </div>
 
 <script type="text/javascript">
-
+	
+	
+	// 아이디 저장 눌렀을때 아이디 기억하기
 	window.onload = function(){
 		if("${cookie.id.value}" != ""){
 			document.querySelector('#id').value ="${cookie.id.value}";
@@ -52,7 +54,8 @@
 		}
 		
 	}
-	
+
+	// 로그인 버튼을 직접 마우스로 눌렀을 때
 	function fn_login(f){
 		if(f.id.value == '' || f.pw.value == ''){
 			swal({
@@ -68,16 +71,17 @@
 		}
 	}
 	
+	// 로그인 버튼을 enter key 로 바로 눌렀을때
 	function loginOk() {
 
 		var f = document.loginForm;
 
 
-		if(f.id.value == '') {
+		if(f.id.value == '' ) {
 
 			swal({
 			    title: "Warning",
-			    text: "아이디를 입력하세요'.",
+			    text: "아이디를 입력하세요.",
 			    icon: "warning" //"info,success,warning,error" 중 택1
 			});
 
@@ -85,11 +89,11 @@
 
 		}
 
-		if(f.pw.value == '') {
+		if(f.pw.value == '' ) {
 
 			swal({
 			    title: "Warning",
-			    text: "비밀번호를 입력하세요'.",
+			    text: "비밀번호를 입력하세요.",
 			    icon: "warning" //"info,success,warning,error" 중 택1
 			});
 

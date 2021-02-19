@@ -6,7 +6,7 @@
 	<jsp:param value="문의하기 상세보기" name="title" />
 </jsp:include>
 
-<link rel="stylesheet" href="/movie/assets/style/qnaPageCss/qnaViewPage.css"/>
+<link rel="stylesheet" href="/movie/assets/style/qnaPageCss/qnaViewPage.css"?ver=1 />
 	<div class="wrap">
 		<div class="main">
 			<div class="main_body">
@@ -48,6 +48,7 @@
 						<input type="button" class="delete_btn" value="삭제"  onclick="fn_qnaDelete(this.form)" />
 						<input type="hidden" name="qna_no" value="${qnaDto.qna_no}" />
 						<input type="hidden" name="qna_reply_no" value="${qnaReplyDto.qna_reply_no}" />
+						
 					</c:if>
 				</form>
 				<form method="get">

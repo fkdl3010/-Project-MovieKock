@@ -16,6 +16,8 @@ let btn = document.querySelector('#secret');
 	
 	}
 	
+	   init();
+	
 	function fn_sendClick(f){
 			
 		if ($('#title').val() == '') {
@@ -40,7 +42,7 @@ let btn = document.querySelector('#secret');
 		f.submit();
 	}
 	
-
+	   init();
    
 	
 	
