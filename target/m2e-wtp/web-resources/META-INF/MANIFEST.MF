@@ -1,13 +1,5 @@
-<<<<<<< HEAD
 Manifest-Version: 1.0
-Built-By: user1
+Built-By: ITSC
 Build-Jdk: 1.8.0_202
 Created-By: Maven Integration for Eclipse
 
-=======
-Manifest-Version: 1.0
-Built-By: yhoo0
-Build-Jdk: 1.8.0_202
-Created-By: Maven Integration for Eclipse
-
->>>>>>> 88220942e0ba05bbdfcf3b61257b97bb6975ccf5
