@@ -30,44 +30,44 @@
 				<div class="top_text txt">무비콕 정보를 입력해주세요</div>
 				<div class="main">
 					<div class="label_text txt">
-						<label for="id">아이디</label><br />
+						<label for="id"> 아이디</label><br />
 					</div>
 					<input type="text" name="id" id="id" class="inp_txt" placeholder="아이디를 입력해주세요." onkeyup="idRegCheck()" /> 
 					<input type="button" id="idCheckbtn" class="inp_btn" value="중복확인" onclick="fn_idCheck(this.form)" /><br /> 
 					<span class="normal" id="idRegBox"></span>
 
 					<div class="label_text txt">
-						<label for="pw">비밀번호</label><br /> 
+						<label for="pw"> 비밀번호</label><br /> 
 					</div>
 					<input type="password" name="pw" id="pw" class="inp_txt" placeholder="비밀번호를 입력해주세요." onkeyup="pwRegCheck()" /><br/>
 					<span class="normal" id="pwRegBox"></span>
 					<div class="label_text txt">
-						<label for="pw2">비밀번호 확인</label>
+						<label for="pw2"> 비밀번호 확인</label>
 					</div>
 					<span id="pwCheck"></span>
 					<input type="password" id="pw_check" class="inp_txt" placeholder="비밀번호를 확인해주세요." onkeyup="pwEqualCheck()" />
 					<span id="pwCheck2"></span>
-					<div id="pwConfirm" class="normal" style="display: none;">비밀번호가 일치하지 않습니다.</div>
+					<div id="pwConfirm" class="normal" style="display: none;"> 비밀번호가 일치하지 않습니다.</div>
 
 					<div class="label_text txt">
-						<label for="nickname">닉네임</label>
+						<label for="nickname"> 닉네임</label>
 					</div>
 					<input type="text" name="nickName" id="nickname" class="inp_txt" placeholder="닉네임을 확인해주세요." onkeyup="nickCheck()" /> 
 					<input type="button" id="nickNameCheckbtn" class="inp_btn" value="중복확인" onclick="fn_nickCheck(this.form)" />
 
 					<div class="label_text txt">
-						<label for="name">이름</label>
+						<label for="name"> 이름</label>
 					</div>
 					<input type="text" name="name" id="name" class="inp_txt" placeholder="이름을 입력해주세요." />
 
 					<div class="label_text txt">
-						<label for="email">이메일</label>
+						<label for="email"> 이메일</label>
 					</div>
 					<input type="text" name="email" id="email" class="inp_txt" placeholder="이메일을 입력해주세요." onkeyup="emailRegCheck()" /> 
 					<input type="button" id="emailCheckbtn" class="inp_btn" value="중복확인" onclick="fn_emailCheck(this.form)" /><br/>
 					<span class="normal" id="emailRegBox"> </span>
 					<div class="label_text txt">
-						<label for="phone">휴대전화</label>
+						<label for="phone"> 휴대전화</label>
 					</div>
 					<input type="text" name="phone" id="phone" class="inp_txt" placeholder="핸드폰 번호를 입력해주세요." />
 				</div>

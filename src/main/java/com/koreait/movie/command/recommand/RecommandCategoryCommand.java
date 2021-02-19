@@ -21,12 +21,10 @@ public class RecommandCategoryCommand implements CommonVoidCommand {
 		RecommandDao dao = sqlSession.getMapper(RecommandDao.class);
 		
 
-		
 		List<MovieDto> movieAllList = dao.movieListGenreAll();
 		
 		model.addAttribute("movieAllList",movieAllList);
-		
-		
+			
 
 	}
 

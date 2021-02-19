@@ -77,9 +77,10 @@ function formChange(){
         		$('.main-movieList').empty();
         			movieList.forEach(function(movieN){
         				console.log(movieN);
-        				const movieOne = '<div class="insert-movie-box"><div class="movie-insert" style="background-image: url(/movie/assets/images/poster/'+ movieN.movie_title+'_포스터.jpg' + '); background-size:210px 100%;"></div>'
-        				
-						+'<div class="insert-info"><div class="text"><h4>'+movieN.movie_title.replaceAll("_"," ")+'</h4><p>'+movieN.movie_nation+'&nbsp;&nbsp;평점 '+movieN.movie_web_score+'<br/> 장르 '+movieN.genre_name+
+        				const movieOne = '<div class="insert-movie-box"><div class="movie-insert" style="background-image: url(/movie/assets/images/poster/'
+        						+ movieN.movie_title+'_포스터.jpg' + '); background-size:210px 100%;"></div>'
+						+'<div class="insert-info"><div class="text"><h4>'+movieN.movie_title.replaceAll("_"," ")+'</h4><p>'+movieN.movie_nation+'&nbsp;&nbsp;평점 '
+						+movieN.movie_web_score+'<br/> 장르 '+movieN.genre_name+
 						'</p></div></div><input type="hidden" id="movieNo" value="'+movieN.movie_no+'" /></div></div>';
 							
 						
