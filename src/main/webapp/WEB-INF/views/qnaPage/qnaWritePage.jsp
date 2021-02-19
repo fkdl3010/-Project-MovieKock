@@ -4,11 +4,11 @@
 <jsp:include page="../template/header.jsp">
 	<jsp:param value="문의하기" name="title" />
 </jsp:include>
-<link rel="stylesheet" href="/movie/assets/style/qnaPageCss/qnaWritePage.css"/>
+<link rel="stylesheet" href="/movie/assets/style/qnaPageCss/qnaWritePage.css" />
 <body>
 	<div class="wrap">
         <div class="main_head">
-	        <h3>문의 목록</h3>
+	        <h3><a href="qnaListView.do">문의하기</a></h3>
 	        <p>문의 하기</p>
         </div>  
         <div class="main_body">

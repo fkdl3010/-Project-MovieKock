@@ -28,7 +28,7 @@ public class QnaDeleteCommand implements CommonVoidCommand {
 	    int qnaReplyDeleteResult = qnaReplyDao.qnaReplyDelete(qna_reply_no);
 		
 		QnaDao qnaDao = sqlSession.getMapper(QnaDao.class);
-		int qnaDeleteResult = qnaReplyDao.qnaReplyDelete(qna_no);
+		int qnaDeleteResult = qnaDao.qnaDelete(qna_no);
 		
 		
 		rttr.addFlashAttribute("qnaReplyDeleteResult", qnaReplyDeleteResult);

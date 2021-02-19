@@ -11,8 +11,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		INSERT INTO
 		QNA
 		<if test="qna_pw!=null">VALUES (QNA_SEQ.NEXTVAL, #{qna_select}, #{qna_title},
-			#{qna_secret}, #{user_no}, #{qna_content}, #{qna_pw}, SYSDATE,
-			0)</if>
+			#{qna_secret}, #{user_no}, #{qna_content}, #{qna_pw}, SYSDATE, 0)
+		</if>
 		<if test="qna_pw==null">VALUES (QNA_SEQ.NEXTVAL, #{qna_select}, #{qna_title},
 			#{qna_secret}, #{user_no}, #{qna_content}, NULL, SYSDATE, 0)
 		</if>
