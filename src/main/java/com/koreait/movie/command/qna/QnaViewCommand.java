@@ -21,13 +21,15 @@ public class QnaViewCommand implements CommonVoidCommand {
 		
 		int qna_no = Integer.parseInt(request.getParameter("qna_no"));
 		
+		QnaReplyDao qnaReplyDao = sqlSession.getMapper(QnaReplyDao.class);
+		model.addAttribute("qnaReplyCount", qnaReplyDao.qnaReplyCount(qna_no));
+		model.addAttribute("qnaReplyDto", qnaReplyDao.qnaReplyView(qna_no));
+
+		
 		QnaDao qnaDao = sqlSession.getMapper(QnaDao.class);
 		model.addAttribute("qnaDto", qnaDao.qnaView(qna_no));
 		model.addAttribute("page", request.getParameter("page"));
 		
-		QnaReplyDao qnaReplyDao = sqlSession.getMapper(QnaReplyDao.class);
-		model.addAttribute("qnaReplyCount", qnaReplyDao.qnaReplyCount(qna_no));
-		model.addAttribute("qnaReplyDto", qnaReplyDao.qnaReplyView(qna_no));
 		
 	}
 

@@ -44,7 +44,7 @@
 						<a href="categoryRecommandPage.do" class="category-link-a txt"> 장르별 </a>
 					</span>
 					<span class="faq-link">
-						<a href="qnaWritePage.do" class="faq-link-a txt"> 문의 하기 </a>
+						<a href="qnaListView.do" class="faq-link-a txt"> 문의 하기 </a>
 					</span>
 				</div>
 				<div class="login-search-box">
