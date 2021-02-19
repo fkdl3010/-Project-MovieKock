@@ -6,17 +6,6 @@
 <script>
 
 	 
-$(document).ready(function(){
-
-	swal({
-	    title: "OK",
-	    text: "이메일이 전송되었습니다",
-	    icon: "success" //"info,success,warning,error" 중 택1
-	});
-
- location.href="loginPage.do";
-	    
-
-});
-
+alert("이메일이 전송되었습니다");
+location.href="loginPage.do";
 </script>
