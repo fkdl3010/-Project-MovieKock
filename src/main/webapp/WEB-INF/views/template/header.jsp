@@ -44,14 +44,14 @@
 						<a href="categoryRecommandPage.do" class="category-link-a txt"> 장르별 </a>
 					</span>
 					<span class="faq-link">
-						<a href="qnaWritePage.do" class="faq-link-a txt"> 문의 하기 </a>
+						<a href="qnaListView.do" class="faq-link-a txt"> 문의 하기 </a>
 					</span>
 				</div>
 				<div class="login-search-box">
 					<form class="search-form" name="search" method="get" action="searchResultPage.do">
 						<span class="btn-a">
-							<input type="text" class="input-search" name="searchKeyword" placeholder="검색어를 입력해 주세요." autocomplete="off"/>
-							<button class="search-btn" onclick="fn_search(this.form)">
+							<input type="text" class="input-search" name="search" placeholder="검색어를 입력해 주세요." autocomplete="off"/>
+							<button class="search-btn"> <!-- onclick="fn_search(this.form)" -->
 								<i class="fas fa-search"></i>
 							</button>
 						</span>
@@ -70,12 +70,12 @@
 				</div>
 			</div>
 		</div>
-		<script>
+	 	<!--	<script>
 			function fn_search(f) {
 				f.action = "searchResultPage.do?search=" + search;
 				f.submit();
 			}
-
+			<!--
 			function bindingAccordionEvent(wrap) {
 				let areaArr = document.querySelectorAll(wrap);
 
@@ -108,4 +108,4 @@
 
 			bindingAccordionEvent('.accordion_area');
 		</script>
-
+ -->
