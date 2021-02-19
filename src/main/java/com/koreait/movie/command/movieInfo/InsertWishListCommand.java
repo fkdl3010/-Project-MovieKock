@@ -24,6 +24,7 @@ public class InsertWishListCommand implements CommonMapCommand {
 		
 		HttpSession session = request.getSession();
 		
+		// 현재 로그인되어있는 유저의 정보를 가져옵니다.
 		UserDto loginUser = (UserDto)session.getAttribute("loginUser");
 		
 		int userNo = loginUser.getUser_no();
@@ -32,6 +33,8 @@ public class InsertWishListCommand implements CommonMapCommand {
 		MovieInfoDao dao = sqlSession.getMapper(MovieInfoDao.class);
 		
 		Map<String, Object> resultMap = new HashMap<String, Object>();
+		
+		// 삭제 여부에 따라 boolean 타입으로 반환합니다.
 		if(dao.insertWishList(userNo, movieNo) > 0) {
 			resultMap.put("insertResult", true);
 		}else {
