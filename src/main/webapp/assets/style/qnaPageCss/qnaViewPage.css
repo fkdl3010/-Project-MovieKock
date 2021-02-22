@@ -13,12 +13,10 @@
 }
 
 .table_user_write {
-	text-align: center;
 	width: 775px;
 }
 
 .table_reply_content {
-	text-align: center;
 	width: 770px;
 }
 
@@ -34,7 +32,6 @@
 .user_write_tr {
 	margin: auto;
 	background: #ddd;
-	text-align: center;
 	width: 770px;
 }
 
@@ -45,7 +42,6 @@
 }
 
 .user_write_td_resp {
-	text-align: center;
 	width: 400px;
 }
 
@@ -69,14 +65,11 @@
 	  left: 36%;
 	  top: 55%;
 	  font-size: 16px;
-	  color: rgb(255, 255, 255);
+	  background-color: #ec7114;
 	  text-align: center;
 	  line-height: 2.5em;
-	  border-top-left-radius: 4px;
-	  border-top-right-radius: 4px;
-	  border-bottom-right-radius: 4px;
-	  border-bottom-left-radius: 4px;
-	  background-color: rgb(52, 152, 219);
+	  border-radius : 4px;
+	  background-color: #ec7114;
 }
 .list_btn { 
 	  width:100px;
@@ -87,14 +80,11 @@
 	  width:100px;
 	  height: 44px;
 	  font-size: 16px;
-	  color: rgb(255, 255, 255);
+	  background-color: #ec7114;
 	  text-align: center;
 	  line-height: 2.5em;
-	  border-top-left-radius: 4px;
-	  border-top-right-radius: 4px;
-	  border-bottom-right-radius: 4px;
-	  border-bottom-left-radius: 4px;
-	  background-color: rgb(52, 152, 219);
+	  border-radius : 4px;
+	  background-color: #ec7114;
 }
 
 .delete_btn { 
@@ -107,9 +97,13 @@
 	  color: rgb(255, 255, 255);
 	  text-align: center;
 	  line-height: 2.5em;
-	  border-top-left-radius: 4px;
-	  border-top-right-radius: 4px;
-	  border-bottom-right-radius: 4px;
-	  border-bottom-left-radius: 4px;
-	  background-color: rgb(52, 152, 219);
+	  border-radius : 4px;
+	  background-color: #ec7114;
+}
+
+.user_write_td_fst {
+	width: 500px !important;
+}
+.user_write_tr > td {
+	width: 150px;
 }

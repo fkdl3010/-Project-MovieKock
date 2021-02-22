@@ -41,8 +41,8 @@
 	<div class="wrap">
 		<div class="main">
 			<div class="main_top_font">
-				<p class="qna_list">문의목록</p>
-				<a href="qnaWritePage.do" class="qna_do">문의하기</a>
+				<a class="qna_txt">문의목록</a>
+				<a href="qnaWritePage.do" class="qna_do qna_txt">문의하기</a>
 			</div>
 			<div class="main_bot">
 				<div class="main_bot_inner">
@@ -105,7 +105,7 @@
 				</tbody>
 				<tfoot>
 					<tr>
-						<td colspan="4">
+						<td colspan="6">
 							${paging}
 						</td>
 					</tr>
