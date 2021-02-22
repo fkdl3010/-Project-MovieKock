@@ -16,7 +16,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT COUNT(*)
           FROM QNA_REPLY
          WHERE QNA_NO = #{qna_no}
-	</select > 
+	</select> 
 	
 	<select id="qnaReplyView" parameterType="int" resultType="com.koreait.movie.dto.QnaReplyDto"> 
 		SELECT *

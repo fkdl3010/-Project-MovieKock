@@ -48,7 +48,6 @@
 						<input type="button" class="delete_btn" value="삭제"  onclick="fn_qnaDelete(this.form)" />
 						<input type="hidden" name="qna_no" value="${qnaDto.qna_no}" />
 						<input type="hidden" name="qna_reply_no" value="${qnaReplyDto.qna_reply_no}" />
-						
 					</c:if>
 				</form>
 				<form method="get">

@@ -9,5 +9,4 @@ public interface QnaReplyDao {
 	public QnaReplyDto qnaReplyView(int qna_no);
 	public int qnaReplyDelete(int qna_reply_no);
 	
-	
 }
