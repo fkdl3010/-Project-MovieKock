@@ -84,6 +84,8 @@ body {
 	margin-top: 300px;
 	margin-left: 750px;
 	border: 1px solid;
+	border-radius: 25px;
+	background: white;
 }
 
 .modal_content {
@@ -98,7 +100,7 @@ body {
 
 #inpPw {
 	margin-top: 75px;
-	margin-left: 50px;
+	margin-left: 110px;
 }
 
 .modal_footer{
