@@ -9,7 +9,6 @@
 <link rel="stylesheet" href="/movie/assets/style/recommandPageCss/recommandPage.css" />
 
 <script type="text/javascript">
-
 function randombtn(){
 	if($('#random-frame').css("display")=="none"){
 		$('#situ-frame').hide();
@@ -31,13 +30,10 @@ function situbtn(){
 		$('#feel-frame').hide();
 		$('#situ-frame').show();
 	}
-
 }
 function fn_random(){
 	location.href="recommandRandomPage.do"
 }
-
-
 function fn_tag(f){
 	/* location.href="recommand_random_page.do" */
 	f.action="recommandSituPage.do"
@@ -46,20 +42,16 @@ function fn_tag(f){
 	
 	document.tag.subit();
 }
-
-
 $(document).ready(function(){
 	$('.situation-box').click(function(){
 		$(this).removeClass('clicked');
 		$(this).addClass('clicked');
 	})
 })
-
 function goTagsSearch(){
 	location.href="recommandSituPage.do"
 	
 }
-
 function movieResult(url){
 	var ajaxOption = {
 			url : url,
@@ -74,8 +66,6 @@ function movieResult(url){
 		$('#movie-box').html(data);
 	});
 }
-
-
 function showImage(){
 	var imgNum= Math.round(Math.ramdom()*3);
 	var objImg = document.getElementById("introImg");
@@ -85,13 +75,14 @@ function showImage(){
 	imgArray[1]="assets/images/emoticon/cold.png"; 
 	imgArray[2]="assets/images/emoticon/crying.png"; 
 	imgArray[3]="assets/images/emoticon/disappointment.png";
-
-
 	objImg.src = imgArray[imgNum];
 	setTimeout(showImage,5000);
-
 	
 }
+
+rdbtn.onclick = function() {
+	  stripe.classList.add('animate');
+	};
 </script>
 
  <div class="recommand_wrap">
@@ -110,7 +101,7 @@ function showImage(){
 	        		<div id="movie-box" >
 	            		<img id="introImg" src="assets/images/random_image.jpg"/>
 	        		</div>
-	        		<input class="rdbtn" type="button" value="추천 받기" onclick="movieResult('recommandRandomPage.do')"/>
+	        		<input id="rdbtn" class="rdbtn" type="button" value="추천 받기" onclick="movieResult('recommandRandomPage.do')"/>
 	      	   </div>
 	       </form>
 	      	  

@@ -10,8 +10,8 @@ body {
   padding: 30px;
   border: 1px solid black;
   border-radius: 20px;
-  width: 900px;
   height: 600px;
+ 
 }
 
 .section-left{
@@ -42,16 +42,22 @@ body {
   background-color: gray;
   border-radius: 20px;
   cursor: pointer;
+  
 }
 
 .section-right{
-  width: 100%;
-  padding: 10px 20px 20px 20px;
+  width: 65%;
+  padding: 10px 20px 40px 20px;
+
 
 }
 .top-title-contents{
   font-size: 40px;
   font-weight: bold;
+}
+
+.contentTextArea {
+	border-radius: 15px;
 }
 
 .top-contents{
@@ -69,9 +75,10 @@ body {
 .right-textarea{
   border: 1px solid black;
   border-radius: 15px;
-  padding: 20px;
   height: 76%;
-  width: 100%;
+  width: 670px;
+ padding: 10px;
+  
 }
 
 .right-footer-btn-box{
@@ -80,27 +87,6 @@ body {
 
 .right-footer-btn{
   
-}
-
-<!-- 부트스트랩 btn 커스터마이징 -->
-.btn-info {
-    background-color: #17a2b8;
-    border-color: #17a2b8;
-    color: #eee;
-}
-.btn-info:hover,
-.btn-info:focus {
-    border-color: #128496;
-    background-color: #128496;
-    color: #ccc;
-}
-.btn-info:active,
-.btn-info:visited,
-.btn-info:active:focus,
-.btn-info:active:hover {
-    border-color: #128496;
-    background-color: #128496;
-    color: #ccc;
 }
 
 i.fas.fa-star.fa-2x {
@@ -113,5 +99,5 @@ span.movie-score {
     font-size: 25px;
 }
 .top-title {
-    text-align: right;
+	display: flex;
 }

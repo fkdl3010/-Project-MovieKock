@@ -19,5 +19,5 @@ public class MovieDto {
 	private String movie_nation;
 	private String genre_name;
 	private String movie_story;
-	private String moivie_web_score;
+	private String movie_web_score;
 }

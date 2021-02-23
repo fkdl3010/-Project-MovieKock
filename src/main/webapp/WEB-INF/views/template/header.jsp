@@ -14,6 +14,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${title }</title>
@@ -46,6 +47,9 @@
 					<span class="faq-link">
 						<a href="qnaListView.do" class="faq-link-a txt"> 문의 하기 </a>
 					</span>
+					<c:if test="${loginUser.user_nickname == 'ADMIN' }">
+						<a href="adminPage.admin" class="admin-link-a txt">ADMIN</a>
+					</c:if>
 				</div>
 				<div class="login-search-box">
 					<form class="search-form" name="search" method="get" action="searchResultPage.do">

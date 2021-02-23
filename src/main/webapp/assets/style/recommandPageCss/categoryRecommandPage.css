@@ -7,6 +7,8 @@ html {
   box-sizing: border-box;
 }
 
+
+
 .nav-category{
   position: relative;
 }
@@ -18,8 +20,9 @@ html {
 }
 
 img {
-	width: 183.333px;
-	height: 330px;
+	width: 185px;
+	height: 320px;
+	border-radius: 10px;
 }
 
 .rankBadge {
@@ -35,38 +38,74 @@ img {
 	z-index: 2;
 }
 
-.info {
-	position: absolute;
-	top: 100%;
-	width: 200px;
-	font-size: 15px;
-	background-color: #3e3b3b;
-}
-
-
-.list afterInsert: hover{
-	filter: blur(10px);
-	-webkit-filter: blur(10px);
-	transition: all 4s;
-}
-
-
 .main-wrapper{
 	width: 80%;
 	height: 40%;
 	margin: 100px auto;
-  
+ 
 }
 
-.info {
+.default-info{
 	position: absolute;
+	right:-20px;
 	top: 100%;
-	width: 200px;
-	color: #141414;
+	width: 215px;
 	font-size: 15px;
+	background-color: #3e3b3b;
+
 }
 
+.insert-info{
+	
+	position: absolute;
+	
+	top: 100%;
+	width: 195px;
+	font-size: 15px;
+	background-color: #3e3b3b;
+
+}
+
+.movie-box{
+	width : 210px;
+	height: 100%;
+	margin : 10PX 20px 10px 20px;
+	position: relative;
+	overflow: hidden;
+}
+
+
+.insert-movie-box{
+	width : 230px;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+	border-radius: 10px;
+	left: 0px;
+	margin:  20PX 10px 20px 10px;
+
+}
+.movie{
+	width : 185px;
+	height: 100%;
+	margin : 10PX 20px 10px 20px;
+	
+}
+
+
+.movie-insert{
+  overflow: hidden;
+padding: 0px -10px 0px 0px;
+  width : 190px;
+  
+  text-align: center;
+  height: 320px;
+  background-color: coral;
+  border-radius: 10px;
+  cursor: pointer;
+}
 .main-movieList{
+  position: relative;
   width: 90%;
   display: flex;
   flex-wrap: wrap;
@@ -75,10 +114,40 @@ img {
 }
 
 .list {
-	width: 183.333px;
+  overflow: hidden;
+  width : 200px;
   margin: 20px;
-  height: 300px;
-  background-color: red;
-  border: 1px solid black;
-  border-radius: 2rem;
+  height: 320px;
+  background-color: coral;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.movie-box:hover img {
+	filter: blur(10px);
+	-webkit-filter: blur(10px);
+	transition: all 4s;
+}
+
+.movie-box:hover .default-info {
+	background-color: #3e3b3b;
+	padding-left: 10px;
+	color: white;
+	top: 65%; /* 숫자 높을수록 텍스트는 낮게 올라옴*/
+	transition: all 2s;
+	opacity: 0.8;
+}
+ 
+.insert-movie-box:hover .movie-insert {
+	filter: blur(10px);
+	-webkit-filter: blur(10px);
+	transition: all 4s;
+}
+.insert-movie-box:hover .insert-info {
+	background-color: #3e3b3b;
+	padding-left: 10px;
+	color: white;
+	top: 65%; /* 숫자 높을수록 텍스트는 낮게 올라옴*/
+	transition: all 2s;
+	opacity: 0.8;
 }

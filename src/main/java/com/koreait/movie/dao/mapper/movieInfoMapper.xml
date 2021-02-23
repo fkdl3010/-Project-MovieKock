@@ -27,12 +27,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="getMovie" parameterType="int" resultType="com.koreait.movie.dto.MovieDto">
-		select a.movie_no, a.movie_title, a.movie_director, a.movie_audience, a.movie_opening_date, a.movie_nation, a.movie_story, a.moivie_web_score, LISTAGG(c.genre_name, ',') within group (order by c.genre_name) as genre_name
+		select a.movie_no, a.movie_title, a.movie_director,
+				 a.movie_audience, a.movie_opening_date, a.movie_nation,
+				  a.movie_story, a.movie_web_score, LISTAGG(c.genre_name, ',') within group (order by c.genre_name) as genre_name
 		from movie a, movie_genre b, genre c 
 		where a.movie_no = b.movie_no
 		and b.genre_no = c.genre_no
 		and a.movie_no = #{movieNo}
-		group by a.movie_no, a.movie_title, a.movie_director, a.movie_audience, a.movie_opening_date, a.movie_nation, a.movie_story, a.moivie_web_score
+		group by a.movie_no, a.movie_title,
+				 a.movie_director, a.movie_audience,
+				 a.movie_opening_date, a.movie_nation,
+				 a.movie_story, a.movie_web_score
 	</select>
 	
 	<select id="getMovieActor" parameterType="int" resultType="String">
@@ -44,13 +49,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="getRelationMovieList" parameterType="int" resultType="com.koreait.movie.dto.MovieDto">
-		select distinct(a.movie_no), a.movie_title, a.movie_director, a.movie_audience, a.movie_opening_date, a.movie_nation, genre_name, a.moivie_web_score
+		select distinct(a.movie_no), a.movie_title, a.movie_director, a.movie_audience,
+				a.movie_opening_date, a.movie_nation, genre_name, a.movie_web_score
 		from movie a, movie_genre b, (select
 		                                    movie_no,
 		                                    LISTAGG(genre.genre_name, ',') within group (order by genre.genre_name) as genre_name
-		                                from movie_genre , genre
-		                               where movie_genre.genre_no = genre.genre_no
-		                            group by movie_no) genre
+			                                from movie_genre , genre
+			                                where movie_genre.genre_no = genre.genre_no
+			                            	group by movie_no) genre
 		where a.movie_no = b.movie_no
 		and a.movie_no = genre.movie_no
 		and b.genre_no in (

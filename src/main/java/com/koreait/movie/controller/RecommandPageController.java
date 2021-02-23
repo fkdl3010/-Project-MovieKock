@@ -33,7 +33,7 @@ public class RecommandPageController {
 	@Autowired
 	public void setBean(RecommandRandomMovieCommand randomMovieCommand, 
 						RecommandSituMovieCommand situMovieCommand,
-						RecommandCategoryCommand categoryComman,
+						RecommandCategoryCommand categoryCommand,
 						RecommandGenreCheckCommand genreCheckCommand) {
 		this.randomMovieCommand = randomMovieCommand;
 		this.situMovieCommand = situMovieCommand;
@@ -53,17 +53,19 @@ public class RecommandPageController {
 		return "recommandPage/recommandRandomPage";
 	}
 	
-	@RequestMapping(value="recommandSituPage.do")
-					//method=RequestMethod.POST)
-	public String recommandSituPage(HttpServletRequest request, Model model) {
-		model.addAttribute("request", request);
-		situMovieCommand.execute(sqlSession, model);
-		return "recommandPage/recommandMovieSituPage";
-	}
 	
-	@RequestMapping(value="categoryRecommandPage.do")
+	//@RequestMapping(value="recommandSituPage.do",
+	//				method=RequestMethod.GET)
+	//public String recommandSituPage(HttpServletRequest request, Model model) {
+	//	model.addAttribute("request", request);
+	//	situMovieCommand.execute(sqlSession, model);
+	//	return "recommandPage/recommandMovieSituPage";
+	//}
+	
+	@RequestMapping(value="categoryRecommandPage.do",method=RequestMethod.GET)
 	public String categoryRecommandPage(HttpServletRequest request,Model model) {
 		model.addAttribute("request", request);
+		categoryCommand.execute(sqlSession, model);
 		return "recommandPage/categoryRecommandPage";
 	}
 	
