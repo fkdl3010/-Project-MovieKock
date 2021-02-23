@@ -20,15 +20,30 @@ public class QnaDeleteCommand implements CommonVoidCommand {
 		Map<String, Object> map = model.asMap();
 		HttpServletRequest request = (HttpServletRequest)map.get("request");
 		RedirectAttributes rttr = (RedirectAttributes)map.get("rttr");
-						
-		int qna_reply_no = Integer.parseInt(request.getParameter("qna_reply_no"));
-		int qna_no = Integer.parseInt(request.getParameter("qna_no"));
 		
-	    QnaReplyDao qnaReplyDao = sqlSession.getMapper(QnaReplyDao.class);
-	    int qnaReplyDeleteResult = qnaReplyDao.qnaReplyDelete(qna_reply_no);
+		
+		int qna_no = Integer.parseInt(request.getParameter("qna_no"));  // 원글 번호
+
+		String str_qna_reply_no = request.getParameter("qna_reply_no");
+		int qna_reply_no;
+		int qnaReplyDeleteResult = 0;
+		if ( str_qna_reply_no != null && !str_qna_reply_no.isEmpty() ) {
+			qna_reply_no = Integer.parseInt(str_qna_reply_no);  // 댓글 번호
+			QnaReplyDao qnaReplyDao = sqlSession.getMapper(QnaReplyDao.class);
+			if(qnaReplyDao.qnaReplyCount(qna_no) > 0) {  // 원글에 달린 댓글의 갯수
+				qnaReplyDeleteResult = qnaReplyDao.qnaReplyDelete(qna_reply_no);  // 댓글 지우기
+			}
+		}
 		
 		QnaDao qnaDao = sqlSession.getMapper(QnaDao.class);
-		int qnaDeleteResult = qnaDao.qnaDelete(qna_no);
+		int qnaDeleteResult = qnaDao.qnaDelete(qna_no);  // 원글 지우기
+		
+		/*
+		if (QnaReplyDao = 0) {
+			QnaDao qnaDao = sqlSession.getMapper(QnaDao.class);
+			int qnaDeleteResult = qnaDao.qnaDelete(qna_no);
+		}
+		*/
 		
 		
 		rttr.addFlashAttribute("qnaReplyDeleteResult", qnaReplyDeleteResult);
