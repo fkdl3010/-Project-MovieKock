@@ -15,7 +15,6 @@
 		<input type="hidden" name="no" value="${loginUser.user_no }">
 	</form>
 
-</body>
 <script>
 
 	if(${signUp}){
@@ -47,4 +46,6 @@
 	
 	
 </script>
+</body>
 </html>
+

@@ -199,8 +199,8 @@
 				</div>
 				<div class="info_main_bot_movies">
 					<c:choose>
-						<c:when test="${fn:length(relationMovieList) > 12}">
-							<c:forEach begin="0" end="11" items="${relationMovieList }" var="relationMovie">
+						<c:when test="${fn:length(relationMovieList) > 10}">
+							<c:forEach begin="0" end="9" items="${relationMovieList }" var="relationMovie">
 									<div class="main_bot_movies_poster" style="background-image: url('/movie/assets/images/poster/${relationMovie.movie_title}_포스터.jpg')">
 										<div class="main_bot_poster_info">
 											<div>제목 ${relationMovie.movie_title.replaceAll("_", " ") }</div>
