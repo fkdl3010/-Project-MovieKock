@@ -5,6 +5,6 @@ import org.springframework.ui.Model;
 
 public interface CommonVoidCommand {
 	
-	public void execute(SqlSession sqlSession, Model model);
+	public void execute(SqlSession sqlSession, Model model) throws Exception;
 	
 }

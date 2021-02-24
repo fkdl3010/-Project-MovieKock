@@ -62,5 +62,42 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		from movie
 	</select>
 	
+	<select id="selectActor" parameterType="String" resultType="com.koreait.movie.dto.ActorDto">
+		select *
+		from actor
+		where actor_name = #{insertActorName}
+	</select>
+	
+	<select id="selectMovie" parameterType="String" resultType="com.koreait.movie.dto.MovieDto">
+		select *
+		from movie
+		where movie_title = #{movieTitle}
+	</select>
+	
+	<insert id="insertMovie" parameterType="map">
+		insert into
+		movie
+		values(movie_seq.nextval, #{movieTitle}, #{movieDirectorName}, #{movieAudience}, #{movieDate}, #{movieNation}, #{movieStory}, #{movieScore})
+	
+	</insert>
+	
+	<insert id="insertActor">
+		insert into
+		actor
+		values(actor_seq.nextval, #{param1})
+	</insert>
+	
+	<insert id="insertGenre">
+		insert into
+		MOVIE_GENRE
+		values(movie_genre_seq.nextval, #{param1}, #{param2})
+	</insert>
+	
+	<insert id="insertMovieActor">
+		insert into
+		MOVIE_ACTOR
+		values(movie_actor_seq.nextval, #{param1}, #{param2})
+	</insert>
+	
 </mapper>
 	

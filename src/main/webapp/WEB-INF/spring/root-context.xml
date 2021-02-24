@@ -139,4 +139,6 @@
 	<bean id="userListCommand" class="com.koreait.movie.command.admin.UserListCommand"></bean>
 	<bean id="userDeleteCommand" class="com.koreait.movie.command.admin.UserDeleteCommand"></bean>
 	<bean id="movieListCommand" class="com.koreait.movie.command.admin.MovieListCommand"></bean>
+	<bean id="movieInsertCommand" class="com.koreait.movie.command.admin.MovieInsertCommand"></bean>
+	<bean id="movieTitleCheckCommand" class="com.koreait.movie.command.admin.MovieTitleCheckCommand"></bean>
 </beans>

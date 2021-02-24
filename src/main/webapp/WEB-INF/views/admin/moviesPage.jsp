@@ -8,6 +8,7 @@
 <div class="main-wrap">
 		<div class="inner-wrap">
 			전체 영화 수: <span id="totalCount"></span> 개
+			<input type="button" value="영화 추가" onclick="location.href='movieInsertPage.admin'"/>
 			<table class="bordered">
                     <thead>
                         <tr id="commentHead">
@@ -32,7 +33,6 @@
                         </tr>
                     </tfoot>
                 </table>
-			
 		</div>
 	
 	</div>
@@ -81,7 +81,19 @@
 	 </div>	
 
 	<script src="/movie/assets/script/admin/moviesPage.js"></script>
+	<script>
+		
+		if('${movieResult}' != ''){
+			
+			if('${movieResult}' > 0){
+				alert('영화를 추가하였습니다.');
+			}else{
+				alert('영화 삽입에 실패하였습니다.');
+				history.go(-2);
+			}
+		}
 	
+	</script>
 
 </body>
 </html>

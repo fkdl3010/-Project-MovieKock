@@ -11,8 +11,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.koreait.movie.command.admin.MovieInsertCommand;
 import com.koreait.movie.command.admin.MovieListCommand;
+import com.koreait.movie.command.admin.MovieTitleCheckCommand;
 import com.koreait.movie.command.admin.UserDeleteCommand;
 import com.koreait.movie.command.admin.UserListCommand;
 import com.koreait.movie.dto.PageVo;
@@ -26,15 +30,21 @@ public class AdminController {
 	private UserListCommand userListCommand;
 	private UserDeleteCommand userDeleteCommand;
 	private MovieListCommand movieListCommand;
+	private MovieInsertCommand movieInsertCommand;
+	private MovieTitleCheckCommand movieTitlecheckCommand;
 	
 	@Autowired
 	public void setBean(UserListCommand userListCommand,
 						UserDeleteCommand userDeleteCommand,
-						MovieListCommand movieListCommand) {
+						MovieListCommand movieListCommand,
+						MovieInsertCommand movieInsertCommand,
+						MovieTitleCheckCommand movieTitlecheckCommand) {
 		
 		this.userListCommand = userListCommand;
 		this.userDeleteCommand = userDeleteCommand;
 		this.movieListCommand = movieListCommand;
+		this.movieInsertCommand = movieInsertCommand;
+		this.movieTitlecheckCommand = movieTitlecheckCommand;
 	}
 	
 	@RequestMapping(value="adminPage.admin")
@@ -81,6 +91,35 @@ public class AdminController {
 	model.addAttribute("page", pageVo.getPage());
 	
 	return movieListCommand.execute(sqlSession, model);
+	}
+	
+	@RequestMapping(value="movieInsertPage.admin")
+	public String movieInsertPage() {
+		
+		return "admin/movieInsertPage";
+	}
+	
+	@RequestMapping(value="movieTitleCheck/{movieTitle}",
+					method=RequestMethod.POST,
+					produces="application/json; charset=utf-8")
+	@ResponseBody
+	public Map<String, Object> movieTitleCheck(@PathVariable("movieTitle") String movieTitle, Model model){
+		
+		model.addAttribute("movieTitle", movieTitle);
+		
+		return movieTitlecheckCommand.execute(sqlSession, model);
+		
+	}
+	
+	
+	
+	@RequestMapping(value="movieInsert.admin", method=RequestMethod.POST)
+	public String movieInsert(MultipartHttpServletRequest request, RedirectAttributes rttr, Model model) throws Exception{
+		
+		model.addAttribute("request", request);
+		model.addAttribute("rttr", rttr);
+		movieInsertCommand.execute(sqlSession, model);
+		return "redirect:movies.admin";
 	}
 	
 	

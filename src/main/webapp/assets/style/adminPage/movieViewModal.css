@@ -40,11 +40,12 @@ span.desc {
 #movieStory{
 	margin: 0px;
  	height: 352px;
-	width: 291px;
+	width: 250px;
 	resize: none;
 }
 .story {
     text-align: center;
-    width: 290px;
+    width: 270px;
+    margin: auto;
 }
 
