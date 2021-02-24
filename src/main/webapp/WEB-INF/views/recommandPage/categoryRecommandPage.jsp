@@ -36,6 +36,13 @@
 	          <option value="12">공포</option>
 	        </select>
 		  </div>
+		  <div>
+		  	<select name="sort" class="right sort" onChange="formSort()">
+		  	  <option value="0">평점순</option>
+	          <option value="1">가나다순</option>
+	          <option value="2">개봉일순</option>	  	
+		  	</select>
+		  </div>
 	  </form>
  </div>	  
  
@@ -64,6 +71,21 @@
 
  
 <script>
+function formSort(){
+	
+	$.ajax{
+		
+		
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+}
 function formChange(){
 	
 	const genreNo =  $('#genre').val(); 
