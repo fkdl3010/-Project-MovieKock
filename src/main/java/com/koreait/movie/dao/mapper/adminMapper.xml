@@ -87,6 +87,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	
+	<delete id="adminQnaReplyDelete" parameterType="int">
+		DELETE
+		  FROM QNA_REPLY
+		 WHERE QNA_REPLY_NO = #{qna_reply_no}
+	</delete>
+	
+	
+	<delete id="adminQnaDelte" parameterType="int">
+		DELETE
+		  FROM QNA
+		 WHERE QNA_NO = #{qna_no}
+	</delete>
+	
 	
 	
 	

@@ -19,7 +19,17 @@ public interface AdminDao {
 	
 	public int movieTotalCount();
 	
+	
+	// 문의글 리스트
 	public List<QnaDto> qnaDtoList(Map<String, Object> map);
 	
+	// 문의글 개수
 	public int qnaTotalCount();
+	
+	// 문의글 답글 지우기
+	public int adminQnaReplyDelete(int qnaReplyNo);
+	
+	// 문의글 지우기
+	public int adminQnaDelete(int qnaNo);
+	
 }

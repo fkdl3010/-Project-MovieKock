@@ -67,7 +67,7 @@
 	       </div>
 	       <div class="footer-btn-box">
 				<input type="button" value="삭제하기" class="btn btn-info none" id="deleteBtn"/>
-				<input type="hidden" id="userNo" value="userNo" value=""/>
+				<input type="hidden" id="qnaNo" value="qnaNo" value=""/>
        	   </div>
 	       <!-- Footer -->
 	       <div class="modal-footer">

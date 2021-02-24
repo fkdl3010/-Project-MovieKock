@@ -144,14 +144,22 @@
 	         let ss  = getDate.getSeconds().toString();
 	         let date = yyyy + '-' + (mm[1]?mm:"0"+mm[0]) + '-' + (dd[1]?dd:"0"+dd[0]);
 
-	         let string =  `<tr><td>${qna.qna_no}</td>
-	        	 			<td>${qna.user_nickname}</td>
-	        	 			<td>${qna.qna_select}</td>
-							<td>
-								<a href="#" id="qnaView" data-target="#layerpop" data-toggle="modal"> ${qna.qna_title} </a>
-							</td>
-				        	<td>${date}</td>
-	        	 			<td>${qna.qna_yn == 0 ? "답변대기중" : "답변완료"}</td>`;
+	         let string =  `<tr> 
+	        	 		    <td>${qna.qna_no}</td> 
+	        	 			<td>${qna.user_nickname}</td> 
+	        	 			<td>${qna.qna_select}</td> 
+							<td> 
+								<a href="#" id="qnaView" data-target="#layerpop" data-toggle="modal"> ${qna.qna_title} </a> 
+								<input type="hidden" name="qnaNo" value= ${qna.qna_no} > 
+					        	<input type="hidden" name="userNickname" value= ${qna.user_nickname} > 
+								<input type="hidden" name="qnaSelect" value= ${qna.qna_select} > 
+								<input type="hidden" name="qnaTitle" value=${qna.qna_title} > 
+					        	<input type="hidden" name="qnaDate" value=${date} > 
+					        	<input type="hidden" name="qnaYn" value=${qna.qna_yn} > 
+							</td> 
+				        	<td>${date}</td> 
+	        	 			<td>${qna.qna_yn == 0 ? "답변대기중" : "답변완료"}</td> 
+	        	 			<tr>`;
 			$('#qnaList').append(string);
 			/* $('<tr>')
 			.append( $('<td>').html(totalRecord - (recordPerPage * (page - 1)) - idx ) ) 
@@ -177,9 +185,8 @@
 		const qnaTitle = event.currentTarget.parentNode.children.qnaTitle.value;
 		const qnaDate = event.currentTarget.parentNode.children.qnaDate.value;
 		const qnaYn = event.currentTarget.parentNode.children.qnaYn.value;
-		const userProfileImage = event.currentTarget.parentNode.children.userProfileImage.value;
 		
-		sendModalView(qnaNo, userNickname, qnaSelect, qnaTitle, qnaDate, qnaYn, userProfileImage);
+		sendModalView(qnaNo, userNickname, qnaSelect, qnaTitle, qnaDate, qnaYn);
 		
 	}
 	
@@ -187,34 +194,33 @@
 	function sendModalView(qnaNo, userNickname, qnaSelect, qnaTitle, qnaDate, qnaYn, userProfileImage){
 		
 		$('.qnaNo').text(qnaNo);
-		$('.userNickname').text(userNo);
+		$('.userNickname').text(userNickname);
 		$('.qnaSelect').text(qnaSelect);
 		$('.qnaTitle').text(qnaTitle);
 		$('.qnaDate').text(qnaDate);
-		$('.qnaYn').text(qnaYn);
 		
-		if(userProfileImage != 'none'){
-			$('.profileBox').css('background-image','url(/movie/assets/images/userProfile/'+ userProfileImage +')');
-		}else{
-			$('.profileBox').css('background-image','url(/movie/assets/images/noImage.jpg)');
+		
+		if(qnaYn == 0) {
+			qnaYn = "답변 대기중";
+			$('.qnaYn').text(qnaYn);
 		}
-		
-		$('#userNo').val(userNo);
-		
+		if(qnaYn == 1) {
+			qnaYn = "답변 완료";
+			$('.qnaYn').text(qnaYn);
+		}
 		
 	}
 	
 	
-	/****** 회원 삭제********/
+//	/****** 문의글 답글 삭제********/
 //	$('#deleteBtn').on('click',handleDelete);
 //	
 //	function handleDelete(event){
-//		const userNo = event.target.nextElementSibling.value;
-//		
+//		const qnaReplyNo = event.target.nextElementSibling.value;		
 //		if(confirm('삭제하시겠습니까?')){
 //			
 //			$.ajax({
-//				url:'userDelete/' + userNo,
+//				url:'adminQnaReplyDelete/' + qnaReplyNo,
 //				type: 'delete',
 //				dataType: 'json',
 //				success: function(responseObj){
@@ -225,7 +231,7 @@
 //					}
 //				},
 //				error: function(){
-//					
+//					alert('삭제실패.');
 //				}
 //				
 //			});
@@ -233,6 +239,34 @@
 //			
 //		}
 //	}
+	
+	/****** 문의글 삭제********/
+	$('#deleteBtn').on('click',handleDelete);
+	
+	function handleDelete(event){
+		const qnaNo = event.target.nextElementSibling.value;		
+		if(confirm('삭제하시겠습니까?')){
+			
+			$.ajax({
+				url:'adminQnaDelete/' + qnaNo,
+				type: 'delete',
+				dataType: 'json',
+				success: function(responseObj){
+					if(responseObj.deleteResult){
+						alert('삭제되었습니다.');
+						init();
+						event.target.parentElement.parentElement.children[3].children[0].click();
+					}
+				},
+				error: function(){
+					alert('삭제실패.');
+				}
+				
+			});
+		}else{
+			
+		}
+	}
 
 	function init(){
 		qnaList();

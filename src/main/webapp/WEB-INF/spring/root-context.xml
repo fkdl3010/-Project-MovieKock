@@ -140,4 +140,5 @@
 	<bean id="userDeleteCommand" class="com.koreait.movie.command.admin.UserDeleteCommand"></bean>
 	<bean id="movieListCommand" class="com.koreait.movie.command.admin.MovieListCommand"></bean>
 	<bean id="adminQnaListCommand" class="com.koreait.movie.command.admin.AdminQnaListCommand"></bean>
+	<bean id="adminQnaDeleteCommand" class="com.koreait.movie.command.admin.AdminQnaDeleteCommand"></bean>
 </beans>

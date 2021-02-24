@@ -10,7 +10,7 @@
 .moviesBtn:hover, .commentsBtn:hover, .qnaBtn:hover {
   		background: gainsboro;
 }
-.usersBtn {
+.qnaBtn {
     background: #fab177;
     border-radius: 5px;
 }

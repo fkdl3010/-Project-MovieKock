@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.koreait.movie.command.admin.AdminQnaDeleteCommand;
 import com.koreait.movie.command.admin.AdminQnaListCommand;
 import com.koreait.movie.command.admin.MovieListCommand;
 import com.koreait.movie.command.admin.UserDeleteCommand;
@@ -28,17 +29,20 @@ public class AdminController {
 	private UserDeleteCommand userDeleteCommand;
 	private MovieListCommand movieListCommand;
 	private AdminQnaListCommand adminQnaListCommand;
+	private AdminQnaDeleteCommand adminQnaDeleteCommand;
 	
 	@Autowired
 	public void setBean(UserListCommand userListCommand,
 						UserDeleteCommand userDeleteCommand,
 						MovieListCommand movieListCommand,
-						AdminQnaListCommand adminQnaListCommand) {
+						AdminQnaListCommand adminQnaListCommand,
+						AdminQnaDeleteCommand adminQnaDeleteCommand) {
 		
 		this.userListCommand = userListCommand;
 		this.userDeleteCommand = userDeleteCommand;
 		this.movieListCommand = movieListCommand;
 		this.adminQnaListCommand = adminQnaListCommand;
+		this.adminQnaDeleteCommand = adminQnaDeleteCommand;
 	}
 	
 	@RequestMapping(value="adminPage.admin")
@@ -102,6 +106,17 @@ public class AdminController {
 	model.addAttribute("page", pageVo.getPage());
 	
 	return adminQnaListCommand.execute(sqlSession, model);
+	}
+		
+	@RequestMapping(value="adminQnaDelete/{qnaNo}",
+			method=RequestMethod.DELETE,
+			produces="application/json; charset=utf-8")
+	@ResponseBody
+	public Map<String, Object> adminQnaDelete(@PathVariable("qnaNo") int qnaNo, Model model){
+		
+		model.addAttribute("qnaNo", qnaNo);
+		
+		return adminQnaDeleteCommand.execute(sqlSession, model);
 	}
 	
 	
