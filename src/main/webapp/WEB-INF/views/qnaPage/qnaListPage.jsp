@@ -131,7 +131,7 @@
 	        <form>
 		        <!-- body -->
 		        <div class="modal_body">
-		            <span class="mpw">비밀번호<input type="password" name="inpPw" id="inpPw" class="inpPw" placeholder="비밀번호를 입력하세요." /></span>
+		            <span class="mpw"><input type="password" name="inpPw" id="inpPw" class="inpPw" placeholder="비밀번호를 입력하세요." /></span>
 		        </div>
 		        <!-- Footer -->
 		        <div class="modalFooter">
