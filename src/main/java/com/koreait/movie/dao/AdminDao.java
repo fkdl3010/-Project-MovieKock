@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.koreait.movie.dto.MovieDto;
+import com.koreait.movie.dto.QnaDto;
 import com.koreait.movie.dto.UserDto;
 
 public interface AdminDao {
@@ -17,4 +18,8 @@ public interface AdminDao {
 	public List<MovieDto> movieDtoList(Map<String, Object> map);
 	
 	public int movieTotalCount();
+	
+	public List<QnaDto> qnaDtoList(Map<String, Object> map);
+	
+	public int qnaTotalCount();
 }
