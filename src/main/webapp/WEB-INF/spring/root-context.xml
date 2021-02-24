@@ -134,4 +134,9 @@
 	<bean id="insertWishListCommand" class="com.koreait.movie.command.movieInfo.InsertWishListCommand"></bean>
 	<bean id="deleteWishListCommand" class="com.koreait.movie.command.movieInfo.DeleteWishListCommand"></bean>
 	<bean id="wishListCommand" class="com.koreait.movie.command.myPage.WishListCommand"></bean>
+	
+	<!-- admin -->
+	<bean id="userListCommand" class="com.koreait.movie.command.admin.UserListCommand"></bean>
+	<bean id="userDeleteCommand" class="com.koreait.movie.command.admin.UserDeleteCommand"></bean>
+	<bean id="movieListCommand" class="com.koreait.movie.command.admin.MovieListCommand"></bean>
 </beans>

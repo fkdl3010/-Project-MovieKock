@@ -2,8 +2,33 @@
 
 @charset "UTF-8";
 
+	a {
+		text-decoration: none;
+		outline: none;
+		color: #141414;
+	}
+	a:focus,
+	a:active,
+	a:hover {
+		text-decoration: none;
+		outline: none;
+		color: #ec7114;
+	}
+	
+	.qna_txt{
+		color: #141414;
+		font-size: 24px;
+		margin-right: 10px;
+		font-weight: bold;
+	}
+	
+	.qna_txt:action,
+	.qna_txt:focus {
+		color: #ec7114;
+	}
+
 body {
-	background: #141414;
+	background: white;
 	margin-top: 100px;
 }
 .wrap {
@@ -27,14 +52,20 @@ body {
 
 .qna_list {
 	margin-right: 20px;
-	position: absolute;
-	top: 50%;
+}
+
+.table > thead > tr {
+	width: 768px;
+	border-radius: 10px;
+}
+.table > tfoot > tr > td {
+	width: 768px;
 }
 
 .main_bot {
-	border: 1px solid black;
+	border: 1px solid #ec7114;
 	border-radius: 10px;
-	padding: 15px;
+	margin-bottom: auto;
 }
 
 .table {
@@ -48,8 +79,11 @@ body {
 	/* MODAL*/
 
 .modal_dialog {
-	width: 800px;
-	height: 460px;
+	width: 400px;
+	height: 300px;
+	margin-top: 300px;
+	margin-left: 750px;
+	border: 1px solid;
 }
 
 .modal_content {
@@ -58,6 +92,13 @@ body {
 
 .modal_title {
 	font-weight: bold;
+	text-align: center;
+	background: #ec7114;
+}
+
+#inpPw {
+	margin-top: 75px;
+	margin-left: 50px;
 }
 
 .modal_footer{
@@ -69,7 +110,20 @@ body {
 	height: 40px;
 	border-radius: 15px;
 	background-color: #ec7114;
-	margin-top: 25px;
+	margin-top: 50px;
+	margin-left: 100px;
+	outline: none;
+	font-weight: bold;
+	border: none;
+}
+
+.go_btn {
+	width: 80px;
+	height: 40px;
+	border-radius: 15px;
+	background-color: #ec7114;
+	margin-top: 50px;
+	margin-left: 25px;
 	outline: none;
 	font-weight: bold;
 	border: none;

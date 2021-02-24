@@ -38,17 +38,18 @@
 </script>
 -->
 
+
 	<div class="wrap">
 		<div class="main">
 			<div class="main_top_font">
-				<p class="qna_list">문의목록</p>
-				<a href="qnaWritePage.do" class="qna_do">문의하기</a>
+				<a class="qna_txt">문의목록</a>
+				<a href="qnaWritePage.do" class="qna_do qna_txt">문의하기</a>
 			</div>
 			<div class="main_bot">
 				<div class="main_bot_inner">
 					<table class="table qna_list_table">
 					<thead>
-						<tr class="qna_list_1st_tr">
+						<tr class="qna_list_1st_tr" id="qna_list_1st_tr">
 							<td class="td qna_list_td">게시글 번호</td>
 							<td class="td qna_list_td">문의 유형</td>
 							<td class="td qna_list_td">제목</td>
@@ -79,15 +80,15 @@
 								<c:if test="${loginUser.user_id eq 'admin'}">
 									<td><a href="qnaView.do?qna_no=${qnaDto.qna_no}&page=${page}" id="pw">${qnaDto.qna_title}</a></td>
 								</c:if>
-								
 								<c:if test="${loginUser.user_id ne 'admin'}">
-									<c:if test="${qnaDto.qna_pw eq null}">
+									<c:if test="${qnaDto.qna_pw eq null }">
 										<td><a href="qnaView.do?qna_no=${qnaDto.qna_no}&page=${page}" id="pw">${qnaDto.qna_title}</a></td>
 									</c:if>
 									<c:if test="${qnaDto.qna_pw ne null}">
 										<td><a class="viewLinks" data-pw="${qnaDto.qna_pw}" data-no="${qnaDto.qna_no}" data-page="${page}" href="#" data-target="#layerpop" data-toggle="modal">${qnaDto.qna_title}</a></td>
 									</c:if>
 								</c:if>
+								
 								
 								<td>${qnaDto.user_nickname}</td>
 								<td>${qnaDto.qna_date}</td>
@@ -105,7 +106,7 @@
 				</tbody>
 				<tfoot>
 					<tr>
-						<td colspan="4">
+						<td colspan="6">
 							${paging}
 						</td>
 					</tr>
@@ -125,7 +126,7 @@
 	          <!-- 닫기(x) 버튼 -->
 	          <button type="button" class="close btn btn_info" data-dismiss="modal">×</button>
 	          <!-- header title -->
-	          <h4 class="modal_title">비밀글 입니다.</h4>
+	          <h3 class="modal_title">비밀글 입니다.</h3>
 	        </div>
 	        <form>
 		        <!-- body -->
@@ -135,7 +136,7 @@
 		        <!-- Footer -->
 		        <div class="modalFooter">
 		          <input type="button" id="close_btn" class="modal_close" data-dismiss="modal" value="닫기" />
-		          <input type="button" value="확인" id="go" class="go" onclick="fn_qnaView(this.form)" />
+		          <input type="button" value="확인" id="go_btn" class="go_btn" onclick="fn_qnaView(this.form)" />
 		        </div>
 	        </form>
 	      </div>

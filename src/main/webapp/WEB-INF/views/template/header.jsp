@@ -10,6 +10,7 @@
 %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,6 +47,9 @@
 					<span class="faq-link">
 						<a href="qnaListView.do" class="faq-link-a txt"> 문의 하기 </a>
 					</span>
+					<c:if test="${loginUser.user_nickname == 'ADMIN' }">
+						<a href="adminPage.admin" class="admin-link-a txt">ADMIN</a>
+					</c:if>
 				</div>
 				<div class="login-search-box">
 					<form class="search-form" name="search" method="get" action="searchResultPage.do">

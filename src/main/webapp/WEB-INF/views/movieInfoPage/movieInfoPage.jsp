@@ -199,8 +199,8 @@
 				</div>
 				<div class="info_main_bot_movies">
 					<c:choose>
-						<c:when test="${fn:length(relationMovieList) > 12}">
-							<c:forEach begin="0" end="11" items="${relationMovieList }" var="relationMovie">
+						<c:when test="${fn:length(relationMovieList) > 10}">
+							<c:forEach begin="0" end="9" items="${relationMovieList }" var="relationMovie">
 									<div class="main_bot_movies_poster" style="background-image: url('/movie/assets/images/poster/${relationMovie.movie_title}_포스터.jpg')">
 										<div class="main_bot_poster_info">
 											<div>제목 ${relationMovie.movie_title.replaceAll("_", " ") }</div>
@@ -384,12 +384,13 @@
 						 "rating": rating
 				 }
 				 
-				 // 로그인 안한상태라면
+				 // 로그인 안한상태라면 로컬 스토리지 활용
 				 if(!responseObj.setUserScore){
 					 
 					 if(movieStarObjList == null){
 						 movieStar_List.push(movieStarObj);
 						 console.log(movieStarObj);
+						 // 로컬 스토리지에 저장
 						 localStorage.setItem("movieStarObjList" , JSON.stringify(movieStar_List) );
 				 
 					 }else{
@@ -398,10 +399,13 @@
 						 let idx = movieStar_List.findIndex(function(e){
 							 			return e.movieNo === movieNo;
 						 });
+							 // 로컬 스토리지에 저장되어 있다면 값을 새로 추가 후 저장
 						 if(idx == -1){
 							 
 							 movieStar_List.push(movieStarObj);
 							 localStorage.setItem("movieStarObjList" , JSON.stringify(movieStar_List) );
+							 
+							 // 중복되는 값이 있다면 값 제거 후 새로운 값을 추가 후 저장
 						 }else{
 							 
 						 	movieStar_List.splice(idx, 1);
@@ -466,6 +470,8 @@
 	 }
 	 
 	 // 위시리스트
+	 
+	 // 위시리스트 추가
 	 $('#wish').on('click',handleWish);
 	 
 	 function handleWish(){
@@ -480,6 +486,7 @@
 			 });
 		 }else{
 			 
+			 // 버튼의 텍스트로 비교합니다.
 			 if($('#wish').text() == '+ 위시리스트 추가하기'){
 				 
 				 $.ajax({
@@ -493,6 +500,7 @@
 					    		   text: "위시리스트에 등록되었습니다!",
 					    		   icon: "success" //"info,success,warning,error" 중 택1
 							 });
+							 // 위시리스트에 데이터가 저장되면 버튼의 텍스트를 변경합니다.
 							 $('#wish').text('- 위시리스트 제거하기');
 						 }
 					 },
@@ -502,14 +510,13 @@
 					 
 				 });
 			 }else{
-				 
+				// 위시리스트 제거
 				 $.ajax({
 					 url: 'deleteWishList/' + movieNo,
 					 type: 'post',
 					 contentType: 'application/json; charset=utf-8',
 					 success: function(responseObj){
 						 if(responseObj.deleteResult){
-							 alert('위시리스트에서 제거되었습니다.');
 							 swal({
 					    		   title: "Delete!",
 					    		   text: "위시리스트에서 제거되었습니다.",
@@ -579,7 +586,7 @@
 	         
 
 	         if ((n>= 0)&&(n<256)) len ++; // ASCII 문자코드 set.
-	         else len += 3; // 한글이면 2byte로 계산한다.
+	         else len += 3; // 한글이면 3byte로 계산한다.
 	         console.log(len);
 	         
 	       }
