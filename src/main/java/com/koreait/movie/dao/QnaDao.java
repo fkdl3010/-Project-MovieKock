@@ -12,6 +12,8 @@ public interface QnaDao {
 	
 	public int totalRecord();
 	
+	
+	// 작성
 	public int qnaWrite(QnaDto qnaDto);
 	
 	// 뷰
