@@ -4,9 +4,19 @@
  <link rel="stylesheet" href="/movie/assets/style/adminPage/qnaViewModal.css">
  
  <div class="modalContainer">
-   	<div class="contentBox"><span class="desc">문의내용</span></div>
+   		<table class="qnaContentTable" >
+	   		<tr>
+	   			<td class="qnaA">문의 내용</td>
+	   			<td class="qnaContent"></td>
+	   		</tr>
+	   	</table>
    	<div class="contentsBox">
-	   	<div class="profileBox"><span class="desc">프로필사진</span></div>
+	   	<table class="qnaReplyContentTable" >
+	   		<tr>
+	   			<td class="qnaReplyA">답변</td>
+	   			<td class="qnaReplyContent"></td>
+	   		</tr>
+	   	</table>
    		<div class="qnaInfoBox">
    			
    			<table class="qnaInfoTable" >
