@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import com.koreait.movie.common.CommonMapCommand;
 import com.koreait.movie.dao.AdminDao;
 import com.koreait.movie.dto.QnaDto;
+import com.koreait.movie.dto.QnaReplyDto;
 
 public class AdminQnaListCommand implements CommonMapCommand {
 

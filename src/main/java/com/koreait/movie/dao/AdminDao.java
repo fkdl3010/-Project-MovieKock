@@ -32,4 +32,7 @@ public interface AdminDao {
 	// 문의글 지우기
 	public int adminQnaDelete(int qnaNo);
 	
+	// 문의글 상세보기
+	public int adminQnaView(String qna_content);
+	
 }

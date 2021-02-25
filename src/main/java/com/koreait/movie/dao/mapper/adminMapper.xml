@@ -100,6 +100,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		 WHERE QNA_NO = #{qna_no}
 	</delete>
 	
+	<select id="adminQnaView" parameterType="int" resultType="com.koreait.movie.dto.QnaDto">
+		SELECT Q.*, U.USER_NICKNAME
+		  FROM QNA Q, USERS U
+		 WHERE Q.USER_NO = U.USER_NO
+		   AND QNA_NO = #{qna_no}
+	</select>
+	
 	
 	
 	
