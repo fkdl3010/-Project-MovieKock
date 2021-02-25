@@ -150,12 +150,14 @@
 	        	 			<td>${qna.qna_select}</td> 
 							<td> 
 								<a href="#" id="qnaView" data-target="#layerpop" data-toggle="modal"> ${qna.qna_title} </a> 
-								<input type="hidden" name="qnaNo" value= ${qna.qna_no} > 
-					        	<input type="hidden" name="userNickname" value= ${qna.user_nickname} > 
-								<input type="hidden" name="qnaSelect" value= ${qna.qna_select} > 
-								<input type="hidden" name="qnaTitle" value=${qna.qna_title} > 
-					        	<input type="hidden" name="qnaDate" value=${date} > 
-					        	<input type="hidden" name="qnaYn" value=${qna.qna_yn} > 
+								<input type="hidden" name="qnaNo" value= "${qna.qna_no}" > 
+					        	<input type="hidden" name="userNickname" value= "${qna.user_nickname}" > 
+								<input type="hidden" name="qnaSelect" value= "${qna.qna_select}" > 
+								<input type="hidden" name="qnaTitle" value="${qna.qna_title}" > 
+					        	<input type="hidden" name="qnaDate" value="${date}" > 
+					        	<input type="hidden" name="qnaYn" value="${qna.qna_yn}" > 
+	        	 				<input type="hidden" name="qnaReplyContent" value="${qna.qna_reply_content}" > 
+	        	 				<input type="hidden" name="qnaContent" value="${qna.qna_content}" > 
 							</td> 
 				        	<td>${date}</td> 
 	        	 			<td>${qna.qna_yn == 0 ? "답변대기중" : "답변완료"}</td> 
@@ -185,13 +187,15 @@
 		const qnaTitle = event.currentTarget.parentNode.children.qnaTitle.value;
 		const qnaDate = event.currentTarget.parentNode.children.qnaDate.value;
 		const qnaYn = event.currentTarget.parentNode.children.qnaYn.value;
+		const qnaReplyContent = event.currentTarget.parentNode.children.qnaReplyContent.value;
+		const qnaContent = event.currentTarget.parentNode.children.qnaContent.value;
 		
-		sendModalView(qnaNo, userNickname, qnaSelect, qnaTitle, qnaDate, qnaYn);
+		sendModalView(qnaNo, userNickname, qnaSelect, qnaTitle, qnaDate, qnaYn, qnaReplyContent, qnaContent );
 		
 	}
 	
 	/* 버튼 클릭 시 모달창에 정보전달 */
-	function sendModalView(qnaNo, userNickname, qnaSelect, qnaTitle, qnaDate, qnaYn, userProfileImage){
+	function sendModalView(qnaNo, userNickname, qnaSelect, qnaTitle, qnaDate, qnaYn, qnaReplyContent, qnaContent){
 		
 		$('.qnaNo').text(qnaNo);
 		$('.userNickname').text(userNickname);
@@ -208,6 +212,9 @@
 			qnaYn = "답변 완료";
 			$('.qnaYn').text(qnaYn);
 		}
+		
+		$('.qnaReplyContent').text(qnaReplyContent);
+		$('.qnaContent').text(qnaContent);
 		
 	}
 	
