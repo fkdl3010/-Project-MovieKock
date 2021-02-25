@@ -213,7 +213,15 @@
 			$('.qnaYn').text(qnaYn);
 		}
 		
-		$('.qnaReplyContent').text(qnaReplyContent);
+		if(qnaReplyContent == 'null') { 
+			qnaReplyContent = "답변 대기중";
+			$('.qnaReplyContent').text(qnaReplyContent);
+		} else {
+			$('.qnaReplyContent').text(qnaReplyContent);
+		}
+		
+		
+		
 		$('.qnaContent').text(qnaContent);
 		
 	}

@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.koreait.movie.dto.MovieDto;
 import com.koreait.movie.dto.QnaDto;
+import com.koreait.movie.dto.QnaReplyDto;
 import com.koreait.movie.dto.UserDto;
 
 public interface AdminDao {
@@ -34,5 +35,6 @@ public interface AdminDao {
 	
 	// 문의글 상세보기
 	public int adminQnaView(String qna_content);
+	public QnaDto adminQnaReplyView(String qna_reply_content);
 	
 }

@@ -10,36 +10,36 @@
 	<div class="wrap">
 		<div class="main">
 			<div class="main_body">
-				<table class="table_user_write">
-					<tr class="user_write_tr">
-						<td class="user_write_td user_write_td_fst">내용</td>
-						<td class="user_write_td">문의 날짜</td>
-						<td class="user_write_td">답변 여부</td>
+				<table class="table_user_content">
+					<tr class="user_content_tr">
+						<td class="content">내용</td>
+						<td class="content_date">문의 날짜</td>
+						<td class="content_yn">답변 여부</td>
 					</tr>
-					<tr class="user_write_tr_resp">
-						<td class="user_write_td_resp user_write_td_fst">${qnaDto.qna_content}</td>
-						<td class="user_write_td_resp">${qnaDto.qna_date}</td>
-						<td class="user_write_td_resp">---</td>
+					<tr class="user_content_tr_box">
+						<td class="user_content">${qnaDto.qna_content}</td>
+						<td class="user_content_date">${qnaDto.qna_date}</td>
+						<td class="user_content_date">---</td>
 					</tr>
 				</table>
 				<table class="table_reply_content">
 					<tr class="reply_content_tr">
-						<td class="reply_content_td user_write_td_fst">답변 내용</td>
-						<td class="reply_content_td">답변 날짜</td>
-						<td class="reply_content_td">답변 여부</td>
+						<td class="reply_content">답변 내용</td>
+						<td class="reply_content_date">답변 날짜</td>
+						<td class="reply_content_yn">답변 여부</td>
 					</tr>
 					<c:if test="${qnaDto.qna_yn eq 0}">
-					<tr class="reply_content_tr_resp">
-						<td class="reply_content_td_resp user_write_td_fst">아직 답변이 등록되지 않았습니다</td>
-						<td class="reply_content_td_resp">---</td>
-						<td class="reply_content_td_resp">답변 대기중</td>
+					<tr class="reply_content_tr_box">
+						<td class="admin_reply_content_td">아직 답변이 등록되지 않았습니다</td>
+						<td class="admin_reply_content_date">---</td>
+						<td class="admin_reply_content_yn">답변 대기중</td>
 					</tr>
 					</c:if>
 					<c:if test="${qnaDto.qna_yn eq 1}">
-					<tr class="reply_content_tr_resp">
-						<td class="reply_content_td_resp user_write_td_fst">${qnaReplyDto.qna_reply_content}</td>
-						<td class="reply_content_td_resp">${qnaReplyDto.qna_reply_date}</td>
-						<td class="reply_content_td_resp">답변 완료</td>
+					<tr class="reply_content_tr_box">
+						<td class="admin_reply_content_td">${qnaReplyDto.qna_reply_content}</td>
+						<td class="admin_reply_content_date">${qnaReplyDto.qna_reply_date}</td>
+						<td class="admin_reply_content_yn">답변 완료</td>
 					</tr>
 					</c:if>
 				</table>

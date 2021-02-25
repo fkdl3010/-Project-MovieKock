@@ -73,10 +73,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="qnaDtoList" resultType="com.koreait.movie.dto.QnaDto">
 		SELECT B.*
 		  FROM (SELECT ROWNUM AS RN, A.*
-		          FROM (SELECT Q.*, U.USER_NICKNAME
-		                  FROM QNA Q, USERS U
-		                 WHERE Q.USER_NO = U.USER_NO
-		              ORDER BY QNA_NO DESC) A) B
+		          FROM (SELECT Q.*, U.USER_NICKNAME, R.QNA_REPLY_CONTENT
+		                  FROM QNA Q, USERS U, QNA_REPLY R
+		                 WHERE Q.USER_NO = U.USER_NO AND Q.QNA_NO = R.QNA_NO(+)
+		              ORDER BY Q.QNA_NO DESC) A) B
 		 WHERE B.RN BETWEEN #{beginRecord} AND #{endRecord}
 	</select>
 	
@@ -100,11 +100,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		 WHERE QNA_NO = #{qna_no}
 	</delete>
 	
+	
 	<select id="adminQnaView" parameterType="int" resultType="com.koreait.movie.dto.QnaDto">
 		SELECT Q.*, U.USER_NICKNAME
 		  FROM QNA Q, USERS U
 		 WHERE Q.USER_NO = U.USER_NO
 		   AND QNA_NO = #{qna_no}
+	</select>
+	
+	
+	<select id="adminQnaReplyView" parameterType="int" resultType="com.koreait.movie.dto.QnaDto"> 
+		SELECT *
+          FROM QNA_REPLY 
+         WHERE QNA_NO = #{qna_no}
 	</select>
 	
 	
