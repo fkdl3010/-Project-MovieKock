@@ -27,9 +27,6 @@ public interface AdminDao {
 	// 문의글 개수
 	public int qnaTotalCount();
 	
-	// 문의글 답글 지우기
-	public int adminQnaReplyDelete(int qnaReplyNo);
-	
 	// 문의글 지우기
 	public int adminQnaDelete(int qnaNo);
 	

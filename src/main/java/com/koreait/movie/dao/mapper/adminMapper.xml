@@ -86,18 +86,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM QNA
 	</select>
 	
-	
-	<delete id="adminQnaReplyDelete" parameterType="int">
-		DELETE
-		  FROM QNA_REPLY
-		 WHERE QNA_REPLY_NO = #{qna_reply_no}
-	</delete>
-	
-	
-	<delete id="adminQnaDelte" parameterType="int">
+		
+	<delete id="adminQnaDelete" parameterType="int">
 		DELETE
 		  FROM QNA
-		 WHERE QNA_NO = #{qna_no}
+		 WHERE QNA_NO = #{param1}
 	</delete>
 	
 	

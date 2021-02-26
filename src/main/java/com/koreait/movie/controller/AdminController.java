@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.koreait.movie.command.admin.AdminQnaDeleteCommand;
@@ -108,11 +109,11 @@ public class AdminController {
 	return adminQnaListCommand.execute(sqlSession, model);
 	}
 		
-	@RequestMapping(value="adminQnaDelete/{qnaNo}",
-			method=RequestMethod.DELETE,
+	@RequestMapping(value="adminQnaDelete.admin",
+			method=RequestMethod.GET,
 			produces="application/json; charset=utf-8")
 	@ResponseBody
-	public Map<String, Object> adminQnaDelete(@PathVariable("qnaNo") int qnaNo, Model model){
+	public Map<String, Object> adminQnaDelete(@RequestParam("qnaNo") int qnaNo, Model model){
 		
 		model.addAttribute("qnaNo", qnaNo);
 		

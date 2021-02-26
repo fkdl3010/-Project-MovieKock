@@ -16,7 +16,7 @@ public class AdminQnaDeleteCommand implements CommonMapCommand {
 		
 		Map<String, Object> map = model.asMap();
 		
-		int qnaNo = (Integer)map.get("qnaNo");
+		int qnaNo = (int)map.get("qnaNo");
 
 		AdminDao dao = sqlSession.getMapper(AdminDao.class);
 		

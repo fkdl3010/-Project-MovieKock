@@ -203,6 +203,8 @@
 		$('.qnaTitle').text(qnaTitle);
 		$('.qnaDate').text(qnaDate);
 		
+		$('#qnaNo').val(qnaNo);
+		
 		
 		if(qnaYn == 0) {
 			qnaYn = "답변 대기중";
@@ -256,15 +258,15 @@
 //	}
 	
 	/****** 문의글 삭제********/
-	$('#deleteBtn').on('click',handleDelete);
+	$('#deleteBtn').on('click', handleDelete);
 	
 	function handleDelete(event){
 		const qnaNo = event.target.nextElementSibling.value;		
 		if(confirm('삭제하시겠습니까?')){
-			
 			$.ajax({
-				url:'adminQnaDelete/' + qnaNo,
-				type: 'delete',
+				url:'adminQnaDelete.admin',
+				type: 'get',
+				data: 'qnaNo=' + qnaNo,
 				dataType: 'json',
 				success: function(responseObj){
 					if(responseObj.deleteResult){
