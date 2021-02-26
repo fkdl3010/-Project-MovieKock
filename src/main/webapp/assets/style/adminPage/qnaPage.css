@@ -7,7 +7,7 @@
 	    height: 500px;
 	    border-radius: 10px;
 }
-.moviesBtn:hover, .commentsBtn:hover, .qnaBtn:hover {
+.moviesBtn:hover, .commentsBtn:hover, .usersBtn:hover {
   		background: gainsboro;
 }
 .qnaBtn {

@@ -12,6 +12,14 @@
     background-size: 100% 300px;
 }
 
+.qnaA {
+	width: 5%;
+}
+
+.qnaContent {
+	width: 90%;
+}
+
 .contentsBox {
     height: 378px;
     display: flex;
@@ -21,6 +29,10 @@
     height: 378px;
     border-bottom: 1px solid #fab177;
     background-size: 100% 300px;
+}
+
+.qnaReplyA {
+	width: 100px;
 }
 
 .qnaReplyContent {
@@ -37,14 +49,6 @@
 span.desc {
     background: #fab177;
     font-weight: bold;
-}
-
-.qnaA {
-	width: 70px;
-}
-
-.qnaReplyA {
-	width: 80px;
 }
 
 .qnaInfoTable td, .qnaInfoTable th {

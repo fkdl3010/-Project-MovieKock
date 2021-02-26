@@ -55,7 +55,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		 WHERE QNA_NO = #{qna_no}
 	</update>
 	
-	<delete id="adminQnaDelete" parameterType="int">
+	<delete id="qnaDelete" parameterType="int">
 		DELETE
 		  FROM QNA
 		 WHERE QNA_NO = #{qna_no}

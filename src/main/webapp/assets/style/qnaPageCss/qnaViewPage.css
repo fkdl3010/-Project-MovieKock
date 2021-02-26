@@ -12,8 +12,10 @@
 	width: 800px;
 }
 
-.table_user_write {
+.table_user_content {
 	width: 775px;
+	heigth: 200px;
+	
 }
 
 .table_reply_content {
@@ -29,33 +31,43 @@
 	background:white;
 }
 
-.user_write_tr {
-	margin: auto;
+.user_content_tr {
 	background: #ddd;
 	width: 770px;
+	text-align: center;
+}
+.content {
+	width: 600px;
+}
+
+.user_content_tr_box {
+	width: 770px;
+}
+
+.user_content {
+	width: 600px;
+	height: 150px;
 }
 
 .reply_content_tr {
-	margin: auto;
 	background: #ddd;
 	width: 770px;
+	text-align: center;
 }
 
-.user_write_td_resp {
-	width: 400px;
+.reply_content {
+	width: 600px;
 }
 
-.user_write_tr>.td:nth-of-type(2) {
+.user_content_tr>.td:nth-of-type(2) {
 	border-left: 1px solid #ddd;
 	border-right: 1px solid #ddd;
 	width: 400px;
-	margin: auto;
 }
 .reply_content_tr>.td:nth-of-type(2) {
 	border-left: 1px solid #ddd;
 	border-right: 1px solid #ddd;
 	width: 400px;
-	margin: auto;
 }
 
 .qna_reply_btn {
@@ -101,9 +113,12 @@
 	  background-color: #ec7114;
 }
 
-.user_write_td_fst {
-	width: 500px !important;
+.content {
+	width: 600px;
 }
 .user_write_tr > td {
 	width: 150px;
+}
+.user_content {
+	width: 600px;
 }
