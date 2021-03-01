@@ -31,7 +31,6 @@ public class MainPageController {
 	public String mainPage(HttpServletRequest request, Model model) {
 		
 		model.addAttribute("request", request);
-//		MainCommand mainCommand = new MainCommand();
 		mainCommand.execute(sqlSession, model);
 
 		return "mainPage/mainPage";

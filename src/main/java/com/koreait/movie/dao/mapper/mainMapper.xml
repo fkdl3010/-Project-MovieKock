@@ -108,14 +108,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select e.*
 		from (select rownum as rn, d.*
 		     from (
-		        select c.movie_no, c.movie_title, c.movie_director, c.movie_audience, c.movie_opening_date, c.movie_nation,LISTAGG(f.genre_name, ',') within group (order by f.genre_name) as genre_name
+		        select c.movie_no, c.movie_title, c.movie_director, c.movie_audience, c.movie_opening_date, c.movie_nation
+		        		,LISTAGG(f.genre_name, ',') within group (order by f.genre_name) as genre_name
 		        		,c.movie_web_score
 		        from movie_taste a, movie_genre b, movie c, genre f
 		        where b.genre_no = a.genre_no
 		        and b.movie_no = c.movie_no
 		        and b.genre_no = f.genre_no
 		        and a.user_no = #{userNo}
-		        group by c.movie_no,c.movie_no, c.movie_title, c.movie_director, c.movie_audience, c.movie_opening_date, c.movie_nation, c.movie_web_score
+		        group by c.movie_no,c.movie_no, c.movie_title, c.movie_director, c.movie_audience, c.movie_opening_date
+		        		, c.movie_nation, c.movie_web_score
 		        order by DBMS_RANDOM.RANDOM) d) e
 		where e.rn between 1 and 12
 	</select>

@@ -248,12 +248,12 @@
 					}
 				},
 				error: function(){
-					
+					alert('삭제 실패');
 				}
 				
 			});
 		}else{
-			
+			return;
 		}
 	}
 
