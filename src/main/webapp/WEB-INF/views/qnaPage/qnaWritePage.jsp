@@ -36,7 +36,7 @@
                         <textarea rows="100" cols="100" name="qna_content" class="content" id="content" placeholder="문의 내용을 입력하세요."></textarea>                     
                     </div> 
                     <div class="box5">
-                        <button type="button" class="send_btn" id="send" onclick="fn_sendClick(this.form)">문의하기</button>
+                        <button type="button" class="send_btn" onclick="fn_sendClick(this.form)">문의하기</button>
                     </div>
                 </div>
 				</form>

@@ -22,10 +22,14 @@ public class UserUpdateCommand implements CommonMapCommand {
 		Map<String, Object> map = model.asMap();
 		
 		HttpServletRequest request = (HttpServletRequest)map.get("request");
-		UserDto userDto = (UserDto)map.get("userDto");
+		
+	
 		
 		MyDao myDao = sqlSession.getMapper(MyDao.class);
 		
+		
+		
+		UserDto userDto = (UserDto)map.get("userDto");
 		
 		String user_pw = Sha256.sha256(userDto.getUser_pw());
 		

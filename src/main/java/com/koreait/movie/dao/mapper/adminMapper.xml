@@ -99,5 +99,58 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		values(movie_actor_seq.nextval, #{param1}, #{param2})
 	</insert>
 	
+	<select id="userNickname" parameterType="int" resultType="string"> 
+		SELECT USER_NICKNAME 
+		FROM USERS 
+		WHERE USER_NO = #{user_no} 
+	</select> 
+	
+	
+	<select id="qnaDtoList" resultType="com.koreait.movie.dto.QnaDto">
+		SELECT B.*
+		  FROM (SELECT ROWNUM AS RN, A.*
+		          FROM (SELECT Q.*, U.USER_NICKNAME, R.QNA_REPLY_CONTENT
+		                  FROM QNA Q, USERS U, QNA_REPLY R
+		                 WHERE Q.USER_NO = U.USER_NO AND Q.QNA_NO = R.QNA_NO(+)
+		              ORDER BY Q.QNA_NO DESC) A) B
+		 WHERE B.RN BETWEEN #{beginRecord} AND #{endRecord}
+	</select>
+	
+		
+	<select id="qnaTotalCount" resultType="int">
+		SELECT COUNT(*)
+		FROM QNA
+	</select>
+	
+	
+	<delete id="adminQnaReplyDelete" parameterType="int">
+		DELETE
+		  FROM QNA_REPLY
+		 WHERE QNA_REPLY_NO = #{qna_reply_no}
+	</delete>
+	
+	
+	<delete id="adminQnaDelte" parameterType="int">
+		DELETE
+		  FROM QNA
+		 WHERE QNA_NO = #{qna_no}
+	</delete>
+	
+	
+	<select id="adminQnaView" parameterType="int" resultType="com.koreait.movie.dto.QnaDto">
+		SELECT Q.*, U.USER_NICKNAME
+		  FROM QNA Q, USERS U
+		 WHERE Q.USER_NO = U.USER_NO
+		   AND QNA_NO = #{qna_no}
+	</select>
+	
+	
+	<select id="adminQnaReplyView" parameterType="int" resultType="com.koreait.movie.dto.QnaDto"> 
+		SELECT *
+          FROM QNA_REPLY 
+         WHERE QNA_NO = #{qna_no}
+	</select>
+	
+	
 </mapper>
 	

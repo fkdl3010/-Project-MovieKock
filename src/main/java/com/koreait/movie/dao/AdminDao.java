@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.koreait.movie.dto.ActorDto;
 import com.koreait.movie.dto.MovieDto;
+import com.koreait.movie.dto.QnaDto;
 import com.koreait.movie.dto.UserDto;
 
 public interface AdminDao {
@@ -30,4 +31,21 @@ public interface AdminDao {
 	public MovieDto selectMovie(String movieTitle);
 	
 	public int insertMovieActor(int actorNo, int movieNo);
+	
+	// 문의글 리스트
+	public List<QnaDto> qnaDtoList(Map<String, Object> map);
+	
+	// 문의글 개수
+	public int qnaTotalCount();
+	
+	// 문의글 답글 지우기
+	public int adminQnaReplyDelete(int qnaReplyNo);
+	
+	// 문의글 지우기
+	public int adminQnaDelete(int qnaNo);
+	
+	// 문의글 상세보기
+	public int adminQnaView(String qna_content);
+	public QnaDto adminQnaReplyView(String qna_reply_content);
+	
 }

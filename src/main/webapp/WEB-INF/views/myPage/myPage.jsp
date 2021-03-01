@@ -14,6 +14,7 @@
 }
 </style>
 
+
         <div class="big-box">
         	<div class="coverBox">
                 <!-- 초기 값은 커버사진 추가하기 버튼 -->
@@ -40,7 +41,7 @@
 						<span class="info_txt"> 현재 비밀번호 : <input type="password" id="pw" placeholder="현재 비밀번호를 입력하세요" readonly />
 						<input type="button" value="확인" onClick="passWord()"/></span><br>
 						<div class="pwCheck" style="display: none;">
-							<span class="info_txt"> 새 비밀번호 : <input type="password" id="newPw1" placeholder="변경할 비밀번호를 입력하세요" onkeyup="pwRegCheck()"  /></span><br>
+							<span class="info_txt"> 새 비밀번호 : <input type="password" name="newpw" id="newPw1" placeholder="변경할 비밀번호를 입력하세요" onkeyup="pwRegCheck()"  /></span><br>
 							<span class="normal" id="pwRegBox"></span><br> 
 							<span class="info_txt"> 새 비밀번호 확인 : <input type="password" id="newPw2" placeholder="비밀번호를 확인해주세요." onkeyup="pwEqualCheck()"/></span><br>
 							<div id="pwConfirm" class="normal" style="display: none;">비밀번호가 일치하지 않습니다.</div> <br>  
@@ -70,7 +71,6 @@
 			</div>
     <%@ include file="../template/footer.jsp" %>
 <script type="text/javascript">
-
 
 function passWord() {
 	
@@ -132,9 +132,6 @@ function pwEqualCheck() {
 	 if (pwVal != pwCheck) {
 		pwConfirm.css('display', 'block').text('비밀번호가 일치하지 않습니다.')
 				.attr('class', 'impossible');
-		console.log("pwVal:"+pwVal);
-		console.log("pwCheck:"+pwCheck);
-		console.log($('#newPw2').val());
 		return false;
 	} else {
 		pwConfirm.css('display', 'block').text('비밀번호가 일치합니다').attr(
@@ -353,6 +350,7 @@ function pwEqualCheck() {
 	
 	function fn_userUpdate(){
 		
+		
 		if($('#nickNameCheckbtn').attr('disabled') != 'disabled'){
 			alert('닉네임 중복확인을 진행해 주세요.');
 			$('#nickName').focus();
@@ -377,6 +375,12 @@ function pwEqualCheck() {
 			return;
 		}
 		
+		if($('#newPw1').val() == ''){
+			alert('변경할 비밀번호를 입력해 주세요');
+			$('#newPw1').focus();
+			return;
+		}
+		
 		const sendUserObj = {
 				"user_pw" : newPw1.value,
 				"user_no": userNo,
@@ -398,7 +402,7 @@ function pwEqualCheck() {
 					
 					if(responseObj.updateResult){
 						alert('정보가 수정되었습니다.');
-						newPw.value = $('#newPw').val();
+						newPw1.value = $('#newPw1').val();
 						nickName.value = $('#nickName').val();
 							name.value = $('#name').val();
 						   email.value = $('#email').val();
