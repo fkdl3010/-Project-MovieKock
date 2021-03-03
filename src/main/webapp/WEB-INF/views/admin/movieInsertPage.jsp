@@ -9,6 +9,8 @@
 <style>
 	table {
 	    margin: auto;
+	    border: 1px solid black;
+   		border-collapse: collapse;
 	}
 	input[type="text"] {
 	    padding: 5px;
@@ -28,6 +30,10 @@
 	.bottom{
 		text-align: right;
 	}
+	td, tr {
+	    border: 1px solid black;
+	    padding: 10px;
+	}
 </style>
 <body>
 	<div class="logoBox">
@@ -36,7 +42,7 @@
 	<div class="main-movie-wrap">
 		<form enctype="multipart/form-data" method="POST">
 		
-			<table border="1">
+			<table>
 				<tbody>
 					<tr>
 						<td>영화 제목</td>

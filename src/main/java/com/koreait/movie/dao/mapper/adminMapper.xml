@@ -36,6 +36,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where user_no = #{param1}
 	</delete>
 	
+	<delete id="movieDelete">
+		delete
+		from movie
+		where movie_no = #{param1}
+	</delete>
 	
 	<select id="movieDtoList" parameterType="map" resultType="com.koreait.movie.dto.MovieDto">
 	

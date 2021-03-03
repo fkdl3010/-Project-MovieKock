@@ -17,6 +17,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.koreait.movie.command.admin.MovieInsertCommand;
 import com.koreait.movie.command.admin.AdminQnaDeleteCommand;
 import com.koreait.movie.command.admin.AdminQnaListCommand;
+import com.koreait.movie.command.admin.MovieDeleteCommand;
 import com.koreait.movie.command.admin.MovieListCommand;
 import com.koreait.movie.command.admin.MovieTitleCheckCommand;
 import com.koreait.movie.command.admin.UserDeleteCommand;
@@ -36,6 +37,7 @@ public class AdminController {
 	private MovieTitleCheckCommand movieTitlecheckCommand;
 	private AdminQnaListCommand adminQnaListCommand;
 	private AdminQnaDeleteCommand adminQnaDeleteCommand;
+	private MovieDeleteCommand movieDeleteCommand;
 	
 	@Autowired
 	public void setBean(UserListCommand userListCommand,
@@ -44,7 +46,8 @@ public class AdminController {
 						MovieInsertCommand movieInsertCommand,
 						MovieTitleCheckCommand movieTitlecheckCommand,
 						AdminQnaListCommand adminQnaListCommand,
-						AdminQnaDeleteCommand adminQnaDeleteCommand) {
+						AdminQnaDeleteCommand adminQnaDeleteCommand,
+						MovieDeleteCommand movieDeleteCommand) {
 		
 		this.userListCommand = userListCommand;
 		this.userDeleteCommand = userDeleteCommand;
@@ -53,6 +56,7 @@ public class AdminController {
 		this.movieTitlecheckCommand = movieTitlecheckCommand;
 		this.adminQnaListCommand = adminQnaListCommand;
 		this.adminQnaDeleteCommand = adminQnaDeleteCommand;
+		this.movieDeleteCommand = movieDeleteCommand;
 	}
 	
 	@RequestMapping(value="adminPage.admin")
@@ -157,6 +161,15 @@ public class AdminController {
 		return adminQnaDeleteCommand.execute(sqlSession, model);
 	}
 	
-	
+	@RequestMapping(value="movieDelete/{movieNo}",
+			method=RequestMethod.DELETE,
+			produces="application/json; charset=utf-8")
+	@ResponseBody
+	public Map<String, Object> movieDelete(@PathVariable("movieNo") int movieNo, Model model){
+		
+		model.addAttribute("movieNo", movieNo);
+		
+		return movieDeleteCommand.execute(sqlSession, model);
+	}
 	
 }

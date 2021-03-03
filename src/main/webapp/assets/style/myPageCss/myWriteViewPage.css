@@ -58,6 +58,10 @@ body {
 
 .contentTextArea {
 	border-radius: 15px;
+    width: 100%;
+    height: 330px;
+    resize: none;
+    overflow: scroll;
 }
 
 .top-contents{

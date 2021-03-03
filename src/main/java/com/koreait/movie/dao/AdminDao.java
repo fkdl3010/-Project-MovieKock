@@ -16,6 +16,8 @@ public interface AdminDao {
 	
 	public int userDelete(int userNo);
 	
+	public int movieDelete(int movieNo);
+	
 	public List<MovieDto> movieDtoList(Map<String, Object> map);
 	
 	public int movieTotalCount();

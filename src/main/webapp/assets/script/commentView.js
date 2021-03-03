@@ -143,7 +143,6 @@
 	         let mm = (getDate.getMonth()+1).toString(); // getMonth() is zero-based        
 	         let dd  = getDate.getDate().toString();
 	         let date = yyyy + '-' + (mm[1]?mm:"0"+mm[0]) + '-' + (dd[1]?dd:"0"+dd[0]);
-
 	         let string = `<tr><td>${totalRecord - (recordPerPage * (page - 1)) - idx}</td>
 							<td>
 								<a href="#" id="movieView" data-target="#layerpop" data-toggle="modal"> ${comment.comments_title} </a>
@@ -151,7 +150,7 @@
 								<input type="hidden" name="movieNo" value=${comment.movie_no} >
 								<input type="hidden" name="commentNo" value=${comment.comment_no}>
 	        	 				<input type="hidden" name="userNickname" value=${userNickname}>
-					        	<input type="hidden" name="commentContent" value=${comment.comment_content}>
+					        	<input type="hidden" name="commentContent" value="${comment.comment_content}"/>
 				        	    <input type="hidden" name="date" value=${date}>
 					        	<input type="hidden" name="commentScore" value=${comment.comment_score}></td>
 							<td>${userNickname}</td>

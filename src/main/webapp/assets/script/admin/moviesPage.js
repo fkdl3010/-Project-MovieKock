@@ -3,7 +3,7 @@
 	let is_progress;
 	
 	
-	/***** 1. 회원 목록 *****/
+	/***** 1. 영화 목록 *****/
 	function movieList() {
 		if(is_progress == true){
 			return;
@@ -179,7 +179,7 @@
 		});
 	}
 	
-	/****** 회원 보기********/
+	/****** 영화 보기********/
 	$(document).on("click","#movieView",handleView);
 	function handleView(event){
 		const movieNo = event.currentTarget.parentNode.children.movieNo.value;
@@ -208,6 +208,7 @@
 		$('#movieGenre').val(movieGenre);
 		$('#movieScore').val(movieScore);
 		$('#movieStory').val(movieStory);
+		$('#movieNo').val(movieNo);
 		
 		$('.snapShotBox').css('background-image','url(/movie/assets/images/snap/'+ movieTitle + '_스냅샷.jpg' +')');
 		
@@ -217,34 +218,34 @@
 	}
 	
 	
-//	/****** 회원 삭제********/
-//	$('#deleteBtn').on('click',handleDelete);
-//	
-//	function handleDelete(event){
-//		const movieNo = event.target.nextElementSibling.value;
-//		
-//		if(confirm('삭제하시겠습니까?')){
-//			
-//			$.ajax({
-//				url:'movieDelete/' + movieNo,
-//				type: 'delete',
-//				dataType: 'json',
-//				success: function(responseObj){
-//					if(responseObj.deleteResult){
-//						alert('삭제되었습니다.');
-//						init();
-//						event.target.parentElement.parentElement.children[3].children[0].click();
-//					}
-//				},
-//				error: function(){
-//					
-//				}
-//				
-//			});
-//		}else{
-//			
-//		}
-//	}
+	/****** 영화 삭제********/
+	$('#deleteBtn').on('click',handleDelete);
+	
+	function handleDelete(event){
+		const movieNo = event.target.nextElementSibling.value;
+		
+		if(confirm('정말 삭제하시겠습니까?')){
+			
+			$.ajax({
+				url:'movieDelete/' + movieNo,
+				type: 'delete',
+				dataType: 'json',
+				success: function(responseObj){
+					if(responseObj.deleteResult){
+						alert('삭제되었습니다.');
+						init();
+						event.target.parentElement.parentElement.children[3].children[0].click();
+					}
+				},
+				error: function(){
+					
+				}
+				
+			});
+		}else{
+			
+		}
+	}
 
 	
 	

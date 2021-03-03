@@ -22,11 +22,9 @@ public class UserUpdateCommand implements CommonMapCommand {
 		Map<String, Object> map = model.asMap();
 		
 		HttpServletRequest request = (HttpServletRequest)map.get("request");
-		
 	
 		
 		MyDao myDao = sqlSession.getMapper(MyDao.class);
-		
 		
 		
 		UserDto userDto = (UserDto)map.get("userDto");
