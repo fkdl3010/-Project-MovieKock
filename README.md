@@ -16,7 +16,7 @@
 
 - 개발 인원: 5 명
 
-- [포트폴리오](https://www.notion.so/MovieKock-3c01b33785ae4192ab3a264e590d7351)
+- <a href="https://www.notion.so/MovieKock-3c01b33785ae4192ab3a264e590d7351" target="_blank">포트폴리오</a>
 <br><br>
 
 
