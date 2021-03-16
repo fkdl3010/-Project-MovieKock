@@ -62,5 +62,48 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		from movie
 	</select>
 	
+	
+	<select id="userNickname" parameterType="int" resultType="string"> 
+		SELECT USER_NICKNAME 
+		FROM USERS 
+		WHERE USER_NO = #{user_no} 
+	</select> 
+	
+	
+	<select id="qnaDtoList" resultType="com.koreait.movie.dto.QnaDto">
+		SELECT B.*
+		  FROM (SELECT ROWNUM AS RN, A.*
+		          FROM (SELECT Q.*, U.USER_NICKNAME
+		                  FROM QNA Q, USERS U
+		                 WHERE Q.USER_NO = U.USER_NO
+		              ORDER BY QNA_NO DESC) A) B
+		 WHERE B.RN BETWEEN #{beginRecord} AND #{endRecord}
+	</select>
+	
+		
+	<select id="qnaTotalCount" resultType="int">
+		SELECT COUNT(*)
+		FROM QNA
+	</select>
+	
+	
+	<delete id="adminQnaReplyDelete" parameterType="int">
+		DELETE
+		  FROM QNA_REPLY
+		 WHERE QNA_REPLY_NO = #{qna_reply_no}
+	</delete>
+	
+	
+	<delete id="adminQnaDelte" parameterType="int">
+		DELETE
+		  FROM QNA
+		 WHERE QNA_NO = #{qna_no}
+	</delete>
+	
+	
+	
+	
+	
+	
 </mapper>
 	

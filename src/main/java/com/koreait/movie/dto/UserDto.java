@@ -21,6 +21,7 @@ public class UserDto {
 	private Date user_date;
 	private String user_image_name;
 	private String user_profile_name;
+	
 	private String genre;
 	
 }
