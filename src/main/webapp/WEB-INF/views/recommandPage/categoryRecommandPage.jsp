@@ -71,7 +71,7 @@
 
  
 <script>
-function formSort(){
+/* function formSort(){
 	
 	$.ajax{
 		
@@ -85,7 +85,7 @@ function formSort(){
 	
 	
 	
-}
+} */
 function formChange(){
 	
 	const genreNo =  $('#genre').val(); 
